@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RootFolder label="COREGEN" treetype="folder" language="COREGEN">
+	<Folder label="VERILOG Component Instantiation" treetype="folder">
+		<Template label="hi" treetype="template">
+		</Template>
+		<Template label="compare64" treetype="template">
+		</Template>
+		<Template label="compm64" treetype="template">
+		</Template>
+		<Template label="lt64" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+lt64 YourInstanceName (
+    .a(a), // Bus [63 : 0] 
+    .b(b), // Bus [63 : 0] 
+    .a_lt_b(a_lt_b));
+
+ 
+		</Template>
+		<Template label="gt64" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+gt64 YourInstanceName (
+    .a(a), // Bus [63 : 0] 
+    .b(b), // Bus [63 : 0] 
+    .a_gt_b(a_gt_b));
+
+ 
+		</Template>
+		<Template label="instructionmem64" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+instructionmem64 YourInstanceName (
+    .clka(clka),
+    .dina(dina), // Bus [15 : 0] 
+    .addra(addra), // Bus [3 : 0] 
+    .wea(wea), // Bus [0 : 0] 
+    .douta(douta)); // Bus [15 : 0] 
+
+ 
+		</Template>
+		<Template label="datamem64" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+datamem64 YourInstanceName (
+    .clka(clka),
+    .dina(dina), // Bus [15 : 0] 
+    .addra(addra), // Bus [3 : 0] 
+    .wea(wea), // Bus [0 : 0] 
+    .douta(douta)); // Bus [15 : 0] 
+
+ 
+		</Template>
+	</Folder>
+	<Folder label="VHDL Component Instantiation" treetype="folder">
+		<Template label="hi" treetype="template">
+		</Template>
+		<Template label="compare64" treetype="template">
+		</Template>
+		<Template label="compm64" treetype="template">
+		</Template>
+		<Template label="lt64" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component lt64
+    port (
+    a: IN std_logic_VECTOR(63 downto 0);
+    b: IN std_logic_VECTOR(63 downto 0);
+    a_lt_b: OUT std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : lt64
+        port map (
+            a =&gt; a,
+            b =&gt; b,
+            a_lt_b =&gt; a_lt_b);
+ 
+		</Template>
+		<Template label="gt64" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component gt64
+    port (
+    a: IN std_logic_VECTOR(63 downto 0);
+    b: IN std_logic_VECTOR(63 downto 0);
+    a_gt_b: OUT std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : gt64
+        port map (
+            a =&gt; a,
+            b =&gt; b,
+            a_gt_b =&gt; a_gt_b);
+ 
+		</Template>
+		<Template label="instructionmem64" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component instructionmem64
+    port (
+    clka: IN std_logic;
+    dina: IN std_logic_VECTOR(15 downto 0);
+    addra: IN std_logic_VECTOR(3 downto 0);
+    wea: IN std_logic_VECTOR(0 downto 0);
+    douta: OUT std_logic_VECTOR(15 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : instructionmem64
+        port map (
+            clka =&gt; clka,
+            dina =&gt; dina,
+            addra =&gt; addra,
+            wea =&gt; wea,
+            douta =&gt; douta);
+ 
+		</Template>
+		<Template label="datamem64" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component datamem64
+    port (
+    clka: IN std_logic;
+    dina: IN std_logic_VECTOR(15 downto 0);
+    addra: IN std_logic_VECTOR(3 downto 0);
+    wea: IN std_logic_VECTOR(0 downto 0);
+    douta: OUT std_logic_VECTOR(15 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : datamem64
+        port map (
+            clka =&gt; clka,
+            dina =&gt; dina,
+            addra =&gt; addra,
+            wea =&gt; wea,
+            douta =&gt; douta);
+ 
+		</Template>
+	</Folder>
+</RootFolder>

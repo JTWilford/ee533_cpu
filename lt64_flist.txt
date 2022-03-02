@@ -1,0 +1,12 @@
+# Output products list for <lt64>
+lt64.asy
+lt64.ngc
+lt64.sym
+lt64.v
+lt64.veo
+lt64.vhd
+lt64.vho
+lt64.xco
+lt64_c_compare_v9_0_xst_1.ngc_xst.xrpt
+lt64_flist.txt
+lt64_xmdf.tcl

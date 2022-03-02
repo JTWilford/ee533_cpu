@@ -1,0 +1,12 @@
+# Output products list for <gt64>
+gt64.asy
+gt64.ngc
+gt64.sym
+gt64.v
+gt64.veo
+gt64.vhd
+gt64.vho
+gt64.xco
+gt64_c_compare_v9_0_xst_1.ngc_xst.xrpt
+gt64_flist.txt
+gt64_xmdf.tcl
