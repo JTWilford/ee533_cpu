@@ -1,0 +1,50 @@
+Command line:
+   ./alu64_sync_tb2_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  50159
+
+Wed Mar  2 06:36:06 2022
+
+Total Line Count : 3553
+
+ Elaboration Time: 0.4 sec
+
+ Current Memory Usage: 283.787 Meg
+
+ Total Signals          : 4107
+ Total Nets             : 1968
+ Total Signal Drivers   : 1399
+ Total Blocks           : 909
+ Total Primitive Blocks : 792
+ Total Processes        : 2135
+ Total Traceable Variables  : 624
+ Total Scalar Nets and Variables : 3165
+ntrace select -o on -n /alu64_sync_tb2/EQ 
+ntrace select -o on -n /alu64_sync_tb2/GT 
+ntrace select -o on -n /alu64_sync_tb2/LT 
+ntrace select -o on -n /alu64_sync_tb2/OVR 
+ntrace select -o on -n /alu64_sync_tb2/Q 
+ntrace select -o on -n /alu64_sync_tb2/PERIOD 
+ntrace select -o on -n /alu64_sync_tb2/DUTY_CYCLE 
+ntrace select -o on -n /alu64_sync_tb2/OFFSET 
+ntrace select -o on -n /alu64_sync_tb2/C 
+ntrace select -o on -n /alu64_sync_tb2/CE 
+ntrace select -o on -n /alu64_sync_tb2/MD 
+ntrace select -o on -n /alu64_sync_tb2/OP 
+ntrace select -o on -n /alu64_sync_tb2/R 
+ntrace select -o on -n /alu64_sync_tb2/R1 
+ntrace select -o on -n /alu64_sync_tb2/R2 
+ntrace select -o on -n /alu64_sync_tb2/UUT/XLXI_1/GT 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+isimrun 2500 ns 
+
+ Total Simulation Time: 0.47 sec
+
+ Current Memory Usage: 528.72 Meg
+
+Wed Mar  2 06:39:11 2022
+

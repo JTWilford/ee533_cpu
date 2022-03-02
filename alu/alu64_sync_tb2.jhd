@@ -1,0 +1,3 @@
+MODULE alu64_sync_tb2
+SUBMODULE alu64_sync
+INSTANCE UUT

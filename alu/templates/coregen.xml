@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RootFolder label="COREGEN" treetype="folder" language="COREGEN">
+	<Folder label="VERILOG Component Instantiation" treetype="folder">
+		<Template label="gt64" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+gt64 YourInstanceName (
+    .a(a), // Bus [63 : 0] 
+    .b(b), // Bus [63 : 0] 
+    .a_gt_b(a_gt_b));
+
+ 
+		</Template>
+		<Template label="lt64" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+lt64 YourInstanceName (
+    .a(a), // Bus [63 : 0] 
+    .b(b), // Bus [63 : 0] 
+    .a_lt_b(a_lt_b));
+
+ 
+		</Template>
+		<Template label="gt65" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+gt65 YourInstanceName (
+    .a(a), // Bus [64 : 0] 
+    .b(b), // Bus [64 : 0] 
+    .a_gt_b(a_gt_b));
+
+ 
+		</Template>
+		<Template label="lt65" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+lt65 YourInstanceName (
+    .a(a), // Bus [64 : 0] 
+    .b(b), // Bus [64 : 0] 
+    .a_lt_b(a_lt_b));
+
+ 
+		</Template>
+	</Folder>
+	<Folder label="VHDL Component Instantiation" treetype="folder">
+		<Template label="gt64" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component gt64
+    port (
+    a: IN std_logic_VECTOR(63 downto 0);
+    b: IN std_logic_VECTOR(63 downto 0);
+    a_gt_b: OUT std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : gt64
+        port map (
+            a =&gt; a,
+            b =&gt; b,
+            a_gt_b =&gt; a_gt_b);
+ 
+		</Template>
+		<Template label="lt64" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component lt64
+    port (
+    a: IN std_logic_VECTOR(63 downto 0);
+    b: IN std_logic_VECTOR(63 downto 0);
+    a_lt_b: OUT std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : lt64
+        port map (
+            a =&gt; a,
+            b =&gt; b,
+            a_lt_b =&gt; a_lt_b);
+ 
+		</Template>
+		<Template label="gt65" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component gt65
+    port (
+    a: IN std_logic_VECTOR(64 downto 0);
+    b: IN std_logic_VECTOR(64 downto 0);
+    a_gt_b: OUT std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : gt65
+        port map (
+            a =&gt; a,
+            b =&gt; b,
+            a_gt_b =&gt; a_gt_b);
+ 
+		</Template>
+		<Template label="lt65" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component lt65
+    port (
+    a: IN std_logic_VECTOR(64 downto 0);
+    b: IN std_logic_VECTOR(64 downto 0);
+    a_lt_b: OUT std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : lt65
+        port map (
+            a =&gt; a,
+            b =&gt; b,
+            a_lt_b =&gt; a_lt_b);
+ 
+		</Template>
+	</Folder>
+</RootFolder>

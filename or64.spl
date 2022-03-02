@@ -1,9 +1,0 @@
-[Inputs]
-=A[63:0]=
-=B[63:0]=
-[Outputs]
-=S[63:0]=
-[BiDir]
-[ATTRIBUTES]
-VeriModel or64
-

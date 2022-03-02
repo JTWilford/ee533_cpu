@@ -1,0 +1,8 @@
+[Inputs]
+set
+[Outputs]
+=dout[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel set_lsb
+

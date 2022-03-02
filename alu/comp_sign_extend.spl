@@ -1,0 +1,9 @@
+[Inputs]
+ext
+=din[63:0]=
+[Outputs]
+=dout[64:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel comp_sign_extend
+

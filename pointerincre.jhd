@@ -1,3 +1,0 @@
-MODULE pointerincre
-	SUBMODULE DFF16bit
-		INSTANCE XLXI_7
