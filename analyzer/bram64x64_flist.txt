@@ -1,0 +1,12 @@
+# Output products list for <bram64x64>
+bram64x64.asy
+bram64x64.ngc
+bram64x64.sym
+bram64x64.v
+bram64x64.veo
+bram64x64.vhd
+bram64x64.vho
+bram64x64.xco
+bram64x64_blk_mem_gen_v2_8_xst_1.ngc_xst.xrpt
+bram64x64_flist.txt
+bram64x64_xmdf.tcl

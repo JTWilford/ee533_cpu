@@ -1,0 +1,10 @@
+[Inputs]
+S
+=I0[7:0]=
+=I1[7:0]=
+[Outputs]
+=O[7:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel mux2x1_8
+

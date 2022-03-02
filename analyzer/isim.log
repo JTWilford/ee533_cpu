@@ -1,0 +1,109 @@
+Command line:
+   ./analyzer_tb_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  55696
+WARNING:Simulator:16 - For instance UUT/module_regs/, width 32 of formal port
+   software_regs is not equal to width 64 of actual.
+WARNING:Simulator:678 -  For instance UUT/module_regs/, width 48 of formal port
+   hardware_regs is not equal to width 96 of actual signal implSig1.
+
+Wed Mar  2 10:42:05 2022
+
+Total Line Count : 4283
+
+ Elaboration Time: 0.01 sec
+
+ Current Memory Usage: 238.408 Meg
+
+ Total Signals          : 1078
+ Total Nets             : 7321
+ Total Signal Drivers   : 473
+ Total Blocks           : 196
+ Total Primitive Blocks : 146
+ Total Processes        : 608
+ Total Traceable Variables  : 3075
+ Total Scalar Nets and Variables : 348332
+ntrace select -o on -n /analyzer_tb/reg_req_out 
+ntrace select -o on -n /analyzer_tb/reg_ack_out 
+ntrace select -o on -n /analyzer_tb/reg_rd_wr_L_out 
+ntrace select -o on -n /analyzer_tb/reg_addr_out 
+ntrace select -o on -n /analyzer_tb/reg_data_out 
+ntrace select -o on -n /analyzer_tb/reg_src_out 
+ntrace select -o on -n /analyzer_tb/PERIOD 
+ntrace select -o on -n /analyzer_tb/DUTY_CYCLE 
+ntrace select -o on -n /analyzer_tb/OFFSET 
+ntrace select -o on -n /analyzer_tb/din0 
+ntrace select -o on -n /analyzer_tb/din1 
+ntrace select -o on -n /analyzer_tb/din2 
+ntrace select -o on -n /analyzer_tb/din3 
+ntrace select -o on -n /analyzer_tb/din4 
+ntrace select -o on -n /analyzer_tb/din5 
+ntrace select -o on -n /analyzer_tb/din6 
+ntrace select -o on -n /analyzer_tb/din7 
+ntrace select -o on -n /analyzer_tb/din8 
+ntrace select -o on -n /analyzer_tb/din9 
+ntrace select -o on -n /analyzer_tb/din10 
+ntrace select -o on -n /analyzer_tb/din11 
+ntrace select -o on -n /analyzer_tb/din12 
+ntrace select -o on -n /analyzer_tb/din13 
+ntrace select -o on -n /analyzer_tb/din14 
+ntrace select -o on -n /analyzer_tb/din15 
+ntrace select -o on -n /analyzer_tb/trigger 
+ntrace select -o on -n /analyzer_tb/reg_req_in 
+ntrace select -o on -n /analyzer_tb/reg_ack_in 
+ntrace select -o on -n /analyzer_tb/reg_rd_wr_L_in 
+ntrace select -o on -n /analyzer_tb/reg_addr_in 
+ntrace select -o on -n /analyzer_tb/reg_data_in 
+ntrace select -o on -n /analyzer_tb/reg_src_in 
+ntrace select -o on -n /analyzer_tb/clk 
+ntrace select -o on -n /analyzer_tb/rst 
+ntrace select -o on -n /analyzer_tb/UUT/full 
+ntrace select -o on -n /analyzer_tb/UUT/trig_done 
+ntrace select -o on -n /analyzer_tb/UUT/dout_reg 
+ntrace select -o on -n /analyzer_tb/UUT/dout0 
+ntrace select -o on -n /analyzer_tb/UUT/dout1 
+ntrace select -o on -n /analyzer_tb/UUT/dout2 
+ntrace select -o on -n /analyzer_tb/UUT/dout3 
+ntrace select -o on -n /analyzer_tb/UUT/dout4 
+ntrace select -o on -n /analyzer_tb/UUT/dout5 
+ntrace select -o on -n /analyzer_tb/UUT/dout6 
+ntrace select -o on -n /analyzer_tb/UUT/dout7 
+ntrace select -o on -n /analyzer_tb/UUT/dout8 
+ntrace select -o on -n /analyzer_tb/UUT/dout9 
+ntrace select -o on -n /analyzer_tb/UUT/dout10 
+ntrace select -o on -n /analyzer_tb/UUT/dout11 
+ntrace select -o on -n /analyzer_tb/UUT/dout12 
+ntrace select -o on -n /analyzer_tb/UUT/dout13 
+ntrace select -o on -n /analyzer_tb/UUT/dout14 
+ntrace select -o on -n /analyzer_tb/UUT/dout15 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/din 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/rd_addr 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/rd_en 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/wr_en 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/clk 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/rst 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/dout 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/full 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/wr_ptr 
+ntrace select -o on -n /analyzer_tb/UUT/sig_mem0/b_full 
+ntrace select -o on -n /analyzer_tb/UUT/rd_addr 
+ntrace select -o on -n /analyzer_tb/UUT/rd_addr_next 
+ntrace select -o on -n /analyzer_tb/UUT/addr_counter 
+ntrace select -o on -n /analyzer_tb/UUT/chip_sel 
+ntrace select -o on -n /analyzer_tb/UUT/chip_sel_next 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+restart
+isimrun 7000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+ Total Simulation Time: 0.08 sec
+
+ Current Memory Usage: 254.292 Meg
+
+Wed Mar  2 10:48:34 2022
+

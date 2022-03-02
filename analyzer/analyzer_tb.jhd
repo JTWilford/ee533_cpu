@@ -1,0 +1,3 @@
+MODULE analyzer_tb
+SUBMODULE analyzer16x64x64
+INSTANCE UUT
