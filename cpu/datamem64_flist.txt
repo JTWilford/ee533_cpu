@@ -1,0 +1,13 @@
+# Output products list for <datamem64>
+datamem64.asy
+datamem64.mif
+datamem64.ngc
+datamem64.sym
+datamem64.v
+datamem64.veo
+datamem64.vhd
+datamem64.vho
+datamem64.xco
+datamem64_blk_mem_gen_v2_7_xst_1.ngc_xst.xrpt
+datamem64_flist.txt
+datamem64_xmdf.tcl

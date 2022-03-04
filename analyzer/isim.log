@@ -2,19 +2,19 @@ Command line:
    ./analyzer_tb_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  55696
+     -ipcport  52841
 WARNING:Simulator:16 - For instance UUT/module_regs/, width 32 of formal port
    software_regs is not equal to width 64 of actual.
 WARNING:Simulator:678 -  For instance UUT/module_regs/, width 48 of formal port
    hardware_regs is not equal to width 96 of actual signal implSig1.
 
-Wed Mar  2 10:42:05 2022
+Thu Mar  3 00:52:15 2022
 
-Total Line Count : 4283
+Total Line Count : 4281
 
- Elaboration Time: 0.01 sec
+ Elaboration Time: 0.03 sec
 
- Current Memory Usage: 238.408 Meg
+ Current Memory Usage: 238.371 Meg
 
  Total Signals          : 1078
  Total Nets             : 7321
@@ -22,8 +22,8 @@ Total Line Count : 4283
  Total Blocks           : 196
  Total Primitive Blocks : 146
  Total Processes        : 608
- Total Traceable Variables  : 3075
- Total Scalar Nets and Variables : 348332
+ Total Traceable Variables  : 3074
+ Total Scalar Nets and Variables : 348324
 ntrace select -o on -n /analyzer_tb/reg_req_out 
 ntrace select -o on -n /analyzer_tb/reg_ack_out 
 ntrace select -o on -n /analyzer_tb/reg_rd_wr_L_out 
@@ -96,14 +96,4 @@ ntrace start
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-restart
-isimrun 7000 ns 
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-
- Total Simulation Time: 0.08 sec
-
- Current Memory Usage: 254.292 Meg
-
-Wed Mar  2 10:48:34 2022
-
+isimrun 6000 ns 

@@ -1,0 +1,6 @@
+/opt/Xilinx/10.1/ISE/verilog/src/glbl.v
+/home/ise/sf/ee533_cpu/analyzer/generic_regs.v
+/build/xfndry/IP3_K.12/env/Databases/ip/export/rtf/verilog/src/XilinxCoreLib/BLK_MEM_GEN_V2_8.v
+/home/ise/sf/ee533_cpu/analyzer/sig_mem64x64.v
+/home/ise/sf/ee533_cpu/analyzer/analyzer16x64x64.v
+/home/ise/sf/ee533_cpu/analyzer/analyzer_tb.tfw

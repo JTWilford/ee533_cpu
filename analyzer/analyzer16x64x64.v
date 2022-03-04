@@ -18,10 +18,6 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-`define UDP_REG_ADDR_WIDTH 16
-`define CPCI_NF2_DATA_WIDTH 16
-`define IDS_BLOCK_TAG 1
-`define IDS_REG_ADDR_WIDTH 16
 
 module analyzer16x64x64
     #(
@@ -353,8 +349,8 @@ module analyzer16x64x64
     generic_regs
    #( 
       .UDP_REG_SRC_WIDTH   (UDP_REG_SRC_WIDTH),
-      .TAG                 (`IDS_BLOCK_TAG),          // Tag -- eg. MODULE_TAG
-      .REG_ADDR_WIDTH      (`IDS_REG_ADDR_WIDTH),     // Width of block addresses -- eg. MODULE_REG_ADDR_WIDTH
+      .TAG                 (`ANA_BLOCK_ADDR),          // Tag -- eg. MODULE_TAG
+      .REG_ADDR_WIDTH      (`ANA_REG_ADDR_WIDTH),     // Width of block addresses -- eg. MODULE_REG_ADDR_WIDTH
       .NUM_COUNTERS        (0),                 // Number of counters
       .NUM_SOFTWARE_REGS   (2),                 // Number of sw regs
       .NUM_HARDWARE_REGS   (3)                  // Number of hw regs

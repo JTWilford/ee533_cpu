@@ -1,0 +1,312 @@
+Running : /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/fuse -ise
+/home/ise/sf/ee533_cpu/analyzer/analyzer.ise -intstyle ise -incremental -lib
+unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -v 2 -o
+analyzer_tb_isim_beh.exe -prj analyzer_tb_beh.prj -top analyzer_tb -top glbl
+Determining compilation order of HDL files
+The vhdl library search path for library "std" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/std"
+The veri library search path for library "std" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/std"
+The vhdl library search path for library "ieee" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/ieee"
+The veri library search path for library "ieee" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/ieee"
+The vhdl library search path for library "ieee_proposed" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/ieee_proposed"
+The veri library search path for library "ieee_proposed" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/ieee_proposed"
+The vhdl library search path for library "synopsys" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/synopsys"
+The veri library search path for library "synopsys" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/synopsys"
+The vhdl library search path for library "simprim" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/simprim"
+The veri library search path for library "simprim" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/simprim"
+The vhdl library search path for library "unisim" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/unisim"
+The veri library search path for library "unisim" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/unisim"
+The vhdl library search path for library "unimacro" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/unimacro"
+The veri library search path for library "unimacro" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/unimacro"
+The vhdl library search path for library "aim" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/aim"
+The veri library search path for library "aim" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/aim"
+The vhdl library search path for library "cpld" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/cpld"
+The veri library search path for library "cpld" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/cpld"
+The vhdl library search path for library "pls" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/pls"
+The veri library search path for library "pls" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/pls"
+The vhdl library search path for library "xilinxcorelib" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/xilinxcorelib"
+The veri library search path for library "xilinxcorelib" is now
+"/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/xilinxcorelib"
+The vhdl library search path for library "aim_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/aim_ver"
+The veri library search path for library "aim_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/aim_ver"
+The vhdl library search path for library "cpld_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/cpld_ver"
+The veri library search path for library "cpld_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/cpld_ver"
+The vhdl library search path for library "simprims_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/simprims_ver"
+The veri library search path for library "simprims_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/simprims_ver"
+The vhdl library search path for library "unisims_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver"
+The veri library search path for library "unisims_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver"
+The vhdl library search path for library "uni9000_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/uni9000_ver"
+The veri library search path for library "uni9000_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/uni9000_ver"
+The vhdl library search path for library "unimacro_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unimacro_ver"
+The veri library search path for library "unimacro_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unimacro_ver"
+The vhdl library search path for library "xilinxcorelib_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver"
+The veri library search path for library "xilinxcorelib_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver"
+The vhdl library search path for library "gt_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gt_ver"
+The veri library search path for library "gt_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gt_ver"
+The vhdl library search path for library "gt10_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gt10_ver"
+The veri library search path for library "gt10_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gt10_ver"
+The vhdl library search path for library "gt11_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gt11_ver"
+The veri library search path for library "gt11_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gt11_ver"
+The vhdl library search path for library "gtp_dual_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtp_dual_ver"
+The veri library search path for library "gtp_dual_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtp_dual_ver"
+The vhdl library search path for library "gtp_dual_fast_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtp_dual_fast_ver"
+The veri library search path for library "gtp_dual_fast_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtp_dual_fast_ver"
+The vhdl library search path for library "gtx_dual_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtx_dual_ver"
+The veri library search path for library "gtx_dual_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtx_dual_ver"
+The vhdl library search path for library "gtx_dual_fast_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtx_dual_fast_ver"
+The veri library search path for library "gtx_dual_fast_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtx_dual_fast_ver"
+The vhdl library search path for library "emac_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/emac_ver"
+The veri library search path for library "emac_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/emac_ver"
+The vhdl library search path for library "temac_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/temac_ver"
+The veri library search path for library "temac_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/temac_ver"
+The vhdl library search path for library "ppc405_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/ppc405_ver"
+The veri library search path for library "ppc405_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/ppc405_ver"
+The vhdl library search path for library "ppc405_adv_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/ppc405_adv_ver"
+The veri library search path for library "ppc405_adv_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/ppc405_adv_ver"
+The vhdl library search path for library "ppc440_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/ppc440_ver"
+The veri library search path for library "ppc440_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/ppc440_ver"
+The vhdl library search path for library "pcie_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/pcie_ver"
+The veri library search path for library "pcie_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/pcie_ver"
+The vhdl library search path for library "work" is now
+"/home/ise/sf/ee533_cpu/analyzer/isim/work"
+The veri library search path for library "work" is now
+"/home/ise/sf/ee533_cpu/analyzer/isim/work"
+The vhdl library search path for library "unisims_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver"
+The veri library search path for library "unisims_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver"
+The vhdl library search path for library "unimacro_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unimacro_ver"
+The veri library search path for library "unimacro_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unimacro_ver"
+The vhdl library search path for library "xilinxcorelib_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver"
+The veri library search path for library "xilinxcorelib_ver" is now
+"/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver"
+-- Dumping library mapping
+aim=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/aim
+aim_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/aim_ver
+cpld=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/cpld
+cpld_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/cpld_ver
+emac_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/emac_ver
+gt10_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gt10_ver
+gt11_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gt11_ver
+gt_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gt_ver
+gtp_dual_fast_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtp_dual_fast_ver
+gtp_dual_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtp_dual_ver
+gtx_dual_fast_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtx_dual_fast_ver
+gtx_dual_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/gtx_dual_ver
+ieee=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/ieee
+ieee_proposed=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/ieee_proposed
+pcie_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/pcie_ver
+pls=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/pls
+ppc405_adv_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/ppc405_adv_ver
+ppc405_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/ppc405_ver
+ppc440_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/ppc440_ver
+simprim=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/simprim
+simprims_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/simprims_ver
+std=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/std
+synopsys=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/synopsys
+temac_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xip/temac_ver
+uni9000_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/uni9000_ver
+unimacro=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/unimacro
+unimacro_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unimacro_ver
+unisim=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/unisim
+unisims_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver
+work=isim/work
+xilinxcorelib=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/xilinxcorelib
+xilinxcorelib_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver
+-- Done dumping library mapping
+Analyzing Verilog file bram64x64.v
+Analyzing Verilog file sig_mem64x64.v
+Analyzing Verilog file generic_regs.v
+WARNING:HDLCompiler:870 - "generic_regs.v" Line 160. Use of undefined macro
+   LOG2_FUNC
+Analyzing Verilog file analyzer16x64x64.v
+Analyzing Verilog file analyzer_tb.tfw
+Analyzing Verilog file /opt/Xilinx/10.1/ISE/verilog/src/glbl.v
+Saving Verilog parse-tree work.bram64x64 into
+/home/ise/sf/ee533_cpu/analyzer/isim/work/bram64x64.sdb
+Saving Verilog parse-tree work.sig_mem64x64 into
+/home/ise/sf/ee533_cpu/analyzer/isim/work/sig_mem64x64.sdb
+Saving Verilog parse-tree work.generic_regs into
+/home/ise/sf/ee533_cpu/analyzer/isim/work/generic_regs.sdb
+Saving Verilog parse-tree work.analyzer16x64x64 into
+/home/ise/sf/ee533_cpu/analyzer/isim/work/analyzer16x64x64.sdb
+Saving Verilog parse-tree work.analyzer_tb into
+/home/ise/sf/ee533_cpu/analyzer/isim/work/analyzer_tb.sdb
+Saving Verilog parse-tree work.glbl into
+/home/ise/sf/ee533_cpu/analyzer/isim/work/glbl.sdb
+Starting static elaboration
+"/opt/Xilinx/10.1/ISE/verilog/src/glbl.v" Line 5. Compiling module glbl
+"analyzer_tb.tfw" Line 21. Compiling module analyzer_tb
+Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_8 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
+Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_8_output_stage
+from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
+WARNING:HDLCompiler:559 - "generic_regs.v" Line 248. Instantiating unknown
+   module generic_sw_regs
+WARNING:HDLCompiler:559 - "generic_regs.v" Line 289. Instantiating unknown
+   module generic_hw_regs
+WARNING:HDLCompiler:189 - "analyzer16x64x64.v" Line 381. Actual bit length 64
+   differs from formal bit length 32 for port software_regs
+WARNING:HDLCompiler:189 - "analyzer16x64x64.v" Line 384. Actual bit length 96
+   differs from formal bit length 48 for port hardware_regs
+Completed static elaboration
+Fuse Memory Usage: 23272 Kb
+Fuse CPU Usage: 240 ms
+Compiling module glbl
+Compiling isim/_tmp/work/m_00000000000866782574_2073120511.c to
+isim/_tmp/work/m_00000000000866782574_2073120511.lin.o with command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/work/m_00000000000866782574_2073120511.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/work/m_00000000000866782574_2073120511.c"
+Compiling module BLK_MEM_GEN_V2_8_output_stage(C_...
+Compiling isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_2946908287.c to
+isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_2946908287.lin.o with
+command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_2946908287.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_2946908287.c"
+Compiling module BLK_MEM_GEN_V2_8_output_stage(C_...
+Compiling isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3263055014.c to
+isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3263055014.lin.o with
+command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3263055014.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3263055014.c"
+Compiling module BLK_MEM_GEN_V2_8(C_ADDRA_WIDTH=6...
+Compiling isim/_tmp/xilinxcorelib_ver/m_00000000004276307567_1505485079.c to
+isim/_tmp/xilinxcorelib_ver/m_00000000004276307567_1505485079.lin.o with
+command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/xilinxcorelib_ver/m_00000000004276307567_1505485079.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/xilinxcorelib_ver/m_00000000004276307567_1505485079.c"
+Compiling module bram64x64
+Compiling isim/_tmp/work/m_00000000002659622810_0176860345.c to
+isim/_tmp/work/m_00000000002659622810_0176860345.lin.o with command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/work/m_00000000002659622810_0176860345.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/work/m_00000000002659622810_0176860345.c"
+Compiling module sig_mem64x64
+Compiling isim/_tmp/work/m_00000000003684370857_1728025538.c to
+isim/_tmp/work/m_00000000003684370857_1728025538.lin.o with command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/work/m_00000000003684370857_1728025538.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/work/m_00000000003684370857_1728025538.c"
+Compiling module generic_regs(UDP_REG_SRC_WIDTH=2...
+Compiling isim/_tmp/work/m_00000000002014090068_0363782163.c to
+isim/_tmp/work/m_00000000002014090068_0363782163.lin.o with command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/work/m_00000000002014090068_0363782163.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/work/m_00000000002014090068_0363782163.c"
+Compiling module analyzer16x64x64
+Compiling isim/_tmp/work/m_00000000003307372743_3521828174.c to
+isim/_tmp/work/m_00000000003307372743_3521828174.lin.o with command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/work/m_00000000003307372743_3521828174.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/work/m_00000000003307372743_3521828174.c"
+Compiling module analyzer_tb
+Compiling isim/_tmp/work/m_00000000002571665717_2108367890.c to
+isim/_tmp/work/m_00000000002571665717_2108367890.lin.o with command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/work/m_00000000002571665717_2108367890.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/work/m_00000000002571665717_2108367890.c"
+Compiling isim/_tmp/work/analyzer_tb_isim_beh.exe_lib.c to
+isim/_tmp/work/analyzer_tb_isim_beh.exe_lib.lin.o with command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/work/analyzer_tb_isim_beh.exe_lib.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/work/analyzer_tb_isim_beh.exe_lib.c"
+Linking with command:
+/usr/bin/gcc -Wa,-W  -O  -m32 -shared  -o
+"isim/_tmp/work/analyzer_tb_isim_beh.exe_lib.lin.so"
+"isim/_tmp/work/analyzer_tb_isim_beh.exe_lib.lin.o" 
+"isim/_tmp/work/m_00000000000866782574_2073120511.lin.o"
+"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_2946908287.lin.o"
+"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3263055014.lin.o"
+"isim/_tmp/xilinxcorelib_ver/m_00000000004276307567_1505485079.lin.o"
+"isim/_tmp/work/m_00000000002659622810_0176860345.lin.o"
+"isim/_tmp/work/m_00000000003684370857_1728025538.lin.o"
+"isim/_tmp/work/m_00000000002014090068_0363782163.lin.o"
+"isim/_tmp/work/m_00000000003307372743_3521828174.lin.o"
+"isim/_tmp/work/m_00000000002571665717_2108367890.lin.o"
+"/opt/Xilinx/10.1/ISE/lib/lin/libhsimengine.so"
+Linking with command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -Wl,--rpath "/opt/Xilinx/10.1/ISE/lib/lin" -o
+"analyzer_tb_isim_beh.exe" "isim/_tmp/work/analyzer_tb_isim_beh.exe_main.c" -ldl
+Compiled 9 Verilog Units
+Built simulation executable analyzer_tb_isim_beh.exe
+Fuse Memory Usage: 24608 Kb
+Fuse CPU Usage: 390 ms
+GCC CPU Usage: 990 ms

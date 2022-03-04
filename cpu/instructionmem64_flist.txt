@@ -1,0 +1,13 @@
+# Output products list for <instructionmem64>
+instructionmem64.asy
+instructionmem64.mif
+instructionmem64.ngc
+instructionmem64.sym
+instructionmem64.v
+instructionmem64.veo
+instructionmem64.vhd
+instructionmem64.vho
+instructionmem64.xco
+instructionmem64_blk_mem_gen_v2_7_xst_1.ngc_xst.xrpt
+instructionmem64_flist.txt
+instructionmem64_xmdf.tcl

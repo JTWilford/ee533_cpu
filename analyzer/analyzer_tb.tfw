@@ -7,7 +7,7 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : ISE
-//  /   /         Filename : analyzer_tb.ant
+//  /   /         Filename : analyzer_tb.tfw
 // /___/   /\     Timestamp : Thu Mar  3 00:52:09 2022
 // \   \  /  \ 
 //  \___\/\___\ 
@@ -98,39 +98,6 @@ module analyzer_tb;
         .reg_src_out(reg_src_out),
         .clk(clk),
         .rst(rst));
-
-    integer TX_FILE = 0;
-    integer TX_ERROR = 0;
-    
-    initial begin    // Annotation process for clock clk
-        #0;
-        ANNOTATE_reg_req_out;
-        ANNOTATE_reg_ack_out;
-        ANNOTATE_reg_rd_wr_L_out;
-        ANNOTATE_reg_addr_out;
-        ANNOTATE_reg_data_out;
-        ANNOTATE_reg_src_out;
-        #OFFSET;
-        forever begin
-            #115;
-            ANNOTATE_reg_req_out;
-            ANNOTATE_reg_ack_out;
-            ANNOTATE_reg_rd_wr_L_out;
-            ANNOTATE_reg_addr_out;
-            ANNOTATE_reg_data_out;
-            ANNOTATE_reg_src_out;
-            #85;
-        end
-    end
-
-    initial begin  // Open the annotations file...
-        TX_FILE = $fopen("/home/ise/sf/ee533_cpu/analyzer/analyzer_tb.ano");
-        #7200 // Final time:  7200 ns
-        $display("Success! Annotation Simulation Complete.");
-        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
-        $fclose(TX_FILE);
-        $finish;
-    end
 
     initial begin
         // -------------  Current Time:  100ns
@@ -372,54 +339,6 @@ module analyzer_tb;
         din3 = 64'b1111111111111111111111111111111000000000000000000000000000000000;
         // -------------------------------------
     end
-
-    task ANNOTATE_reg_req_out;
-        #0 begin
-            $fdisplay(TX_FILE, "Annotate[%d,reg_req_out,%b]", $time, reg_req_out);
-            $fflush(TX_FILE);
-            TX_ERROR = TX_ERROR + 1;
-        end
-    endtask
-
-    task ANNOTATE_reg_ack_out;
-        #0 begin
-            $fdisplay(TX_FILE, "Annotate[%d,reg_ack_out,%b]", $time, reg_ack_out);
-            $fflush(TX_FILE);
-            TX_ERROR = TX_ERROR + 1;
-        end
-    endtask
-
-    task ANNOTATE_reg_rd_wr_L_out;
-        #0 begin
-            $fdisplay(TX_FILE, "Annotate[%d,reg_rd_wr_L_out,%b]", $time, reg_rd_wr_L_out);
-            $fflush(TX_FILE);
-            TX_ERROR = TX_ERROR + 1;
-        end
-    endtask
-
-    task ANNOTATE_reg_addr_out;
-        #0 begin
-            $fdisplay(TX_FILE, "Annotate[%d,reg_addr_out,%b]", $time, reg_addr_out);
-            $fflush(TX_FILE);
-            TX_ERROR = TX_ERROR + 1;
-        end
-    endtask
-
-    task ANNOTATE_reg_data_out;
-        #0 begin
-            $fdisplay(TX_FILE, "Annotate[%d,reg_data_out,%b]", $time, reg_data_out);
-            $fflush(TX_FILE);
-            TX_ERROR = TX_ERROR + 1;
-        end
-    endtask
-
-    task ANNOTATE_reg_src_out;
-        #0 begin
-            $fdisplay(TX_FILE, "Annotate[%d,reg_src_out,%b]", $time, reg_src_out);
-            $fflush(TX_FILE);
-            TX_ERROR = TX_ERROR + 1;
-        end
-    endtask
 
 endmodule
 

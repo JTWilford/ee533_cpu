@@ -4,6 +4,7 @@
 *.bld
 *.cmd_log
 *.drc
+*.jhd
 *.ll
 *.lso
 *.msd
@@ -66,3 +67,4 @@ xst/
 _ngo/
 _xmsgs/
 ee533_cpu_xdb/
+isim/
