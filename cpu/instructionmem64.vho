@@ -35,7 +35,9 @@ component instructionmem64
 	dina: IN std_logic_VECTOR(31 downto 0);
 	addra: IN std_logic_VECTOR(8 downto 0);
 	wea: IN std_logic_VECTOR(0 downto 0);
-	douta: OUT std_logic_VECTOR(31 downto 0));
+	clkb: IN std_logic;
+	addrb: IN std_logic_VECTOR(8 downto 0);
+	doutb: OUT std_logic_VECTOR(31 downto 0));
 end component;
 
 -- Synplicity black box declaration
@@ -54,7 +56,9 @@ your_instance_name : instructionmem64
 			dina => dina,
 			addra => addra,
 			wea => wea,
-			douta => douta);
+			clkb => clkb,
+			addrb => addrb,
+			doutb => doutb);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
 
 -- You must compile the wrapper file instructionmem64.vhd when simulating

@@ -36,7 +36,9 @@ instructionmem64 YourInstanceName (
 	.dina(dina), // Bus [31 : 0] 
 	.addra(addra), // Bus [8 : 0] 
 	.wea(wea), // Bus [0 : 0] 
-	.douta(douta)); // Bus [31 : 0] 
+	.clkb(clkb),
+	.addrb(addrb), // Bus [8 : 0] 
+	.doutb(doutb)); // Bus [31 : 0] 
 
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.39
-# Date: Fri Mar  4 03:40:34 2022
+# Date: Fri Mar  4 10:07:42 2022
 #
 ##############################################################
 #
@@ -36,7 +36,7 @@ SELECT Block_Memory_Generator family Xilinx,_Inc. 2.7
 # END Select
 # BEGIN Parameters
 CSET algorithm=Minimum_Area
-CSET assume_synchronous_clk=false
+CSET assume_synchronous_clk=true
 CSET byte_size=9
 CSET coe_file=imem_test.coe
 CSET collision_warnings=ALL
@@ -46,11 +46,11 @@ CSET disable_out_of_range_warnings=false
 CSET ecc=false
 CSET enable_a=Always_Enabled
 CSET enable_b=Always_Enabled
-CSET fill_remaining_memory_locations=false
+CSET fill_remaining_memory_locations=true
 CSET load_init_file=true
-CSET memory_type=Single_Port_RAM
-CSET operating_mode_a=WRITE_FIRST
-CSET operating_mode_b=WRITE_FIRST
+CSET memory_type=Simple_Dual_Port_RAM
+CSET operating_mode_a=READ_FIRST
+CSET operating_mode_b=READ_FIRST
 CSET output_reset_value_a=0
 CSET output_reset_value_b=0
 CSET pipeline_stages=0
@@ -74,5 +74,5 @@ CSET write_width_a=32
 CSET write_width_b=32
 # END Parameters
 GENERATE
-# CRC: 5279ade5
+# CRC: fb47a304
 

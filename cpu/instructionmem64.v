@@ -42,14 +42,18 @@ module instructionmem64(
 	dina,
 	addra,
 	wea,
-	douta);
+	clkb,
+	addrb,
+	doutb);
 
 
 input clka;
 input [31 : 0] dina;
 input [8 : 0] addra;
 input [0 : 0] wea;
-output [31 : 0] douta;
+input clkb;
+input [8 : 0] addrb;
+output [31 : 0] doutb;
 
 // synthesis translate_off
 
@@ -58,7 +62,7 @@ output [31 : 0] douta;
 		.C_ADDRB_WIDTH(9),
 		.C_ALGORITHM(1),
 		.C_BYTE_SIZE(9),
-		.C_COMMON_CLK(0),
+		.C_COMMON_CLK(1),
 		.C_DEFAULT_DATA("0"),
 		.C_DISABLE_WARN_BHV_COLL(0),
 		.C_DISABLE_WARN_BHV_RANGE(0),
@@ -75,7 +79,7 @@ output [31 : 0] douta;
 		.C_HAS_SSRB(0),
 		.C_INIT_FILE_NAME("instructionmem64.mif"),
 		.C_LOAD_INIT_FILE(1),
-		.C_MEM_TYPE(0),
+		.C_MEM_TYPE(1),
 		.C_MUX_PIPELINE_STAGES(0),
 		.C_PRIM_TYPE(1),
 		.C_READ_DEPTH_A(512),
@@ -87,15 +91,15 @@ output [31 : 0] douta;
 		.C_SINITB_VAL("0"),
 		.C_USE_BYTE_WEA(0),
 		.C_USE_BYTE_WEB(0),
-		.C_USE_DEFAULT_DATA(0),
+		.C_USE_DEFAULT_DATA(1),
 		.C_USE_ECC(0),
 		.C_USE_RAMB16BWER_RST_BHV(0),
 		.C_WEA_WIDTH(1),
 		.C_WEB_WIDTH(1),
 		.C_WRITE_DEPTH_A(512),
 		.C_WRITE_DEPTH_B(512),
-		.C_WRITE_MODE_A("WRITE_FIRST"),
-		.C_WRITE_MODE_B("WRITE_FIRST"),
+		.C_WRITE_MODE_A("READ_FIRST"),
+		.C_WRITE_MODE_B("READ_FIRST"),
 		.C_WRITE_WIDTH_A(32),
 		.C_WRITE_WIDTH_B(32),
 		.C_XDEVICEFAMILY("virtex2p"))
@@ -104,18 +108,18 @@ output [31 : 0] douta;
 		.DINA(dina),
 		.ADDRA(addra),
 		.WEA(wea),
-		.DOUTA(douta),
+		.CLKB(clkb),
+		.ADDRB(addrb),
+		.DOUTB(doutb),
 		.ENA(),
 		.REGCEA(),
 		.SSRA(),
-		.CLKB(),
+		.DOUTA(),
 		.DINB(),
-		.ADDRB(),
 		.ENB(),
 		.REGCEB(),
 		.WEB(),
 		.SSRB(),
-		.DOUTB(),
 		.DBITERR(),
 		.SBITERR());
 

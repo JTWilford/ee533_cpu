@@ -46,7 +46,9 @@ ENTITY instructionmem64 IS
 	dina: IN std_logic_VECTOR(31 downto 0);
 	addra: IN std_logic_VECTOR(8 downto 0);
 	wea: IN std_logic_VECTOR(0 downto 0);
-	douta: OUT std_logic_VECTOR(31 downto 0));
+	clkb: IN std_logic;
+	addrb: IN std_logic_VECTOR(8 downto 0);
+	doutb: OUT std_logic_VECTOR(31 downto 0));
 END instructionmem64;
 
 ARCHITECTURE instructionmem64_a OF instructionmem64 IS
@@ -57,7 +59,9 @@ component wrapped_instructionmem64
 	dina: IN std_logic_VECTOR(31 downto 0);
 	addra: IN std_logic_VECTOR(8 downto 0);
 	wea: IN std_logic_VECTOR(0 downto 0);
-	douta: OUT std_logic_VECTOR(31 downto 0));
+	clkb: IN std_logic;
+	addrb: IN std_logic_VECTOR(8 downto 0);
+	doutb: OUT std_logic_VECTOR(31 downto 0));
 end component;
 
 -- Configuration specification 
@@ -65,16 +69,16 @@ end component;
 		generic map(
 			c_has_regceb => 0,
 			c_has_regcea => 0,
-			c_mem_type => 0,
+			c_mem_type => 1,
 			c_prim_type => 1,
 			c_sinita_val => "0",
 			c_read_width_b => 32,
 			c_family => "virtex2p",
 			c_read_width_a => 32,
 			c_disable_warn_bhv_coll => 0,
-			c_write_mode_b => "WRITE_FIRST",
+			c_write_mode_b => "READ_FIRST",
 			c_init_file_name => "instructionmem64.mif",
-			c_write_mode_a => "WRITE_FIRST",
+			c_write_mode_a => "READ_FIRST",
 			c_mux_pipeline_stages => 0,
 			c_has_mem_output_regs_b => 0,
 			c_load_init_file => 1,
@@ -99,7 +103,7 @@ end component;
 			c_byte_size => 9,
 			c_sim_collision_check => "ALL",
 			c_use_ramb16bwer_rst_bhv => 0,
-			c_common_clk => 0,
+			c_common_clk => 1,
 			c_wea_width => 1,
 			c_has_enb => 0,
 			c_web_width => 1,
@@ -107,7 +111,7 @@ end component;
 			c_sinitb_val => "0",
 			c_use_byte_web => 0,
 			c_use_byte_wea => 0,
-			c_use_default_data => 0);
+			c_use_default_data => 1);
 -- synthesis translate_on
 BEGIN
 -- synthesis translate_off
@@ -117,7 +121,9 @@ U0 : wrapped_instructionmem64
 			dina => dina,
 			addra => addra,
 			wea => wea,
-			douta => douta);
+			clkb => clkb,
+			addrb => addrb,
+			doutb => doutb);
 -- synthesis translate_on
 
 END instructionmem64_a;

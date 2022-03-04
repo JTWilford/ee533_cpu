@@ -2,110 +2,51 @@ Command line:
    ./cpu_tb_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  48672
+     -ipcport  40640
 
-Fri Mar  4 03:41:42 2022
+Fri Mar  4 10:50:53 2022
 
-Total Line Count : 14039
+Total Line Count : 14053
 
- Elaboration Time: 0.76 sec
+ Elaboration Time: 0.59 sec
 
- Current Memory Usage: 267.514 Meg
+ Current Memory Usage: 267.477 Meg
 
- Total Signals          : 24016
- Total Nets             : 7148
- Total Signal Drivers   : 6258
- Total Blocks           : 4559
- Total Primitive Blocks : 3617
- Total Processes        : 10296
+ Total Signals          : 24014
+ Total Nets             : 7221
+ Total Signal Drivers   : 6254
+ Total Blocks           : 4561
+ Total Primitive Blocks : 3619
+ Total Processes        : 10290
  Total Traceable Variables  : 2877
- Total Scalar Nets and Variables : 75597
+ Total Scalar Nets and Variables : 75654
 ntrace select -o on -n /cpu_tb/UUT/branch 
-ntrace select -o on -n /cpu_tb/UUT/br_addr 
-ntrace select -o on -n /cpu_tb/UUT/instruction 
 ntrace select -o on -n /cpu_tb/UUT/ins_ptr 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_27/clk 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_27/clr 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_27/en 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_27/inc_in 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_27/pc_addr_in 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_27/inc_out 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_11/r0addr 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_11/r1addr 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_11/waddr 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_11/wdata 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_11/wena 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_11/r0data 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_11/r1data 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_20/dina 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_20/addra 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_20/wea 
+ntrace select -o on -n /cpu_tb/UUT/XLXI_23/addra 
 ntrace select -o on -n /cpu_tb/UUT/XLXI_27/pc_addr_out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/ID_reg_data1 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/ID_reg_data2 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/ID_imm 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/ID_Wreg 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/ID_addr_ins 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/ID_EX_CTRL 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/ID_MEM_CTRL 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/ID_WB_CTRL 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/EX_reg_data1 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/EX_reg_data2 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/EX_imm 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/EX_Wreg 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/EX_addr_ins 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/EX_EX_CTRL 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/EX_MEM_CTRL 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/EX_WB_CTRL 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/clk 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/reset 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_59/Reg_data 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_59/BEZ_op 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_59/BNEZ_op 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_59/Branch_signal 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/ins 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/rd 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/rs1 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/rs2 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/imm 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/ex_ctrl 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/mem_ctrl 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/wb_ctrl 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/br_ctrl 
-ntrace select -o on -n /cpu_tb/PERIOD 
-ntrace select -o on -n /cpu_tb/DUTY_CYCLE 
-ntrace select -o on -n /cpu_tb/OFFSET 
 ntrace select -o on -n /cpu_tb/clk 
 ntrace select -o on -n /cpu_tb/en 
-ntrace select -o on -n /cpu_tb/one 
 ntrace select -o on -n /cpu_tb/rst 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/R1out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/R2out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/Imm 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/WReg 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/addr_ins 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/EX_CTRL 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/MEM_CTRL 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_40/WB_CTRL 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/ALU 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/ALUI 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/LW 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/SW 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/BEZ 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/BNEZ 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/rd_out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/rs1_out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/rs2_out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/imm_out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/ex_ctrl_out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/mem_ctrl_out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/wb_ctrl_out 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_64/br_ctrl_out 
+ntrace select -o on -n /cpu_tb/UUT/instruction 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-restart
-isimrun 4500 ns 
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-isimrun 4500 ns 
-isimrun 4500 ns 
-isimrun 4500 ns 
+isimrun 10000 ns 
 
- Total Simulation Time: 1.18 sec
+ Total Simulation Time: 0.72 sec
 
- Current Memory Usage: 282.911 Meg
+ Current Memory Usage: 282.882 Meg
 
-Fri Mar  4 03:44:29 2022
+Fri Mar  4 10:54:09 2022
 

@@ -34,7 +34,9 @@ instructionmem64 YourInstanceName (
     .dina(dina), // Bus [31 : 0] 
     .addra(addra), // Bus [8 : 0] 
     .wea(wea), // Bus [0 : 0] 
-    .douta(douta)); // Bus [31 : 0] 
+    .clkb(clkb),
+    .addrb(addrb), // Bus [8 : 0] 
+    .doutb(doutb)); // Bus [31 : 0] 
 
  
 		</Template>
@@ -119,7 +121,9 @@ component instructionmem64
     dina: IN std_logic_VECTOR(31 downto 0);
     addra: IN std_logic_VECTOR(8 downto 0);
     wea: IN std_logic_VECTOR(0 downto 0);
-    douta: OUT std_logic_VECTOR(31 downto 0));
+    clkb: IN std_logic;
+    addrb: IN std_logic_VECTOR(8 downto 0);
+    doutb: OUT std_logic_VECTOR(31 downto 0));
 end component;
 
 
@@ -135,7 +139,9 @@ your_instance_name : instructionmem64
             dina =&gt; dina,
             addra =&gt; addra,
             wea =&gt; wea,
-            douta =&gt; douta);
+            clkb =&gt; clkb,
+            addrb =&gt; addrb,
+            doutb =&gt; doutb);
  
 		</Template>
 		<Template label="gt65" treetype="template">

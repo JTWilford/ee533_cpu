@@ -26,7 +26,6 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_277(63:0)
         SIGNAL XLXN_279(2:0)
         SIGNAL XLXN_212(63:0)
-        SIGNAL XLXN_213(63:0)
         SIGNAL wb_data(63:0)
         SIGNAL XLXN_215
         SIGNAL me_addr(7:0)
@@ -62,9 +61,13 @@ BEGIN SCHEMATIC
         SIGNAL ip_int(8:0)
         SIGNAL XLXN_398(15:0)
         SIGNAL ip_next(8:0)
-        SIGNAL XLXN_399(31:0)
+        SIGNAL XLXN_404(0:0)
+        SIGNAL XLXN_405(0:0)
+        SIGNAL XLXN_411(31:0)
+        SIGNAL XLXN_413(63:0)
         SIGNAL ins_ptr(8:0)
-        SIGNAL XLXN_403(63:0)
+        SIGNAL XLXN_415(8:0)
+        SIGNAL me_data(63:0)
         PORT Input clk
         PORT Input rst
         PORT Input one(15:0)
@@ -90,7 +93,7 @@ BEGIN SCHEMATIC
             RECTANGLE N 320 -12 384 12 
         END BLOCKDEF
         BEGIN BLOCKDEF instructionmem64
-            TIMESTAMP 2022 3 4 3 40 30
+            TIMESTAMP 2022 3 4 10 7 38
             RECTANGLE N 32 32 544 576 
             BEGIN LINE W 0 80 32 80 
             END LINE
@@ -99,7 +102,10 @@ BEGIN SCHEMATIC
             BEGIN LINE W 0 208 32 208 
             END LINE
             LINE N 0 272 32 272 
-            BEGIN LINE W 576 80 544 80 
+            BEGIN LINE W 0 336 32 336 
+            END LINE
+            LINE N 0 528 32 528 
+            BEGIN LINE W 576 336 544 336 
             END LINE
         END BLOCKDEF
         BEGIN BLOCKDEF datamem64
@@ -392,10 +398,10 @@ BEGIN SCHEMATIC
             PIN clk clk
             PIN en en
             PIN clr rst
-            PIN inc_in(31:0) XLXN_399(31:0)
-            PIN pc_addr_in(8:0) ip_next(8:0)
+            PIN inc_in(31:0)
+            PIN pc_addr_in(8:0) ins_ptr(8:0)
             PIN pc_addr_out(8:0) XLXN_157(8:0)
-            PIN inc_out(31:0) instruction(31:0)
+            PIN inc_out(31:0)
         END BLOCK
         BEGIN BLOCK XLXI_40 ID_EXreg
             PIN ID_MEM_CTRL dec_mem_ctrl
@@ -422,11 +428,13 @@ BEGIN SCHEMATIC
             PIN imm_extend(63:0) XLXN_171(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_23 instructionmem64
-            PIN addra(8:0) ins_ptr(8:0)
+            PIN addra(8:0)
             PIN dina(31:0)
-            PIN wea(0:0)
+            PIN wea(0:0) XLXN_404(0:0)
             PIN clka clk
-            PIN douta(31:0) XLXN_399(31:0)
+            PIN addrb(8:0) ins_ptr(8:0)
+            PIN clkb clk
+            PIN doutb(31:0) instruction(31:0)
         END BLOCK
         BEGIN BLOCK XLXI_41 fdc
             PIN C clk
@@ -496,8 +504,8 @@ BEGIN SCHEMATIC
             PIN clr rst
             PIN WB_MetoReg XLXN_215
             PIN MEM_MemtoReg XLXN_312
-            PIN mem_dataout(63:0) XLXN_213(63:0)
-            PIN mem_data(63:0) XLXN_403(63:0)
+            PIN mem_dataout(63:0)
+            PIN mem_data(63:0)
             PIN Wregout(2:0) wb_reg_addr(2:0)
             PIN Wregin(2:0) XLXN_267(2:0)
             PIN clk clk
@@ -507,7 +515,7 @@ BEGIN SCHEMATIC
             PIN ALUdata(63:0) XLXN_359(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_51 mux2_to_1_x64
-            PIN EX_immi_data(63:0) XLXN_213(63:0)
+            PIN EX_immi_data(63:0) me_data(63:0)
             PIN EX_register_data(63:0) XLXN_212(63:0)
             PIN data_out(63:0) wb_data(63:0)
             PIN s XLXN_215
@@ -519,9 +527,9 @@ BEGIN SCHEMATIC
             PIN clka clk
             PIN addrb(7:0)
             PIN dinb(63:0)
-            PIN web(0:0)
+            PIN web(0:0) XLXN_405(0:0)
             PIN clkb clk
-            PIN douta(63:0) XLXN_403(63:0)
+            PIN douta(63:0) me_data(63:0)
             PIN doutb(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_64 decoder
@@ -563,15 +571,14 @@ BEGIN SCHEMATIC
             PIN ip_in(8:0) ip_next(8:0)
             PIN ip_out(15:0) XLXN_398(15:0)
         END BLOCK
+        BEGIN BLOCK XLXI_73 gnd
+            PIN G XLXN_404(0:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_74 gnd
+            PIN G XLXN_405(0:0)
+        END BLOCK
     END NETLIST
     BEGIN SHEET 1 7040 5440
-        BEGIN BRANCH instruction(31:0)
-            WIRE 1584 1072 1728 1072
-            WIRE 1728 1072 1744 1072
-            BEGIN DISPLAY 1728 1072 ATTR Name
-                ALIGNMENT SOFT-BCENTER
-            END DISPLAY
-        END BRANCH
         BEGIN INSTANCE XLXI_27 1328 1152 R0
         END INSTANCE
         BEGIN BRANCH XLXN_157(8:0)
@@ -583,17 +590,17 @@ BEGIN SCHEMATIC
             WIRE 1984 208 2832 208
         END BRANCH
         BEGIN BRANCH imm(11:0)
-            WIRE 1632 1376 1712 1376
+            WIRE 1632 1376 1648 1376
+            WIRE 1648 1376 1712 1376
             BEGIN DISPLAY 1632 1376 ATTR Name
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN INSTANCE XLXI_31 1712 1456 R0
-        END INSTANCE
         BEGIN BRANCH XLXN_171(63:0)
             WIRE 2128 1376 2656 1376
+            WIRE 2656 1040 2672 1040
+            WIRE 2672 1040 2688 1040
             WIRE 2656 1040 2656 1376
-            WIRE 2656 1040 2688 1040
         END BRANCH
         BEGIN BRANCH one(15:0)
             WIRE 608 352 640 352
@@ -685,11 +692,6 @@ BEGIN SCHEMATIC
             WIRE 6064 1040 6160 1040
             WIRE 6160 1040 6160 1072
             WIRE 6160 1072 6256 1072
-        END BRANCH
-        BEGIN BRANCH XLXN_213(63:0)
-            WIRE 6064 1184 6160 1184
-            WIRE 6160 1136 6160 1184
-            WIRE 6160 1136 6256 1136
         END BRANCH
         BEGIN BRANCH wb_data(63:0)
             WIRE 6592 1072 6768 1072
@@ -1044,12 +1046,6 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN INSTANCE XLXI_70 1104 3024 R0
         END INSTANCE
-        BEGIN BRANCH ip_next(8:0)
-            WIRE 1216 768 1328 768
-            BEGIN DISPLAY 1216 768 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
         BEGIN BRANCH ip_int(15:0)
             WIRE 928 2688 1024 2688
             BEGIN DISPLAY 1024 2688 ATTR Name
@@ -1109,8 +1105,10 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH clk
             WIRE 464 1168 480 1168
-            WIRE 464 1168 464 1568
+            WIRE 464 1168 464 1424
+            WIRE 464 1424 464 1568
             WIRE 464 1568 1456 1568
+            WIRE 464 1424 480 1424
             WIRE 1456 1248 1456 1552
             WIRE 1456 1552 2192 1552
             WIRE 2192 1552 2192 1632
@@ -1132,19 +1130,45 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN INSTANCE XLXI_23 480 896 R0
         END INSTANCE
-        BEGIN BRANCH XLXN_399(31:0)
-            WIRE 1056 976 1328 976
+        BEGIN INSTANCE XLXI_31 1712 1456 R0
+        END INSTANCE
+        INSTANCE XLXI_73 320 1248 R0
+        BEGIN BRANCH XLXN_404(0:0)
+            WIRE 384 1104 480 1104
+            WIRE 384 1104 384 1120
+        END BRANCH
+        INSTANCE XLXI_74 4944 1568 R0
+        BEGIN BRANCH XLXN_405(0:0)
+            WIRE 5008 1408 5120 1408
+            WIRE 5008 1408 5008 1440
         END BRANCH
         BEGIN BRANCH ins_ptr(8:0)
-            WIRE 368 976 480 976
-            BEGIN DISPLAY 368 976 ATTR Name
+            WIRE 288 768 1328 768
+            WIRE 288 768 288 1232
+            WIRE 288 1232 480 1232
+            WIRE 288 1232 288 1328
+            BEGIN DISPLAY 288 1328 ATTR Name
+                ALIGNMENT SOFT-VRIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH instruction(31:0)
+            WIRE 1056 1232 1200 1232
+            BEGIN DISPLAY 1200 1232 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH me_data(63:0)
+            WIRE 6192 1136 6256 1136
+            BEGIN DISPLAY 6192 1136 ATTR Name
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH XLXN_403(63:0)
-            WIRE 5472 1024 5520 1024
-            WIRE 5520 1024 5520 1184
-            WIRE 5520 1184 5568 1184
+        BEGIN BRANCH me_data(63:0)
+            WIRE 5472 1024 5504 1024
+            WIRE 5504 1024 5504 1136
+            BEGIN DISPLAY 5504 1136 ATTR Name
+                ALIGNMENT SOFT-VRIGHT
+            END DISPLAY
         END BRANCH
     END SHEET
 END SCHEMATIC
