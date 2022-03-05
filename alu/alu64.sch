@@ -27,6 +27,8 @@ BEGIN SCHEMATIC
         SIGNAL R2_cmp(64:0)
         SIGNAL slt_out(63:0)
         SIGNAL sgt_out(63:0)
+        SIGNAL opmux_out(63:0)
+        SIGNAL en
         PORT Output LT
         PORT Output GT
         PORT Output EQ
@@ -36,6 +38,7 @@ BEGIN SCHEMATIC
         PORT Input R2(63:0)
         PORT Input OP(2:0)
         PORT Output OVR
+        PORT Input en
         BEGIN BLOCKDEF adder64
             TIMESTAMP 2022 2 19 12 11 8
             RECTANGLE N 64 -192 320 0 
@@ -173,6 +176,17 @@ BEGIN SCHEMATIC
             RECTANGLE N 320 -44 384 -20 
             LINE N 320 -32 384 -32 
         END BLOCKDEF
+        BEGIN BLOCKDEF mux2_to_1_x64
+            TIMESTAMP 2022 3 3 0 10 12
+            RECTANGLE N 64 -128 272 0 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -96 0 -96 
+            RECTANGLE N 0 -108 64 -84 
+            RECTANGLE N 272 -108 336 -84 
+            LINE N 272 -96 336 -96 
+            LINE N 192 -128 192 -192 
+        END BLOCKDEF
         BEGIN BLOCK XLXI_1 adder64
             PIN A(63:0) R1(63:0)
             PIN B(63:0) XLXN_11(63:0)
@@ -221,7 +235,7 @@ BEGIN SCHEMATIC
             PIN X6(63:0) or_out(63:0)
             PIN X7(63:0) and_out(63:0)
             PIN S(2:0) OP(2:0)
-            PIN Q(63:0) Q(63:0)
+            PIN Q(63:0) opmux_out(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_58 gt65
             PIN a(64:0) R1_cmp(64:0)
@@ -250,6 +264,12 @@ BEGIN SCHEMATIC
         BEGIN BLOCK XLXI_65 set_lsb
             PIN set GT
             PIN dout(63:0) sgt_out(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_66 mux2_to_1_x64
+            PIN EX_immi_data(63:0) opmux_out(63:0)
+            PIN EX_register_data(63:0) R1(63:0)
+            PIN data_out(63:0) Q(63:0)
+            PIN s en
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
@@ -456,7 +476,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH Q(63:0)
+        BEGIN BRANCH opmux_out(63:0)
             WIRE 3024 912 3200 912
             BEGIN DISPLAY 3200 912 ATTR Name
                 ALIGNMENT SOFT-LEFT
@@ -600,5 +620,29 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
         END BRANCH
+        BEGIN INSTANCE XLXI_66 2768 656 R0
+        END INSTANCE
+        BEGIN BRANCH R1(63:0)
+            WIRE 2560 560 2768 560
+            BEGIN DISPLAY 2560 560 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH opmux_out(63:0)
+            WIRE 2560 624 2768 624
+            BEGIN DISPLAY 2560 624 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH Q(63:0)
+            WIRE 3104 560 3200 560
+            BEGIN DISPLAY 3200 560 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH en
+            WIRE 2960 352 2960 464
+        END BRANCH
+        IOMARKER 2960 352 en R270 28
     END SHEET
 END SCHEMATIC

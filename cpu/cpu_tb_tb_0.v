@@ -7,18 +7,20 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : ISE
-//  /   /         Filename : cpu_tb.ant
+//  /   /         Filename : cpu_tb.tfw
 // /___/   /\     Timestamp : Sat Mar  5 06:19:35 2022
 // \   \  /  \ 
 //  \___\/\___\ 
 //
 //Command: 
-//Design Name: cpu_tb
+//Design Name: cpu_tb_tb_0
 //Device: Xilinx
 //
 `timescale 1ns/1ps
 
-module cpu_tb;
+`define DEBUG 1
+
+module cpu_tb_tb_0;
     reg clk = 1'b0;
     reg en = 1'b0;
     reg [15:0] one = 16'b0000000000000000;
@@ -44,18 +46,6 @@ module cpu_tb;
         .en(en),
         .one(one),
         .rst(rst));
-
-    integer TX_FILE = 0;
-    integer TX_ERROR = 0;
-    
-    initial begin  // Open the annotations file...
-        TX_FILE = $fopen("/home/ise/sf/ee533_cpu/cpu/cpu_tb.ano");
-        #3200 // Final time:  3200 ns
-        $display("Success! Annotation Simulation Complete.");
-        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
-        $fclose(TX_FILE);
-        $finish;
-    end
 
     initial begin
         // -------------  Current Time:  100ns

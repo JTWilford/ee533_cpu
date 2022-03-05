@@ -1,17 +1,17 @@
-SUB R1 R1 R1;           0x00009126
-SUB R2 R2 R2;           0x00012146
-SUB R3 R3 R3;           0x0001B166
+SUB 1 1 1;           0x00009126
+SUB 2 2 2;           0x00012146
+SUB 3 3 3;           0x0001B166
 NOOP;
-ADDI R1 R1 1;           0x00009024
-NOOP;
-NOOP;
-NOOP;
-ADD R2 R2 R1;           0x0000A046
+ADDI 1 1 1;           0x00009024
 NOOP;
 NOOP;
 NOOP;
-SW R2 R1;               0x0000A003
-BEZ R3 -9;               0xFFFA3010
+ADD 2 2 1;           0x0000A046
+NOOP;
+NOOP;
+NOOP;
+SW 2 1 0;               0x0000A003
+BEZ 3 -9;               0xFFFA3010
 NOOP;
 NOOP;
 NOOP;

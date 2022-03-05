@@ -24,7 +24,7 @@ module ID_EXreg(
     input [63:0] ID_imm,
     input [2:0] ID_Wreg,
     input [8:0] ID_addr_ins,
-    input [4:0] ID_EX_CTRL,
+    input [5:0] ID_EX_CTRL,
     input ID_MEM_CTRL,
     input [1:0] ID_WB_CTRL,
 	 
@@ -34,7 +34,7 @@ module ID_EXreg(
     output [63:0] EX_imm,
     output [2:0] EX_Wreg,
     output [8:0] EX_addr_ins,
-    output [4:0] EX_EX_CTRL,
+    output [5:0] EX_EX_CTRL,
     output EX_MEM_CTRL,
     output [1:0] EX_WB_CTRL,
 	 
@@ -48,7 +48,7 @@ module ID_EXreg(
 	 reg [63:0] Imm;
 	 reg [2:0] WReg;
 	 reg [8:0] addr_ins;
-	 reg [4:0] EX_CTRL;
+	 reg [5:0] EX_CTRL;
 	 reg MEM_CTRL;
 	 reg [1:0] WB_CTRL;
 	 

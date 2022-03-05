@@ -24,7 +24,7 @@ module decoder(
 		output 	[2:0] 	rs1,
 		output 	[2:0] 	rs2,
 		output 	[11:0] 	imm,
-		output 	[4:0] 	ex_ctrl,
+		output 	[5:0] 	ex_ctrl,
 		output 				mem_ctrl,
 		output 	[1:0] 	wb_ctrl,
 		output	[1:0]		br_ctrl
@@ -45,7 +45,7 @@ module decoder(
 	 assign rs2 = rs2_out;
 	 reg [11:0] imm_out;
 	 assign imm = imm_out;
-	 reg [4:0] ex_ctrl_out;
+	 reg [5:0] ex_ctrl_out;
 	 assign ex_ctrl = ex_ctrl_out;
 	 reg mem_ctrl_out;
 	 assign mem_ctrl = mem_ctrl_out;
@@ -64,7 +64,7 @@ module decoder(
 				rs2_out = ins[17:15];
 				imm_out = 0;
 				
-				ex_ctrl_out = {1'b0, ins[11:8]};
+				ex_ctrl_out = {2'b10, ins[11:8]};
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 2'b00;
@@ -75,7 +75,7 @@ module decoder(
 				rs2_out = 0;
 				imm_out = ins[26:15];
 				
-				ex_ctrl_out = {1'b1, ins[11:8]};
+				ex_ctrl_out = {2'b11, ins[11:8]};
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 2'b00;

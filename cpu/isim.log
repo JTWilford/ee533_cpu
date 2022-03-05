@@ -1,52 +1,58 @@
 Command line:
-   ./cpu_tb_isim_beh.exe
+   ./cpu_tb_tb_0_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  40640
+     -ipcport  55050
 
-Fri Mar  4 10:50:53 2022
+Sat Mar  5 08:01:13 2022
 
-Total Line Count : 14053
+Total Line Count : 14059
 
- Elaboration Time: 0.59 sec
+ Elaboration Time: 0.56 sec
 
- Current Memory Usage: 267.477 Meg
+ Current Memory Usage: 267.596 Meg
 
- Total Signals          : 24014
- Total Nets             : 7221
- Total Signal Drivers   : 6254
- Total Blocks           : 4561
- Total Primitive Blocks : 3619
- Total Processes        : 10290
- Total Traceable Variables  : 2877
- Total Scalar Nets and Variables : 75654
-ntrace select -o on -n /cpu_tb/UUT/branch 
-ntrace select -o on -n /cpu_tb/UUT/ins_ptr 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_11/r0addr 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_11/r1addr 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_11/waddr 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_11/wdata 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_11/wena 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_11/r0data 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_11/r1data 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_20/dina 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_20/addra 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_20/wea 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_23/addra 
-ntrace select -o on -n /cpu_tb/UUT/XLXI_27/pc_addr_out 
-ntrace select -o on -n /cpu_tb/clk 
-ntrace select -o on -n /cpu_tb/en 
-ntrace select -o on -n /cpu_tb/rst 
-ntrace select -o on -n /cpu_tb/UUT/instruction 
+ Total Signals          : 24020
+ Total Nets             : 7287
+ Total Signal Drivers   : 6255
+ Total Blocks           : 4562
+ Total Primitive Blocks : 3620
+ Total Processes        : 10292
+ Total Traceable Variables  : 2878
+ Total Scalar Nets and Variables : 75786
+ntrace select -o on -n /cpu_tb_tb_0/PERIOD 
+ntrace select -o on -n /cpu_tb_tb_0/DUTY_CYCLE 
+ntrace select -o on -n /cpu_tb_tb_0/OFFSET 
+ntrace select -o on -n /cpu_tb_tb_0/clk 
+ntrace select -o on -n /cpu_tb_tb_0/en 
+ntrace select -o on -n /cpu_tb_tb_0/one 
+ntrace select -o on -n /cpu_tb_tb_0/rst 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/branch 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/instruction 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/XLXI_27/pc_addr_out 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/XLXI_30/R1 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/XLXI_30/R2 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/XLXI_30/Q 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/XLXI_30/en 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/XLXI_20/dina 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/XLXI_20/addra 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/XLXI_20/wea 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
 isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 100000 ns 
+isimrun 100000 ns 
+isimrun 100000 ns 
+isimrun 100000 ns 
 
- Total Simulation Time: 0.72 sec
+ Total Simulation Time: 1.1 sec
 
- Current Memory Usage: 282.882 Meg
+ Current Memory Usage: 282.997 Meg
 
-Fri Mar  4 10:54:09 2022
+Sat Mar  5 08:22:03 2022
 

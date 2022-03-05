@@ -24,6 +24,6 @@ module comp_sign_extend(
     output [64:0] dout
     );
 	 
-	 assign dout[64:0] = {ext & din[63], din[63:0]};
+	 assign dout[64:0] = {~ext & din[63], din[63:0]};
 
 endmodule

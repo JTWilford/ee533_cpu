@@ -40,7 +40,7 @@ BEGIN SCHEMATIC
         SIGNAL br_ctrl(0)
         SIGNAL branch
         SIGNAL XLXN_336(8:0)
-        SIGNAL ex_ctrl(4:0)
+        SIGNAL ex_ctrl(5:0)
         SIGNAL ex_ctrl(3:1)
         SIGNAL ex_ctrl(0)
         SIGNAL ex_ctrl(4)
@@ -50,7 +50,7 @@ BEGIN SCHEMATIC
         SIGNAL ex_wb_ctrl(1:0)
         SIGNAL en
         SIGNAL XLXN_359(63:0)
-        SIGNAL dec_ex_ctrl(4:0)
+        SIGNAL dec_ex_ctrl(5:0)
         SIGNAL dec_wb_ctrl(1:0)
         SIGNAL br_ctrl(1:0)
         SIGNAL dec_rd(2:0)
@@ -63,11 +63,9 @@ BEGIN SCHEMATIC
         SIGNAL ip_next(8:0)
         SIGNAL XLXN_404(0:0)
         SIGNAL XLXN_405(0:0)
-        SIGNAL XLXN_411(31:0)
-        SIGNAL XLXN_413(63:0)
         SIGNAL ins_ptr(8:0)
-        SIGNAL XLXN_415(8:0)
         SIGNAL me_data(63:0)
+        SIGNAL ex_ctrl(5)
         PORT Input clk
         PORT Input rst
         PORT Input one(15:0)
@@ -93,7 +91,7 @@ BEGIN SCHEMATIC
             RECTANGLE N 320 -12 384 12 
         END BLOCKDEF
         BEGIN BLOCKDEF instructionmem64
-            TIMESTAMP 2022 3 4 10 7 38
+            TIMESTAMP 2022 3 5 7 37 48
             RECTANGLE N 32 32 544 576 
             BEGIN LINE W 0 80 32 80 
             END LINE
@@ -109,7 +107,7 @@ BEGIN SCHEMATIC
             END LINE
         END BLOCKDEF
         BEGIN BLOCKDEF datamem64
-            TIMESTAMP 2022 3 4 3 5 24
+            TIMESTAMP 2022 3 5 6 16 56
             RECTANGLE N 32 32 320 576 
             BEGIN LINE W 0 80 32 80 
             END LINE
@@ -131,7 +129,7 @@ BEGIN SCHEMATIC
             END LINE
         END BLOCKDEF
         BEGIN BLOCKDEF alu64
-            TIMESTAMP 2022 3 2 18 23 57
+            TIMESTAMP 2022 3 5 7 3 20
             LINE N 384 -352 448 -352 
             LINE N 384 -288 448 -288 
             LINE N 384 -224 448 -224 
@@ -155,6 +153,7 @@ BEGIN SCHEMATIC
             LINE N 144 -512 144 -576 
             RECTANGLE N 132 -576 156 -512 
             LINE N 144 32 144 96 
+            LINE N 96 92 96 32 
         END BLOCKDEF
         BEGIN BLOCKDEF IFID_reg
             TIMESTAMP 2022 3 2 17 34 25
@@ -194,7 +193,7 @@ BEGIN SCHEMATIC
             LINE N 352 -80 416 -80 
         END BLOCKDEF
         BEGIN BLOCKDEF ID_EXreg
-            TIMESTAMP 2022 3 3 7 22 51
+            TIMESTAMP 2022 3 5 7 0 30
             RECTANGLE N 64 -576 512 -64 
             LINE N 64 -544 0 -544 
             RECTANGLE N 0 -556 64 -532 
@@ -320,7 +319,7 @@ BEGIN SCHEMATIC
             LINE N 208 -128 208 -192 
         END BLOCKDEF
         BEGIN BLOCKDEF decoder
-            TIMESTAMP 2022 3 3 23 40 27
+            TIMESTAMP 2022 3 5 6 58 50
             RECTANGLE N 64 -512 320 0 
             RECTANGLE N 0 -492 64 -468 
             LINE N 64 -480 0 -480 
@@ -412,7 +411,7 @@ BEGIN SCHEMATIC
             PIN ID_imm(63:0) XLXN_171(63:0)
             PIN ID_Wreg(2:0) dec_rd(2:0)
             PIN ID_addr_ins(8:0) XLXN_336(8:0)
-            PIN ID_EX_CTRL(4:0) dec_ex_ctrl(4:0)
+            PIN ID_EX_CTRL(5:0) dec_ex_ctrl(5:0)
             PIN ID_WB_CTRL(1:0) dec_wb_ctrl(1:0)
             PIN EX_MEM_CTRL ex_mem_wr
             PIN EX_reg_data1(63:0) XLXN_244(63:0)
@@ -420,7 +419,7 @@ BEGIN SCHEMATIC
             PIN EX_imm(63:0) XLXN_247(63:0)
             PIN EX_Wreg(2:0) XLXN_279(2:0)
             PIN EX_addr_ins(8:0) br_addr(8:0)
-            PIN EX_EX_CTRL(4:0) ex_ctrl(4:0)
+            PIN EX_EX_CTRL(5:0) ex_ctrl(5:0)
             PIN EX_WB_CTRL(1:0) ex_wb_ctrl(1:0)
         END BLOCK
         BEGIN BLOCK XLXI_31 signextend
@@ -452,6 +451,7 @@ BEGIN SCHEMATIC
             PIN R1(63:0) XLXN_244(63:0)
             PIN OP(2:0) ex_ctrl(3:1)
             PIN MD ex_ctrl(0)
+            PIN en ex_ctrl(5)
         END BLOCK
         BEGIN BLOCK XLXI_48 mux2_to_1_x64
             PIN EX_immi_data(63:0) XLXN_247(63:0)
@@ -539,7 +539,7 @@ BEGIN SCHEMATIC
             PIN rs1(2:0) r0_addr(2:0)
             PIN rs2(2:0) r1_addr(2:0)
             PIN imm(11:0) imm(11:0)
-            PIN ex_ctrl(4:0) dec_ex_ctrl(4:0)
+            PIN ex_ctrl(5:0) dec_ex_ctrl(5:0)
             PIN wb_ctrl(1:0) dec_wb_ctrl(1:0)
             PIN br_ctrl(1:0) br_ctrl(1:0)
         END BLOCK
@@ -824,7 +824,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH ex_ctrl(4:0)
+        BEGIN BRANCH ex_ctrl(5:0)
             WIRE 3264 656 3312 656
             BEGIN DISPLAY 3312 656 ATTR Name
                 ALIGNMENT SOFT-LEFT
@@ -954,7 +954,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH dec_ex_ctrl(4:0)
+        BEGIN BRANCH dec_ex_ctrl(5:0)
             WIRE 1904 2160 2000 2160
             BEGIN DISPLAY 2000 2160 ATTR Name
                 ALIGNMENT SOFT-LEFT
@@ -978,7 +978,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH dec_ex_ctrl(4:0)
+        BEGIN BRANCH dec_ex_ctrl(5:0)
             WIRE 2656 656 2688 656
             BEGIN DISPLAY 2656 656 ATTR Name
                 ALIGNMENT SOFT-RIGHT
@@ -1167,6 +1167,12 @@ BEGIN SCHEMATIC
             WIRE 5472 1024 5504 1024
             WIRE 5504 1024 5504 1136
             BEGIN DISPLAY 5504 1136 ATTR Name
+                ALIGNMENT SOFT-VRIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH ex_ctrl(5)
+            WIRE 3776 1248 3776 1296
+            BEGIN DISPLAY 3776 1296 ATTR Name
                 ALIGNMENT SOFT-VRIGHT
             END DISPLAY
         END BRANCH
