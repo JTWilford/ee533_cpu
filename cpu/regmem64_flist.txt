@@ -1,0 +1,13 @@
+# Output products list for <regmem64>
+regmem64.asy
+regmem64.ngc
+regmem64.sym
+regmem64.v
+regmem64.veo
+regmem64.vhd
+regmem64.vho
+regmem64.xco
+regmem64_blk_mem_gen_v2_8_xst_1.ngc_xst.xrpt
+regmem64_flist.txt
+regmem64_xmdf.tcl
+xil_1xXXqy.out

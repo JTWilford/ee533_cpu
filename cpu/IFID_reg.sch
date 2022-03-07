@@ -124,6 +124,9 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH pc_addr_in(7:0)
             WIRE 1136 864 1280 864
+            BEGIN DISPLAY 1136 864 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
         END BRANCH
         BEGIN BRANCH inc_in(31:0)
             WIRE 992 1232 1120 1232

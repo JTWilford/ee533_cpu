@@ -80,6 +80,10 @@ utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path datamem64_xm
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type AnyView
 incr fcount
 
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path xil_1xXXqy.out
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type AnyView
+incr fcount
+
 utilities_xmdf::xmdfSetData $instance FileSet $fcount associated_module datamem64
 incr fcount
 

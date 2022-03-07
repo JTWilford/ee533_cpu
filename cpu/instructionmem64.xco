@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.39
-# Date: Sat Mar  5 07:37:53 2022
+# Date: Mon Mar  7 08:17:13 2022
 #
 ##############################################################
 #
@@ -38,7 +38,7 @@ SELECT Block_Memory_Generator family Xilinx,_Inc. 2.7
 CSET algorithm=Minimum_Area
 CSET assume_synchronous_clk=true
 CSET byte_size=9
-CSET coe_file=imem_test.coe
+CSET coe_file=/home/ise/sf/ee533_cpu/cpu/imem_test.coe
 CSET collision_warnings=ALL
 CSET component_name=instructionmem64
 CSET disable_collision_warnings=false
@@ -48,7 +48,7 @@ CSET enable_a=Always_Enabled
 CSET enable_b=Always_Enabled
 CSET fill_remaining_memory_locations=true
 CSET load_init_file=true
-CSET memory_type=Simple_Dual_Port_RAM
+CSET memory_type=True_Dual_Port_RAM
 CSET operating_mode_a=READ_FIRST
 CSET operating_mode_b=READ_FIRST
 CSET output_reset_value_a=0
@@ -74,5 +74,5 @@ CSET write_width_a=32
 CSET write_width_b=32
 # END Parameters
 GENERATE
-# CRC: fb47a304
+# CRC: b494d7ba
 

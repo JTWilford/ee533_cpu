@@ -368,6 +368,34 @@ module user_data_path
      else ana_count <= ana_count + 1;
    end
 
+   wire [63:0] dut_din;
+   wire [63:0] dut_imem_dout;
+   wire [63:0] dut_dmem_dout;
+   wire [8:0] dut_addr;
+   wire dut_imem_wen;
+   wire dut_dmem_wen;
+
+
+   bram64x64 imem(
+		.clka(clk),
+		.dina(dut_din),
+		.addra(dut_addr[5:0]),
+		.ena(dut_imem_wen),
+		.wea(dut_imem_wen),
+		.clkb(clk),
+		.addrb(dut_addr[5:0]),
+		.doutb(dut_imem_dout));
+
+  bram64x64 dmem(
+		.clka(clk),
+		.dina(dut_din),
+		.addra(dut_addr[5:0]),
+		.ena(dut_dmem_wen),
+		.wea(dut_dmem_wen),
+		.clkb(clk),
+		.addrb(dut_addr[5:0]),
+		.doutb(dut_dmem_dout));
+
    analyzer16x64x64 #(
       .DATA_WIDTH(DATA_WIDTH),
       .CTRL_WIDTH(CTRL_WIDTH),
@@ -379,17 +407,26 @@ module user_data_path
       .din3       ({31'd0, oq_in_wr}),
       .din4       ({31'd0, oq_in_rdy}),
       .din5       (ana_count),
-      .din6       ({32'd6}),
-      .din7       ({32'd7}),
-      .din8       ({32'd8}),
-      .din9       ({32'd9}),
-      .din10      ({32'd10}),
-      .din11      ({32'd11}),
+      .din6       ({23'd0, dut_addr[8:0]}),
+      .din7       (dut_din),
+      .din8       (dut_imem_dout),
+      .din9       (dut_dmem_dout),
+      .din10      ({31'd0, dut_imem_wen}),
+      .din11      ({31'd0, dut_dmem_wen}),
       .din12      ({32'd12}),
       .din13      ({32'd13}),
       .din14      ({32'd14}),
       .din15      ({32'd15}),
-      .trigger    (oq_in_rdy),
+      .trigger    (dut_imem_wen | dut_dmem_wen),
+
+      .dut_imem_in(dut_imem_dout[31:0]),
+      .dut_dmem_in(dut_dmem_dout),
+
+      .dut_en(),
+      .dut_data_out(dut_din),
+      .dut_addr_out(dut_addr),
+      .dut_imem_wen(dut_imem_wen),
+      .dut_dmem_wen(dut_dmem_wen),
 
       // --- Register interface
       .reg_req_in                        (ana_in_reg_req),

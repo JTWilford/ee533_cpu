@@ -864,6 +864,7 @@ proc restore { { project_dir "" } } {
       "set_lsb.v" 
       "shift32.sch" 
       "shift64.v" 
+      "vadder64.v" 
       "xnor64.v" 
       "xor16_by_1.sch" 
       "xor32_by_1.sch" 

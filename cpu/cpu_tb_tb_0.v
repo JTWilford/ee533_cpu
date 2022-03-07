@@ -22,6 +22,7 @@
 
 module cpu_tb_tb_0;
     reg clk = 1'b0;
+	 reg div_clk = 1'b0;
     reg en = 1'b0;
     reg [15:0] one = 16'b0000000000000000;
     reg rst = 1'b0;
@@ -40,12 +41,33 @@ module cpu_tb_tb_0;
             #(PERIOD*DUTY_CYCLE);
         end
     end
+	 
+	 always @(posedge clk)
+	 begin
+		div_clk <= ~div_clk;
+	 end
 
+	
     datapath64bit UUT (
-        .clk(clk),
-        .en(en),
+        .clk(div_clk),
+		  .instruction(),
+		  .PC(),
+        .rst(rst),
         .one(one),
-        .rst(rst));
+		  .MEM_ADDR(),
+		  .MEM_WEN(),
+        .en(en),
+		  .MEM_DIN(),
+		  .INS_WEN(1'd0),
+		  .INS_DIN(32'd0),
+		  .INS_ADDR(9'd0),
+		  .DATA_WEN(1'd0),
+		  .DATA_DIN(64'd0),
+		  .DATA_ADDR(8'd0),
+		  .DATA_DOUT(),
+		  .INS_DOUT(),
+		  .clk_2x(clk)
+		  );
 
     initial begin
         // -------------  Current Time:  100ns

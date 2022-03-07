@@ -50,18 +50,18 @@ module bram64x64(
 
 input clka;
 input [63 : 0] dina;
-input [5 : 0] addra;
+input [7 : 0] addra;
 input ena;
 input [0 : 0] wea;
 input clkb;
-input [5 : 0] addrb;
+input [7 : 0] addrb;
 output [63 : 0] doutb;
 
 // synthesis translate_off
 
       BLK_MEM_GEN_V2_8 #(
-		.C_ADDRA_WIDTH(6),
-		.C_ADDRB_WIDTH(6),
+		.C_ADDRA_WIDTH(8),
+		.C_ADDRB_WIDTH(8),
 		.C_ALGORITHM(1),
 		.C_BYTE_SIZE(9),
 		.C_COMMON_CLK(1),
@@ -84,8 +84,8 @@ output [63 : 0] doutb;
 		.C_MEM_TYPE(1),
 		.C_MUX_PIPELINE_STAGES(0),
 		.C_PRIM_TYPE(1),
-		.C_READ_DEPTH_A(64),
-		.C_READ_DEPTH_B(64),
+		.C_READ_DEPTH_A(256),
+		.C_READ_DEPTH_B(256),
 		.C_READ_WIDTH_A(64),
 		.C_READ_WIDTH_B(64),
 		.C_SIM_COLLISION_CHECK("ALL"),
@@ -98,8 +98,8 @@ output [63 : 0] doutb;
 		.C_USE_RAMB16BWER_RST_BHV(0),
 		.C_WEA_WIDTH(1),
 		.C_WEB_WIDTH(1),
-		.C_WRITE_DEPTH_A(64),
-		.C_WRITE_DEPTH_B(64),
+		.C_WRITE_DEPTH_A(256),
+		.C_WRITE_DEPTH_B(256),
 		.C_WRITE_MODE_A("READ_FIRST"),
 		.C_WRITE_MODE_B("READ_FIRST"),
 		.C_WRITE_WIDTH_A(64),

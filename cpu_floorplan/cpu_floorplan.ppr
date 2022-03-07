@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Project Version="2" Minor="5">
+	<DesignAhead RootsFile="roots.xml"/>
+	<Netlist Name="netlist_1" TopFile="top.edn" PortsFile="ports.xml"/>
+	<MacroFamily Arch="virtex2"/>
+	<Floorplans>
+	</Floorplans>
+	<DefaultLaunch Dir="$PRUNDIR"/>
+</Project>
+

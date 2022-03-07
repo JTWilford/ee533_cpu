@@ -46,8 +46,11 @@ ENTITY instructionmem64 IS
 	dina: IN std_logic_VECTOR(31 downto 0);
 	addra: IN std_logic_VECTOR(8 downto 0);
 	wea: IN std_logic_VECTOR(0 downto 0);
+	douta: OUT std_logic_VECTOR(31 downto 0);
 	clkb: IN std_logic;
+	dinb: IN std_logic_VECTOR(31 downto 0);
 	addrb: IN std_logic_VECTOR(8 downto 0);
+	web: IN std_logic_VECTOR(0 downto 0);
 	doutb: OUT std_logic_VECTOR(31 downto 0));
 END instructionmem64;
 
@@ -59,8 +62,11 @@ component wrapped_instructionmem64
 	dina: IN std_logic_VECTOR(31 downto 0);
 	addra: IN std_logic_VECTOR(8 downto 0);
 	wea: IN std_logic_VECTOR(0 downto 0);
+	douta: OUT std_logic_VECTOR(31 downto 0);
 	clkb: IN std_logic;
+	dinb: IN std_logic_VECTOR(31 downto 0);
 	addrb: IN std_logic_VECTOR(8 downto 0);
+	web: IN std_logic_VECTOR(0 downto 0);
 	doutb: OUT std_logic_VECTOR(31 downto 0));
 end component;
 
@@ -69,7 +75,7 @@ end component;
 		generic map(
 			c_has_regceb => 0,
 			c_has_regcea => 0,
-			c_mem_type => 1,
+			c_mem_type => 2,
 			c_prim_type => 1,
 			c_sinita_val => "0",
 			c_read_width_b => 32,
@@ -121,8 +127,11 @@ U0 : wrapped_instructionmem64
 			dina => dina,
 			addra => addra,
 			wea => wea,
+			douta => douta,
 			clkb => clkb,
+			dinb => dinb,
 			addrb => addrb,
+			web => web,
 			doutb => doutb);
 -- synthesis translate_on
 

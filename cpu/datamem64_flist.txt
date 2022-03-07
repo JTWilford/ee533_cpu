@@ -11,3 +11,4 @@ datamem64.xco
 datamem64_blk_mem_gen_v2_7_xst_1.ngc_xst.xrpt
 datamem64_flist.txt
 datamem64_xmdf.tcl
+xil_1xXXqy.out

@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.39
-# Date: Sat Mar  5 06:16:00 2022
+# Date: Mon Mar  7 08:17:53 2022
 #
 ##############################################################
 #
@@ -38,7 +38,7 @@ SELECT Block_Memory_Generator family Xilinx,_Inc. 2.7
 CSET algorithm=Minimum_Area
 CSET assume_synchronous_clk=false
 CSET byte_size=9
-CSET coe_file=mempreload.coe
+CSET coe_file=/home/ise/sf/ee533_cpu/cpu/mempreload.coe
 CSET collision_warnings=ALL
 CSET component_name=datamem64
 CSET disable_collision_warnings=false
@@ -46,7 +46,7 @@ CSET disable_out_of_range_warnings=false
 CSET ecc=false
 CSET enable_a=Always_Enabled
 CSET enable_b=Always_Enabled
-CSET fill_remaining_memory_locations=false
+CSET fill_remaining_memory_locations=true
 CSET load_init_file=true
 CSET memory_type=True_Dual_Port_RAM
 CSET operating_mode_a=READ_FIRST
@@ -74,5 +74,5 @@ CSET write_width_a=64
 CSET write_width_b=64
 # END Parameters
 GENERATE
-# CRC: 62e58f82
+# CRC: a8eb7e4c
 

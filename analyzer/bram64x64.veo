@@ -34,11 +34,11 @@
 bram64x64 YourInstanceName (
 	.clka(clka),
 	.dina(dina), // Bus [63 : 0] 
-	.addra(addra), // Bus [5 : 0] 
+	.addra(addra), // Bus [7 : 0] 
 	.ena(ena),
 	.wea(wea), // Bus [0 : 0] 
 	.clkb(clkb),
-	.addrb(addrb), // Bus [5 : 0] 
+	.addrb(addrb), // Bus [7 : 0] 
 	.doutb(doutb)); // Bus [63 : 0] 
 
 // INST_TAG_END ------ End INSTANTIATION Template ---------

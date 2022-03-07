@@ -93,10 +93,12 @@ module analyzer16x64x64_sim
 
     // Software Registers -> Written by Control Node, read by NetFPGA
     // | Register | 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0 |
-    // | Control  |------------------------------------------------------------------------------------------|rd|clr|
-    // | Address  |   chip_sel |-----------------------------------------------------------------|      rd_addr     |
+    // | Control  |den|-----------------------------------------------------------------------------------|wr|rd|clr|
+    // | Address  |   chip_sel |-----------------------------------------------------------|-----|      rd_addr     |
+    // | Data_out |                                              data                                               |
     wire [31:0] control_reg;
     wire [31:0] addr_reg;
+    wire [31:0] dout_reg;
 
     reg clear;
     wire clear_next;
@@ -106,6 +108,16 @@ module analyzer16x64x64_sim
     wire rd_en_next;
     // assign rd_en_next = control_reg[1];
     assign rd_en_next = 1'b1;
+
+    reg wr_en;
+    wire wr_en_next;
+    // assign wr_en_next = control_reg[2];
+    assign wr_en_next = 1'b0;
+
+    reg dut_en;
+    wire dut_en_next;
+    // assign dut_en_next = control_reg[31];
+    assign dut_en_next = 1'b1;
 
     reg rdy;
     wire rdy_next;

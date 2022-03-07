@@ -1,0 +1,111 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : alu64.vf
+// /___/   /\     Timestamp : 03/07/2022 06:54:35
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/alu/alu64.sch alu64.vf
+//Design Name: alu64
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module alu64(en, 
+             MD, 
+             OP, 
+             R1, 
+             R2, 
+             EQ, 
+             GT, 
+             LT, 
+             OVR, 
+             Q);
+
+    input en;
+    input MD;
+    input [2:0] OP;
+    input [63:0] R1;
+    input [63:0] R2;
+   output EQ;
+   output GT;
+   output LT;
+   output OVR;
+   output [63:0] Q;
+   
+   wire [63:0] add_out;
+   wire [63:0] and_out;
+   wire [63:0] or_out;
+   wire [64:0] R1_cmp;
+   wire [64:0] R2_cmp;
+   wire [63:0] sgt_out;
+   wire [63:0] shift_out;
+   wire [63:0] slt_out;
+   wire [63:0] XLXN_11;
+   wire [63:0] xnor_out;
+   wire LT_DUMMY;
+   wire GT_DUMMY;
+   
+   assign GT = GT_DUMMY;
+   assign LT = LT_DUMMY;
+   and64 XLXI_2 (.A(R1[63:0]), 
+                 .B(R2[63:0]), 
+                 .S(and_out[63:0]));
+   or64 XLXI_3 (.A(R1[63:0]), 
+                .B(R2[63:0]), 
+                .S(or_out[63:0]));
+   xor64_by_1 XLXI_8 (.A(R2[63:0]), 
+                      .B(MD), 
+                      .S(XLXN_11[63:0]));
+   shift64 XLXI_12 (.A(R1[63:0]), 
+                    .M({MD, OP[2]}), 
+                    .V(R2[5:0]), 
+                    .S(shift_out[63:0]));
+   NOR2 XLXI_53 (.I0(GT_DUMMY), 
+                 .I1(LT_DUMMY), 
+                 .O(EQ));
+   xnor64 XLXI_54 (.A(R1[63:0]), 
+                   .B(R2[63:0]), 
+                   .S(xnor_out[63:0]));
+   gt65 XLXI_58 (.a(R1_cmp[64:0]), 
+                 .b(R2_cmp[64:0]), 
+                 .a_gt_b(GT_DUMMY));
+   lt65 XLXI_59 (.a(R1_cmp[64:0]), 
+                 .b(R2_cmp[64:0]), 
+                 .a_lt_b(LT_DUMMY));
+   comp_sign_extend XLXI_60 (.din(R1[63:0]), 
+                             .ext(MD), 
+                             .dout(R1_cmp[64:0]));
+   comp_sign_extend XLXI_61 (.din(R2[63:0]), 
+                             .ext(MD), 
+                             .dout(R2_cmp[64:0]));
+   set_lsb XLXI_64 (.set(LT_DUMMY), 
+                    .dout(slt_out[63:0]));
+   set_lsb XLXI_65 (.set(GT_DUMMY), 
+                    .dout(sgt_out[63:0]));
+   vadder64 XLXI_67 (.A(R1[63:0]), 
+                     .B(XLXN_11[63:0]), 
+                     .Cin(MD), 
+                     .Cout(OVR), 
+                     .S(add_out[63:0]));
+   mux8_to_1_x64 XLXI_69 (.EN(en), 
+                          .S(OP[2:0]), 
+                          .X0(add_out[63:0]), 
+                          .X1(shift_out[63:0]), 
+                          .X2(slt_out[63:0]), 
+                          .X3(sgt_out[63:0]), 
+                          .X4(xnor_out[63:0]), 
+                          .X5(shift_out[63:0]), 
+                          .X6(or_out[63:0]), 
+                          .X7(and_out[63:0]), 
+                          .Q(Q[63:0]));
+endmodule

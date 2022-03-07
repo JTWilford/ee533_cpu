@@ -1,0 +1,385 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : alu32.vf
+// /___/   /\     Timestamp : 03/07/2022 06:51:49
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/alu/alu32.sch alu32.vf
+//Design Name: alu32
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module D3_8E_MXILINX_alu32(A0, 
+                           A1, 
+                           A2, 
+                           E, 
+                           D0, 
+                           D1, 
+                           D2, 
+                           D3, 
+                           D4, 
+                           D5, 
+                           D6, 
+                           D7);
+
+    input A0;
+    input A1;
+    input A2;
+    input E;
+   output D0;
+   output D1;
+   output D2;
+   output D3;
+   output D4;
+   output D5;
+   output D6;
+   output D7;
+   
+   
+   AND4 I_36_30 (.I0(A2), 
+                 .I1(A1), 
+                 .I2(A0), 
+                 .I3(E), 
+                 .O(D7));
+   AND4B1 I_36_31 (.I0(A0), 
+                   .I1(A2), 
+                   .I2(A1), 
+                   .I3(E), 
+                   .O(D6));
+   AND4B1 I_36_32 (.I0(A1), 
+                   .I1(A2), 
+                   .I2(A0), 
+                   .I3(E), 
+                   .O(D5));
+   AND4B2 I_36_33 (.I0(A1), 
+                   .I1(A0), 
+                   .I2(A2), 
+                   .I3(E), 
+                   .O(D4));
+   AND4B1 I_36_34 (.I0(A2), 
+                   .I1(A0), 
+                   .I2(A1), 
+                   .I3(E), 
+                   .O(D3));
+   AND4B2 I_36_35 (.I0(A2), 
+                   .I1(A0), 
+                   .I2(A1), 
+                   .I3(E), 
+                   .O(D2));
+   AND4B2 I_36_36 (.I0(A2), 
+                   .I1(A1), 
+                   .I2(A0), 
+                   .I3(E), 
+                   .O(D1));
+   AND4B3 I_36_37 (.I0(A2), 
+                   .I1(A1), 
+                   .I2(A0), 
+                   .I3(E), 
+                   .O(D0));
+endmodule
+`timescale 1ns / 1ps
+
+module FD16RE_MXILINX_alu32(C, 
+                            CE, 
+                            D, 
+                            R, 
+                            Q);
+
+    input C;
+    input CE;
+    input [15:0] D;
+    input R;
+   output [15:0] Q;
+   
+   
+   FDRE I_Q0 (.C(C), 
+              .CE(CE), 
+              .D(D[0]), 
+              .R(R), 
+              .Q(Q[0]));
+   defparam I_Q0.INIT = 1'b0;
+   FDRE I_Q1 (.C(C), 
+              .CE(CE), 
+              .D(D[1]), 
+              .R(R), 
+              .Q(Q[1]));
+   defparam I_Q1.INIT = 1'b0;
+   FDRE I_Q2 (.C(C), 
+              .CE(CE), 
+              .D(D[2]), 
+              .R(R), 
+              .Q(Q[2]));
+   defparam I_Q2.INIT = 1'b0;
+   FDRE I_Q3 (.C(C), 
+              .CE(CE), 
+              .D(D[3]), 
+              .R(R), 
+              .Q(Q[3]));
+   defparam I_Q3.INIT = 1'b0;
+   FDRE I_Q4 (.C(C), 
+              .CE(CE), 
+              .D(D[4]), 
+              .R(R), 
+              .Q(Q[4]));
+   defparam I_Q4.INIT = 1'b0;
+   FDRE I_Q5 (.C(C), 
+              .CE(CE), 
+              .D(D[5]), 
+              .R(R), 
+              .Q(Q[5]));
+   defparam I_Q5.INIT = 1'b0;
+   FDRE I_Q6 (.C(C), 
+              .CE(CE), 
+              .D(D[6]), 
+              .R(R), 
+              .Q(Q[6]));
+   defparam I_Q6.INIT = 1'b0;
+   FDRE I_Q7 (.C(C), 
+              .CE(CE), 
+              .D(D[7]), 
+              .R(R), 
+              .Q(Q[7]));
+   defparam I_Q7.INIT = 1'b0;
+   FDRE I_Q8 (.C(C), 
+              .CE(CE), 
+              .D(D[8]), 
+              .R(R), 
+              .Q(Q[8]));
+   defparam I_Q8.INIT = 1'b0;
+   FDRE I_Q9 (.C(C), 
+              .CE(CE), 
+              .D(D[9]), 
+              .R(R), 
+              .Q(Q[9]));
+   defparam I_Q9.INIT = 1'b0;
+   FDRE I_Q10 (.C(C), 
+               .CE(CE), 
+               .D(D[10]), 
+               .R(R), 
+               .Q(Q[10]));
+   defparam I_Q10.INIT = 1'b0;
+   FDRE I_Q11 (.C(C), 
+               .CE(CE), 
+               .D(D[11]), 
+               .R(R), 
+               .Q(Q[11]));
+   defparam I_Q11.INIT = 1'b0;
+   FDRE I_Q12 (.C(C), 
+               .CE(CE), 
+               .D(D[12]), 
+               .R(R), 
+               .Q(Q[12]));
+   defparam I_Q12.INIT = 1'b0;
+   FDRE I_Q13 (.C(C), 
+               .CE(CE), 
+               .D(D[13]), 
+               .R(R), 
+               .Q(Q[13]));
+   defparam I_Q13.INIT = 1'b0;
+   FDRE I_Q14 (.C(C), 
+               .CE(CE), 
+               .D(D[14]), 
+               .R(R), 
+               .Q(Q[14]));
+   defparam I_Q14.INIT = 1'b0;
+   FDRE I_Q15 (.C(C), 
+               .CE(CE), 
+               .D(D[15]), 
+               .R(R), 
+               .Q(Q[15]));
+   defparam I_Q15.INIT = 1'b0;
+endmodule
+`timescale 1ns / 1ps
+
+module alu32(A, 
+             B, 
+             CE, 
+             CLK, 
+             Op, 
+             RST, 
+             OVR, 
+             S);
+
+    input [31:0] A;
+    input [31:0] B;
+    input CE;
+    input CLK;
+    input [2:0] Op;
+    input RST;
+   output OVR;
+   output [31:0] S;
+   
+   wire add_OVR;
+   wire [31:0] add_S;
+   wire [31:0] and_S;
+   wire [31:0] ff_A;
+   wire [31:0] ff_B;
+   wire ff_Op0;
+   wire ff_Op1;
+   wire ff_Op2;
+   wire ff_OVR;
+   wire [31:0] ff_S;
+   wire invA;
+   wire invB;
+   wire invLogi;
+   wire [31:0] logi_S;
+   wire opAdd;
+   wire opAnd;
+   wire opNand;
+   wire opNoop;
+   wire opNor;
+   wire opOr;
+   wire opShift;
+   wire opSub;
+   wire [31:0] shft_S;
+   wire XLXN_1;
+   wire XLXN_4;
+   wire XLXN_7;
+   wire [31:0] XLXN_366;
+   wire XLXN_371;
+   wire [31:0] xor_A;
+   wire [31:0] xor_B;
+   
+   FD16RE_MXILINX_alu32 ALU_rA_hi (.C(CLK), 
+                                   .CE(CE), 
+                                   .D(A[31:16]), 
+                                   .R(RST), 
+                                   .Q(ff_A[31:16]));
+   // synthesis attribute HU_SET of ALU_rA_hi is "ALU_rA_hi_1"
+   FD16RE_MXILINX_alu32 ALU_rA_low (.C(CLK), 
+                                    .CE(CE), 
+                                    .D(A[15:0]), 
+                                    .R(RST), 
+                                    .Q(ff_A[15:0]));
+   // synthesis attribute HU_SET of ALU_rA_low is "ALU_rA_low_0"
+   FD16RE_MXILINX_alu32 ALU_rB_hi (.C(CLK), 
+                                   .CE(CE), 
+                                   .D(B[31:16]), 
+                                   .R(RST), 
+                                   .Q(ff_B[31:16]));
+   // synthesis attribute HU_SET of ALU_rB_hi is "ALU_rB_hi_3"
+   FD16RE_MXILINX_alu32 ALU_rB_low (.C(CLK), 
+                                    .CE(CE), 
+                                    .D(B[15:0]), 
+                                    .R(RST), 
+                                    .Q(ff_B[15:0]));
+   // synthesis attribute HU_SET of ALU_rB_low is "ALU_rB_low_2"
+   adder8 XLXI_1 (.A(ff_A[7:0]), 
+                  .B(xor_B[7:0]), 
+                  .Cin(opSub), 
+                  .Cout(XLXN_1), 
+                  .S(add_S[7:0]));
+   adder8 XLXI_2 (.A(ff_A[15:8]), 
+                  .B(xor_B[15:8]), 
+                  .Cin(XLXN_1), 
+                  .Cout(XLXN_4), 
+                  .S(add_S[15:8]));
+   adder8 XLXI_3 (.A(ff_A[23:16]), 
+                  .B(xor_B[23:16]), 
+                  .Cin(XLXN_4), 
+                  .Cout(XLXN_7), 
+                  .S(add_S[23:16]));
+   adder8 XLXI_4 (.A(ff_A[31:24]), 
+                  .B(xor_B[31:24]), 
+                  .Cin(XLXN_7), 
+                  .Cout(add_OVR), 
+                  .S(add_S[31:24]));
+   FD16RE_MXILINX_alu32 XLXI_9 (.C(CLK), 
+                                .CE(CE), 
+                                .D(ff_S[15:0]), 
+                                .R(opNoop), 
+                                .Q(S[15:0]));
+   // synthesis attribute HU_SET of XLXI_9 is "XLXI_9_4"
+   FD16RE_MXILINX_alu32 XLXI_10 (.C(CLK), 
+                                 .CE(CE), 
+                                 .D(ff_S[31:16]), 
+                                 .R(opNoop), 
+                                 .Q(S[31:16]));
+   // synthesis attribute HU_SET of XLXI_10 is "XLXI_10_5"
+   FDRE XLXI_14 (.C(CLK), 
+                 .CE(CE), 
+                 .D(ff_OVR), 
+                 .R(opNoop), 
+                 .Q(OVR));
+   defparam XLXI_14.INIT = 1'b0;
+   xor32_by_1 XLXI_57 (.A(ff_B[31:0]), 
+                       .B(invB), 
+                       .S(xor_B[31:0]));
+   shift32 XLXI_59 (.A(ff_A[31:0]), 
+                    .Q(ff_B[4:0]), 
+                    .S(shft_S[31:0]));
+   xor32_by_1 XLXI_64 (.A(ff_A[31:0]), 
+                       .B(invA), 
+                       .S(xor_A[31:0]));
+   and_x32 XLXI_65 (.A(xor_A[31:0]), 
+                    .B(xor_B[31:0]), 
+                    .S(and_S[31:0]));
+   xor32_by_1 XLXI_68 (.A(and_S[31:0]), 
+                       .B(invLogi), 
+                       .S(logi_S[31:0]));
+   D3_8E_MXILINX_alu32 XLXI_73 (.A0(ff_Op0), 
+                                .A1(ff_Op1), 
+                                .A2(ff_Op2), 
+                                .E(CE), 
+                                .D0(opNoop), 
+                                .D1(opShift), 
+                                .D2(opAdd), 
+                                .D3(opSub), 
+                                .D4(opAnd), 
+                                .D5(opOr), 
+                                .D6(opNand), 
+                                .D7(opNor));
+   // synthesis attribute HU_SET of XLXI_73 is "XLXI_73_6"
+   FDRE XLXI_74 (.C(CLK), 
+                 .CE(CE), 
+                 .D(Op[0]), 
+                 .R(RST), 
+                 .Q(ff_Op0));
+   defparam XLXI_74.INIT = 1'b0;
+   FDRE XLXI_75 (.C(CLK), 
+                 .CE(CE), 
+                 .D(Op[1]), 
+                 .R(RST), 
+                 .Q(ff_Op1));
+   defparam XLXI_75.INIT = 1'b0;
+   FDRE XLXI_76 (.C(CLK), 
+                 .CE(CE), 
+                 .D(Op[2]), 
+                 .R(RST), 
+                 .Q(ff_Op2));
+   defparam XLXI_76.INIT = 1'b0;
+   OR2 XLXI_77 (.I0(opNor), 
+                .I1(opOr), 
+                .O(invA));
+   OR2 XLXI_79 (.I0(invA), 
+                .I1(opSub), 
+                .O(invB));
+   OR2 XLXI_80 (.I0(opNand), 
+                .I1(opOr), 
+                .O(invLogi));
+   mux_x32 XLXI_81 (.A(shft_S[31:0]), 
+                    .B(add_S[31:0]), 
+                    .Q(ff_Op1), 
+                    .S(XLXN_366[31:0]));
+   mux_x32 XLXI_82 (.A(XLXN_366[31:0]), 
+                    .B(logi_S[31:0]), 
+                    .Q(ff_Op2), 
+                    .S(ff_S[31:0]));
+   OR2 XLXI_83 (.I0(opSub), 
+                .I1(opAdd), 
+                .O(XLXN_371));
+   AND2 XLXI_84 (.I0(XLXN_371), 
+                 .I1(add_OVR), 
+                 .O(ff_OVR));
+endmodule

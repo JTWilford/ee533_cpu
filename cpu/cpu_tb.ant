@@ -8,7 +8,7 @@
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : ISE
 //  /   /         Filename : cpu_tb.ant
-// /___/   /\     Timestamp : Sat Mar  5 06:19:35 2022
+// /___/   /\     Timestamp : Sun Mar  6 01:51:51 2022
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -20,9 +20,20 @@
 
 module cpu_tb;
     reg clk = 1'b0;
+    reg clk_2x = 1'b0;
+    reg [7:0] DATA_ADDR = 8'b00000000;
+    reg [63:0] DATA_DIN = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+    reg DATA_WEN = 1'b0;
     reg en = 1'b0;
+    reg [8:0] INS_ADDR = 9'b000000000;
+    reg [31:0] INS_DIN = 32'b00000000000000000000000000000000;
+    reg INS_WEN = 1'b0;
     reg [15:0] one = 16'b0000000000000000;
     reg rst = 1'b0;
+    wire [63:0] DATA_DOUT;
+    wire [31:0] instruction;
+    wire [31:0] INS_DOUT;
+    wire [8:0] PC;
 
     parameter PERIOD = 200;
     parameter real DUTY_CYCLE = 0.5;
@@ -41,13 +52,41 @@ module cpu_tb;
 
     datapath64bit UUT (
         .clk(clk),
+        .clk_2x(clk_2x),
+        .DATA_ADDR(DATA_ADDR),
+        .DATA_DIN(DATA_DIN),
+        .DATA_WEN(DATA_WEN),
         .en(en),
+        .INS_ADDR(INS_ADDR),
+        .INS_DIN(INS_DIN),
+        .INS_WEN(INS_WEN),
         .one(one),
-        .rst(rst));
+        .rst(rst),
+        .DATA_DOUT(DATA_DOUT),
+        .instruction(instruction),
+        .INS_DOUT(INS_DOUT),
+        .PC(PC));
 
     integer TX_FILE = 0;
     integer TX_ERROR = 0;
     
+    initial begin    // Annotation process for clock clk
+        #0;
+        ANNOTATE_DATA_DOUT;
+        ANNOTATE_instruction;
+        ANNOTATE_INS_DOUT;
+        ANNOTATE_PC;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_DATA_DOUT;
+            ANNOTATE_instruction;
+            ANNOTATE_INS_DOUT;
+            ANNOTATE_PC;
+            #85;
+        end
+    end
+
     initial begin  // Open the annotations file...
         TX_FILE = $fopen("/home/ise/sf/ee533_cpu/cpu/cpu_tb.ano");
         #3200 // Final time:  3200 ns
@@ -58,20 +97,49 @@ module cpu_tb;
     end
 
     initial begin
-        // -------------  Current Time:  100ns
-        #100;
+        // -------------  Current Time:  185ns
+        #185;
         rst = 1'b1;
         one = 16'b0000000000000001;
         // -------------------------------------
-        // -------------  Current Time:  185ns
-        #85;
+        // -------------  Current Time:  1185ns
+        #1000;
         en = 1'b1;
-        // -------------------------------------
-        // -------------  Current Time:  385ns
-        #200;
         rst = 1'b0;
         // -------------------------------------
     end
+
+    task ANNOTATE_DATA_DOUT;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,DATA_DOUT,%b]", $time, DATA_DOUT);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_instruction;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,instruction,%b]", $time, instruction);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_INS_DOUT;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,INS_DOUT,%b]", $time, INS_DOUT);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_PC;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,PC,%b]", $time, PC);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
 
 endmodule
 

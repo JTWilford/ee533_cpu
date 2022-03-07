@@ -2,9 +2,9 @@
 ; Starting position in memory: 0
 ; 0 -     664           Final order:    -4388
 ; 1 -    1624                           -4323
-; 2 -   -2288                           -4033
+; 2 -   -228                            -4033
 ; 3 -    2327                           -3850
-; 4 -   -3850                           -2288
+; 4 -   -3850                            -228
 ; 5 -   -4033                             664
 ; 6 -   -4388                            1624
 ; 7 -    3349                            2327
@@ -16,15 +16,13 @@ NOOP
 NOOP
 ADDI 1 0 10             ; Load the size of the array into Register 1
 @whileloop              ; Loop until no swaps are made => while (!swapped). Register 3 will be our swapped variable. Initialize to 0 (False)
-ADDI 3 0 0
 ADDI 2 0 1              ; Loop from i = 1 to n-1 => for (i=1; i < 10; i++). Register 2 will be our i
 ADDI 7 0 0              ; Register 7 will be i-1
-NOOP
-NOOP
+ADDI 3 0 0
 NOOP
 @forloop
-LW 4 7                  ; Load A[i-1] into Register 4
 LW 5 2                  ; Load A[i] into Register 5
+LW 4 7                  ; Load A[i-1] into Register 4
 NOOP
 NOOP
 NOOP
@@ -58,6 +56,7 @@ BNEZ 3 @whileloop       ; End of while loop, so check conditions => If swapped =
 NOOP
 NOOP
 NOOP
+ADD 2 1 2
 BEZ 0 @infinite         ; End of program, so loop forever
 NOOP
 NOOP

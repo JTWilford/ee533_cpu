@@ -21,7 +21,7 @@
 module ID_EXreg(
     input [63:0] ID_reg_data1,
     input [63:0] ID_reg_data2,
-    input [63:0] ID_imm,
+    input [1:0] ID_br_ctrl,
     input [2:0] ID_Wreg,
     input [8:0] ID_addr_ins,
     input [5:0] ID_EX_CTRL,
@@ -31,7 +31,7 @@ module ID_EXreg(
 	 
     output [63:0] EX_reg_data1,
     output [63:0] EX_reg_data2,
-    output [63:0] EX_imm,
+	 output [1:0] EX_br_ctrl,
     output [2:0] EX_Wreg,
     output [8:0] EX_addr_ins,
     output [5:0] EX_EX_CTRL,
@@ -45,7 +45,7 @@ module ID_EXreg(
 
 	 reg [63:0] R1out;
 	 reg [63:0] R2out;
-	 reg [63:0] Imm;
+	 reg [1:0] br_ctrl;
 	 reg [2:0] WReg;
 	 reg [8:0] addr_ins;
 	 reg [5:0] EX_CTRL;
@@ -55,7 +55,7 @@ module ID_EXreg(
 	 
 	 assign EX_reg_data1 = R1out;
     assign EX_reg_data2 = R2out;
-    assign EX_imm = Imm;
+	 assign EX_br_ctrl = br_ctrl;
     assign EX_Wreg = WReg;
     assign EX_addr_ins = addr_ins;
     assign EX_EX_CTRL = EX_CTRL;
@@ -69,7 +69,7 @@ module ID_EXreg(
 			begin
 				R1out <= 0;
 				R2out <= 0;
-	         Imm <= 0;
+				br_ctrl <= 0;
 	         WReg <= 0;
 	         addr_ins <= 0;
 	         EX_CTRL <= 0;
@@ -81,7 +81,7 @@ module ID_EXreg(
 			begin
 				R1out <= ID_reg_data1;
 				R2out <= ID_reg_data2;
-	         Imm <= ID_imm;
+				br_ctrl <= ID_br_ctrl;
 	         WReg <= ID_Wreg;
 	         addr_ins <= ID_addr_ins;
 	         EX_CTRL <= ID_EX_CTRL;

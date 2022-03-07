@@ -42,8 +42,11 @@ module instructionmem64(
 	dina,
 	addra,
 	wea,
+	douta,
 	clkb,
+	dinb,
 	addrb,
+	web,
 	doutb);
 
 
@@ -51,8 +54,11 @@ input clka;
 input [31 : 0] dina;
 input [8 : 0] addra;
 input [0 : 0] wea;
+output [31 : 0] douta;
 input clkb;
+input [31 : 0] dinb;
 input [8 : 0] addrb;
+input [0 : 0] web;
 output [31 : 0] doutb;
 
 // synthesis translate_off
@@ -79,7 +85,7 @@ output [31 : 0] doutb;
 		.C_HAS_SSRB(0),
 		.C_INIT_FILE_NAME("instructionmem64.mif"),
 		.C_LOAD_INIT_FILE(1),
-		.C_MEM_TYPE(1),
+		.C_MEM_TYPE(2),
 		.C_MUX_PIPELINE_STAGES(0),
 		.C_PRIM_TYPE(1),
 		.C_READ_DEPTH_A(512),
@@ -108,17 +114,17 @@ output [31 : 0] doutb;
 		.DINA(dina),
 		.ADDRA(addra),
 		.WEA(wea),
+		.DOUTA(douta),
 		.CLKB(clkb),
+		.DINB(dinb),
 		.ADDRB(addrb),
+		.WEB(web),
 		.DOUTB(doutb),
 		.ENA(),
 		.REGCEA(),
 		.SSRA(),
-		.DOUTA(),
-		.DINB(),
 		.ENB(),
 		.REGCEB(),
-		.WEB(),
 		.SSRB(),
 		.DBITERR(),
 		.SBITERR());

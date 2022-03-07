@@ -1,0 +1,177 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : ISE
+//  /   /         Filename : refile_tb.ant
+// /___/   /\     Timestamp : Sun Mar  6 23:23:59 2022
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: refile_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module refile_tb;
+    reg clk = 1'b0;
+    reg rd_en = 1'b0;
+    reg [2:0] r0addr = 3'b000;
+    reg [2:0] r1addr = 3'b000;
+    reg [2:0] wraddr = 3'b100;
+    reg [63:0] wr_din = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+    reg wr_en = 1'b0;
+    wire [63:0] r0_data;
+    wire [63:0] r1_data;
+
+    parameter PERIOD_clk = 200;
+    parameter real DUTY_CYCLE_clk = 0.5;
+    parameter OFFSET_clk = 100;
+    parameter PERIOD_rd_en = 400;
+    parameter real DUTY_CYCLE_rd_en = 0.5;
+    parameter OFFSET_rd_en = 0;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET_clk;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD_clk-(PERIOD_clk*DUTY_CYCLE_clk)) clk = 1'b1;
+            #(PERIOD_clk*DUTY_CYCLE_clk);
+        end
+    end
+
+    initial    // Clock process for rd_en
+    begin
+        #OFFSET_rd_en;
+        forever
+        begin
+            rd_en = 1'b0;
+            #(PERIOD_rd_en-(PERIOD_rd_en*DUTY_CYCLE_rd_en)) rd_en = 1'b1;
+            #(PERIOD_rd_en*DUTY_CYCLE_rd_en);
+        end
+    end
+
+    regfile64bit UUT (
+        .clk(clk),
+        .rd_en(rd_en),
+        .r0addr(r0addr),
+        .r1addr(r1addr),
+        .wraddr(wraddr),
+        .wr_din(wr_din),
+        .wr_en(wr_en),
+        .r0_data(r0_data),
+        .r1_data(r1_data));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock clk
+        #0;
+        ANNOTATE_r0_data;
+        ANNOTATE_r1_data;
+        #OFFSET_clk;
+        forever begin
+            #115;
+            ANNOTATE_r0_data;
+            ANNOTATE_r1_data;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("/home/ise/sf/ee533_cpu/cpu/refile_tb.ano");
+        #3600 // Final time:  3600 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin // Process for clk
+    end
+
+    initial begin // Process for rd_en
+        // -------------  Current Time:  185ns
+        #185;
+        wr_en = 1'b1;
+        r1addr = 3'b001;
+        wr_din = 64'b0000000000000000000000000000000000000000000000000000000000001000;
+        // -------------------------------------
+        // -------------  Current Time:  585ns
+        #400;
+        wr_en = 1'b0;
+        r0addr = 3'b010;
+        r1addr = 3'b011;
+        wr_din = 64'b0000000000000000000000000000000000000000000000000000000000000111;
+        // -------------------------------------
+        // -------------  Current Time:  985ns
+        #400;
+        r0addr = 3'b100;
+        r1addr = 3'b101;
+        wr_din = 64'b0000000000000000000000000000000000000000000000000000000000000110;
+        // -------------------------------------
+        // -------------  Current Time:  1385ns
+        #400;
+        wr_en = 1'b1;
+        r0addr = 3'b000;
+        r1addr = 3'b111;
+        wraddr = 3'b101;
+        wr_din = 64'b0000000000000000000000000000000000000000000000000000000000000101;
+        // -------------------------------------
+        // -------------  Current Time:  1785ns
+        #400;
+        r0addr = 3'b010;
+        r1addr = 3'b001;
+        wraddr = 3'b001;
+        wr_din = 64'b0000000000000000000000000000000000000000000000000000000000000100;
+        // -------------------------------------
+        // -------------  Current Time:  2185ns
+        #400;
+        wr_en = 1'b0;
+        r0addr = 3'b100;
+        r1addr = 3'b011;
+        wr_din = 64'b0000000000000000000000000000000000000000000000000000000000000011;
+        // -------------------------------------
+        // -------------  Current Time:  2585ns
+        #400;
+        r0addr = 3'b000;
+        r1addr = 3'b101;
+        wr_din = 64'b0000000000000000000000000000000000000000000000000000000000000010;
+        // -------------------------------------
+        // -------------  Current Time:  2800ns
+        #215;
+        wr_din = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+        // -------------------------------------
+        // -------------  Current Time:  2985ns
+        #185;
+        r0addr = 3'b010;
+        r1addr = 3'b111;
+        wr_din = 64'b0000000000000000000000000000000000000000000000000000000000000001;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_r0_data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,r0_data,%b]", $time, r0_data);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_r1_data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,r1_data,%b]", $time, r1_data);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+
