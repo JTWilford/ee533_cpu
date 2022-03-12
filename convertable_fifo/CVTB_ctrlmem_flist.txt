@@ -1,0 +1,12 @@
+# Output products list for <CVTB_ctrlmem>
+CVTB_ctrlmem.asy
+CVTB_ctrlmem.ngc
+CVTB_ctrlmem.sym
+CVTB_ctrlmem.v
+CVTB_ctrlmem.veo
+CVTB_ctrlmem.vhd
+CVTB_ctrlmem.vho
+CVTB_ctrlmem.xco
+CVTB_ctrlmem_blk_mem_gen_v2_8_xst_1.ngc_xst.xrpt
+CVTB_ctrlmem_flist.txt
+CVTB_ctrlmem_xmdf.tcl

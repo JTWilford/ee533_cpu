@@ -1,0 +1,216 @@
+Running : /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/fuse -ise
+/home/ise/sf/ee533_cpu/convertable_fifo/new_lab10.ise -intstyle ise -incremental
+-lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o
+convertable_fifo_controller_tb_isim_beh.exe -prj
+convertable_fifo_controller_tb_beh.prj -top convertable_fifo_controller_tb -top
+glbl
+Determining compilation order of HDL files
+Analyzing Verilog file pointer_extend.v
+Analyzing Verilog file out_data_mux.v
+Analyzing Verilog file mux4to1_64.v
+Analyzing Verilog file fifo_write_module.v
+Analyzing Verilog file dff_9bit.v
+Analyzing Verilog file data_mux.v
+Analyzing Verilog file CVTB_mem.v
+Analyzing Verilog file CVTB_ctrlmem.v
+Analyzing Verilog file ctrl_data_mux.v
+Analyzing Verilog file cpu_write_mux.v
+Analyzing Verilog file addr_mux.v
+Analyzing Verilog file CVTB_memory.vf
+Analyzing Verilog file fifo_state_machine.v
+WARNING:HDLCompiler:693 - "fifo_state_machine.v" Line 77. Parameter declaration
+   becomes local in convertable_fifo_controller with formal parameter
+   declaration list
+WARNING:HDLCompiler:693 - "fifo_state_machine.v" Line 78. Parameter declaration
+   becomes local in convertable_fifo_controller with formal parameter
+   declaration list
+WARNING:HDLCompiler:693 - "fifo_state_machine.v" Line 79. Parameter declaration
+   becomes local in convertable_fifo_controller with formal parameter
+   declaration list
+WARNING:HDLCompiler:693 - "fifo_state_machine.v" Line 80. Parameter declaration
+   becomes local in convertable_fifo_controller with formal parameter
+   declaration list
+Analyzing Verilog file convertable_fifo_controller_tb.tfw
+Analyzing Verilog file /opt/Xilinx/10.1/ISE/verilog/src/glbl.v
+Saving Verilog parse-tree work.pointer_extend into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/pointer_extend.sdb
+Saving Verilog parse-tree work.out_data_mux into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/out_data_mux.sdb
+Saving Verilog parse-tree work.mux4to1_64 into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/mux4to1_64.sdb
+Saving Verilog parse-tree work.fifo_write_module into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/fifo_write_module.sdb
+Saving Verilog parse-tree work.dff_9bit into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/dff_9bit.sdb
+Saving Verilog parse-tree work.data_mux into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/data_mux.sdb
+Saving Verilog parse-tree work.CVTB_mem into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/@c@v@t@b_mem.sdb
+Saving Verilog parse-tree work.CVTB_ctrlmem into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/@c@v@t@b_ctrlmem.sdb
+Saving Verilog parse-tree work.ctrl_data_mux into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/ctrl_data_mux.sdb
+Saving Verilog parse-tree work.cpu_write_mux into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/cpu_write_mux.sdb
+Saving Verilog parse-tree work.addr_mux into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/addr_mux.sdb
+Saving Verilog parse-tree work.M2_1_MXILINX_CVTB_memory into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/@m2_1_@m@x@i@l@i@n@x_@c@v@t@b_
+memory.sdb
+Saving Verilog parse-tree work.FTCLEX_MXILINX_CVTB_memory into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/@f@t@c@l@e@x_@m@x@i@l@i@n@x_@c
+@v@t@b_memory.sdb
+Saving Verilog parse-tree work.CB16CLE_MXILINX_CVTB_memory into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/@c@b16@c@l@e_@m@x@i@l@i@n@x_@c
+@v@t@b_memory.sdb
+Saving Verilog parse-tree work.CVTB_memory into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/@c@v@t@b_memory.sdb
+Saving Verilog parse-tree work.convertable_fifo_controller into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/convertable_fifo_controller.sd
+b
+Saving Verilog parse-tree work.convertable_fifo_controller_tb into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/convertable_fifo_controller_tb
+.sdb
+Saving Verilog parse-tree work.glbl into
+/home/ise/sf/ee533_cpu/convertable_fifo/isim/work/glbl.sdb
+Starting static elaboration
+Restoring Verilog parse-tree unisims_ver.AND2B1 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.OR2 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND2 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.XOR2 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.FDCE from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND5 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND4 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.AND3 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.VCC from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_7 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
+Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_7_output_stage
+from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.GND from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.FDR from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_8 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
+Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_8_output_stage
+from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
+WARNING:HDLCompiler:189 - "fifo_state_machine.v" Line 97. Actual bit length 64
+   differs from formal bit length 9 for port cpu_addr_in
+Completed static elaboration
+Fuse Memory Usage: 23792 Kb
+Fuse CPU Usage: 90 ms
+Compiling module glbl
+Compiling module AND2B1
+Compiling module OR2
+Compiling module AND2
+Compiling module M2_1_MXILINX_CVTB_memory
+Compiling module XOR2
+Compiling module FDCE(INIT=1'b0)_0
+Compiling module FDCE(INIT=1'b0)_1
+Compiling module FDCE(INIT=1'b0)_2
+Compiling module FDCE(INIT=1'b0)_3
+Compiling module FDCE(INIT=1'b0)_4
+Compiling module FDCE(INIT=1'b0)_5
+Compiling module FDCE(INIT=1'b0)_6
+Compiling module FDCE(INIT=1'b0)_7
+Compiling module FDCE(INIT=1'b0)_8
+Compiling module FDCE(INIT=1'b0)_9
+Compiling module FDCE(INIT=1'b0)_10
+Compiling module FDCE(INIT=1'b0)_11
+Compiling module FDCE(INIT=1'b0)_12
+Compiling module FDCE(INIT=1'b0)_13
+Compiling module FDCE(INIT=1'b0)_14
+Compiling module FDCE(INIT=1'b0)_15
+Compiling module FDCE(INIT=1'b0)_16
+Compiling module FDCE(INIT=1'b0)_17
+Compiling module FDCE(INIT=1'b0)_18
+Compiling module FDCE(INIT=1'b0)_19
+Compiling module FDCE(INIT=1'b0)_20
+Compiling module FDCE(INIT=1'b0)_21
+Compiling module FDCE(INIT=1'b0)_22
+Compiling module FDCE(INIT=1'b0)_23
+Compiling module FDCE(INIT=1'b0)_24
+Compiling module FDCE(INIT=1'b0)_25
+Compiling module FDCE(INIT=1'b0)_26
+Compiling module FDCE(INIT=1'b0)_27
+Compiling module FDCE(INIT=1'b0)_28
+Compiling module FDCE(INIT=1'b0)_29
+Compiling module FDCE(INIT=1'b0)_30
+Compiling module FDCE(INIT=1'b0)_31
+Compiling module FTCLEX_MXILINX_CVTB_memory
+Compiling module FTCLEX_MXILINX_CVTB_memory_2
+Compiling module FTCLEX_MXILINX_CVTB_memory_3
+Compiling module FTCLEX_MXILINX_CVTB_memory_4
+Compiling module FTCLEX_MXILINX_CVTB_memory_5
+Compiling module FTCLEX_MXILINX_CVTB_memory_6
+Compiling module FTCLEX_MXILINX_CVTB_memory_7
+Compiling module FTCLEX_MXILINX_CVTB_memory_8
+Compiling module FTCLEX_MXILINX_CVTB_memory_9
+Compiling module FTCLEX_MXILINX_CVTB_memory_10
+Compiling module FTCLEX_MXILINX_CVTB_memory_11
+Compiling module FTCLEX_MXILINX_CVTB_memory_12
+Compiling module FTCLEX_MXILINX_CVTB_memory_13
+Compiling module FTCLEX_MXILINX_CVTB_memory_14
+Compiling module FTCLEX_MXILINX_CVTB_memory_15
+Compiling module FTCLEX_MXILINX_CVTB_memory_16
+Compiling module AND5
+Compiling module AND4
+Compiling module AND3
+Compiling module VCC
+Compiling module CB16CLE_MXILINX_CVTB_memory
+Compiling module FTCLEX_MXILINX_CVTB_memory_17
+Compiling module FTCLEX_MXILINX_CVTB_memory_18
+Compiling module FTCLEX_MXILINX_CVTB_memory_19
+Compiling module FTCLEX_MXILINX_CVTB_memory_20
+Compiling module FTCLEX_MXILINX_CVTB_memory_21
+Compiling module FTCLEX_MXILINX_CVTB_memory_22
+Compiling module FTCLEX_MXILINX_CVTB_memory_23
+Compiling module FTCLEX_MXILINX_CVTB_memory_24
+Compiling module FTCLEX_MXILINX_CVTB_memory_25
+Compiling module FTCLEX_MXILINX_CVTB_memory_26
+Compiling module FTCLEX_MXILINX_CVTB_memory_27
+Compiling module FTCLEX_MXILINX_CVTB_memory_28
+Compiling module FTCLEX_MXILINX_CVTB_memory_29
+Compiling module FTCLEX_MXILINX_CVTB_memory_30
+Compiling module FTCLEX_MXILINX_CVTB_memory_31
+Compiling module FTCLEX_MXILINX_CVTB_memory_32
+Compiling module CB16CLE_MXILINX_CVTB_memory_2
+Compiling module data_mux
+Compiling module addr_mux
+Compiling module pointer_extend
+Compiling module mux4to1_64
+Compiling module BLK_MEM_GEN_V2_7_output_stage(C_...
+Compiling module BLK_MEM_GEN_V2_7(C_ADDRA_WIDTH=9...
+Compiling module CVTB_mem
+Compiling module GND
+Compiling module FDR(INIT=1'b0)_0
+Compiling module FDR(INIT=1'b0)_1
+Compiling module FDR(INIT=1'b0)_2
+Compiling module BLK_MEM_GEN_V2_8_output_stage(C_...
+Compiling module BLK_MEM_GEN_V2_8(C_ADDRA_WIDTH=9...
+Compiling module CVTB_ctrlmem
+Compiling module cpu_write_mux
+Compiling module ctrl_data_mux
+Compiling module fifo_write_module
+Compiling module dff_9bit
+Compiling module out_data_mux
+Compiling module CVTB_memory
+Compiling module convertable_fifo_controller
+Compiling module convertable_fifo_controller_tb
+Compiled 98 Verilog Units
+Built simulation executable convertable_fifo_controller_tb_isim_beh.exe
+Fuse Memory Usage: 26040 Kb
+Fuse CPU Usage: 400 ms
+GCC CPU Usage: 150 ms

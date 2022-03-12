@@ -1,0 +1,79 @@
+Command line:
+   ./convertable_fifo_controller_tb_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  60838
+WARNING:Simulator:678 -  For instance UUT/fifo_dut/, width 9 of formal port
+   cpu_addr_in is not equal to width 64 of actual signal cpu_addr_in.
+
+Sat Mar 12 17:25:19 2022
+
+Total Line Count : 1226
+
+ Elaboration Time: 0.06 sec
+
+ Current Memory Usage: 234.848 Meg
+
+ Total Signals          : 1605
+ Total Nets             : 1182
+ Total Signal Drivers   : 425
+ Total Blocks           : 313
+ Total Primitive Blocks : 240
+ Total Processes        : 590
+ Total Traceable Variables  : 494
+ Total Scalar Nets and Variables : 69791
+ntrace select -o on -n /convertable_fifo_controller_tb/in_rdy 
+ntrace select -o on -n /convertable_fifo_controller_tb/out_data 
+ntrace select -o on -n /convertable_fifo_controller_tb/out_ctrl 
+ntrace select -o on -n /convertable_fifo_controller_tb/out_wr 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/XLXI_140/sel 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/XLXI_140/cpu_pkt_ctrl_pre 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/XLXI_140/data0 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/XLXI_140/data1 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/XLXI_140/data2 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/XLXI_140/clk 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/XLXI_140/rst 
+ntrace select -o on -n /convertable_fifo_controller_tb/in_data 
+ntrace select -o on -n /convertable_fifo_controller_tb/in_ctrl 
+ntrace select -o on -n /convertable_fifo_controller_tb/in_wr 
+ntrace select -o on -n /convertable_fifo_controller_tb/out_rdy 
+ntrace select -o on -n /convertable_fifo_controller_tb/cpu_addr_in 
+ntrace select -o on -n /convertable_fifo_controller_tb/cpu_din 
+ntrace select -o on -n /convertable_fifo_controller_tb/cpu_wen 
+ntrace select -o on -n /convertable_fifo_controller_tb/reset 
+ntrace select -o on -n /convertable_fifo_controller_tb/clk 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/clk 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/cpu_addr_in 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/cpu_cmd 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/cpu_ctrl 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/cpu_din 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/cpu_write 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/end_of_pkt 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/in_ctrl 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/in_data 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/in_wr 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/out_rdy 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/rst 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/dout_a 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/hold 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/out_ctrl 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/out_data 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/out_wr 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/fifo_head_ptr 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/fifo_tail_ptr 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/wena 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/wenb 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/fifo_dut/write 
+ntrace select -o on -n /convertable_fifo_controller_tb/UUT/cpu_dout 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+isimrun 10000 ns 
+
+ Total Simulation Time: 0.1 sec
+
+ Current Memory Usage: 250.429 Meg
+
+Sat Mar 12 17:26:38 2022
+

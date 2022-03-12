@@ -1,0 +1,12 @@
+[Inputs]
+sel
+pkt_ctrl
+=data0[63:0]=
+=data1[63:0]=
+=data2[63:0]=
+[Outputs]
+=data_out[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel ctl_data_mux
+

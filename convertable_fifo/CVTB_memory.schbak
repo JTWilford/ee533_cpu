@@ -1,0 +1,882 @@
+VERSION 6
+BEGIN SCHEMATIC
+    BEGIN ATTR DeviceFamilyName "virtex2p"
+        DELETE all:0
+        EDITNAME all:0
+        EDITTRAIT all:0
+    END ATTR
+    BEGIN NETLIST
+        SIGNAL wena
+        SIGNAL cpu_addr_in(8:0)
+        SIGNAL cpu_din(63:0)
+        SIGNAL in_data(63:0)
+        SIGNAL fifo_write
+        SIGNAL fifo_head_ptr(8:0)
+        SIGNAL fifo_tail_ptr(8:0)
+        SIGNAL XLXN_87(15:0)
+        SIGNAL XLXN_88(15:0)
+        SIGNAL rst
+        SIGNAL clk
+        SIGNAL in_pkt_body
+        SIGNAL begin_pkt
+        SIGNAL end_of_pkt
+        SIGNAL fifo_tail_ptr(15:0)
+        SIGNAL fifo_head_ptr(15:0)
+        SIGNAL dout_a(63:0)
+        SIGNAL cpu_write_head
+        SIGNAL cpu_din(8:0)
+        SIGNAL fifo_din(63:0)
+        SIGNAL fifo_write_addr(8:0)
+        SIGNAL full
+        SIGNAL cpu_write_tail
+        SIGNAL cpu_done
+        SIGNAL fifo_done
+        SIGNAL XLXN_272(63:0)
+        SIGNAL dout_b(63:0)
+        SIGNAL fifo_write_addr(1:0)
+        SIGNAL XLXN_189(63:0)
+        SIGNAL XLXN_190(63:0)
+        SIGNAL XLXN_215(63:0)
+        SIGNAL XLXN_301(63:0)
+        SIGNAL XLXN_307(63:0)
+        SIGNAL XLXN_313(63:0)
+        SIGNAL head_ce
+        SIGNAL XLXN_327(0:0)
+        SIGNAL XLXN_328
+        SIGNAL cpu_write_data
+        SIGNAL cpu_ctrl
+        SIGNAL cpu_ctrl_pre
+        SIGNAL XLXN_335(8:0)
+        SIGNAL XLXN_337(7:0)
+        SIGNAL XLXN_338(0:0)
+        SIGNAL XLXN_340(8:0)
+        SIGNAL XLXN_341(0:0)
+        SIGNAL XLXN_344(7:0)
+        SIGNAL cpu_data
+        SIGNAL cpu_pkt_ctrl
+        SIGNAL cpu_tail
+        SIGNAL cpu_head
+        SIGNAL cpu_cmd(1:0)
+        PORT Input cpu_addr_in(8:0)
+        PORT Input cpu_din(63:0)
+        PORT Input in_data(63:0)
+        PORT Input rst
+        PORT Input clk
+        PORT Input in_pkt_body
+        PORT Input begin_pkt
+        PORT Input end_of_pkt
+        PORT Output dout_a(63:0)
+        PORT Output dout_b(63:0)
+        PORT Input cpu_ctrl
+        PORT Input cpu_cmd(1:0)
+        BEGIN BLOCKDEF or2
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 0 -64 64 -64 
+            LINE N 0 -128 64 -128 
+            LINE N 256 -96 192 -96 
+            ARC N 28 -224 204 -48 112 -48 192 -96 
+            ARC N -40 -152 72 -40 48 -48 48 -144 
+            LINE N 112 -144 48 -144 
+            ARC N 28 -144 204 32 192 -96 112 -144 
+            LINE N 112 -48 48 -48 
+        END BLOCKDEF
+        BEGIN BLOCKDEF data_mux
+            TIMESTAMP 2022 3 9 17 48 13
+            RECTANGLE N 64 -192 384 0 
+            LINE N 64 -160 0 -160 
+            RECTANGLE N 0 -108 64 -84 
+            LINE N 64 -96 0 -96 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 384 -172 448 -148 
+            LINE N 384 -160 448 -160 
+        END BLOCKDEF
+        BEGIN BLOCKDEF addr_mux
+            TIMESTAMP 2022 3 10 4 12 5
+            RECTANGLE N 64 -192 320 0 
+            LINE N 64 -160 0 -160 
+            RECTANGLE N 0 -108 64 -84 
+            LINE N 64 -96 0 -96 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 320 -172 384 -148 
+            LINE N 320 -160 384 -160 
+        END BLOCKDEF
+        BEGIN BLOCKDEF CVTB_mem
+            TIMESTAMP 2022 3 12 8 21 36
+            RECTANGLE N 32 32 544 576 
+            BEGIN LINE W 0 80 32 80 
+            END LINE
+            BEGIN LINE W 0 112 32 112 
+            END LINE
+            BEGIN LINE W 0 208 32 208 
+            END LINE
+            LINE N 0 272 32 272 
+            BEGIN LINE W 0 336 32 336 
+            END LINE
+            BEGIN LINE W 0 368 32 368 
+            END LINE
+            BEGIN LINE W 0 464 32 464 
+            END LINE
+            LINE N 0 528 32 528 
+            BEGIN LINE W 576 80 544 80 
+            END LINE
+            BEGIN LINE W 576 336 544 336 
+            END LINE
+        END BLOCKDEF
+        BEGIN BLOCKDEF cb16cle
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 384 -384 320 -384 
+            RECTANGLE N 320 -396 384 -372 
+            RECTANGLE N 0 -396 64 -372 
+            LINE N 80 -128 64 -144 
+            LINE N 64 -112 80 -128 
+            LINE N 192 -32 64 -32 
+            LINE N 192 -64 192 -32 
+            RECTANGLE N 64 -448 320 -64 
+            LINE N 384 -192 320 -192 
+            LINE N 384 -128 320 -128 
+            LINE N 0 -384 64 -384 
+            LINE N 0 -256 64 -256 
+            LINE N 0 -32 64 -32 
+            LINE N 0 -128 64 -128 
+            LINE N 0 -192 64 -192 
+        END BLOCKDEF
+        BEGIN BLOCKDEF pointer_extend
+            TIMESTAMP 2022 3 10 22 46 48
+            RECTANGLE N 64 -64 320 0 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 320 -44 384 -20 
+            LINE N 320 -32 384 -32 
+        END BLOCKDEF
+        BEGIN BLOCKDEF ctl_data_mux
+            TIMESTAMP 2022 3 12 9 19 34
+            RECTANGLE N 64 -192 384 0 
+            RECTANGLE N 0 -108 64 -84 
+            LINE N 64 -96 0 -96 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 384 -108 448 -84 
+            LINE N 384 -96 448 -96 
+            LINE N 64 -160 0 -160 
+        END BLOCKDEF
+        BEGIN BLOCKDEF mux4to1_64
+            TIMESTAMP 2022 3 10 2 0 2
+            RECTANGLE N 64 -320 384 0 
+            RECTANGLE N 0 -236 64 -212 
+            LINE N 64 -224 0 -224 
+            RECTANGLE N 0 -172 64 -148 
+            LINE N 64 -160 0 -160 
+            RECTANGLE N 0 -108 64 -84 
+            LINE N 64 -96 0 -96 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 0 -300 64 -276 
+            LINE N 64 -288 0 -288 
+            RECTANGLE N 384 -172 448 -148 
+            LINE N 384 -160 448 -160 
+        END BLOCKDEF
+        BEGIN BLOCKDEF extend_10_to_64
+            TIMESTAMP 2022 3 10 4 17 12
+            RECTANGLE N 64 -64 384 0 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 384 -44 448 -20 
+            LINE N 384 -32 448 -32 
+        END BLOCKDEF
+        BEGIN BLOCKDEF extend1to64
+            TIMESTAMP 2022 3 10 4 17 41
+            LINE N 64 32 0 32 
+            RECTANGLE N 320 20 384 44 
+            LINE N 320 32 384 32 
+            RECTANGLE N 64 0 320 64 
+        END BLOCKDEF
+        BEGIN BLOCKDEF or3
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 0 -64 48 -64 
+            LINE N 0 -128 72 -128 
+            LINE N 0 -192 48 -192 
+            LINE N 256 -128 192 -128 
+            ARC N 28 -256 204 -80 112 -80 192 -128 
+            ARC N -40 -184 72 -72 48 -80 48 -176 
+            LINE N 48 -64 48 -80 
+            LINE N 48 -192 48 -176 
+            LINE N 112 -80 48 -80 
+            ARC N 28 -176 204 0 192 -128 112 -176 
+            LINE N 112 -176 48 -176 
+        END BLOCKDEF
+        BEGIN BLOCKDEF fifo_write_module
+            TIMESTAMP 2022 3 10 6 5 53
+            RECTANGLE N 64 -192 320 0 
+            LINE N 64 -160 0 -160 
+            LINE N 64 -96 0 -96 
+            LINE N 64 -32 0 -32 
+            LINE N 320 -160 384 -160 
+            LINE N 320 -32 384 -32 
+        END BLOCKDEF
+        BEGIN BLOCKDEF dff_64bit
+            TIMESTAMP 2022 3 10 23 19 44
+            RECTANGLE N 64 -256 320 0 
+            RECTANGLE N 320 -236 384 -212 
+            LINE N 320 -224 384 -224 
+            RECTANGLE N 0 -236 64 -212 
+            LINE N 64 -224 0 -224 
+            LINE N 64 -80 0 -80 
+            LINE N 64 -16 0 -16 
+        END BLOCKDEF
+        BEGIN BLOCKDEF or2b1
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 0 -64 32 -64 
+            CIRCLE N 32 -76 56 -52 
+            LINE N 0 -128 64 -128 
+            LINE N 256 -96 192 -96 
+            LINE N 112 -48 48 -48 
+            ARC N 28 -144 204 32 192 -96 112 -144 
+            LINE N 112 -144 48 -144 
+            ARC N -40 -152 72 -40 48 -48 48 -144 
+            ARC N 28 -224 204 -48 112 -48 192 -96 
+        END BLOCKDEF
+        BEGIN BLOCKDEF gnd
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 64 -64 64 -96 
+            LINE N 76 -48 52 -48 
+            LINE N 68 -32 60 -32 
+            LINE N 88 -64 40 -64 
+            LINE N 64 -64 64 -80 
+            LINE N 64 -128 64 -96 
+        END BLOCKDEF
+        BEGIN BLOCKDEF fdr
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 0 -128 64 -128 
+            LINE N 0 -256 64 -256 
+            LINE N 384 -256 320 -256 
+            LINE N 0 -32 64 -32 
+            RECTANGLE N 64 -320 320 -64 
+            LINE N 192 -64 192 -32 
+            LINE N 192 -32 64 -32 
+            LINE N 64 -112 80 -128 
+            LINE N 80 -128 64 -144 
+        END BLOCKDEF
+        BEGIN BLOCKDEF CVTB_ctrlmem
+            TIMESTAMP 2022 3 12 9 4 46
+            RECTANGLE N 32 32 544 576 
+            BEGIN LINE W 0 80 32 80 
+            END LINE
+            BEGIN LINE W 0 112 32 112 
+            END LINE
+            BEGIN LINE W 0 208 32 208 
+            END LINE
+            LINE N 0 272 32 272 
+            BEGIN LINE W 0 336 32 336 
+            END LINE
+            BEGIN LINE W 0 368 32 368 
+            END LINE
+            BEGIN LINE W 0 464 32 464 
+            END LINE
+            LINE N 0 528 32 528 
+            BEGIN LINE W 576 80 544 80 
+            END LINE
+            BEGIN LINE W 576 336 544 336 
+            END LINE
+        END BLOCKDEF
+        BEGIN BLOCKDEF cpu_write_mux
+            TIMESTAMP 2022 3 12 9 35 58
+            RECTANGLE N 64 -320 416 0 
+            LINE N 64 -160 0 -160 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            LINE N 416 -288 480 -288 
+            LINE N 416 -224 480 -224 
+            LINE N 416 -160 480 -160 
+            LINE N 416 -96 480 -96 
+            LINE N 416 -32 480 -32 
+        END BLOCKDEF
+        BEGIN BLOCK XLXI_25 data_mux
+            PIN sel full
+            PIN data0(63:0) in_data(63:0)
+            PIN data1(63:0) cpu_din(63:0)
+            PIN data_out(63:0) fifo_din(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_27 addr_mux
+            PIN sel full
+            PIN addr0(8:0) fifo_tail_ptr(8:0)
+            PIN addr1(8:0) cpu_addr_in(8:0)
+            PIN addr_out(8:0) fifo_write_addr(8:0)
+        END BLOCK
+        BEGIN BLOCK TailPointer cb16cle
+            PIN C clk
+            PIN CE XLXN_328
+            PIN CLR rst
+            PIN D(15:0) XLXN_87(15:0)
+            PIN L cpu_write_tail
+            PIN CEO
+            PIN Q(15:0) fifo_tail_ptr(15:0)
+            PIN TC
+        END BLOCK
+        BEGIN BLOCK HeadPointer cb16cle
+            PIN C clk
+            PIN CE head_ce
+            PIN CLR rst
+            PIN D(15:0) XLXN_88(15:0)
+            PIN L cpu_write_head
+            PIN CEO
+            PIN Q(15:0) fifo_head_ptr(15:0)
+            PIN TC
+        END BLOCK
+        BEGIN BLOCK XLXI_34 pointer_extend
+            PIN ip_in(8:0) cpu_din(8:0)
+            PIN ip_out(15:0) XLXN_87(15:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_35 pointer_extend
+            PIN ip_in(8:0) cpu_din(8:0)
+            PIN ip_out(15:0) XLXN_88(15:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_64 ctl_data_mux
+            PIN data0(63:0) XLXN_307(63:0)
+            PIN data1(63:0) XLXN_272(63:0)
+            PIN sel cpu_ctrl_pre
+            PIN data_out(63:0) dout_a(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_85 or3
+            PIN I0 end_of_pkt
+            PIN I1 cpu_write_data
+            PIN I2 fifo_write
+            PIN O wena
+        END BLOCK
+        BEGIN BLOCK XLXI_87 CVTB_mem
+            PIN addra(8:0) fifo_write_addr(8:0)
+            PIN dina(63:0) fifo_din(63:0)
+            PIN wea(0:0) wena
+            PIN clka clk
+            PIN addrb(8:0) fifo_head_ptr(8:0)
+            PIN dinb(63:0)
+            PIN web(0:0) XLXN_327(0:0)
+            PIN clkb clk
+            PIN douta(63:0) XLXN_272(63:0)
+            PIN doutb(63:0) dout_b(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_88 fifo_write_module
+            PIN endpkt end_of_pkt
+            PIN done cpu_done
+            PIN clk clk
+            PIN full full
+            PIN fifo_done fifo_done
+        END BLOCK
+        BEGIN BLOCK XLXI_65 mux4to1_64
+            PIN data0(63:0) XLXN_189(63:0)
+            PIN data1(63:0) XLXN_190(63:0)
+            PIN data2(63:0) XLXN_313(63:0)
+            PIN data3(63:0) XLXN_215(63:0)
+            PIN sel(1:0) fifo_write_addr(1:0)
+            PIN data_out(63:0) XLXN_301(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_67 extend_10_to_64
+            PIN addr_in(8:0) fifo_tail_ptr(8:0)
+            PIN addr_out(63:0) XLXN_189(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_68 extend_10_to_64
+            PIN addr_in(8:0) fifo_head_ptr(8:0)
+            PIN addr_out(63:0) XLXN_190(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_79 extend1to64
+            PIN data_in fifo_done
+            PIN data_out(63:0) XLXN_215(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_80 extend1to64
+            PIN data_in full
+            PIN data_out(63:0) XLXN_313(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_107 dff_64bit
+            PIN Q(63:0) XLXN_307(63:0)
+            PIN D(63:0) XLXN_301(63:0)
+            PIN clk clk
+            PIN rst rst
+        END BLOCK
+        BEGIN BLOCK XLXI_111 or2b1
+            PIN I0 full
+            PIN I1 cpu_write_head
+            PIN O head_ce
+        END BLOCK
+        BEGIN BLOCK XLXI_112 or2b1
+            PIN I0 full
+            PIN I1 cpu_write_tail
+            PIN O XLXN_328
+        END BLOCK
+        BEGIN BLOCK XLXI_113 gnd
+            PIN G XLXN_327(0:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_38 or2
+            PIN I0 in_pkt_body
+            PIN I1 begin_pkt
+            PIN O fifo_write
+        END BLOCK
+        BEGIN BLOCK XLXI_115 fdr
+            PIN C clk
+            PIN D cpu_ctrl
+            PIN R rst
+            PIN Q cpu_ctrl_pre
+        END BLOCK
+        BEGIN BLOCK XLXI_116 CVTB_ctrlmem
+            PIN addra(8:0) XLXN_335(8:0)
+            PIN dina(7:0) XLXN_337(7:0)
+            PIN wea(0:0) XLXN_338(0:0)
+            PIN clka clk
+            PIN addrb(8:0) XLXN_340(8:0)
+            PIN dinb(7:0)
+            PIN web(0:0) XLXN_341(0:0)
+            PIN clkb clk
+            PIN douta(7:0)
+            PIN doutb(7:0) XLXN_344(7:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_117 gnd
+            PIN G XLXN_341(0:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_118 cpu_write_mux
+            PIN cpu_ctrl cpu_ctrl
+            PIN cpu_cmd(1:0) cpu_cmd(1:0)
+            PIN cpu_write_tail cpu_tail
+            PIN cpu_write_head cpu_head
+            PIN cpu_done cpu_done
+            PIN cpu_write_data cpu_data
+            PIN cpu_pkt_ctrl cpu_pkt_ctrl
+        END BLOCK
+    END NETLIST
+    BEGIN SHEET 1 7040 5440
+        BEGIN BRANCH wena
+            WIRE 3728 1408 3872 1408
+            BEGIN DISPLAY 3728 1408 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_addr_in(8:0)
+            WIRE 3072 1104 3200 1104
+        END BRANCH
+        BEGIN BRANCH cpu_din(63:0)
+            WIRE 3072 1360 3168 1360
+        END BRANCH
+        BEGIN BRANCH in_data(63:0)
+            WIRE 3072 1296 3168 1296
+        END BRANCH
+        BEGIN INSTANCE XLXI_25 3168 1392 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_27 3200 1136 R0
+        END INSTANCE
+        BEGIN INSTANCE HeadPointer 2432 1824 R0
+            BEGIN DISPLAY 0 -536 ATTR InstName
+                FONT 28 "Arial"
+            END DISPLAY
+        END INSTANCE
+        BEGIN BRANCH fifo_tail_ptr(8:0)
+            WIRE 3040 1040 3200 1040
+            BEGIN DISPLAY 3040 1040 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH XLXN_87(15:0)
+            WIRE 2048 864 2432 864
+        END BRANCH
+        BEGIN BRANCH XLXN_88(15:0)
+            WIRE 2032 1440 2432 1440
+        END BRANCH
+        BEGIN BRANCH in_pkt_body
+            WIRE 720 240 1248 240
+        END BRANCH
+        BEGIN BRANCH begin_pkt
+            WIRE 720 176 1248 176
+        END BRANCH
+        BEGIN BRANCH end_of_pkt
+            WIRE 720 352 1280 352
+            WIRE 1280 352 1280 512
+            WIRE 1280 512 1360 512
+            WIRE 1280 352 1648 352
+            WIRE 1648 336 1648 352
+        END BRANCH
+        IOMARKER 3072 1104 cpu_addr_in(8:0) R180 28
+        IOMARKER 3072 1360 cpu_din(63:0) R180 28
+        IOMARKER 3072 1296 in_data(63:0) R180 28
+        BEGIN BRANCH fifo_tail_ptr(15:0)
+            WIRE 2816 864 2944 864
+            BEGIN DISPLAY 2944 864 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH fifo_head_ptr(15:0)
+            WIRE 2816 1440 2960 1440
+            BEGIN DISPLAY 2960 1440 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_64 5296 960 R0
+        END INSTANCE
+        BEGIN BRANCH dout_a(63:0)
+            WIRE 5744 864 5936 864
+        END BRANCH
+        BEGIN INSTANCE XLXI_34 1664 896 R0
+        END INSTANCE
+        BEGIN BRANCH rst
+            WIRE 720 1216 1440 1216
+            WIRE 1440 1216 2432 1216
+            WIRE 1440 1216 1440 1792
+            WIRE 1440 1792 2432 1792
+        END BRANCH
+        BEGIN BRANCH clk
+            WIRE 720 1120 1328 1120
+            WIRE 1328 1120 1424 1120
+            WIRE 1424 1120 1424 1696
+            WIRE 1424 1696 2432 1696
+            WIRE 1424 1696 1424 1888
+            WIRE 1424 1888 3856 1888
+            WIRE 1424 1120 2432 1120
+            WIRE 1328 640 1360 640
+            WIRE 1328 640 1328 1120
+            WIRE 3856 1472 3872 1472
+            WIRE 3856 1472 3856 1728
+            WIRE 3856 1728 3872 1728
+            WIRE 3856 1728 3856 1888
+        END BRANCH
+        BEGIN BRANCH fifo_din(63:0)
+            WIRE 3616 1232 3680 1232
+            WIRE 3680 1232 3744 1232
+            WIRE 3744 1232 3744 1312
+            WIRE 3744 1312 3872 1312
+            BEGIN DISPLAY 3680 1232 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_87 3872 1200 R0
+        END INSTANCE
+        BEGIN BRANCH fifo_write_addr(8:0)
+            WIRE 3584 976 3680 976
+            WIRE 3680 976 3760 976
+            WIRE 3760 976 3760 1280
+            WIRE 3760 1280 3872 1280
+            BEGIN DISPLAY 3680 976 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_35 1648 1472 R0
+        END INSTANCE
+        BEGIN INSTANCE TailPointer 2432 1248 R0
+            BEGIN DISPLAY 0 -536 ATTR InstName
+                FONT 28 "Arial"
+            END DISPLAY
+        END INSTANCE
+        BEGIN INSTANCE XLXI_88 1360 672 R0
+        END INSTANCE
+        BEGIN BRANCH cpu_done
+            WIRE 720 576 1360 576
+            BEGIN DISPLAY 720 576 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH XLXN_272(63:0)
+            WIRE 4448 1280 5248 1280
+            WIRE 5248 928 5248 1280
+            WIRE 5248 928 5296 928
+        END BRANCH
+        BEGIN BRANCH dout_b(63:0)
+            WIRE 4448 1536 4640 1536
+        END BRANCH
+        IOMARKER 5936 864 dout_a(63:0) R0 28
+        IOMARKER 4640 1536 dout_b(63:0) R0 28
+        BEGIN INSTANCE XLXI_65 4112 880 R0
+        END INSTANCE
+        BEGIN BRANCH fifo_write_addr(1:0)
+            WIRE 3952 592 4112 592
+            BEGIN DISPLAY 3952 592 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_67 3584 688 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_68 3584 752 R0
+        END INSTANCE
+        BEGIN BRANCH XLXN_189(63:0)
+            WIRE 4032 656 4112 656
+        END BRANCH
+        BEGIN BRANCH XLXN_190(63:0)
+            WIRE 4032 720 4112 720
+        END BRANCH
+        BEGIN BRANCH fifo_tail_ptr(8:0)
+            WIRE 3488 656 3584 656
+            BEGIN DISPLAY 3488 656 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH fifo_head_ptr(8:0)
+            WIRE 3488 720 3584 720
+            BEGIN DISPLAY 3488 720 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH XLXN_215(63:0)
+            WIRE 3968 848 4112 848
+        END BRANCH
+        BEGIN INSTANCE XLXI_79 3584 816 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_80 3584 752 R0
+        END INSTANCE
+        BEGIN BRANCH full
+            WIRE 3504 784 3584 784
+            BEGIN DISPLAY 3504 784 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH fifo_done
+            WIRE 3520 848 3584 848
+            BEGIN DISPLAY 3520 848 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH XLXN_301(63:0)
+            WIRE 4560 720 4640 720
+        END BRANCH
+        BEGIN BRANCH XLXN_307(63:0)
+            WIRE 5024 720 5056 720
+            WIRE 5056 720 5056 864
+            WIRE 5056 864 5296 864
+        END BRANCH
+        BEGIN BRANCH clk
+            WIRE 4608 864 4640 864
+            BEGIN DISPLAY 4608 864 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH rst
+            WIRE 4608 928 4640 928
+            BEGIN DISPLAY 4608 928 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH XLXN_313(63:0)
+            WIRE 3968 784 4112 784
+        END BRANCH
+        BEGIN BRANCH fifo_done
+            WIRE 1744 640 1824 640
+            BEGIN DISPLAY 1824 640 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH full
+            WIRE 1744 512 1872 512
+            BEGIN DISPLAY 1872 512 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH fifo_head_ptr(8:0)
+            WIRE 3680 1536 3872 1536
+            BEGIN DISPLAY 3680 1536 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH head_ce
+            WIRE 2032 1632 2240 1632
+            WIRE 2240 1632 2432 1632
+            BEGIN DISPLAY 2240 1632 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_write_head
+            WIRE 2320 1568 2432 1568
+            BEGIN DISPLAY 2320 1568 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        INSTANCE XLXI_111 1776 1728 R0
+        BEGIN BRANCH cpu_write_head
+            WIRE 1712 1600 1776 1600
+            BEGIN DISPLAY 1712 1600 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH full
+            WIRE 1712 1664 1776 1664
+            BEGIN DISPLAY 1712 1664 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_din(8:0)
+            WIRE 1600 1440 1648 1440
+            BEGIN DISPLAY 1600 1440 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_write_tail
+            WIRE 2272 992 2432 992
+            BEGIN DISPLAY 2272 992 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        INSTANCE XLXI_112 1776 1152 R0
+        BEGIN BRANCH full
+            WIRE 1744 1088 1776 1088
+            BEGIN DISPLAY 1744 1088 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_write_tail
+            WIRE 1744 1024 1776 1024
+            BEGIN DISPLAY 1744 1024 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_din(8:0)
+            WIRE 1616 864 1664 864
+            BEGIN DISPLAY 1616 864 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH fifo_write
+            WIRE 1504 208 1648 208
+        END BRANCH
+        BEGIN BRANCH full
+            WIRE 3088 976 3200 976
+            BEGIN DISPLAY 3088 976 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH full
+            WIRE 3088 1232 3168 1232
+            BEGIN DISPLAY 3088 1232 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        INSTANCE XLXI_113 3696 1840 R0
+        BEGIN BRANCH XLXN_327(0:0)
+            WIRE 3760 1664 3872 1664
+            WIRE 3760 1664 3760 1712
+        END BRANCH
+        BEGIN BRANCH XLXN_328
+            WIRE 2032 1056 2432 1056
+        END BRANCH
+        IOMARKER 720 1120 clk R180 28
+        IOMARKER 720 1216 rst R180 28
+        IOMARKER 720 240 in_pkt_body R180 28
+        IOMARKER 720 352 end_of_pkt R180 28
+        IOMARKER 720 176 begin_pkt R180 28
+        INSTANCE XLXI_85 1648 400 R0
+        BEGIN BRANCH wena
+            WIRE 1904 272 2160 272
+            BEGIN DISPLAY 2160 272 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        INSTANCE XLXI_38 1248 304 R0
+        BEGIN BRANCH cpu_write_data
+            WIRE 1504 304 1600 304
+            WIRE 1600 272 1648 272
+            WIRE 1600 272 1600 304
+            BEGIN DISPLAY 1504 304 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_ctrl_pre
+            WIRE 5248 800 5296 800
+            BEGIN DISPLAY 5248 800 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_107 4640 944 R0
+        END INSTANCE
+        INSTANCE XLXI_115 4656 624 R0
+        BEGIN BRANCH cpu_ctrl_pre
+            WIRE 5040 368 5088 368
+            BEGIN DISPLAY 5088 368 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_ctrl
+            WIRE 4592 368 4656 368
+            BEGIN DISPLAY 4592 368 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH clk
+            WIRE 4608 496 4656 496
+            BEGIN DISPLAY 4608 496 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH rst
+            WIRE 4608 592 4656 592
+            BEGIN DISPLAY 4608 592 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_116 3856 1952 R0
+        END INSTANCE
+        BEGIN BRANCH XLXN_335(8:0)
+            WIRE 3808 2032 3856 2032
+        END BRANCH
+        BEGIN BRANCH XLXN_337(7:0)
+            WIRE 3808 2064 3856 2064
+        END BRANCH
+        BEGIN BRANCH XLXN_338(0:0)
+            WIRE 3808 2160 3856 2160
+        END BRANCH
+        BEGIN BRANCH clk
+            WIRE 3808 2224 3856 2224
+            BEGIN DISPLAY 3808 2224 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH XLXN_340(8:0)
+            WIRE 3808 2288 3856 2288
+        END BRANCH
+        BEGIN BRANCH XLXN_341(0:0)
+            WIRE 3600 2416 3600 2512
+            WIRE 3600 2416 3856 2416
+        END BRANCH
+        BEGIN BRANCH clk
+            WIRE 3808 2480 3856 2480
+            BEGIN DISPLAY 3808 2480 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        INSTANCE XLXI_117 3536 2640 R0
+        BEGIN BRANCH XLXN_344(7:0)
+            WIRE 4432 2288 4560 2288
+        END BRANCH
+        BEGIN INSTANCE XLXI_118 784 2048 R0
+        END INSTANCE
+        BEGIN BRANCH cpu_tail
+            WIRE 1264 1760 1296 1760
+            BEGIN DISPLAY 1296 1760 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_head
+            WIRE 1264 1824 1296 1824
+            BEGIN DISPLAY 1296 1824 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_done
+            WIRE 1264 1888 1296 1888
+            BEGIN DISPLAY 1296 1888 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_data
+            WIRE 1264 1952 1296 1952
+            BEGIN DISPLAY 1296 1952 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_pkt_ctrl
+            WIRE 1264 2016 1296 2016
+            BEGIN DISPLAY 1296 2016 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH cpu_ctrl
+            WIRE 688 1888 784 1888
+        END BRANCH
+        IOMARKER 688 1888 cpu_ctrl R180 28
+        BEGIN BRANCH cpu_cmd(1:0)
+            WIRE 688 2016 784 2016
+        END BRANCH
+        IOMARKER 688 2016 cpu_cmd(1:0) R180 28
+    END SHEET
+END SCHEMATIC

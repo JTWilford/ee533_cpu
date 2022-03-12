@@ -1,0 +1,14 @@
+[Inputs]
+sel
+cpu_pkt_ctrl_pre
+clk
+rst
+=data0[8:0]=
+=data1[63:0]=
+=data2[7:0]=
+[Outputs]
+=dout[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel out_data_mux
+

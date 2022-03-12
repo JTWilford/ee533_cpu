@@ -1,0 +1,10 @@
+[Inputs]
+sel
+=data0[63:0]=
+=data1[63:0]=
+[Outputs]
+=data_out[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel data_mux
+

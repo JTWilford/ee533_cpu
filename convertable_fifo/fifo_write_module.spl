@@ -1,0 +1,15 @@
+[Inputs]
+endpkt
+done
+cpu_write
+clk
+rst
+=rd_ptr[8:0]=
+=wr_ptr[8:0]=
+[Outputs]
+hold
+fifo_done
+[BiDir]
+[ATTRIBUTES]
+VeriModel fifo_write_module
+

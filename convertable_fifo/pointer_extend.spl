@@ -1,0 +1,8 @@
+[Inputs]
+=ip_in[9:0]=
+[Outputs]
+=ip_out[15:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel pointer_extend
+

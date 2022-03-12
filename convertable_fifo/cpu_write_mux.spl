@@ -1,0 +1,14 @@
+[Inputs]
+cpu_write
+cpu_ctrl
+=cpu_addr[8:0]=
+[Outputs]
+cpu_write_tail
+cpu_write_head
+cpu_done
+cpu_write_data
+cpu_pkt_ctrl
+[BiDir]
+[ATTRIBUTES]
+VeriModel cpu_write_mux
+

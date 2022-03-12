@@ -1,0 +1,10 @@
+[Inputs]
+sel
+=addr0[8:0]=
+=addr1[8:0]=
+[Outputs]
+=addr_out[8:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel addr_mux
+

@@ -1,0 +1,12 @@
+[Inputs]
+=data0[63:0]=
+=data1[63:0]=
+=data2[63:0]=
+=data3[63:0]=
+=sel[1:0]=
+[Outputs]
+=data_out[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel mux4to1_64
+
