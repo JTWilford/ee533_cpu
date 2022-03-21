@@ -1,0 +1,92 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : mux16bit8to1.vf
+// /___/   /\     Timestamp : 03/13/2022 00:00:27
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/cpu/mux16bit8to1.sch mux16bit8to1.vf
+//Design Name: mux16bit8to1
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module mux16bit8to1(A, 
+                    B, 
+                    C, 
+                    D, 
+                    E, 
+                    en, 
+                    F, 
+                    G, 
+                    H, 
+                    S, 
+                    O);
+
+    input [15:0] A;
+    input [15:0] B;
+    input [15:0] C;
+    input [15:0] D;
+    input [15:0] E;
+    input en;
+    input [15:0] F;
+    input [15:0] G;
+    input [15:0] H;
+    input [2:0] S;
+   output [15:0] O;
+   
+   
+   mux4bit8to1 XLXI_1 (.A(A[3:0]), 
+                       .B(B[3:0]), 
+                       .C(C[3:0]), 
+                       .D(D[3:0]), 
+                       .E(E[3:0]), 
+                       .en(en), 
+                       .F(F[3:0]), 
+                       .G(G[3:0]), 
+                       .H(H[3:0]), 
+                       .S(S[2:0]), 
+                       .O(O[3:0]));
+   mux4bit8to1 XLXI_2 (.A(A[7:4]), 
+                       .B(B[7:4]), 
+                       .C(C[7:4]), 
+                       .D(D[7:4]), 
+                       .E(E[7:4]), 
+                       .en(en), 
+                       .F(F[7:4]), 
+                       .G(G[7:4]), 
+                       .H(H[7:4]), 
+                       .S(S[2:0]), 
+                       .O(O[7:4]));
+   mux4bit8to1 XLXI_3 (.A(A[11:8]), 
+                       .B(B[11:8]), 
+                       .C(C[11:8]), 
+                       .D(D[11:8]), 
+                       .E(E[11:8]), 
+                       .en(en), 
+                       .F(F[11:8]), 
+                       .G(G[11:8]), 
+                       .H(H[11:8]), 
+                       .S(S[2:0]), 
+                       .O(O[11:8]));
+   mux4bit8to1 XLXI_7 (.A(A[15:12]), 
+                       .B(B[15:12]), 
+                       .C(C[15:12]), 
+                       .D(D[15:12]), 
+                       .E(E[15:12]), 
+                       .en(en), 
+                       .F(F[15:12]), 
+                       .G(G[15:12]), 
+                       .H(H[15:12]), 
+                       .S(S[2:0]), 
+                       .O(O[15:12]));
+endmodule

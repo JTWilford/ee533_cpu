@@ -98,7 +98,7 @@ end component;
 			c_has_mux_output_regs_a => 0,
 			c_addra_width => 3,
 			c_addrb_width => 3,
-			c_default_data => "FFFFFFFFFFFFFFFF",
+			c_default_data => "0",
 			c_use_ecc => 0,
 			c_algorithm => 1,
 			c_disable_warn_bhv_range => 0,

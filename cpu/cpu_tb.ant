@@ -8,7 +8,7 @@
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : ISE
 //  /   /         Filename : cpu_tb.ant
-// /___/   /\     Timestamp : Sun Mar  6 01:51:51 2022
+// /___/   /\     Timestamp : Sat Mar 12 22:55:36 2022
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -29,11 +29,31 @@ module cpu_tb;
     reg [31:0] INS_DIN = 32'b00000000000000000000000000000000;
     reg INS_WEN = 1'b0;
     reg [15:0] one = 16'b0000000000000000;
+    reg [63:0] PERF_DIN = 64'b0000000000000000000000000000000000000000000000000000000000000000;
     reg rst = 1'b0;
+    wire [63:0] alu_out;
+    wire branch;
+    wire [8:0] br_addr;
     wire [63:0] DATA_DOUT;
+    wire [1:0] ex_br_ctrl;
+    wire ex_mem_wr;
+    wire [63:0] ex_r1_data;
+    wire [63:0] ex_r2_data;
     wire [31:0] instruction;
     wire [31:0] INS_DOUT;
+    wire [63:0] MEM_ADDR;
+    wire [63:0] MEM_DIN;
+    wire MEM_WEN;
     wire [8:0] PC;
+    wire [63:0] PERF_ADDR;
+    wire [63:0] PERF_DOUT;
+    wire PERF_WREN;
+    wire [63:0] rf_r1_out;
+    wire [2:0] r0_addr;
+    wire [2:0] r1_addr;
+    wire [63:0] wb_data;
+    wire [2:0] wb_reg_addr;
+    wire wb_reg_write;
 
     parameter PERIOD = 200;
     parameter real DUTY_CYCLE = 0.5;
@@ -61,28 +81,86 @@ module cpu_tb;
         .INS_DIN(INS_DIN),
         .INS_WEN(INS_WEN),
         .one(one),
+        .PERF_DIN(PERF_DIN),
         .rst(rst),
+        .alu_out(alu_out),
+        .branch(branch),
+        .br_addr(br_addr),
         .DATA_DOUT(DATA_DOUT),
+        .ex_br_ctrl(ex_br_ctrl),
+        .ex_mem_wr(ex_mem_wr),
+        .ex_r1_data(ex_r1_data),
+        .ex_r2_data(ex_r2_data),
         .instruction(instruction),
         .INS_DOUT(INS_DOUT),
-        .PC(PC));
+        .MEM_ADDR(MEM_ADDR),
+        .MEM_DIN(MEM_DIN),
+        .MEM_WEN(MEM_WEN),
+        .PC(PC),
+        .PERF_ADDR(PERF_ADDR),
+        .PERF_DOUT(PERF_DOUT),
+        .PERF_WREN(PERF_WREN),
+        .rf_r1_out(rf_r1_out),
+        .r0_addr(r0_addr),
+        .r1_addr(r1_addr),
+        .wb_data(wb_data),
+        .wb_reg_addr(wb_reg_addr),
+        .wb_reg_write(wb_reg_write));
 
     integer TX_FILE = 0;
     integer TX_ERROR = 0;
     
     initial begin    // Annotation process for clock clk
         #0;
+        ANNOTATE_alu_out;
+        ANNOTATE_branch;
+        ANNOTATE_br_addr;
         ANNOTATE_DATA_DOUT;
+        ANNOTATE_ex_br_ctrl;
+        ANNOTATE_ex_mem_wr;
+        ANNOTATE_ex_r1_data;
+        ANNOTATE_ex_r2_data;
         ANNOTATE_instruction;
         ANNOTATE_INS_DOUT;
+        ANNOTATE_MEM_ADDR;
+        ANNOTATE_MEM_DIN;
+        ANNOTATE_MEM_WEN;
         ANNOTATE_PC;
+        ANNOTATE_PERF_ADDR;
+        ANNOTATE_PERF_DOUT;
+        ANNOTATE_PERF_WREN;
+        ANNOTATE_rf_r1_out;
+        ANNOTATE_r0_addr;
+        ANNOTATE_r1_addr;
+        ANNOTATE_wb_data;
+        ANNOTATE_wb_reg_addr;
+        ANNOTATE_wb_reg_write;
         #OFFSET;
         forever begin
             #115;
+            ANNOTATE_alu_out;
+            ANNOTATE_branch;
+            ANNOTATE_br_addr;
             ANNOTATE_DATA_DOUT;
+            ANNOTATE_ex_br_ctrl;
+            ANNOTATE_ex_mem_wr;
+            ANNOTATE_ex_r1_data;
+            ANNOTATE_ex_r2_data;
             ANNOTATE_instruction;
             ANNOTATE_INS_DOUT;
+            ANNOTATE_MEM_ADDR;
+            ANNOTATE_MEM_DIN;
+            ANNOTATE_MEM_WEN;
             ANNOTATE_PC;
+            ANNOTATE_PERF_ADDR;
+            ANNOTATE_PERF_DOUT;
+            ANNOTATE_PERF_WREN;
+            ANNOTATE_rf_r1_out;
+            ANNOTATE_r0_addr;
+            ANNOTATE_r1_addr;
+            ANNOTATE_wb_data;
+            ANNOTATE_wb_reg_addr;
+            ANNOTATE_wb_reg_write;
             #85;
         end
     end
@@ -97,8 +175,12 @@ module cpu_tb;
     end
 
     initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        PERF_DIN = 64'b0000000000000000000000000000000000000000000000000000000001101010;
+        // -------------------------------------
         // -------------  Current Time:  185ns
-        #185;
+        #85;
         rst = 1'b1;
         one = 16'b0000000000000001;
         // -------------------------------------
@@ -109,9 +191,65 @@ module cpu_tb;
         // -------------------------------------
     end
 
+    task ANNOTATE_alu_out;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,alu_out,%b]", $time, alu_out);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_branch;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,branch,%b]", $time, branch);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_br_addr;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,br_addr,%b]", $time, br_addr);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
     task ANNOTATE_DATA_DOUT;
         #0 begin
             $fdisplay(TX_FILE, "Annotate[%d,DATA_DOUT,%b]", $time, DATA_DOUT);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_ex_br_ctrl;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,ex_br_ctrl,%b]", $time, ex_br_ctrl);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_ex_mem_wr;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,ex_mem_wr,%b]", $time, ex_mem_wr);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_ex_r1_data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,ex_r1_data,%b]", $time, ex_r1_data);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_ex_r2_data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,ex_r2_data,%b]", $time, ex_r2_data);
             $fflush(TX_FILE);
             TX_ERROR = TX_ERROR + 1;
         end
@@ -133,9 +271,105 @@ module cpu_tb;
         end
     endtask
 
+    task ANNOTATE_MEM_ADDR;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,MEM_ADDR,%b]", $time, MEM_ADDR);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_MEM_DIN;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,MEM_DIN,%b]", $time, MEM_DIN);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_MEM_WEN;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,MEM_WEN,%b]", $time, MEM_WEN);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
     task ANNOTATE_PC;
         #0 begin
             $fdisplay(TX_FILE, "Annotate[%d,PC,%b]", $time, PC);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_PERF_ADDR;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,PERF_ADDR,%b]", $time, PERF_ADDR);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_PERF_DOUT;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,PERF_DOUT,%b]", $time, PERF_DOUT);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_PERF_WREN;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,PERF_WREN,%b]", $time, PERF_WREN);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_rf_r1_out;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,rf_r1_out,%b]", $time, rf_r1_out);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_r0_addr;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,r0_addr,%b]", $time, r0_addr);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_r1_addr;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,r1_addr,%b]", $time, r1_addr);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_wb_data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,wb_data,%b]", $time, wb_data);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_wb_reg_addr;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,wb_reg_addr,%b]", $time, wb_reg_addr);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_wb_reg_write;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,wb_reg_write,%b]", $time, wb_reg_write);
             $fflush(TX_FILE);
             TX_ERROR = TX_ERROR + 1;
         end

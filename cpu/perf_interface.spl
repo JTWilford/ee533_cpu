@@ -1,0 +1,15 @@
+[Inputs]
+wren
+clk
+rst
+=addr_in[63:0]=
+=data_in[63:0]=
+[Outputs]
+perf_wren
+perf_en
+=perf_data_out[63:0]=
+=perf_addr_out[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel perf_interface
+

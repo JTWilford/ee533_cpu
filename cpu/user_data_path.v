@@ -338,10 +338,10 @@ module user_data_path
        .NUM_OUTPUT_QUEUES(NUM_OUTPUT_QUEUES),
        .NUM_IQ_BITS(NUM_IQ_BITS))
    output_port_lookup
-     (.out_data            (oq_in_data),
-     .out_ctrl             (oq_in_ctrl),
-     .out_wr               (oq_in_wr),
-     .out_rdy              (oq_in_rdy),
+     (.out_data            (ana_in_data),
+     .out_ctrl             (ana_in_ctrl),
+     .out_wr               (ana_in_wr),
+     .out_rdy              (ana_in_rdy),
                            
       // --- Interface to the rx input queues
      .in_data              (op_lut_in_data),
@@ -376,89 +376,124 @@ module user_data_path
      else ana_count <= ana_count + 1;
    end
 
-   wire [63:0] dut_din;
-   wire [31:0] dut_imem_dout;
-   wire [63:0] dut_dmem_dout;
-   wire [8:0] dut_addr;
-   wire dut_imem_wen;
-   wire dut_dmem_wen;
    wire dut_en;
    wire dut_rst;
+   wire [8:0] dut_addr;
+   wire [63:0] dut_din;
+   wire [31:0] dut_imem_dout;
+   wire dut_imem_wen;
+   wire [63:0] dut_dmem_dout;
+   wire dut_dmem_wen;
+
    wire [8:0] dut_pc;
    wire [31:0] dut_ins;
+   wire [63:0] dut_mem_data;
    wire [63:0] dut_mem_addr;
-   wire [63:0] dut_mem_din;
-   wire dut_mem_wen;
-   wire dut_ex_mem_wr;
-   wire [63:0] dut_ex_r1_data;
-   wire [63:0] dut_ex_r2_data;
+   wire dut_mem_wr;
    wire [63:0] dut_wb_data;
-   wire [2:0] dut_wb_reg_addr;
-   wire dut_wb_reg_write;
-   wire [2:0] dut_r0_addr;
+   wire [2:0] dut_wb_addr;
+   wire dut_wb_wr;
+   wire [63:0] dut_ex_r1;
+   wire [63:0] dut_ex_r2;
    wire [2:0] dut_r1_addr;
-   wire [1:0] dut_ex_br_ctrl;
+   wire [2:0] dut_r2_addr;
    wire dut_branch;
-   wire [8:0] dut_br_addr;
-   wire [63:0] dut_alu_out;
-   wire [63:0] dut_rf_r1_out;
 
-    datapath64bit UUT (
-      .clk(div_clk[0]),
-      .instruction(dut_ins), 
-      .PC(dut_pc), 
-      .rst(dut_rst), 
-      .one(16'd1), 
-      .MEM_ADDR(dut_mem_addr),
-      .MEM_WEN(dut_mem_wen),
-      .en(dut_en), 
-      .MEM_DIN(dut_mem_din),
-      .INS_WEN(dut_imem_wen), 
-      .INS_DIN(dut_din[31:0]), 
-      .INS_ADDR(dut_addr[8:0]),
-      .DATA_WEN(dut_dmem_wen), 
-      .DATA_DIN(dut_din), 
-      .DATA_ADDR(dut_addr[7:0]),
-      .DATA_DOUT(dut_dmem_dout),
-      .INS_DOUT(dut_imem_dout),
-      .ex_mem_wr(dut_ex_mem_wr),
-      .ex_r1_data(dut_ex_r1_data),
-      .ex_r2_data(dut_ex_r2_data),
-      .wb_data(dut_wb_data),
-      .wb_reg_addr(dut_wb_reg_addr),
-      .wb_reg_write(dut_wb_reg_write),
-      .r0_addr(dut_r0_addr),
-      .r1_addr(dut_r1_addr),
-      .ex_br_ctrl(dut_ex_br_ctrl),
-      .branch(dut_branch),
-      .br_addr(dut_br_addr),
-      .alu_out(dut_alu_out),
-      .rf_r1_out(dut_rf_r1_out),
-      .clk_2x(clk)
-    );
+   wire [63:0] perf_din;
+	 wire [63:0] perf_addr;
+	 wire [63:0] perf_dout;
+	 wire perf_wren;
+
+    convertable_fifo_controller #(
+		.DATA_WIDTH(DATA_WIDTH),
+		.CTRL_WIDTH(CTRL_WIDTH)
+	) dut_fifo (
+		.in_data				(ana_in_data),
+		.in_ctrl				(ana_in_ctrl),
+		.in_wr					(ana_in_wr),
+		.in_rdy					(ana_in_rdy),
+		// Output Interface
+		.out_data				(oq_in_data),
+		.out_ctrl				(oq_in_ctrl),
+		.out_wr					(oq_in_wr),
+		.out_rdy				(oq_in_rdy),
+		// CPU Interface
+		.cpu_addr_in		(perf_addr),
+		.cpu_din				(perf_dout),
+		.cpu_wen				(perf_wren),
+		.cpu_dout				(perf_din),
+		.reset					(dut_rst),
+		.clk					  (clk)
+	);
+
+	datapath64bit dut_cpu (
+		// Peripheral Interface
+		.PERF_DIN					(perf_din),
+		.PERF_ADDR				(perf_addr),
+		.PERF_DOUT				(perf_dout),
+		.PERF_WREN				(perf_wren),
+		// Instruction Mem Interface
+		.INS_ADDR					(dut_addr),
+		.INS_DIN					(dut_din),
+		.INS_WEN					(dut_imem_wen),
+		.INS_DOUT					(dut_imem_dout),
+		// Data Mem Interface
+		.DATA_ADDR				(dut_addr),
+		.DATA_DIN					(dut_din),
+		.DATA_WEN					(dut_dmem_wen),
+		.DATA_DOUT				(dut_dmem_dout),
+		// misc
+		.clk						  (div_clk[0]),
+		.clk_2x						(clk),
+		.rst						  (dut_rst),
+		.en							  (dut_en),
+		.one						  (16'd1),
+		// Debug Outputs
+		.alu_out					(/*DISCONNECT*/),
+		.branch 					(dut_branch),
+		.br_addr					(/*DISCONNECT*/),
+		.ex_br_ctrl				(/*DISCONNECT*/),
+		.ex_mem_wr				(/*DISCONNECT*/),
+		.ex_r1_data				(dut_ex_r1),
+		.ex_r2_data				(dut_ex_r2),
+		.instruction			(dut_ins),
+		.PC							  (dut_pc),
+		.rf_r1_out				(/*DISCONNECT*/),
+		.r0_addr					(dut_r0_addr),
+		.r1_addr					(dut_r1_addr),
+		.wb_data					(dut_wb_data),
+		.wb_reg_addr			(dut_wb_addr),
+		.wb_reg_write			(dut_wb_wr),
+		.MEM_ADDR					(dut_mem_addr),
+		.MEM_DIN					(dut_mem_data),
+		.MEM_WEN					(dut_mem_wr)
+	);
+   
+   wire ana_trigger;
+   assign ana_trigger = (dut_ex_r1 == 64'h0000000000000065) & (dut_ex_r2 == 64'h0000000000000065);
 
    analyzer16x64x64 #(
       .DATA_WIDTH(DATA_WIDTH),
       .CTRL_WIDTH(CTRL_WIDTH),
       .UDP_REG_SRC_WIDTH(UDP_REG_SRC_WIDTH)
    ) ana (
-      .din0       ({56'd0, dut_mem_addr[7:0]}),
-      .din1       (dut_mem_din[63:0]),
-      .din2       (dut_rf_r1_out),
-      .din3       (dut_ex_r1_data),
-      .din4       (dut_ex_r2_data),
-      .din5       (dut_wb_data),
-      .din6       ({61'd0, dut_wb_reg_addr}),
-      .din7       ({63'd0, dut_wb_reg_write}),
-      .din8       ({61'd0, dut_r0_addr}),
-      .din9       ({61'd0, dut_r1_addr}),
-      .din10      ({31'd0, dut_ex_br_ctrl}),
-      .din11      ({63'd0, dut_branch}),
-      .din12      ({55'd0, dut_br_addr}),
-      .din13      (dut_alu_out),
-      .din14      ({55'd0, dut_pc}),
-      .din15      ({32'd0, dut_ins}),
-      .trigger    (dut_mem_wen),
+      .din0       (dut_pc),
+      .din1       (dut_ins),
+      .din2       (perf_dout),
+      .din3       (perf_addr),
+      .din4       (perf_wren),
+      .din5       (perf_dout),
+      .din6       (dut_mem_data),
+      .din7       (dut_branch),
+      .din8       (dut_ex_r1),
+      .din9       (dut_ex_r2),
+      .din10      (dut_r0_addr),
+      .din11      (dut_r1_addr),
+      .din12      (dut_wb_wr),
+      .din13      (oq_in_ctrl),
+      .din14      (oq_in_data),
+      .din15      (oq_in_wr),
+      .trigger    (ana_trigger),
 
       .dut_imem_in(dut_imem_dout),
       .dut_dmem_in(dut_dmem_dout),

@@ -150,7 +150,7 @@ def main(target, cmd, args):
                 hi = int(args[2])
             for i in range(lo, hi):
                 regwrite(ANA_ADDRESS_REG, mem_address(chip, i))
-                print("%d:\t%016x" % (i, (regread(ANA_DUT_HI_REG)<<32) + regread(ANA_DUT_LO_REG)))
+                print("%016x" % ((regread(ANA_DUT_HI_REG)<<32) + regread(ANA_DUT_LO_REG)))
     elif target == "dut":
         if cmd == "start":
             regwrite(ANA_CONTROL_REG, 0x80000000)

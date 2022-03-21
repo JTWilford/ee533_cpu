@@ -1,0 +1,33 @@
+select figure at 4013 1931 32 -branches -sn=1
+select figure at 3997 1915 32 -branches -sn=1
+select figure at 5075 1158 7 -branches -sn=1
+select figure at 4748 1765 7 -branches -sn=1
+select figure at 4744 1762 7 -branches -sn=1
+select figure at 4704 1659 7 -branches -sn=1
+select figure at 4701 1656 7 -branches -sn=1
+add instance dmem_write_protect 4544 1760 R0 -sn=1
+select figure at 5082 1708 7 -branches -sn=1
+select figure at 5079 1705 7 -branches -sn=1
+add autowire 4928 1664 4976 1664 7 -sn=1
+add autowire 4544 1664 4496 1664 7 -sn=1
+add autowire 4544 1728 4496 1728 7 -sn=1
+name branch at 4496 1728 7 MEM_ADDR(63:32) -sn=1
+name branch at 5040 640 7 MEM_ADDR(63:32) -sn=1
+name branch at 5040 640 7 MEM_ADDR(63:32) -sn=1
+name branch at 4976 640 7 MEM_ADDR(63:32) -sn=1
+name branch at 4832 800 7 MEM_ADDR(63:32) -sn=1
+name branch at 4928 864 7 MEM_ADDR(63:32) -sn=1
+name branch at 4928 832 7 MEM_ADDR(63:32) -sn=1
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+redo
+select figure at 5011 668 7 -branches -sn=1
+select figure at 5008 664 7 -branches -sn=1
+select figure at 5005 675 7 -branches -sn=1
+select figure at 5001 671 7 -branches -sn=1
+select figure at 4995 727 7 -branches -sn=1

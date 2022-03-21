@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : sch2verilog
 //  /   /         Filename : datapath64bit.vf
-// /___/   /\     Timestamp : 03/08/2022 04:07:58
+// /___/   /\     Timestamp : 03/15/2022 00:07:27
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -359,6 +359,7 @@ module datapath64bit(clk,
                      INS_DIN, 
                      INS_WEN, 
                      one, 
+                     PERF_DIN, 
                      rst, 
                      alu_out, 
                      branch, 
@@ -374,6 +375,9 @@ module datapath64bit(clk,
                      MEM_DIN, 
                      MEM_WEN, 
                      PC, 
+                     PERF_ADDR, 
+                     PERF_DOUT, 
+                     PERF_WREN, 
                      rf_r1_out, 
                      r0_addr, 
                      r1_addr, 
@@ -391,6 +395,7 @@ module datapath64bit(clk,
     input [31:0] INS_DIN;
     input INS_WEN;
     input [15:0] one;
+    input [63:0] PERF_DIN;
     input rst;
    output [63:0] alu_out;
    output branch;
@@ -406,6 +411,9 @@ module datapath64bit(clk,
    output [63:0] MEM_DIN;
    output MEM_WEN;
    output [8:0] PC;
+   output [63:0] PERF_ADDR;
+   output [63:0] PERF_DOUT;
+   output PERF_WREN;
    output [63:0] rf_r1_out;
    output [2:0] r0_addr;
    output [2:0] r1_addr;
@@ -426,13 +434,16 @@ module datapath64bit(clk,
    wire [15:0] ip_int;
    wire [8:0] ip_next;
    wire [63:0] me_data;
+   wire me_memtoreg;
+   wire me_mem_wr;
+   wire [63:0] me_perf_data;
+   wire perf_en;
    wire XLXN_26;
    wire [63:0] XLXN_212;
    wire XLXN_215;
    wire [2:0] XLXN_267;
    wire [2:0] XLXN_279;
    wire XLXN_311;
-   wire XLXN_312;
    wire [8:0] XLXN_336;
    wire [15:0] XLXN_398;
    wire [63:0] XLXN_434;
@@ -556,7 +567,7 @@ module datapath64bit(clk,
                       .clr(rst), 
                       .en(en), 
                       .mem_data(), 
-                      .MEM_MemtoReg(XLXN_312), 
+                      .MEM_MemtoReg(me_memtoreg), 
                       .MEM_Reg_write(XLXN_311), 
                       .Wregin(XLXN_267[2:0]), 
                       .ALUdataout(XLXN_212[63:0]), 
@@ -564,7 +575,7 @@ module datapath64bit(clk,
                       .WB_MetoReg(XLXN_215), 
                       .WB_Reg_write(wb_reg_write_DUMMY), 
                       .Wregout(wb_reg_addr_DUMMY[2:0]));
-   mux2_to_1_x64 XLXI_51 (.EX_immi_data(me_data[63:0]), 
+   mux2_to_1_x64 XLXI_51 (.EX_immi_data(me_perf_data[63:0]), 
                           .EX_register_data(XLXN_212[63:0]), 
                           .s(XLXN_215), 
                           .data_out(wb_data_DUMMY[63:0]));
@@ -578,8 +589,8 @@ module datapath64bit(clk,
                       .reg_data(ex_r2_data_DUMMY[63:0]), 
                       .Wregin(XLXN_279[2:0]), 
                       .ALUdataout(MEM_DIN_DUMMY[63:0]), 
-                      .MEM_mem_write(MEM_WEN_DUMMY), 
-                      .MEM_MetoReg(XLXN_312), 
+                      .MEM_mem_write(me_mem_wr), 
+                      .MEM_MetoReg(me_memtoreg), 
                       .MEM_Reg_write(XLXN_311), 
                       .reg_dataout(MEM_ADDR_DUMMY[63:0]), 
                       .Wregout(XLXN_267[2:0]));
@@ -611,4 +622,21 @@ module datapath64bit(clk,
                          .wr_en(wb_reg_write_DUMMY), 
                          .r0_data(id_d0[63:0]), 
                          .r1_data(rf_r1_out_DUMMY[63:0]));
+   mux2_to_1_x64 XLXI_75 (.EX_immi_data(PERF_DIN[63:0]), 
+                          .EX_register_data(me_data[63:0]), 
+                          .s(perf_en), 
+                          .data_out(me_perf_data[63:0]));
+   perf_interface XLXI_76 (.addr_in(MEM_ADDR_DUMMY[63:0]), 
+                           .clk(clk), 
+                           .data_in(MEM_DIN_DUMMY[63:0]), 
+                           .memreg(me_memtoreg), 
+                           .rst(rst), 
+                           .wren(me_mem_wr), 
+                           .perf_addr_out(PERF_ADDR[63:0]), 
+                           .perf_data_out(PERF_DOUT[63:0]), 
+                           .perf_en(perf_en), 
+                           .perf_wren(PERF_WREN));
+   dmem_write_protect XLXI_77 (.addr_hi(MEM_ADDR_DUMMY[63:32]), 
+                               .mem_wr(me_mem_wr), 
+                               .wren(MEM_WEN_DUMMY));
 endmodule

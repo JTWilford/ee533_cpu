@@ -26,6 +26,7 @@ module cpu_tb_tb_0;
     reg en = 1'b0;
     reg [15:0] one = 16'b0000000000000000;
     reg rst = 1'b0;
+	 reg [63:0] perf_din = 64'd0;
 
     parameter PERIOD = 200;
     parameter real DUTY_CYCLE = 0.5;
@@ -66,7 +67,11 @@ module cpu_tb_tb_0;
 		  .DATA_ADDR(8'd0),
 		  .DATA_DOUT(),
 		  .INS_DOUT(),
-		  .clk_2x(clk)
+		  .clk_2x(clk),
+		  .PERF_DIN(64'd69), 
+		  .PERF_ADDR(), 
+		  .PERF_DOUT(), 
+		  .PERF_WREN()
 		  );
 
     initial begin
@@ -74,15 +79,32 @@ module cpu_tb_tb_0;
         #100;
         rst = 1'b1;
         one = 16'b0000000000000001;
+		  perf_din = 64'd0;
         // -------------------------------------
         // -------------  Current Time:  185ns
         #85;
-        en = 1'b1;
         // -------------------------------------
         // -------------  Current Time:  385ns
         #200;
         rst = 1'b0;
+		  en = 1'b1;
+		  perf_din = 64'd0;
         // -------------------------------------
+        // -------------  Current Time:  6800ns
+		  #6415;
+		  perf_din = 64'd1;
+        // -------------------------------------
+        // -------------  Current Time:  13200ns
+		  #6400;
+		  perf_din = 64'd2;
+        // -------------------------------------
+        // -------------  Current Time:  13400ns
+		  #200;
+		  perf_din = 64'd9;
+        // -------------------------------------
+        // -------------  Current Time:  16400ns
+		  #3000;
+		  perf_din = 64'h0000000000486921;
     end
 
 endmodule

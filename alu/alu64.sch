@@ -152,8 +152,10 @@ BEGIN SCHEMATIC
             LINE N 320 -32 384 -32 
         END BLOCKDEF
         BEGIN BLOCKDEF mux8_to_1_x64
-            TIMESTAMP 2022 3 6 0 28 20
-            RECTANGLE N 64 -640 320 -64 
+            TIMESTAMP 2022 3 14 3 33 56
+            RECTANGLE N 64 -704 320 -64 
+            RECTANGLE N 0 -684 64 -660 
+            LINE N 64 -672 0 -672 
             RECTANGLE N 0 -620 64 -596 
             LINE N 64 -608 0 -608 
             RECTANGLE N 0 -556 64 -532 
@@ -170,10 +172,10 @@ BEGIN SCHEMATIC
             LINE N 64 -224 0 -224 
             RECTANGLE N 0 -172 64 -148 
             LINE N 64 -160 0 -160 
+            RECTANGLE N 320 -684 384 -660 
+            LINE N 320 -672 384 -672 
             RECTANGLE N 0 -108 64 -84 
             LINE N 64 -96 0 -96 
-            RECTANGLE N 320 -620 384 -596 
-            LINE N 320 -608 384 -608 
             LINE N 192 -64 192 -4 
         END BLOCKDEF
         BEGIN BLOCK XLXI_12 shift64
@@ -242,7 +244,7 @@ BEGIN SCHEMATIC
             PIN B MD
             PIN S(63:0) XLXN_11(63:0)
         END BLOCK
-        BEGIN BLOCK XLXI_69 mux8_to_1_x64
+        BEGIN BLOCK XLXI_70 mux8_to_1_x64
             PIN X0(63:0) add_out(63:0)
             PIN X1(63:0) shift_out(63:0)
             PIN X2(63:0) slt_out(63:0)
@@ -253,6 +255,7 @@ BEGIN SCHEMATIC
             PIN X7(63:0) and_out(63:0)
             PIN S(2:0) OP(2:0)
             PIN Q(63:0) Q(63:0)
+            PIN XD(63:0) R1(63:0)
             PIN EN en
         END BLOCK
     END NETLIST
@@ -368,66 +371,6 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN INSTANCE XLXI_54 1280 2416 R0
         END INSTANCE
-        BEGIN BRANCH add_out(63:0)
-            WIRE 2480 912 2640 912
-            BEGIN DISPLAY 2480 912 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH shift_out(63:0)
-            WIRE 2480 976 2640 976
-            BEGIN DISPLAY 2480 976 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH slt_out(63:0)
-            WIRE 2480 1040 2640 1040
-            BEGIN DISPLAY 2480 1040 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH sgt_out(63:0)
-            WIRE 2480 1104 2640 1104
-            BEGIN DISPLAY 2480 1104 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH xnor_out(63:0)
-            WIRE 2480 1168 2640 1168
-            BEGIN DISPLAY 2480 1168 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH shift_out(63:0)
-            WIRE 2480 1232 2640 1232
-            BEGIN DISPLAY 2480 1232 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH or_out(63:0)
-            WIRE 2480 1296 2640 1296
-            BEGIN DISPLAY 2480 1296 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH and_out(63:0)
-            WIRE 2480 1360 2640 1360
-            BEGIN DISPLAY 2480 1360 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH OP(2:0)
-            WIRE 2480 1424 2640 1424
-            BEGIN DISPLAY 2480 1424 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH Q(63:0)
-            WIRE 3024 912 3200 912
-            BEGIN DISPLAY 3200 912 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
-        END BRANCH
         BEGIN BRANCH R1(63:0)
             WIRE 240 720 400 720
         END BRANCH
@@ -606,8 +549,74 @@ BEGIN SCHEMATIC
             WIRE 2720 1568 2832 1568
             WIRE 2832 1520 2832 1568
         END BRANCH
-        BEGIN INSTANCE XLXI_69 2640 1520 R0
-        END INSTANCE
         IOMARKER 2720 1568 en R180 28
+        BEGIN BRANCH OP(2:0)
+            WIRE 2480 1360 2640 1360
+            BEGIN DISPLAY 2480 1360 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH and_out(63:0)
+            WIRE 2480 1296 2640 1296
+            BEGIN DISPLAY 2480 1296 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH or_out(63:0)
+            WIRE 2480 1232 2640 1232
+            BEGIN DISPLAY 2480 1232 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH shift_out(63:0)
+            WIRE 2480 1168 2640 1168
+            BEGIN DISPLAY 2480 1168 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH xnor_out(63:0)
+            WIRE 2480 1104 2640 1104
+            BEGIN DISPLAY 2480 1104 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH sgt_out(63:0)
+            WIRE 2480 1040 2640 1040
+            BEGIN DISPLAY 2480 1040 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH slt_out(63:0)
+            WIRE 2480 976 2640 976
+            BEGIN DISPLAY 2480 976 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH shift_out(63:0)
+            WIRE 2480 912 2640 912
+            BEGIN DISPLAY 2480 912 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH add_out(63:0)
+            WIRE 2480 848 2640 848
+            BEGIN DISPLAY 2480 848 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH Q(63:0)
+            WIRE 3024 848 3200 848
+            BEGIN DISPLAY 3200 848 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_70 2640 1520 R0
+        END INSTANCE
+        BEGIN BRANCH R1(63:0)
+            WIRE 2480 1424 2640 1424
+            BEGIN DISPLAY 2480 1424 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
     END SHEET
 END SCHEMATIC

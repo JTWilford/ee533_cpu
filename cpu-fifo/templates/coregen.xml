@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RootFolder label="COREGEN" treetype="folder" language="COREGEN">
+	<Folder label="VERILOG Component Instantiation" treetype="folder">
+		<Template label="gt65" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+gt65 YourInstanceName (
+    .a(a), // Bus [64 : 0] 
+    .b(b), // Bus [64 : 0] 
+    .a_gt_b(a_gt_b));
+
+ 
+		</Template>
+		<Template label="lt65" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+lt65 YourInstanceName (
+    .a(a), // Bus [64 : 0] 
+    .b(b), // Bus [64 : 0] 
+    .a_lt_b(a_lt_b));
+
+ 
+		</Template>
+		<Template label="datamem64" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+datamem64 YourInstanceName (
+    .clka(clka),
+    .dina(dina), // Bus [63 : 0] 
+    .addra(addra), // Bus [7 : 0] 
+    .wea(wea), // Bus [0 : 0] 
+    .douta(douta), // Bus [63 : 0] 
+    .clkb(clkb),
+    .dinb(dinb), // Bus [63 : 0] 
+    .addrb(addrb), // Bus [7 : 0] 
+    .web(web), // Bus [0 : 0] 
+    .doutb(doutb)); // Bus [63 : 0] 
+
+ 
+		</Template>
+		<Template label="instructionmem64" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+instructionmem64 YourInstanceName (
+    .clka(clka),
+    .dina(dina), // Bus [31 : 0] 
+    .addra(addra), // Bus [8 : 0] 
+    .wea(wea), // Bus [0 : 0] 
+    .douta(douta), // Bus [31 : 0] 
+    .clkb(clkb),
+    .dinb(dinb), // Bus [31 : 0] 
+    .addrb(addrb), // Bus [8 : 0] 
+    .web(web), // Bus [0 : 0] 
+    .doutb(doutb)); // Bus [31 : 0] 
+
+ 
+		</Template>
+		<Template label="regmem64" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+regmem64 YourInstanceName (
+    .clka(clka),
+    .dina(dina), // Bus [63 : 0] 
+    .addra(addra), // Bus [2 : 0] 
+    .wea(wea), // Bus [0 : 0] 
+    .douta(douta), // Bus [63 : 0] 
+    .clkb(clkb),
+    .dinb(dinb), // Bus [63 : 0] 
+    .addrb(addrb), // Bus [2 : 0] 
+    .web(web), // Bus [0 : 0] 
+    .doutb(doutb)); // Bus [63 : 0] 
+
+ 
+		</Template>
+		<Template label="CVTB_ctrlmem" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+CVTB_ctrlmem YourInstanceName (
+    .clka(clka),
+    .dina(dina), // Bus [7 : 0] 
+    .addra(addra), // Bus [8 : 0] 
+    .wea(wea), // Bus [0 : 0] 
+    .douta(douta), // Bus [7 : 0] 
+    .clkb(clkb),
+    .dinb(dinb), // Bus [7 : 0] 
+    .addrb(addrb), // Bus [8 : 0] 
+    .web(web), // Bus [0 : 0] 
+    .doutb(doutb)); // Bus [7 : 0] 
+
+ 
+		</Template>
+		<Template label="CVTB_mem" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+CVTB_mem YourInstanceName (
+    .clka(clka),
+    .dina(dina), // Bus [63 : 0] 
+    .addra(addra), // Bus [8 : 0] 
+    .wea(wea), // Bus [0 : 0] 
+    .douta(douta), // Bus [63 : 0] 
+    .clkb(clkb),
+    .dinb(dinb), // Bus [63 : 0] 
+    .addrb(addrb), // Bus [8 : 0] 
+    .web(web), // Bus [0 : 0] 
+    .doutb(doutb)); // Bus [63 : 0] 
+
+ 
+		</Template>
+	</Folder>
+	<Folder label="VHDL Component Instantiation" treetype="folder">
+		<Template label="gt65" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component gt65
+    port (
+    a: IN std_logic_VECTOR(64 downto 0);
+    b: IN std_logic_VECTOR(64 downto 0);
+    a_gt_b: OUT std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : gt65
+        port map (
+            a =&gt; a,
+            b =&gt; b,
+            a_gt_b =&gt; a_gt_b);
+ 
+		</Template>
+		<Template label="lt65" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component lt65
+    port (
+    a: IN std_logic_VECTOR(64 downto 0);
+    b: IN std_logic_VECTOR(64 downto 0);
+    a_lt_b: OUT std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : lt65
+        port map (
+            a =&gt; a,
+            b =&gt; b,
+            a_lt_b =&gt; a_lt_b);
+ 
+		</Template>
+		<Template label="datamem64" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component datamem64
+    port (
+    clka: IN std_logic;
+    dina: IN std_logic_VECTOR(63 downto 0);
+    addra: IN std_logic_VECTOR(7 downto 0);
+    wea: IN std_logic_VECTOR(0 downto 0);
+    douta: OUT std_logic_VECTOR(63 downto 0);
+    clkb: IN std_logic;
+    dinb: IN std_logic_VECTOR(63 downto 0);
+    addrb: IN std_logic_VECTOR(7 downto 0);
+    web: IN std_logic_VECTOR(0 downto 0);
+    doutb: OUT std_logic_VECTOR(63 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : datamem64
+        port map (
+            clka =&gt; clka,
+            dina =&gt; dina,
+            addra =&gt; addra,
+            wea =&gt; wea,
+            douta =&gt; douta,
+            clkb =&gt; clkb,
+            dinb =&gt; dinb,
+            addrb =&gt; addrb,
+            web =&gt; web,
+            doutb =&gt; doutb);
+ 
+		</Template>
+		<Template label="instructionmem64" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component instructionmem64
+    port (
+    clka: IN std_logic;
+    dina: IN std_logic_VECTOR(31 downto 0);
+    addra: IN std_logic_VECTOR(8 downto 0);
+    wea: IN std_logic_VECTOR(0 downto 0);
+    douta: OUT std_logic_VECTOR(31 downto 0);
+    clkb: IN std_logic;
+    dinb: IN std_logic_VECTOR(31 downto 0);
+    addrb: IN std_logic_VECTOR(8 downto 0);
+    web: IN std_logic_VECTOR(0 downto 0);
+    doutb: OUT std_logic_VECTOR(31 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : instructionmem64
+        port map (
+            clka =&gt; clka,
+            dina =&gt; dina,
+            addra =&gt; addra,
+            wea =&gt; wea,
+            douta =&gt; douta,
+            clkb =&gt; clkb,
+            dinb =&gt; dinb,
+            addrb =&gt; addrb,
+            web =&gt; web,
+            doutb =&gt; doutb);
+ 
+		</Template>
+		<Template label="regmem64" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component regmem64
+    port (
+    clka: IN std_logic;
+    dina: IN std_logic_VECTOR(63 downto 0);
+    addra: IN std_logic_VECTOR(2 downto 0);
+    wea: IN std_logic_VECTOR(0 downto 0);
+    douta: OUT std_logic_VECTOR(63 downto 0);
+    clkb: IN std_logic;
+    dinb: IN std_logic_VECTOR(63 downto 0);
+    addrb: IN std_logic_VECTOR(2 downto 0);
+    web: IN std_logic_VECTOR(0 downto 0);
+    doutb: OUT std_logic_VECTOR(63 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : regmem64
+        port map (
+            clka =&gt; clka,
+            dina =&gt; dina,
+            addra =&gt; addra,
+            wea =&gt; wea,
+            douta =&gt; douta,
+            clkb =&gt; clkb,
+            dinb =&gt; dinb,
+            addrb =&gt; addrb,
+            web =&gt; web,
+            doutb =&gt; doutb);
+ 
+		</Template>
+		<Template label="CVTB_ctrlmem" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component CVTB_ctrlmem
+    port (
+    clka: IN std_logic;
+    dina: IN std_logic_VECTOR(7 downto 0);
+    addra: IN std_logic_VECTOR(8 downto 0);
+    wea: IN std_logic_VECTOR(0 downto 0);
+    douta: OUT std_logic_VECTOR(7 downto 0);
+    clkb: IN std_logic;
+    dinb: IN std_logic_VECTOR(7 downto 0);
+    addrb: IN std_logic_VECTOR(8 downto 0);
+    web: IN std_logic_VECTOR(0 downto 0);
+    doutb: OUT std_logic_VECTOR(7 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : CVTB_ctrlmem
+        port map (
+            clka =&gt; clka,
+            dina =&gt; dina,
+            addra =&gt; addra,
+            wea =&gt; wea,
+            douta =&gt; douta,
+            clkb =&gt; clkb,
+            dinb =&gt; dinb,
+            addrb =&gt; addrb,
+            web =&gt; web,
+            doutb =&gt; doutb);
+ 
+		</Template>
+		<Template label="CVTB_mem" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component CVTB_mem
+    port (
+    clka: IN std_logic;
+    dina: IN std_logic_VECTOR(63 downto 0);
+    addra: IN std_logic_VECTOR(8 downto 0);
+    wea: IN std_logic_VECTOR(0 downto 0);
+    douta: OUT std_logic_VECTOR(63 downto 0);
+    clkb: IN std_logic;
+    dinb: IN std_logic_VECTOR(63 downto 0);
+    addrb: IN std_logic_VECTOR(8 downto 0);
+    web: IN std_logic_VECTOR(0 downto 0);
+    doutb: OUT std_logic_VECTOR(63 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : CVTB_mem
+        port map (
+            clka =&gt; clka,
+            dina =&gt; dina,
+            addra =&gt; addra,
+            wea =&gt; wea,
+            douta =&gt; douta,
+            clkb =&gt; clkb,
+            dinb =&gt; dinb,
+            addrb =&gt; addrb,
+            web =&gt; web,
+            doutb =&gt; doutb);
+ 
+		</Template>
+	</Folder>
+</RootFolder>

@@ -33,9 +33,9 @@ module out_data_mux(
 	 begin
 			case ({sel, cpu_pkt_ctrl_pre})
 				2'b00:	dout = data1;
-				2'b01:	dout = data1;
+				2'b01:	dout = {56'd0, data2};
 				2'b10:	dout = {55'd0, data0};
-				2'b11:	dout = {56'd0, data2};
+				2'b11:	dout = {55'd0, data0};
 			endcase
 	 end
 

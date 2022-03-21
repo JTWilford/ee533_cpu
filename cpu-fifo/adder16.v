@@ -1,0 +1,47 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : adder16.vf
+// /___/   /\     Timestamp : 03/12/2022 23:59:52
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/alu/adder16.sch adder16.vf
+//Design Name: adder16
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module adder16(A, 
+               B, 
+               Cin, 
+               Cout, 
+               S);
+
+    input [15:0] A;
+    input [15:0] B;
+    input Cin;
+   output Cout;
+   output [15:0] S;
+   
+   wire XLXN_1;
+   
+   adder8 XLXI_1 (.A(A[7:0]), 
+                  .B(B[7:0]), 
+                  .Cin(Cin), 
+                  .Cout(XLXN_1), 
+                  .S(S[7:0]));
+   adder8 XLXI_2 (.A(A[15:8]), 
+                  .B(B[15:8]), 
+                  .Cin(XLXN_1), 
+                  .Cout(Cout), 
+                  .S(S[15:8]));
+endmodule

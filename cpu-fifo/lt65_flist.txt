@@ -1,0 +1,12 @@
+# Output products list for <lt65>
+lt65.asy
+lt65.ngc
+lt65.sym
+lt65.v
+lt65.veo
+lt65.vhd
+lt65.vho
+lt65.xco
+lt65_c_compare_v9_0_xst_1.ngc_xst.xrpt
+lt65_flist.txt
+lt65_xmdf.tcl

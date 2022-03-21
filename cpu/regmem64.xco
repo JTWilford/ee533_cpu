@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.39
-# Date: Mon Mar  7 08:14:54 2022
+# Date: Sun Mar 13 03:39:18 2022
 #
 ##############################################################
 #
@@ -61,7 +61,7 @@ CSET register_porta_output_of_memory_core=false
 CSET register_porta_output_of_memory_primitives=false
 CSET register_portb_output_of_memory_core=false
 CSET register_portb_output_of_memory_primitives=false
-CSET remaining_memory_locations=FFFFFFFFFFFFFFFF
+CSET remaining_memory_locations=0
 CSET single_bit_ecc=false
 CSET use_byte_write_enable=false
 CSET use_ramb16bwer_reset_behavior=false
@@ -74,5 +74,5 @@ CSET write_width_a=64
 CSET write_width_b=64
 # END Parameters
 GENERATE
-# CRC: 293a2a13
+# CRC: ffa1253b
 

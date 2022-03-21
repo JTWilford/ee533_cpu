@@ -1,0 +1,12 @@
+# Output products list for <gt65>
+gt65.asy
+gt65.ngc
+gt65.sym
+gt65.v
+gt65.veo
+gt65.vhd
+gt65.vho
+gt65.xco
+gt65_c_compare_v9_0_xst_1.ngc_xst.xrpt
+gt65_flist.txt
+gt65_xmdf.tcl

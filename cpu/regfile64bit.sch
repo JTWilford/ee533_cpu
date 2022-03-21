@@ -17,7 +17,6 @@ BEGIN SCHEMATIC
         SIGNAL rd_en
         SIGNAL write
         SIGNAL baddr(2:0)
-        SIGNAL XLXN_7(2:0)
         SIGNAL XLXN_8(0:0)
         PORT Input wr_din(63:0)
         PORT Input wraddr(2:0)
@@ -29,7 +28,7 @@ BEGIN SCHEMATIC
         PORT Input clk
         PORT Input rd_en
         BEGIN BLOCKDEF regmem64
-            TIMESTAMP 2022 3 7 8 14 50
+            TIMESTAMP 2022 3 13 3 39 14
             RECTANGLE N 32 32 544 576 
             BEGIN LINE W 0 80 32 80 
             END LINE

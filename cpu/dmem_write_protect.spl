@@ -1,0 +1,9 @@
+[Inputs]
+mem_wr
+=addr_hi[31:0]=
+[Outputs]
+wren
+[BiDir]
+[ATTRIBUTES]
+VeriModel dmem_write_protect
+

@@ -136,6 +136,34 @@ def usage():
     print("Optional Arguments:")
     print("\t-h\t\t- Specifies to store output in a HEXADECIMAL format")
     print("\t-n\t\t- Specifies to insert NOOPs wherever necessary to resolve dependencies")
+    print("\t-m\t\t- Specifies to create memory from a text containing numbers")
+
+def memconvert(infile, outfile, hexmode):
+    # Read in input file
+    lines = []
+    with open(infile) as fin:
+        lines = fin.readlines()
+        fin.close()
+    bits = []
+    # Convert the numbers
+    for line in lines:
+        bits.append(int(line, 16))
+    
+    # Print the bits to a file
+    with open(outfile, "w") as fout:
+        for bit in bits:
+            if (hexmode):
+                if (bit < 0):
+                    print(hex(bit & 2**32-1)[2:], file=fout)
+                else:
+                    print("%016x" % bit, file=fout)
+            else:
+                if (bit < 0):
+                    print(bin(bit & 2**32-1)[2:], file=fout)
+                else:
+                    print("{:064b}".format(bit), file=fout)
+        fout.close()
+    
 
 def main(infile, outfile, hexmode, noopmode):
     # Read in input file
@@ -226,6 +254,7 @@ if __name__ == '__main__':
     args = sys.argv
     hexmode = False
     noopmode = False
+    memmode = False
     if len(args) < 3:
         usage()
         sys.exit(1)
@@ -235,6 +264,11 @@ if __name__ == '__main__':
     if (len(args) > 3 and "-n" in args):
         args.remove("-n")
         noopmode = True
+    if (len(args) > 3 and "-m" in args):
+        args.remove("-m")
+        memmode = True
+    if (memmode):
+        memconvert(args[1], args[2], hexmode)
     else:
         main(args[1], args[2], hexmode, noopmode)
     sys.exit(0)

@@ -27,6 +27,7 @@ module mux8_to_1_x64(
     input [63:0] X5,
     input [63:0] X6,
     input [63:0] X7,
+	 input [63:0] XD,
     input [2:0] S,
 	 input EN,
     output [63:0] Q
@@ -53,7 +54,7 @@ module mux8_to_1_x64(
 		end
 		else
 		begin
-			out = X0;
+			out = XD;
 		end
 	end
 

@@ -81,25 +81,49 @@ module convertable_fifo_controller
 
    //------------------------- Local assignments -------------------------------
 	wire hold;
-	assign in_rdy = ~hold;
+	
+	reg in_rdy_out;
+	assign in_rdy = in_rdy_out;
 	
 	wire cpu_ctrl;
 	wire [1:0] cpu_cmd;
+   
+   // Functional signals are wrapped into cpu_addr
+   //
+   // cpu_ctrl =  [11]
+   //    set means accessing control signals
+   //
+   // cpu_cmd  =  [10:9]
+   //          !ctrl    ctrl
+   //    00 -> Data  /  Tail
+   //    01 -> Ctrl  /  Head
+   //    10 -> Ctrl  /  Full
+   //    11 -> Ctrl  /  Done
+   //
+   // cpu_addr =  [8:0]
+   //    Specifies address to access data (!ctrl only)
+
 	wire [8:0] cpu_addr;
 	assign cpu_ctrl = cpu_addr_in[11];
 	assign cpu_cmd = cpu_addr_in[10:9];
 	assign cpu_addr = cpu_addr_in[8:0];
 	
+	// Need a 1 clock buffer on the output signals to capture the first and last packet
+	reg [63:0] in_data_pre;
+	reg [7:0] in_ctrl_pre;
+	reg end_of_pkt_pre;
+	
 	reg fifo_wren;
+	reg fifo_wren_next;
 
    //------------------------- Modules-------------------------------
    CVTB_memory fifo_dut (
-		.cpu_addr_in      (cpu_addr_in), 
+		.cpu_addr_in      (cpu_addr), 
 		.cpu_din          (cpu_din), 
-		.in_data          (in_data), 
+		.in_data          (in_data_pre), 
 		.rst              (reset), 
 		.clk              (clk),
-		.end_of_pkt       (end_of_pkt),
+		.end_of_pkt       (end_of_pkt_pre),
 		.hold					(hold), 
 		.out_data			(out_data),
 		.cpu_ctrl			(cpu_ctrl),
@@ -107,7 +131,7 @@ module convertable_fifo_controller
 		.cpu_cmd				(cpu_cmd), 
 		.cpu_write			(cpu_wen),
 		.dout_a           (cpu_dout),
-		.in_ctrl				(in_ctrl),
+		.in_ctrl				(in_ctrl_pre),
 		.out_rdy				(out_rdy),
 		.in_wr				(fifo_wren),
 		.out_wr				(out_wr)
@@ -121,22 +145,25 @@ module convertable_fifo_controller
       end_of_pkt_next = end_of_pkt;
       in_pkt_body_next = in_pkt_body;
       begin_pkt_next = begin_pkt;
+		fifo_wren_next = fifo_wren;
       
 		case(state)
 			START: begin
+				in_rdy_out = 1;
 				if (in_ctrl != 0) begin
 					state_next 		= HEADER;
 					begin_pkt_next 	= 1;
 					end_of_pkt_next 	= 0;   // takes matcher out of reset
-					fifo_wren = in_wr;
+					fifo_wren_next = in_wr;
 				end
 				else begin
-					fifo_wren = 0;
+					fifo_wren_next = 0;
 				end
 			end
 			HEADER: begin
 				begin_pkt_next = 0;
-				fifo_wren = in_wr;
+				in_rdy_out = 1;
+				fifo_wren_next = in_wr;
 				if (in_ctrl == 0) begin
 					header_counter_next = header_counter + 1'b1;
 					if (header_counter_next == 3) begin
@@ -145,19 +172,27 @@ module convertable_fifo_controller
 				end
 			end
 			PAYLOAD: begin
-				fifo_wren = in_wr;
-				if (in_ctrl != 0) begin
+				if (end_of_pkt) begin
 					state_next = HOLD;
+					fifo_wren_next = 0;
+					in_rdy_out = 0;
+				end
+				else if (in_ctrl != 0) begin
+					fifo_wren_next = in_wr;
+					in_rdy_out = 1;
 					header_counter_next 	= 0;
 					end_of_pkt_next 		= 1;   // will reset matcher
 					in_pkt_body_next 		= 0;
 				end
 				else begin
+					fifo_wren_next = in_wr;
 					in_pkt_body_next = 1;
+					in_rdy_out = 1;
 				end
 			end
 			HOLD: begin
-				fifo_wren = 0;
+				fifo_wren_next = 0;
+				in_rdy_out = 0;
 				if (~hold) begin
 					state_next = START;
 				end
@@ -172,6 +207,10 @@ module convertable_fifo_controller
          begin_pkt 		<= 0;
          end_of_pkt 	<= 0;
          in_pkt_body 	<= 0;
+			in_data_pre <= 0;
+			in_ctrl_pre <= 0;
+			end_of_pkt_pre <= 0;
+			fifo_wren <= 0;
       end
       else begin
          header_counter <= header_counter_next;
@@ -179,6 +218,11 @@ module convertable_fifo_controller
          begin_pkt 		<= begin_pkt_next;
          end_of_pkt 	<= end_of_pkt_next;
          in_pkt_body 	<= in_pkt_body_next;
+			in_data_pre <= in_data;
+			in_ctrl_pre <= in_ctrl;
+			end_of_pkt_pre <= end_of_pkt;
+			fifo_wren <= fifo_wren_next;
+
          //counter <= 0;
       end // else: !if(reset)
    end // always @ (posedge clk)   

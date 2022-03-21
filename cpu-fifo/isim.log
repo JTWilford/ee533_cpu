@@ -1,0 +1,77 @@
+Command line:
+   ./convertable_fifo_controller_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  40260
+
+Sun Mar 13 01:37:50 2022
+
+Total Line Count : 6737
+
+ Elaboration Time: 0.38 sec
+
+ Current Memory Usage: 244.691 Meg
+
+ Total Signals          : 5383
+ Total Nets             : 4850
+ Total Signal Drivers   : 1989
+ Total Blocks           : 1054
+ Total Primitive Blocks : 896
+ Total Processes        : 3623
+ Total Traceable Variables  : 1743
+ Total Scalar Nets and Variables : 107848
+ntrace select -o on -n /convertable_fifo_controller/in_data 
+ntrace select -o on -n /convertable_fifo_controller/in_ctrl 
+ntrace select -o on -n /convertable_fifo_controller/in_wr 
+ntrace select -o on -n /convertable_fifo_controller/in_rdy 
+ntrace select -o on -n /convertable_fifo_controller/out_data 
+ntrace select -o on -n /convertable_fifo_controller/out_ctrl 
+ntrace select -o on -n /convertable_fifo_controller/out_wr 
+ntrace select -o on -n /convertable_fifo_controller/out_rdy 
+ntrace select -o on -n /convertable_fifo_controller/reset 
+ntrace select -o on -n /convertable_fifo_controller/clk 
+ntrace select -o on -n /convertable_fifo_controller/hold 
+ntrace select -o on -n /convertable_fifo_controller/cpu_ctrl 
+ntrace select -o on -n /convertable_fifo_controller/cpu_cmd 
+ntrace select -o on -n /convertable_fifo_controller/cpu_addr_in 
+ntrace select -o on -n /convertable_fifo_controller/cpu_din 
+ntrace select -o on -n /convertable_fifo_controller/cpu_wen 
+ntrace select -o on -n /convertable_fifo_controller/cpu_dout 
+ntrace select -o on -n /convertable_fifo_controller/cpu_addr 
+ntrace select -o on -n /convertable_fifo_controller/implSig1 
+ntrace select -o on -n /convertable_fifo_controller/implSig2 
+ntrace select -o on -n /convertable_fifo_controller/implSig3 
+ntrace select -o on -n /convertable_fifo_controller/implSig4 
+ntrace select -o on -n /convertable_fifo_controller/implSig5 
+ntrace select -o on -n /convertable_fifo_controller/implSig6 
+ntrace select -o on -n /convertable_fifo_controller/implSig7 
+ntrace select -o on -n /convertable_fifo_controller/implSig8 
+ntrace select -o on -n /convertable_fifo_controller/DATA_WIDTH 
+ntrace select -o on -n /convertable_fifo_controller/CTRL_WIDTH 
+ntrace select -o on -n /convertable_fifo_controller/START 
+ntrace select -o on -n /convertable_fifo_controller/HEADER 
+ntrace select -o on -n /convertable_fifo_controller/PAYLOAD 
+ntrace select -o on -n /convertable_fifo_controller/HOLD 
+ntrace select -o on -n /convertable_fifo_controller/state 
+ntrace select -o on -n /convertable_fifo_controller/state_next 
+ntrace select -o on -n /convertable_fifo_controller/in_pkt_body 
+ntrace select -o on -n /convertable_fifo_controller/in_pkt_body_next 
+ntrace select -o on -n /convertable_fifo_controller/end_of_pkt 
+ntrace select -o on -n /convertable_fifo_controller/end_of_pkt_next 
+ntrace select -o on -n /convertable_fifo_controller/begin_pkt 
+ntrace select -o on -n /convertable_fifo_controller/begin_pkt_next 
+ntrace select -o on -n /convertable_fifo_controller/header_counter 
+ntrace select -o on -n /convertable_fifo_controller/header_counter_next 
+ntrace select -o on -n /convertable_fifo_controller/div_clk 
+ntrace select -o on -n /convertable_fifo_controller/fifo_wren 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+ Total Simulation Time: 0.51 sec
+
+ Current Memory Usage: 259.981 Meg
+
+Sun Mar 13 02:17:30 2022
+
