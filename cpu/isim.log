@@ -1,71 +1,91 @@
 Command line:
-   ./cpu_fifo_tb_isim_beh.exe
+   ./cpu_tb_tb_0_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  33701
+     -ipcport  53317
 
-Mon Mar 21 00:27:24 2022
+Fri Mar 25 12:04:58 2022
 
-Total Line Count : 8335
+Total Line Count : 3663
 
- Elaboration Time: 0.28 sec
+ Elaboration Time: 0.04 sec
 
- Current Memory Usage: 246.796 Meg
+ Current Memory Usage: 237.404 Meg
 
- Total Signals          : 5995
- Total Nets             : 6554
- Total Signal Drivers   : 2364
- Total Blocks           : 1203
- Total Primitive Blocks : 1040
- Total Processes        : 4139
- Total Traceable Variables  : 2131
- Total Scalar Nets and Variables : 159780
-ntrace select -o on -n /cpu_fifo_tb/PERIOD 
-ntrace select -o on -n /cpu_fifo_tb/DUTY_CYCLE 
-ntrace select -o on -n /cpu_fifo_tb/OFFSET 
-ntrace select -o on -n /cpu_fifo_tb/clk 
-ntrace select -o on -n /cpu_fifo_tb/rst 
-ntrace select -o on -n /cpu_fifo_tb/rst2 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/PC 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/instruction 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ex_r1_data 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ex_r2_data 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/branch 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/MEM_ADDR 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/MEM_DIN 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/MEM_WEN 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/PERF_DIN 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/PERF_WREN 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/PERF_ADDR 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/PERF_DOUT 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/id_d0 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/rf_r1_out 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/r0_addr 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/r1_addr 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/wb_data 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/wb_reg_addr 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/wb_reg_write 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/out_data 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/out_ctrl 
-ntrace select -o on -n /cpu_fifo_tb/UUT/perf_din 
-ntrace select -o on -n /cpu_fifo_tb/UUT/perf_addr 
-ntrace select -o on -n /cpu_fifo_tb/UUT/perf_dout 
-ntrace select -o on -n /cpu_fifo_tb/UUT/perf_wren 
-ntrace select -o on -n /cpu_fifo_tb/UUT/test_rdy 
-ntrace select -o on -n /cpu_fifo_tb/UUT/test_wr 
+ Total Signals          : 1773
+ Total Nets             : 3548
+ Total Signal Drivers   : 879
+ Total Blocks           : 420
+ Total Primitive Blocks : 397
+ Total Processes        : 1194
+ Total Traceable Variables  : 1019
+ Total Scalar Nets and Variables : 259744
+ntrace select -o on -n /cpu_tb_tb_0/clk 
+ntrace select -o on -n /cpu_tb_tb_0/div_clk 
+ntrace select -o on -n /cpu_tb_tb_0/rst 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/IF_pc 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/IF_tid 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_pc 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_ins_DUMMY 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_alu_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_br_addr 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_br_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_data0 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_data1 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_dest 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_d1 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_imm 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_mem_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_r0 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_r1 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_tid 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_tr0 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_tr1 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_wb_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_alu_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_branch 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_br_addr 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_br_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_data 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_dest 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_d0 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_d1 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_mem_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_tid 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_wb_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_addr 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_data 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_dest 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_dout 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_mem_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_tid 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_wb_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_wen 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_data 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_dest 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_dmem 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_tdest 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_tid 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_wb_ctrl 
+ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_wr_data 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
-isimrun 100000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+isimrun 10000 ns 
+
+ Total Simulation Time: 0.12 sec
+
+ Current Memory Usage: 253.383 Meg
+
+Fri Mar 25 12:09:11 2022
+

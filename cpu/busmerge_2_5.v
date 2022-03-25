@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    14:28:32 03/05/2022 
+// Create Date:    11:11:18 03/25/2022 
 // Design Name: 
-// Module Name:    mux2_1_x3 
+// Module Name:    busmerge_2_5 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,23 +18,13 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module mux2_1_x3(
-    input [2:0] I0,
-    input [2:0] I1,
-    output [2:0] O,
-    input S
+module busmerge_2_5(
+    input [1:0] A,
+    input [4:0] B,
+    output [6:0] O
     );
-	
-	reg [2:0] out;
-	assign O = out;
-	
-	always @(*)
-	begin
-		case (S)
-			1'b0:	out = I0;
-			1'b1:	out = I1;
-		endcase
-	end
+	 
+	 assign O = {A, B};
 
 
 endmodule

@@ -20,10 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 module decoder(
 		input 	[31:0] 	ins,
-		output 	[2:0] 	rd,
-		output 	[2:0] 	rs1,
-		output 	[2:0] 	rs2,
-		output 	[11:0] 	imm,
+		output 	[4:0] 	rd,
+		output 	[4:0] 	rs1,
+		output 	[4:0] 	rs2,
+		output 	[63:0] 	imm,
 		output 	[5:0] 	ex_ctrl,
 		output 				mem_ctrl,
 		output 	[1:0] 	wb_ctrl,
@@ -37,13 +37,13 @@ module decoder(
 	 localparam BEZ	= 5'b10000;
 	 localparam BNEZ	= 5'b01000;
 	 
-	 reg [2:0] rd_out;
+	 reg [4:0] rd_out;
 	 assign rd = rd_out;
-	 reg [2:0] rs1_out;
+	 reg [4:0] rs1_out;
 	 assign rs1 = rs1_out;
-	 reg [2:0] rs2_out;
+	 reg [4:0] rs2_out;
 	 assign rs2 = rs2_out;
-	 reg [11:0] imm_out;
+	 reg [63:0] imm_out;
 	 assign imm = imm_out;
 	 reg [5:0] ex_ctrl_out;
 	 assign ex_ctrl = ex_ctrl_out;
@@ -59,31 +59,31 @@ module decoder(
 	 begin
 		case (ins[4:0])
 			ALU: begin
-				rd_out = ins[7:5];
-				rs1_out = ins[14:12];
-				rs2_out = ins[17:15];
+				rd_out = ins[9:5];
+				rs1_out = ins[18:14];
+				rs2_out = ins[23:19];
 				imm_out = 0;
 				
-				ex_ctrl_out = {2'b10, ins[11:8]};
+				ex_ctrl_out = {2'b10, ins[13:10]};
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 2'b00;
 			end
 			ALUI: begin
-				rd_out = ins[7:5];
-				rs1_out = ins[14:12];
+				rd_out = ins[9:5];
+				rs1_out = ins[18:14];
 				rs2_out = 0;
-				imm_out = ins[26:15];
+				imm_out = {{51{ins[31]}}, ins[31:19]};
 				
-				ex_ctrl_out = {2'b11, ins[11:8]};
+				ex_ctrl_out = {2'b11, ins[13:10]};
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 2'b00;
 			end
 			LW: begin
-				rd_out = ins[7:5];
-				rs1_out = ins[14:12];
-				rs2_out = ins[17:15];
+				rd_out = ins[9:5];
+				rs1_out = ins[18:14];
+				rs2_out = ins[23:19];
 				imm_out = 0;
 				
 				ex_ctrl_out = 0;
@@ -93,8 +93,8 @@ module decoder(
 			end
 			SW: begin
 				rd_out = 0;
-				rs1_out = ins[14:12];
-				rs2_out = ins[17:15];
+				rs1_out = ins[18:14];
+				rs2_out = ins[23:19];
 				imm_out = 0;
 				
 				ex_ctrl_out = 0;
@@ -104,9 +104,9 @@ module decoder(
 			end
 			BEZ: begin
 				rd_out = 0;
-				rs1_out = ins[14:12];
+				rs1_out = ins[18:14];
 				rs2_out = 0;
-				imm_out = ins[26:15];
+				imm_out = {{51{ins[31]}}, ins[31:19]};
 				
 				ex_ctrl_out = 0;
 				mem_ctrl_out = 0;
@@ -115,9 +115,9 @@ module decoder(
 			end
 			BNEZ: begin
 				rd_out = 0;
-				rs1_out = ins[14:12];
+				rs1_out = ins[18:14];
 				rs2_out = 0;
-				imm_out = ins[26:15];
+				imm_out = {{51{ins[31]}}, ins[31:19]};
 				
 				ex_ctrl_out = 0;
 				mem_ctrl_out = 0;

@@ -132,7 +132,7 @@ SIGPROPS_BEGIN
 2
 2
 /cpu_fifo_tb/UUT/dut_cpu/wb_data
-2
+4
 2
 /cpu_fifo_tb/UUT/dut_cpu/wb_reg_addr
 2
@@ -147,7 +147,7 @@ SIGPROPS_BEGIN
 2
 2
 /cpu_fifo_tb/UUT/perf_din
-2
+4
 2
 /cpu_fifo_tb/UUT/perf_addr
 2

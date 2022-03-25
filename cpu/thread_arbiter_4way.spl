@@ -1,0 +1,10 @@
+[Inputs]
+clk
+rst
+en
+[Outputs]
+=tid[1:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel thread_arbiter_4way
+

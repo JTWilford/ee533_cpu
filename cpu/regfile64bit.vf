@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : sch2verilog
 //  /   /         Filename : regfile64bit.vf
-// /___/   /\     Timestamp : 03/14/2022 23:39:38
+// /___/   /\     Timestamp : 03/25/2022 11:53:36
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -22,6 +22,7 @@
 
 module regfile64bit(clk, 
                     rd_en, 
+                    rst, 
                     r0addr, 
                     r1addr, 
                     wraddr, 
@@ -32,34 +33,65 @@ module regfile64bit(clk,
 
     input clk;
     input rd_en;
-    input [2:0] r0addr;
-    input [2:0] r1addr;
-    input [2:0] wraddr;
+    input rst;
+    input [6:0] r0addr;
+    input [6:0] r1addr;
+    input [6:0] wraddr;
     input [63:0] wr_din;
     input wr_en;
    output [63:0] r0_data;
    output [63:0] r1_data;
    
-   wire [2:0] baddr;
+   wire [6:0] baddr;
    wire write;
    wire [0:0] XLXN_8;
+   wire [63:0] XLXN_13;
+   wire [63:0] XLXN_14;
+   wire XLXN_18;
+   wire XLXN_19;
+   wire XLXN_27;
+   wire zero_r0;
+   wire zero_r1;
    
-   regmem64 XLXI_46 (.addra(r0addr[2:0]), 
-                     .addrb(baddr[2:0]), 
+   regmem64 XLXI_46 (.addra(r0addr[6:0]), 
+                     .addrb(baddr[6:0]), 
                      .clka(clk), 
                      .clkb(clk), 
                      .dina(), 
                      .dinb(wr_din[63:0]), 
                      .wea(XLXN_8[0]), 
                      .web(write), 
-                     .douta(r0_data[63:0]), 
-                     .doutb(r1_data[63:0]));
-   mux2_1_x3 XLXI_48 (.I0(r1addr[2:0]), 
-                      .I1(wraddr[2:0]), 
-                      .S(write), 
-                      .O(baddr[2:0]));
+                     .douta(XLXN_13[63:0]), 
+                     .doutb(XLXN_14[63:0]));
    AND2B1 XLXI_50 (.I0(rd_en), 
                    .I1(wr_en), 
                    .O(write));
    GND XLXI_52 (.G(XLXN_8[0]));
+   zero_reg_mux XLXI_55 (.din(XLXN_14[63:0]), 
+                         .sel(zero_r1), 
+                         .dout(r1_data[63:0]));
+   zero_reg_mux XLXI_56 (.din(XLXN_13[63:0]), 
+                         .sel(zero_r0), 
+                         .dout(r0_data[63:0]));
+   collapse_or5 XLXI_59 (.I(r0addr[4:0]), 
+                         .O(XLXN_19));
+   collapse_or5 XLXI_60 (.I(r1addr[4:0]), 
+                         .O(XLXN_18));
+   FDCE XLXI_62 (.C(clk), 
+                 .CE(XLXN_27), 
+                 .CLR(rst), 
+                 .D(XLXN_19), 
+                 .Q(zero_r0));
+   defparam XLXI_62.INIT = 1'b0;
+   FDCE XLXI_63 (.C(clk), 
+                 .CE(XLXN_27), 
+                 .CLR(rst), 
+                 .D(XLXN_18), 
+                 .Q(zero_r1));
+   defparam XLXI_63.INIT = 1'b0;
+   one_1b XLXI_65 (.O(XLXN_27));
+   mux2_1_x7 XLXI_67 (.I0(r1addr[6:0]), 
+                      .I1(wraddr[6:0]), 
+                      .S(write), 
+                      .O(baddr[6:0]));
 endmodule

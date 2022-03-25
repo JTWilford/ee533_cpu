@@ -19,75 +19,79 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module ID_EXreg(
-    input [63:0] ID_reg_data1,
-    input [63:0] ID_reg_data2,
+    input [63:0] ID_data0,
+    input [63:0] ID_data1,
     input [1:0] ID_br_ctrl,
-    input [2:0] ID_Wreg,
-    input [8:0] ID_addr_ins,
-    input [5:0] ID_EX_CTRL,
-    input ID_MEM_CTRL,
-    input [1:0] ID_WB_CTRL,
+    input [4:0] ID_dest,
+    input [9:0] ID_br_addr,
+    input [5:0] ID_alu_ctrl,
+    input ID_mem_ctrl,
+    input [1:0] ID_wb_ctrl,
+	 input [1:0] ID_tid,
 	 
 	 
-    output [63:0] EX_reg_data1,
-    output [63:0] EX_reg_data2,
+    output [63:0] EX_d0,
+    output [63:0] EX_d1,
 	 output [1:0] EX_br_ctrl,
-    output [2:0] EX_Wreg,
-    output [8:0] EX_addr_ins,
-    output [5:0] EX_EX_CTRL,
-    output EX_MEM_CTRL,
-    output [1:0] EX_WB_CTRL,
+    output [4:0] EX_dest,
+    output [9:0] EX_br_addr,
+    output [5:0] EX_alu_ctrl,
+    output EX_mem_ctrl,
+    output [1:0] EX_wb_ctrl,
+	 output [1:0] EX_tid,
 	 
 	 
     input clk,
     input reset
     );
 
-	 reg [63:0] R1out;
-	 reg [63:0] R2out;
+	 reg [63:0] data0;
+	 reg [63:0] data1;
 	 reg [1:0] br_ctrl;
-	 reg [2:0] WReg;
-	 reg [8:0] addr_ins;
-	 reg [5:0] EX_CTRL;
-	 reg MEM_CTRL;
-	 reg [1:0] WB_CTRL;
+	 reg [4:0] dest;
+	 reg [9:0] br_addr;
+	 reg [5:0] alu_ctrl;
+	 reg mem_ctrl;
+	 reg [1:0] wb_ctrl;
+	 reg [1:0] tid;
 	 
 	 
-	 assign EX_reg_data1 = R1out;
-    assign EX_reg_data2 = R2out;
+	 assign EX_d0 = data0;
+    assign EX_d1 = data1;
 	 assign EX_br_ctrl = br_ctrl;
-    assign EX_Wreg = WReg;
-    assign EX_addr_ins = addr_ins;
-    assign EX_EX_CTRL = EX_CTRL;
-    assign EX_MEM_CTRL = MEM_CTRL;
-    assign EX_WB_CTRL = WB_CTRL;
+    assign EX_dest = dest;
+    assign EX_br_addr = br_addr;
+    assign EX_alu_ctrl = alu_ctrl;
+    assign EX_mem_ctrl = mem_ctrl;
+    assign EX_wb_ctrl = wb_ctrl;
+	 assign EX_tid = tid;
 	 
 	 
 	 always @(posedge clk)
 		begin
 			if (reset)
 			begin
-				R1out <= 0;
-				R2out <= 0;
+				data0 <= 0;
+				data1 <= 0;
 				br_ctrl <= 0;
-	         WReg <= 0;
-	         addr_ins <= 0;
-	         EX_CTRL <= 0;
-	         MEM_CTRL <= 0;
-	         WB_CTRL <= 0;
-				
+	         dest <= 0;
+	         br_addr <= 0;
+	         alu_ctrl <= 0;
+	         mem_ctrl <= 0;
+	         wb_ctrl <= 0;
+				tid <= 0;
 			end
 			else
 			begin
-				R1out <= ID_reg_data1;
-				R2out <= ID_reg_data2;
+				data0 <= ID_data0;
+				data1 <= ID_data1;
 				br_ctrl <= ID_br_ctrl;
-	         WReg <= ID_Wreg;
-	         addr_ins <= ID_addr_ins;
-	         EX_CTRL <= ID_EX_CTRL;
-	         MEM_CTRL <= ID_MEM_CTRL;
-	         WB_CTRL <= ID_WB_CTRL;
-				
+	         dest <= ID_dest;
+	         br_addr <= ID_br_addr;
+	         alu_ctrl <= ID_alu_ctrl;
+	         mem_ctrl <= ID_mem_ctrl;
+	         wb_ctrl <= ID_wb_ctrl;
+				tid <= ID_tid;
 			end
 	  end
 endmodule

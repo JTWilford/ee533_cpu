@@ -11,12 +11,12 @@
 datamem64 YourInstanceName (
     .clka(clka),
     .dina(dina), // Bus [63 : 0] 
-    .addra(addra), // Bus [7 : 0] 
+    .addra(addra), // Bus [9 : 0] 
     .wea(wea), // Bus [0 : 0] 
     .douta(douta), // Bus [63 : 0] 
     .clkb(clkb),
     .dinb(dinb), // Bus [63 : 0] 
-    .addrb(addrb), // Bus [7 : 0] 
+    .addrb(addrb), // Bus [9 : 0] 
     .web(web), // Bus [0 : 0] 
     .doutb(doutb)); // Bus [63 : 0] 
 
@@ -32,12 +32,12 @@ datamem64 YourInstanceName (
 instructionmem64 YourInstanceName (
     .clka(clka),
     .dina(dina), // Bus [31 : 0] 
-    .addra(addra), // Bus [8 : 0] 
+    .addra(addra), // Bus [11 : 0] 
     .wea(wea), // Bus [0 : 0] 
     .douta(douta), // Bus [31 : 0] 
     .clkb(clkb),
     .dinb(dinb), // Bus [31 : 0] 
-    .addrb(addrb), // Bus [8 : 0] 
+    .addrb(addrb), // Bus [11 : 0] 
     .web(web), // Bus [0 : 0] 
     .doutb(doutb)); // Bus [31 : 0] 
 
@@ -81,12 +81,12 @@ lt65 YourInstanceName (
 regmem64 YourInstanceName (
     .clka(clka),
     .dina(dina), // Bus [63 : 0] 
-    .addra(addra), // Bus [2 : 0] 
+    .addra(addra), // Bus [6 : 0] 
     .wea(wea), // Bus [0 : 0] 
     .douta(douta), // Bus [63 : 0] 
     .clkb(clkb),
     .dinb(dinb), // Bus [63 : 0] 
-    .addrb(addrb), // Bus [2 : 0] 
+    .addrb(addrb), // Bus [6 : 0] 
     .web(web), // Bus [0 : 0] 
     .doutb(doutb)); // Bus [63 : 0] 
 
@@ -149,12 +149,12 @@ component datamem64
     port (
     clka: IN std_logic;
     dina: IN std_logic_VECTOR(63 downto 0);
-    addra: IN std_logic_VECTOR(7 downto 0);
+    addra: IN std_logic_VECTOR(9 downto 0);
     wea: IN std_logic_VECTOR(0 downto 0);
     douta: OUT std_logic_VECTOR(63 downto 0);
     clkb: IN std_logic;
     dinb: IN std_logic_VECTOR(63 downto 0);
-    addrb: IN std_logic_VECTOR(7 downto 0);
+    addrb: IN std_logic_VECTOR(9 downto 0);
     web: IN std_logic_VECTOR(0 downto 0);
     doutb: OUT std_logic_VECTOR(63 downto 0));
 end component;
@@ -189,12 +189,12 @@ component instructionmem64
     port (
     clka: IN std_logic;
     dina: IN std_logic_VECTOR(31 downto 0);
-    addra: IN std_logic_VECTOR(8 downto 0);
+    addra: IN std_logic_VECTOR(11 downto 0);
     wea: IN std_logic_VECTOR(0 downto 0);
     douta: OUT std_logic_VECTOR(31 downto 0);
     clkb: IN std_logic;
     dinb: IN std_logic_VECTOR(31 downto 0);
-    addrb: IN std_logic_VECTOR(8 downto 0);
+    addrb: IN std_logic_VECTOR(11 downto 0);
     web: IN std_logic_VECTOR(0 downto 0);
     doutb: OUT std_logic_VECTOR(31 downto 0));
 end component;
@@ -281,12 +281,12 @@ component regmem64
     port (
     clka: IN std_logic;
     dina: IN std_logic_VECTOR(63 downto 0);
-    addra: IN std_logic_VECTOR(2 downto 0);
+    addra: IN std_logic_VECTOR(6 downto 0);
     wea: IN std_logic_VECTOR(0 downto 0);
     douta: OUT std_logic_VECTOR(63 downto 0);
     clkb: IN std_logic;
     dinb: IN std_logic_VECTOR(63 downto 0);
-    addrb: IN std_logic_VECTOR(2 downto 0);
+    addrb: IN std_logic_VECTOR(6 downto 0);
     web: IN std_logic_VECTOR(0 downto 0);
     doutb: OUT std_logic_VECTOR(63 downto 0));
 end component;

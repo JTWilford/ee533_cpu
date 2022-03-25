@@ -34,12 +34,12 @@
 datamem64 YourInstanceName (
 	.clka(clka),
 	.dina(dina), // Bus [63 : 0] 
-	.addra(addra), // Bus [7 : 0] 
+	.addra(addra), // Bus [9 : 0] 
 	.wea(wea), // Bus [0 : 0] 
 	.douta(douta), // Bus [63 : 0] 
 	.clkb(clkb),
 	.dinb(dinb), // Bus [63 : 0] 
-	.addrb(addrb), // Bus [7 : 0] 
+	.addrb(addrb), // Bus [9 : 0] 
 	.web(web), // Bus [0 : 0] 
 	.doutb(doutb)); // Bus [63 : 0] 
 

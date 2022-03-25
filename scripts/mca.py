@@ -192,7 +192,7 @@ def main(infile, outfile, hexmode, noopmode):
             splitline = purelines[i].split(" ")
             for j in range(0, len(splitline)):
                 if ("@" in splitline[j]):
-                    val = labels[splitline[j][1:]] - i
+                    val = labels[splitline[j][1:]] - i - 1
                     splitline[j] = str(val)
             purelines[i] = " ".join(splitline)
     # With the labels resolved, now we just need to translate the instructions
@@ -212,25 +212,25 @@ def main(infile, outfile, hexmode, noopmode):
 
             # R-type instructions
             if itype == IType.R:
-                bit = opcode + (int(args[0])<<5) + (func<<8) + (int(args[1])<<12) + (int(args[2])<<15)
+                bit = opcode + (int(args[0])<<5) + (func<<10) + (int(args[1])<<14) + (int(args[2])<<19)
                 bits.append(bit)
             # I-type instructions
             elif itype == IType.I:
                 # If its a load, we use RD and RS2
                 if (op.upper() == "LW"):
-                    bit = opcode + (int(args[0])<<5) + (func<<8) + (int(args[1])<<15)
+                    bit = opcode + (int(args[0])<<5) + (func<<10) + (int(args[1])<<19)
                     bits.append(bit) 
                 # If its a store, we use RS1 and RS2
                 elif (op.upper() == "SW"):
-                    bit = opcode + (func<<8) + (int(args[0])<<12) + (int(args[1])<<15)
+                    bit = opcode + (func<<10) + (int(args[0])<<14) + (int(args[1])<<19)
                     bits.append(bit)
                 # Every other instruction
                 else:
-                    bit = opcode + (int(args[0])<<5) + (func<<8) + (int(args[1])<<12) + (int(args[2])<<15)
+                    bit = opcode + (int(args[0])<<5) + (func<<10) + (int(args[1])<<14) + (int(args[2])<<19)
                     bits.append(bit)
             # B-type instructions
             elif itype == IType.B:
-                bit = opcode + (int(args[0])<<12) + (int(args[1])<<15)
+                bit = opcode + (int(args[0])<<14) + (int(args[1])<<19)
                 bits.append(bit)
             else:
                 bits.append(0)

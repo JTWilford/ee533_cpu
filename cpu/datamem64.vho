@@ -33,12 +33,12 @@ component datamem64
 	port (
 	clka: IN std_logic;
 	dina: IN std_logic_VECTOR(63 downto 0);
-	addra: IN std_logic_VECTOR(7 downto 0);
+	addra: IN std_logic_VECTOR(9 downto 0);
 	wea: IN std_logic_VECTOR(0 downto 0);
 	douta: OUT std_logic_VECTOR(63 downto 0);
 	clkb: IN std_logic;
 	dinb: IN std_logic_VECTOR(63 downto 0);
-	addrb: IN std_logic_VECTOR(7 downto 0);
+	addrb: IN std_logic_VECTOR(9 downto 0);
 	web: IN std_logic_VECTOR(0 downto 0);
 	doutb: OUT std_logic_VECTOR(63 downto 0));
 end component;

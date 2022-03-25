@@ -52,20 +52,20 @@ module regmem64(
 
 input clka;
 input [63 : 0] dina;
-input [2 : 0] addra;
+input [6 : 0] addra;
 input [0 : 0] wea;
 output [63 : 0] douta;
 input clkb;
 input [63 : 0] dinb;
-input [2 : 0] addrb;
+input [6 : 0] addrb;
 input [0 : 0] web;
 output [63 : 0] doutb;
 
 // synthesis translate_off
 
       BLK_MEM_GEN_V2_8 #(
-		.C_ADDRA_WIDTH(3),
-		.C_ADDRB_WIDTH(3),
+		.C_ADDRA_WIDTH(7),
+		.C_ADDRB_WIDTH(7),
 		.C_ALGORITHM(1),
 		.C_BYTE_SIZE(9),
 		.C_COMMON_CLK(1),
@@ -88,8 +88,8 @@ output [63 : 0] doutb;
 		.C_MEM_TYPE(2),
 		.C_MUX_PIPELINE_STAGES(0),
 		.C_PRIM_TYPE(1),
-		.C_READ_DEPTH_A(8),
-		.C_READ_DEPTH_B(8),
+		.C_READ_DEPTH_A(128),
+		.C_READ_DEPTH_B(128),
 		.C_READ_WIDTH_A(64),
 		.C_READ_WIDTH_B(64),
 		.C_SIM_COLLISION_CHECK("NONE"),
@@ -102,8 +102,8 @@ output [63 : 0] doutb;
 		.C_USE_RAMB16BWER_RST_BHV(0),
 		.C_WEA_WIDTH(1),
 		.C_WEB_WIDTH(1),
-		.C_WRITE_DEPTH_A(8),
-		.C_WRITE_DEPTH_B(8),
+		.C_WRITE_DEPTH_A(128),
+		.C_WRITE_DEPTH_B(128),
 		.C_WRITE_MODE_A("NO_CHANGE"),
 		.C_WRITE_MODE_B("NO_CHANGE"),
 		.C_WRITE_WIDTH_A(64),

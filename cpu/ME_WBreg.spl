@@ -1,0 +1,16 @@
+[Inputs]
+clk
+rst
+=ME_wb_ctrl[1:0]=
+=ME_data[63:0]=
+=ME_dest[4:0]=
+=ME_tid[1:0]=
+[Outputs]
+=WB_wb_ctrl[1:0]=
+=WB_data[63:0]=
+=WB_dest[4:0]=
+=WB_tid[1:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel ME_WBreg
+

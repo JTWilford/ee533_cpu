@@ -1,7 +1,7 @@
 Running : /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/fuse -ise
 /home/ise/sf/ee533_cpu/cpu/cpu.ise -intstyle ise -incremental -lib unisims_ver
--lib unimacro_ver -lib xilinxcorelib_ver -v 2 -o cpu_fifo_tb_isim_beh.exe -prj
-cpu_fifo_tb_beh.prj -top cpu_fifo_tb -top glbl
+-lib unimacro_ver -lib xilinxcorelib_ver -v 2 -o cpu_tb_tb_0_isim_beh.exe -prj
+cpu_tb_tb_0_beh.prj -top cpu_tb_tb_0 -top glbl
 Determining compilation order of HDL files
 The vhdl library search path for library "std" is now
 "/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/std"
@@ -181,70 +181,43 @@ xilinxcorelib_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver
 -- Done dumping library mapping
 Analyzing Verilog file xor8_by_1.vf
 Analyzing Verilog file xor32_by_1.vf
-Analyzing Verilog file DFF32bit.vf
+Analyzing Verilog file zero_reg_mux.v
 Analyzing Verilog file xor64_by_1.vf
 Analyzing Verilog file vadder64.v
 Analyzing Verilog file regmem64.v
-Analyzing Verilog file mux2_1_x3.v
-Analyzing Verilog file gt65.v
-Analyzing Verilog file DFF64bit.vf
-Analyzing Verilog file ../convertable_fifo/pointer_extend.v
-Analyzing Verilog file ../convertable_fifo/out_data_mux.v
-Analyzing Verilog file ../convertable_fifo/mux4to1_64.v
-Analyzing Verilog file ../convertable_fifo/fifo_write_module.v
-Analyzing Verilog file ../convertable_fifo/dff_9bit.v
-Analyzing Verilog file ../convertable_fifo/data_mux.v
-Analyzing Verilog file ../convertable_fifo/CVTB_mem.v
-Analyzing Verilog file ../convertable_fifo/CVTB_ctrlmem.v
-Analyzing Verilog file ../convertable_fifo/ctrl_data_mux.v
-Analyzing Verilog file ../convertable_fifo/cpu_write_mux.v
-Analyzing Verilog file ../convertable_fifo/addr_mux.v
+Analyzing Verilog file one_1b.v
+Analyzing Verilog file mux2_1_x7.v
+Analyzing Verilog file collapse_or5.v
 Analyzing Verilog file ../alu/xnor64.v
 Analyzing Verilog file ../alu/shift64.v
 Analyzing Verilog file ../alu/set_lsb.v
 Analyzing Verilog file ../alu/or64.v
 Analyzing Verilog file ../alu/mux8_to_1_x64.v
 Analyzing Verilog file ../alu/lt65.v
-WARNING:HDLCompiler:687 - "../alu/lt65.v" Line 1111. Overwriting previous
+Analyzing Verilog file ../alu/gt65.v
+WARNING:HDLCompiler:687 - "../alu/gt65.v" Line 1111. Overwriting previous
    definition of module glbl
 Analyzing Verilog file ../alu/comp_sign_extend.v
 Analyzing Verilog file ../alu/and64.v
-Analyzing Verilog file signextend.v
+Analyzing Verilog file thread_arbiter_4way.v
 Analyzing Verilog file regfile64bit.vf
 Analyzing Verilog file perf_interface.v
-Analyzing Verilog file mux9bit_2_to_1.vf
 Analyzing Verilog file mux2_to_1_x64.v
-Analyzing Verilog file ip_extend.v
+Analyzing Verilog file ME_WBreg.v
+Analyzing Verilog file IP_4way.v
 Analyzing Verilog file instructionmem64.v
-Analyzing Verilog file IFID_reg.vf
+Analyzing Verilog file IF_IDreg.v
 Analyzing Verilog file ID_EXreg.v
+Analyzing Verilog file EX_MEreg.v
 Analyzing Verilog file dmem_write_protect.v
-Analyzing Verilog file DFF16bit.vf
-Analyzing Verilog file DFF134bit.vf
-Analyzing Verilog file DFF133bit.vf
 Analyzing Verilog file decoder.v
 Analyzing Verilog file datamem64.v
-Analyzing Verilog file CVTB_memory.vf
+Analyzing Verilog file busmerge_2_5.v
 Analyzing Verilog file Br_adder.v
 Analyzing Verilog file BEZ_BNEZ_detect.v
 Analyzing Verilog file alu64.vf
-Analyzing Verilog file test_data_generator.v
 Analyzing Verilog file datapath64bit.vf
-Analyzing Verilog file ../convertable_fifo/fifo_state_machine.v
-WARNING:HDLCompiler:693 - "../convertable_fifo/fifo_state_machine.v" Line 77.
-   Parameter declaration becomes local in convertable_fifo_controller with
-   formal parameter declaration list
-WARNING:HDLCompiler:693 - "../convertable_fifo/fifo_state_machine.v" Line 78.
-   Parameter declaration becomes local in convertable_fifo_controller with
-   formal parameter declaration list
-WARNING:HDLCompiler:693 - "../convertable_fifo/fifo_state_machine.v" Line 79.
-   Parameter declaration becomes local in convertable_fifo_controller with
-   formal parameter declaration list
-WARNING:HDLCompiler:693 - "../convertable_fifo/fifo_state_machine.v" Line 80.
-   Parameter declaration becomes local in convertable_fifo_controller with
-   formal parameter declaration list
-Analyzing Verilog file cpu_fifo.v
-Analyzing Verilog file cpu_fifo_tb.tfw
+Analyzing Verilog file cpu_tb_tb_0.v
 Analyzing Verilog file /opt/Xilinx/10.1/ISE/verilog/src/glbl.v
 WARNING:HDLCompiler:687 - "/opt/Xilinx/10.1/ISE/verilog/src/glbl.v" Line 5.
    Overwriting previous definition of module glbl
@@ -252,46 +225,20 @@ Saving Verilog parse-tree work.xor8_by_1 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/xor8_by_1.sdb
 Saving Verilog parse-tree work.xor32_by_1 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/xor32_by_1.sdb
-Saving Verilog parse-tree work.FD8CE_MXILINX_DFF32bit into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@f@d8@c@e_@m@x@i@l@i@n@x_@d@f@f32bit.sdb
-Saving Verilog parse-tree work.DFF32bit into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@d@f@f32bit.sdb
+Saving Verilog parse-tree work.zero_reg_mux into
+/home/ise/sf/ee533_cpu/cpu/isim/work/zero_reg_mux.sdb
 Saving Verilog parse-tree work.xor64_by_1 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/xor64_by_1.sdb
 Saving Verilog parse-tree work.vadder64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/vadder64.sdb
 Saving Verilog parse-tree work.regmem64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/regmem64.sdb
-Saving Verilog parse-tree work.mux2_1_x3 into
-/home/ise/sf/ee533_cpu/cpu/isim/work/mux2_1_x3.sdb
-Saving Verilog parse-tree work.gt65 into
-/home/ise/sf/ee533_cpu/cpu/isim/work/gt65.sdb
-Saving Verilog parse-tree work.glbl into
-/home/ise/sf/ee533_cpu/cpu/isim/work/glbl.sdb
-Saving Verilog parse-tree work.DFF64bit into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@d@f@f64bit.sdb
-Saving Verilog parse-tree work.pointer_extend into
-/home/ise/sf/ee533_cpu/cpu/isim/work/pointer_extend.sdb
-Saving Verilog parse-tree work.out_data_mux into
-/home/ise/sf/ee533_cpu/cpu/isim/work/out_data_mux.sdb
-Saving Verilog parse-tree work.mux4to1_64 into
-/home/ise/sf/ee533_cpu/cpu/isim/work/mux4to1_64.sdb
-Saving Verilog parse-tree work.fifo_write_module into
-/home/ise/sf/ee533_cpu/cpu/isim/work/fifo_write_module.sdb
-Saving Verilog parse-tree work.dff_9bit into
-/home/ise/sf/ee533_cpu/cpu/isim/work/dff_9bit.sdb
-Saving Verilog parse-tree work.data_mux into
-/home/ise/sf/ee533_cpu/cpu/isim/work/data_mux.sdb
-Saving Verilog parse-tree work.CVTB_mem into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@c@v@t@b_mem.sdb
-Saving Verilog parse-tree work.CVTB_ctrlmem into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@c@v@t@b_ctrlmem.sdb
-Saving Verilog parse-tree work.ctrl_data_mux into
-/home/ise/sf/ee533_cpu/cpu/isim/work/ctrl_data_mux.sdb
-Saving Verilog parse-tree work.cpu_write_mux into
-/home/ise/sf/ee533_cpu/cpu/isim/work/cpu_write_mux.sdb
-Saving Verilog parse-tree work.addr_mux into
-/home/ise/sf/ee533_cpu/cpu/isim/work/addr_mux.sdb
+Saving Verilog parse-tree work.one_1b into
+/home/ise/sf/ee533_cpu/cpu/isim/work/one_1b.sdb
+Saving Verilog parse-tree work.mux2_1_x7 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/mux2_1_x7.sdb
+Saving Verilog parse-tree work.collapse_or5 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/collapse_or5.sdb
 Saving Verilog parse-tree work.xnor64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/xnor64.sdb
 Saving Verilog parse-tree work.shift64 into
@@ -304,757 +251,105 @@ Saving Verilog parse-tree work.mux8_to_1_x64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/mux8_to_1_x64.sdb
 Saving Verilog parse-tree work.lt65 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/lt65.sdb
+Saving Verilog parse-tree work.glbl into
+/home/ise/sf/ee533_cpu/cpu/isim/work/glbl.sdb
+Saving Verilog parse-tree work.gt65 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/gt65.sdb
 Saving Verilog parse-tree work.comp_sign_extend into
 /home/ise/sf/ee533_cpu/cpu/isim/work/comp_sign_extend.sdb
 Saving Verilog parse-tree work.and64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/and64.sdb
-Saving Verilog parse-tree work.signextend into
-/home/ise/sf/ee533_cpu/cpu/isim/work/signextend.sdb
+Saving Verilog parse-tree work.thread_arbiter_4way into
+/home/ise/sf/ee533_cpu/cpu/isim/work/thread_arbiter_4way.sdb
 Saving Verilog parse-tree work.regfile64bit into
 /home/ise/sf/ee533_cpu/cpu/isim/work/regfile64bit.sdb
 Saving Verilog parse-tree work.perf_interface into
 /home/ise/sf/ee533_cpu/cpu/isim/work/perf_interface.sdb
-Saving Verilog parse-tree work.M2_1_MXILINX_mux9bit_2_to_1 into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@m2_1_@m@x@i@l@i@n@x_mux9bit_2_to_1.sdb
-Saving Verilog parse-tree work.mux9bit_2_to_1 into
-/home/ise/sf/ee533_cpu/cpu/isim/work/mux9bit_2_to_1.sdb
 Saving Verilog parse-tree work.mux2_to_1_x64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/mux2_to_1_x64.sdb
-Saving Verilog parse-tree work.ip_extend into
-/home/ise/sf/ee533_cpu/cpu/isim/work/ip_extend.sdb
+Saving Verilog parse-tree work.ME_WBreg into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@m@e_@w@breg.sdb
+Saving Verilog parse-tree work.IP_4way into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@i@p_4way.sdb
 Saving Verilog parse-tree work.instructionmem64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/instructionmem64.sdb
-Saving Verilog parse-tree work.FD8CE_MXILINX_IFID_reg into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@f@d8@c@e_@m@x@i@l@i@n@x_@i@f@i@d_reg.sdb
-Saving Verilog parse-tree work.IFID_reg into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@i@f@i@d_reg.sdb
+Saving Verilog parse-tree work.IF_IDreg into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@i@f_@i@dreg.sdb
 Saving Verilog parse-tree work.ID_EXreg into
 /home/ise/sf/ee533_cpu/cpu/isim/work/@i@d_@e@xreg.sdb
+Saving Verilog parse-tree work.EX_MEreg into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@e@x_@m@ereg.sdb
 Saving Verilog parse-tree work.dmem_write_protect into
 /home/ise/sf/ee533_cpu/cpu/isim/work/dmem_write_protect.sdb
-Saving Verilog parse-tree work.FD8CE_MXILINX_DFF16bit into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@f@d8@c@e_@m@x@i@l@i@n@x_@d@f@f16bit.sdb
-Saving Verilog parse-tree work.DFF16bit into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@d@f@f16bit.sdb
-Saving Verilog parse-tree work.DFF134bit into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@d@f@f134bit.sdb
-Saving Verilog parse-tree work.DFF133bit into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@d@f@f133bit.sdb
 Saving Verilog parse-tree work.decoder into
 /home/ise/sf/ee533_cpu/cpu/isim/work/decoder.sdb
 Saving Verilog parse-tree work.datamem64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/datamem64.sdb
-Saving Verilog parse-tree work.M2_1_MXILINX_CVTB_memory into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@m2_1_@m@x@i@l@i@n@x_@c@v@t@b_memory.sdb
-Saving Verilog parse-tree work.FTCLEX_MXILINX_CVTB_memory into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@f@t@c@l@e@x_@m@x@i@l@i@n@x_@c@v@t@b_memory
-.sdb
-Saving Verilog parse-tree work.CB16CLE_MXILINX_CVTB_memory into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@c@b16@c@l@e_@m@x@i@l@i@n@x_@c@v@t@b_memory
-.sdb
-Saving Verilog parse-tree work.CVTB_memory into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@c@v@t@b_memory.sdb
+Saving Verilog parse-tree work.busmerge_2_5 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/busmerge_2_5.sdb
 Saving Verilog parse-tree work.Br_adder into
 /home/ise/sf/ee533_cpu/cpu/isim/work/@br_adder.sdb
 Saving Verilog parse-tree work.BEZ_BNEZ_detect into
 /home/ise/sf/ee533_cpu/cpu/isim/work/@b@e@z_@b@n@e@z_detect.sdb
 Saving Verilog parse-tree work.alu64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/alu64.sdb
-Saving Verilog parse-tree work.test_data_generator into
-/home/ise/sf/ee533_cpu/cpu/isim/work/test_data_generator.sdb
-Saving Verilog parse-tree work.ADD16_MXILINX_datapath64bit into
-/home/ise/sf/ee533_cpu/cpu/isim/work/@a@d@d16_@m@x@i@l@i@n@x_datapath64bit.sdb
 Saving Verilog parse-tree work.datapath64bit into
 /home/ise/sf/ee533_cpu/cpu/isim/work/datapath64bit.sdb
-Saving Verilog parse-tree work.convertable_fifo_controller into
-/home/ise/sf/ee533_cpu/cpu/isim/work/convertable_fifo_controller.sdb
-Saving Verilog parse-tree work.cpu_fifo into
-/home/ise/sf/ee533_cpu/cpu/isim/work/cpu_fifo.sdb
-Saving Verilog parse-tree work.cpu_fifo_tb into
-/home/ise/sf/ee533_cpu/cpu/isim/work/cpu_fifo_tb.sdb
+Saving Verilog parse-tree work.cpu_tb_tb_0 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/cpu_tb_tb_0.sdb
 Starting static elaboration
 "/opt/Xilinx/10.1/ISE/verilog/src/glbl.v" Line 5. Compiling module glbl
-"cpu_fifo_tb.tfw" Line 21. Compiling module cpu_fifo_tb
-Restoring Verilog parse-tree unisims_ver.AND2B1 from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.OR2 from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.AND2 from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.XOR2 from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.FDCE from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.AND5 from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.AND4 from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.AND3 from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.VCC from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+"cpu_tb_tb_0.v" Line 23. Compiling module cpu_tb_tb_0
 Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_7 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
 Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_7_output_stage
 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.XOR2 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.NOR2 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.VCC from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.GND from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.FDR from
+Restoring Verilog parse-tree unisims_ver.LUT2 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.MUXCY from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_8 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
 Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_8_output_stage
 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.FMAP from
+Restoring Verilog parse-tree unisims_ver.AND2B1 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.MUXCY_L from
+Restoring Verilog parse-tree unisims_ver.FDCE from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.MUXCY from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.XORCY from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.MUXCY_D from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.NOR2 from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree unisims_ver.LUT2 from
-/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+WARNING:HDLCompiler:1016 - "cpu_tb_tb_0.v" Line 52. Port ID_ins is not connected
+   to this instance
 Completed static elaboration
-Fuse Memory Usage: 27452 Kb
-Fuse CPU Usage: 180 ms
+Fuse Memory Usage: 24124 Kb
+Fuse CPU Usage: 120 ms
 Compiling module glbl
  (incremental note: generated C did not change and C compilation will be
 skipped)
-Compiling module test_data_generator
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module AND2B1
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module OR2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module AND2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module M2_1_MXILINX_CVTB_memory
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module XOR2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FDCE(INIT=1'b0)_0
-Compiling module FDCE(INIT=1'b0)_1
-Compiling module FDCE(INIT=1'b0)_2
-Compiling module FDCE(INIT=1'b0)_3
-Compiling module FDCE(INIT=1'b0)_4
-Compiling module FDCE(INIT=1'b0)_5
-Compiling module FDCE(INIT=1'b0)_6
-Compiling module FDCE(INIT=1'b0)_7
-Compiling module FDCE(INIT=1'b0)_8
-Compiling module FDCE(INIT=1'b0)_9
-Compiling module FDCE(INIT=1'b0)_10
-Compiling module FDCE(INIT=1'b0)_11
-Compiling module FDCE(INIT=1'b0)_12
-Compiling module FDCE(INIT=1'b0)_13
-Compiling module FDCE(INIT=1'b0)_14
-Compiling module FDCE(INIT=1'b0)_15
-Compiling module FDCE(INIT=1'b0)_16
-Compiling module FDCE(INIT=1'b0)_17
-Compiling module FDCE(INIT=1'b0)_18
-Compiling module FDCE(INIT=1'b0)_19
-Compiling module FDCE(INIT=1'b0)_20
-Compiling module FDCE(INIT=1'b0)_21
-Compiling module FDCE(INIT=1'b0)_22
-Compiling module FDCE(INIT=1'b0)_23
-Compiling module FDCE(INIT=1'b0)_24
-Compiling module FDCE(INIT=1'b0)_25
-Compiling module FDCE(INIT=1'b0)_26
-Compiling module FDCE(INIT=1'b0)_27
-Compiling module FDCE(INIT=1'b0)_28
-Compiling module FDCE(INIT=1'b0)_29
-Compiling module FDCE(INIT=1'b0)_30
-Compiling module FDCE(INIT=1'b0)_31
-Compiling module FDCE(INIT=1'b0)_32
-Compiling module FDCE(INIT=1'b0)_33
-Compiling module FDCE(INIT=1'b0)_34
-Compiling module FDCE(INIT=1'b0)_35
-Compiling module FDCE(INIT=1'b0)_36
-Compiling module FDCE(INIT=1'b0)_37
-Compiling module FDCE(INIT=1'b0)_38
-Compiling module FDCE(INIT=1'b0)_39
-Compiling module FDCE(INIT=1'b0)_40
-Compiling module FDCE(INIT=1'b0)_41
-Compiling module FDCE(INIT=1'b0)_42
-Compiling module FDCE(INIT=1'b0)_43
-Compiling module FDCE(INIT=1'b0)_44
-Compiling module FDCE(INIT=1'b0)_45
-Compiling module FDCE(INIT=1'b0)_46
-Compiling module FDCE(INIT=1'b0)_47
-Compiling module FDCE(INIT=1'b0)_48
-Compiling module FDCE(INIT=1'b0)_49
-Compiling module FDCE(INIT=1'b0)_50
-Compiling module FDCE(INIT=1'b0)_51
-Compiling module FDCE(INIT=1'b0)_52
-Compiling module FDCE(INIT=1'b0)_53
-Compiling module FDCE(INIT=1'b0)_54
-Compiling module FDCE(INIT=1'b0)_55
-Compiling module FDCE(INIT=1'b0)_56
-Compiling module FDCE(INIT=1'b0)_57
-Compiling module FDCE(INIT=1'b0)_58
-Compiling module FDCE(INIT=1'b0)_59
-Compiling module FDCE(INIT=1'b0)_60
-Compiling module FDCE(INIT=1'b0)_61
-Compiling module FDCE(INIT=1'b0)_62
-Compiling module FDCE(INIT=1'b0)_63
-Compiling module FDCE(INIT=1'b0)_64
-Compiling module FDCE(INIT=1'b0)_65
-Compiling module FDCE(INIT=1'b0)_66
-Compiling module FDCE(INIT=1'b0)_67
-Compiling module FDCE(INIT=1'b0)_68
-Compiling module FDCE(INIT=1'b0)_69
-Compiling module FDCE(INIT=1'b0)_70
-Compiling module FDCE(INIT=1'b0)_71
-Compiling module FDCE(INIT=1'b0)_72
-Compiling module FDCE(INIT=1'b0)_73
-Compiling module FDCE(INIT=1'b0)_74
-Compiling module FDCE(INIT=1'b0)_75
-Compiling module FDCE(INIT=1'b0)_76
-Compiling module FDCE(INIT=1'b0)_77
-Compiling module FDCE(INIT=1'b0)_78
-Compiling module FDCE(INIT=1'b0)_79
-Compiling module FDCE(INIT=1'b0)_80
-Compiling module FDCE(INIT=1'b0)_81
-Compiling module FDCE(INIT=1'b0)_82
-Compiling module FDCE(INIT=1'b0)_83
-Compiling module FDCE(INIT=1'b0)_84
-Compiling module FDCE(INIT=1'b0)_85
-Compiling module FDCE(INIT=1'b0)_86
-Compiling module FDCE(INIT=1'b0)_87
-Compiling module FDCE(INIT=1'b0)_88
-Compiling module FDCE(INIT=1'b0)_89
-Compiling module FDCE(INIT=1'b0)_90
-Compiling module FDCE(INIT=1'b0)_91
-Compiling module FDCE(INIT=1'b0)_92
-Compiling module FDCE(INIT=1'b0)_93
-Compiling module FDCE(INIT=1'b0)_94
-Compiling module FDCE(INIT=1'b0)_95
-Compiling module FDCE(INIT=1'b0)_96
-Compiling module FDCE(INIT=1'b0)_97
-Compiling module FDCE(INIT=1'b0)_98
-Compiling module FDCE(INIT=1'b0)_99
-Compiling module FDCE(INIT=1'b0)_100
-Compiling module FDCE(INIT=1'b0)_101
-Compiling module FDCE(INIT=1'b0)_102
-Compiling module FDCE(INIT=1'b0)_103
-Compiling module FDCE(INIT=1'b0)_104
-Compiling module FDCE(INIT=1'b0)_105
-Compiling module FDCE(INIT=1'b0)_106
-Compiling module FDCE(INIT=1'b0)_107
-Compiling module FDCE(INIT=1'b0)_108
-Compiling module FDCE(INIT=1'b0)_109
-Compiling module FDCE(INIT=1'b0)_110
-Compiling module FDCE(INIT=1'b0)_111
-Compiling module FDCE(INIT=1'b0)_112
-Compiling module FDCE(INIT=1'b0)_113
-Compiling module FDCE(INIT=1'b0)_114
-Compiling module FDCE(INIT=1'b0)_115
-Compiling module FDCE(INIT=1'b0)_116
-Compiling module FDCE(INIT=1'b0)_117
-Compiling module FDCE(INIT=1'b0)_118
-Compiling module FDCE(INIT=1'b0)_119
-Compiling module FDCE(INIT=1'b0)_120
-Compiling module FDCE(INIT=1'b0)_121
-Compiling module FDCE(INIT=1'b0)_122
-Compiling module FDCE(INIT=1'b0)_123
-Compiling module FDCE(INIT=1'b0)_124
-Compiling module FDCE(INIT=1'b0)_125
-Compiling module FDCE(INIT=1'b0)_126
-Compiling module FDCE(INIT=1'b0)_127
-Compiling module FDCE(INIT=1'b0)_128
-Compiling module FDCE(INIT=1'b0)_129
-Compiling module FDCE(INIT=1'b0)_130
-Compiling module FDCE(INIT=1'b0)_131
-Compiling module FDCE(INIT=1'b0)_132
-Compiling module FDCE(INIT=1'b0)_133
-Compiling module FDCE(INIT=1'b0)_134
-Compiling module FDCE(INIT=1'b0)_135
-Compiling module FDCE(INIT=1'b0)_136
-Compiling module FDCE(INIT=1'b0)_137
-Compiling module FDCE(INIT=1'b0)_138
-Compiling module FDCE(INIT=1'b0)_139
-Compiling module FDCE(INIT=1'b0)_140
-Compiling module FDCE(INIT=1'b0)_141
-Compiling module FDCE(INIT=1'b0)_142
-Compiling module FDCE(INIT=1'b0)_143
-Compiling module FDCE(INIT=1'b0)_144
-Compiling module FDCE(INIT=1'b0)_145
-Compiling module FDCE(INIT=1'b0)_146
-Compiling module FDCE(INIT=1'b0)_147
-Compiling module FDCE(INIT=1'b0)_148
-Compiling module FDCE(INIT=1'b0)_149
-Compiling module FDCE(INIT=1'b0)_150
-Compiling module FDCE(INIT=1'b0)_151
-Compiling module FDCE(INIT=1'b0)_152
-Compiling module FDCE(INIT=1'b0)_153
-Compiling module FDCE(INIT=1'b0)_154
-Compiling module FDCE(INIT=1'b0)_155
-Compiling module FDCE(INIT=1'b0)_156
-Compiling module FDCE(INIT=1'b0)_157
-Compiling module FDCE(INIT=1'b0)_158
-Compiling module FDCE(INIT=1'b0)_159
-Compiling module FDCE(INIT=1'b0)_160
-Compiling module FDCE(INIT=1'b0)_161
-Compiling module FDCE(INIT=1'b0)_162
-Compiling module FDCE(INIT=1'b0)_163
-Compiling module FDCE(INIT=1'b0)_164
-Compiling module FDCE(INIT=1'b0)_165
-Compiling module FDCE(INIT=1'b0)_166
-Compiling module FDCE(INIT=1'b0)_167
-Compiling module FDCE(INIT=1'b0)_168
-Compiling module FDCE(INIT=1'b0)_169
-Compiling module FDCE(INIT=1'b0)_170
-Compiling module FDCE(INIT=1'b0)_171
-Compiling module FDCE(INIT=1'b0)_172
-Compiling module FDCE(INIT=1'b0)_173
-Compiling module FDCE(INIT=1'b0)_174
-Compiling module FDCE(INIT=1'b0)_175
-Compiling module FDCE(INIT=1'b0)_176
-Compiling module FDCE(INIT=1'b0)_177
-Compiling module FDCE(INIT=1'b0)_178
-Compiling module FDCE(INIT=1'b0)_179
-Compiling module FDCE(INIT=1'b0)_180
-Compiling module FDCE(INIT=1'b0)_181
-Compiling module FDCE(INIT=1'b0)_182
-Compiling module FDCE(INIT=1'b0)_183
-Compiling module FDCE(INIT=1'b0)_184
-Compiling module FDCE(INIT=1'b0)_185
-Compiling module FDCE(INIT=1'b0)_186
-Compiling module FDCE(INIT=1'b0)_187
-Compiling module FDCE(INIT=1'b0)_188
-Compiling module FDCE(INIT=1'b0)_189
-Compiling module FDCE(INIT=1'b0)_190
-Compiling module FDCE(INIT=1'b0)_191
-Compiling module FDCE(INIT=1'b0)_192
-Compiling module FDCE(INIT=1'b0)_193
-Compiling module FDCE(INIT=1'b0)_194
-Compiling module FDCE(INIT=1'b0)_195
-Compiling module FDCE(INIT=1'b0)_196
-Compiling module FDCE(INIT=1'b0)_197
-Compiling module FDCE(INIT=1'b0)_198
-Compiling module FDCE(INIT=1'b0)_199
-Compiling module FDCE(INIT=1'b0)_200
-Compiling module FDCE(INIT=1'b0)_201
-Compiling module FDCE(INIT=1'b0)_202
-Compiling module FDCE(INIT=1'b0)_203
-Compiling module FDCE(INIT=1'b0)_204
-Compiling module FDCE(INIT=1'b0)_205
-Compiling module FDCE(INIT=1'b0)_206
-Compiling module FDCE(INIT=1'b0)_207
-Compiling module FDCE(INIT=1'b0)_208
-Compiling module FDCE(INIT=1'b0)_209
-Compiling module FDCE(INIT=1'b0)_210
-Compiling module FDCE(INIT=1'b0)_211
-Compiling module FDCE(INIT=1'b0)_212
-Compiling module FDCE(INIT=1'b0)_213
-Compiling module FDCE(INIT=1'b0)_214
-Compiling module FDCE(INIT=1'b0)_215
-Compiling module FDCE(INIT=1'b0)_216
-Compiling module FDCE(INIT=1'b0)_217
-Compiling module FDCE(INIT=1'b0)_218
-Compiling module FDCE(INIT=1'b0)_219
-Compiling module FDCE(INIT=1'b0)_220
-Compiling module FDCE(INIT=1'b0)_221
-Compiling module FDCE(INIT=1'b0)_222
-Compiling module FDCE(INIT=1'b0)_223
-Compiling module FDCE(INIT=1'b0)_224
-Compiling module FDCE(INIT=1'b0)_225
-Compiling module FDCE(INIT=1'b0)_226
-Compiling module FDCE(INIT=1'b0)_227
-Compiling module FDCE(INIT=1'b0)_228
-Compiling module FDCE(INIT=1'b0)_229
-Compiling module FDCE(INIT=1'b0)_230
-Compiling module FDCE(INIT=1'b0)_231
-Compiling module FDCE(INIT=1'b0)_232
-Compiling module FDCE(INIT=1'b0)_233
-Compiling module FDCE(INIT=1'b0)_234
-Compiling module FDCE(INIT=1'b0)_235
-Compiling module FDCE(INIT=1'b0)_236
-Compiling module FDCE(INIT=1'b0)_237
-Compiling module FDCE(INIT=1'b0)_238
-Compiling module FDCE(INIT=1'b0)_239
-Compiling module FDCE(INIT=1'b0)_240
-Compiling module FDCE(INIT=1'b0)_241
-Compiling module FDCE(INIT=1'b0)_242
-Compiling module FDCE(INIT=1'b0)_243
-Compiling module FDCE(INIT=1'b0)_244
-Compiling module FDCE(INIT=1'b0)_245
-Compiling module FDCE(INIT=1'b0)_246
-Compiling module FDCE(INIT=1'b0)_247
-Compiling module FDCE(INIT=1'b0)_248
-Compiling module FDCE(INIT=1'b0)_249
-Compiling module FDCE(INIT=1'b0)_250
-Compiling module FDCE(INIT=1'b0)_251
-Compiling module FDCE(INIT=1'b0)_252
-Compiling module FDCE(INIT=1'b0)_253
-Compiling module FDCE(INIT=1'b0)_254
-Compiling module FDCE(INIT=1'b0)_255
-Compiling module FDCE(INIT=1'b0)_256
-Compiling module FDCE(INIT=1'b0)_257
-Compiling module FDCE(INIT=1'b0)_258
-Compiling module FDCE(INIT=1'b0)_259
-Compiling module FDCE(INIT=1'b0)_260
-Compiling module FDCE(INIT=1'b0)_261
-Compiling module FDCE(INIT=1'b0)_262
-Compiling module FDCE(INIT=1'b0)_263
-Compiling module FDCE(INIT=1'b0)_264
-Compiling module FDCE(INIT=1'b0)_265
-Compiling module FDCE(INIT=1'b0)_266
-Compiling module FDCE(INIT=1'b0)_267
-Compiling module FDCE(INIT=1'b0)_268
-Compiling module FDCE(INIT=1'b0)_269
-Compiling module FDCE(INIT=1'b0)_270
-Compiling module FDCE(INIT=1'b0)_271
-Compiling module FDCE(INIT=1'b0)_272
-Compiling module FDCE(INIT=1'b0)_273
-Compiling module FDCE(INIT=1'b0)_274
-Compiling module FDCE(INIT=1'b0)_275
-Compiling module FDCE(INIT=1'b0)_276
-Compiling module FDCE(INIT=1'b0)_277
-Compiling module FDCE(INIT=1'b0)_278
-Compiling module FDCE(INIT=1'b0)_279
-Compiling module FDCE(INIT=1'b0)_280
-Compiling module FDCE(INIT=1'b0)_281
-Compiling module FDCE(INIT=1'b0)_282
-Compiling module FDCE(INIT=1'b0)_283
-Compiling module FDCE(INIT=1'b0)_284
-Compiling module FDCE(INIT=1'b0)_285
-Compiling module FDCE(INIT=1'b0)_286
-Compiling module FDCE(INIT=1'b0)_287
-Compiling module FDCE(INIT=1'b0)_288
-Compiling module FDCE(INIT=1'b0)_289
-Compiling module FDCE(INIT=1'b0)_290
-Compiling module FDCE(INIT=1'b0)_291
-Compiling module FDCE(INIT=1'b0)_292
-Compiling module FDCE(INIT=1'b0)_293
-Compiling module FDCE(INIT=1'b0)_294
-Compiling module FDCE(INIT=1'b0)_295
-Compiling module FDCE(INIT=1'b0)_296
-Compiling module FDCE(INIT=1'b0)_297
-Compiling module FDCE(INIT=1'b0)_298
-Compiling module FDCE(INIT=1'b0)_299
-Compiling module FDCE(INIT=1'b0)_300
-Compiling module FDCE(INIT=1'b0)_301
-Compiling module FDCE(INIT=1'b0)_302
-Compiling module FDCE(INIT=1'b0)_303
-Compiling module FDCE(INIT=1'b0)_304
-Compiling module FDCE(INIT=1'b0)_305
-Compiling module FDCE(INIT=1'b0)_306
-Compiling module FDCE(INIT=1'b0)_307
-Compiling module FDCE(INIT=1'b0)_308
-Compiling module FDCE(INIT=1'b0)_309
-Compiling module FDCE(INIT=1'b0)_310
-Compiling module FDCE(INIT=1'b0)_311
-Compiling module FDCE(INIT=1'b0)_312
-Compiling module FDCE(INIT=1'b0)_313
-Compiling module FDCE(INIT=1'b0)_314
-Compiling module FDCE(INIT=1'b0)_315
-Compiling module FDCE(INIT=1'b0)_316
-Compiling module FDCE(INIT=1'b0)_317
-Compiling module FDCE(INIT=1'b0)_318
-Compiling module FDCE(INIT=1'b0)_319
-Compiling module FDCE(INIT=1'b0)_320
-Compiling module FDCE(INIT=1'b0)_321
-Compiling module FDCE(INIT=1'b0)_322
-Compiling module FDCE(INIT=1'b0)_323
-Compiling module FDCE(INIT=1'b0)_324
-Compiling module FDCE(INIT=1'b0)_325
-Compiling module FDCE(INIT=1'b0)_326
-Compiling module FDCE(INIT=1'b0)_327
-Compiling module FDCE(INIT=1'b0)_328
-Compiling module FDCE(INIT=1'b0)_329
-Compiling module FDCE(INIT=1'b0)_330
-Compiling module FDCE(INIT=1'b0)_331
-Compiling module FDCE(INIT=1'b0)_332
-Compiling module FDCE(INIT=1'b0)_333
-Compiling module FDCE(INIT=1'b0)_334
-Compiling module FDCE(INIT=1'b0)_335
-Compiling module FDCE(INIT=1'b0)_336
-Compiling module FDCE(INIT=1'b0)_337
-Compiling module FDCE(INIT=1'b0)_338
-Compiling module FDCE(INIT=1'b0)_339
-Compiling module FDCE(INIT=1'b0)_340
-Compiling module FDCE(INIT=1'b0)_341
-Compiling module FDCE(INIT=1'b0)_342
-Compiling module FDCE(INIT=1'b0)_343
-Compiling module FDCE(INIT=1'b0)_344
-Compiling module FDCE(INIT=1'b0)_345
-Compiling module FDCE(INIT=1'b0)_346
-Compiling module FDCE(INIT=1'b0)_347
-Compiling module FDCE(INIT=1'b0)_348
-Compiling module FDCE(INIT=1'b0)_349
-Compiling module FDCE(INIT=1'b0)_350
-Compiling module FDCE(INIT=1'b0)_351
-Compiling module FDCE(INIT=1'b0)_352
-Compiling module FDCE(INIT=1'b0)_353
-Compiling module FDCE(INIT=1'b0)_354
-Compiling module FDCE(INIT=1'b0)_355
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.c to
-isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.lin.o with command:
-/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
-"isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.lin.o"
--I"/opt/Xilinx/10.1/ISE/data/include"
-"isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.c"
-Compiling module FTCLEX_MXILINX_CVTB_memory
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_3
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_4
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_5
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_6
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_7
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_8
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_9
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_10
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_11
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_12
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_13
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_14
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_15
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_16
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module AND5
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module AND4
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module AND3
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module VCC
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module CB16CLE_MXILINX_CVTB_memory
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_17
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_18
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_19
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_20
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_21
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_22
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_23
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_24
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_25
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_26
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_27
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_28
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_29
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_30
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_31
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FTCLEX_MXILINX_CVTB_memory_32
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module CB16CLE_MXILINX_CVTB_memory_2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module data_mux
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module addr_mux
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module pointer_extend
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module mux4to1_64
- (incremental note: generated C did not change and C compilation will be
-skipped)
 Compiling module BLK_MEM_GEN_V2_7_output_stage(C_...
  (incremental note: generated C did not change and C compilation will be
 skipped)
-Compiling module BLK_MEM_GEN_V2_7(C_ADDRA_WIDTH=9...
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module CVTB_mem
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module GND
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FDR(INIT=1'b0)_0
-Compiling module FDR(INIT=1'b0)_1
-Compiling module FDR(INIT=1'b0)_2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling isim/_tmp/unisims_ver/m_00000000001787250511_2776147646.c to
-isim/_tmp/unisims_ver/m_00000000001787250511_2776147646.lin.o with command:
-/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
-"isim/_tmp/unisims_ver/m_00000000001787250511_2776147646.lin.o"
--I"/opt/Xilinx/10.1/ISE/data/include"
-"isim/_tmp/unisims_ver/m_00000000001787250511_2776147646.c"
-Compiling module BLK_MEM_GEN_V2_8_output_stage(C_...
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module BLK_MEM_GEN_V2_8(C_ADDRA_WIDTH=9...
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module CVTB_ctrlmem
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module cpu_write_mux
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module ctrl_data_mux
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module fifo_write_module
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module dff_9bit
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module out_data_mux
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module CVTB_memory
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module convertable_fifo_controller(DATA...
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF16bit
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF16bit_2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF16bit
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FMAP
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module MUXCY_L
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module MUXCY
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module XORCY
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module MUXCY_D
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module ADD16_MXILINX_datapath64bit
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module BLK_MEM_GEN_V2_7(C_ADDRA_WIDTH=8...
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module datamem64
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module BLK_MEM_GEN_V2_7_output_stage(C_...
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module BLK_MEM_GEN_V2_7(C_ADDRA_WIDTH=9...
+Compiling module BLK_MEM_GEN_V2_7(C_ADDRA_WIDTH=1...
  (incremental note: generated C did not change and C compilation will be
 skipped)
 Compiling module instructionmem64
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_3
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_4
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF32bit
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_IFID_reg
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module IFID_reg
  (incremental note: generated C did not change and C compilation will be
 skipped)
 Compiling module and64
  (incremental note: generated C did not change and C compilation will be
 skipped)
 Compiling module or64
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module XOR2
  (incremental note: generated C did not change and C compilation will be
 skipped)
 Compiling module xor8_by_1
@@ -1075,7 +370,16 @@ skipped)
 Compiling module xnor64
  (incremental note: generated C did not change and C compilation will be
 skipped)
+Compiling module VCC
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module GND
+ (incremental note: generated C did not change and C compilation will be
+skipped)
 Compiling module LUT2(INIT=4'b1001)
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module MUXCY
  (incremental note: generated C did not change and C compilation will be
 skipped)
 Compiling module gt65
@@ -1099,184 +403,10 @@ skipped)
 Compiling module alu64
  (incremental note: generated C did not change and C compilation will be
 skipped)
-Compiling module signextend
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module ID_EXreg
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module Br_adder
- (incremental note: generated C did not change and C compilation will be
-skipped)
 Compiling module mux2_to_1_x64
  (incremental note: generated C did not change and C compilation will be
 skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_5
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_6
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_7
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_8
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF32bit_2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_9
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_10
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_11
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_12
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF32bit_3
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF64bit
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_13
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_14
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_15
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_16
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF32bit_4
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_17
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_18
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_19
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_20
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF32bit_5
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF64bit_2
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF133bit
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_21
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_22
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_23
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_24
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF32bit_6
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_25
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_26
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_27
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_28
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF32bit_7
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF64bit_3
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_29
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_30
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_31
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_32
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF32bit_8
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_33
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_34
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_35
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module FD8CE_MXILINX_DFF32bit_36
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF32bit_9
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF64bit_4
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module DFF134bit
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module BEZ_BNEZ_detect
- (incremental note: generated C did not change and C compilation will be
-skipped)
 Compiling module decoder
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module M2_1_MXILINX_mux9bit_2_to_1
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module mux9bit_2_to_1
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module ip_extend
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module BLK_MEM_GEN_V2_8_output_stage(C_...
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module BLK_MEM_GEN_V2_8(C_ADDRA_WIDTH=3...
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module regmem64
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module mux2_1_x3
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling module regfile64bit
  (incremental note: generated C did not change and C compilation will be
 skipped)
 Compiling module perf_interface
@@ -1285,122 +415,112 @@ skipped)
 Compiling module dmem_write_protect
  (incremental note: generated C did not change and C compilation will be
 skipped)
+Compiling module thread_arbiter_4way
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module IP_4way
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module IF_IDreg
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module Br_adder
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module ID_EXreg
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module EX_MEreg
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module BEZ_BNEZ_detect
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module BLK_MEM_GEN_V2_7_output_stage(C_...
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module BLK_MEM_GEN_V2_7(C_ADDRA_WIDTH=1...
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module datamem64
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module ME_WBreg
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module busmerge_2_5
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module BLK_MEM_GEN_V2_8_output_stage(C_...
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module BLK_MEM_GEN_V2_8(C_ADDRA_WIDTH=7...
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module regmem64
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module AND2B1
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module zero_reg_mux
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module collapse_or5
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module FDCE(INIT=1'b0)_0
+Compiling module FDCE(INIT=1'b0)_1
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.c to
+isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.lin.o with command:
+/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
+"isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.lin.o"
+-I"/opt/Xilinx/10.1/ISE/data/include"
+"isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.c"
+Compiling module one_1b
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module mux2_1_x7
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module regfile64bit
+ (incremental note: generated C did not change and C compilation will be
+skipped)
 Compiling module datapath64bit
  (incremental note: generated C did not change and C compilation will be
 skipped)
-Compiling module cpu_fifo
+Compiling module cpu_tb_tb_0
  (incremental note: generated C did not change and C compilation will be
 skipped)
-Compiling module cpu_fifo_tb
- (incremental note: generated C did not change and C compilation will be
-skipped)
-Compiling isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_lib.c to
-isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_lib.lin.o with command:
+Compiling isim/_tmp/work/cpu_tb_tb_0_isim_beh.exe_lib.c to
+isim/_tmp/work/cpu_tb_tb_0_isim_beh.exe_lib.lin.o with command:
 /usr/bin/gcc -Wa,-W  -O  -m32  -c -o
-"isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_lib.lin.o"
+"isim/_tmp/work/cpu_tb_tb_0_isim_beh.exe_lib.lin.o"
 -I"/opt/Xilinx/10.1/ISE/data/include"
-"isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_lib.c"
-Total Object files count:
-167
-Archiving with command:
-/usr/bin/ar crP "isim/_tmp/work/m_00000000000866782574_2073120511.lin.a" 
+"isim/_tmp/work/cpu_tb_tb_0_isim_beh.exe_lib.c"
+Linking with command:
+/usr/bin/gcc -Wa,-W  -O  -m32 -shared  -o
+"isim/_tmp/work/cpu_tb_tb_0_isim_beh.exe_lib.lin.so"
+"isim/_tmp/work/cpu_tb_tb_0_isim_beh.exe_lib.lin.o" 
 "isim/_tmp/work/m_00000000000866782574_2073120511.lin.o"
-"isim/_tmp/work/m_00000000003367874496_1347532679.lin.o"
-"isim/_tmp/unisims_ver/m_00000000002674302814_1435897813.lin.o"
-"isim/_tmp/unisims_ver/m_00000000001080104878_0970595058.lin.o"
-"isim/_tmp/unisims_ver/m_00000000003912143520_2316096324.lin.o"
-"isim/_tmp/work/m_00000000001817543134_1548229642.lin.o"
-"isim/_tmp/unisims_ver/m_00000000000179858743_3125220529.lin.o"
-"isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2523374986.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2543366036.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3768557314.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2130381473.lin.o"
-"isim/_tmp/work/m_00000000003643646574_0167524919.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2432002957.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3891419931.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2001553034.lin.o"
-"isim/_tmp/work/m_00000000003643646574_0004879900.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2567337401.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3993060655.lin.o"
-"isim/_tmp/work/m_00000000003643646574_1997018261.lin.o"
-"isim/_tmp/work/m_00000000003643646574_0000992259.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2657857952.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3916202294.lin.o"
-"isim/_tmp/work/m_00000000003643646574_1885720716.lin.o"
-"isim/_tmp/unisims_ver/m_00000000003333028603_0342378215.lin.o"
-"isim/_tmp/unisims_ver/m_00000000000847167281_1668249201.lin.o"
-"isim/_tmp/unisims_ver/m_00000000004050487752_4245414866.lin.o"
-"isim/_tmp/unisims_ver/m_00000000001920171980_1593237687.lin.o"
-"isim/_tmp/work/m_00000000002238389291_1237209752.lin.o"
-"isim/_tmp/work/m_00000000003643646574_0123920410.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2547907979.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3772435741.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2989172346.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3308001004.lin.o"
-"isim/_tmp/work/m_00000000003643646574_1545946966.lin.o"
-"isim/_tmp/work/m_00000000003643646574_0723679168.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3041321571.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3259093749.lin.o"
-"isim/_tmp/work/m_00000000003643646574_1531478863.lin.o"
-"isim/_tmp/work/m_00000000003643646574_0743420889.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3169889864.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3422002910.lin.o"
-"isim/_tmp/work/m_00000000003643646574_2872055611.lin.o"
-"isim/_tmp/work/m_00000000003643646574_3694602157.lin.o"
-"isim/_tmp/work/m_00000000003643646574_1161721367.lin.o"
-"isim/_tmp/work/m_00000000002238389291_1483258358.lin.o"
-"isim/_tmp/work/m_00000000002246076671_1100206261.lin.o"
-"isim/_tmp/work/m_00000000003320222371_2145197759.lin.o"
-"isim/_tmp/work/m_00000000001500407499_3890938940.lin.o"
-"isim/_tmp/work/m_00000000003092240094_2795023925.lin.o"
-"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_0451882537.lin.o"
-"isim/_tmp/xilinxcorelib_ver/m_00000000001006755372_2702309864.lin.o"
-"isim/_tmp/work/m_00000000004001028428_2033616510.lin.o"
-"isim/_tmp/unisims_ver/m_00000000003257999491_1759035934.lin.o"
-"isim/_tmp/unisims_ver/m_00000000001787250511_2776147646.lin.o"
-"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3422021043.lin.o"
-"isim/_tmp/xilinxcorelib_ver/m_00000000001005388756_1118622544.lin.o"
-"isim/_tmp/work/m_00000000004001028428_2917723120.lin.o"
-"isim/_tmp/work/m_00000000000938629574_1832567161.lin.o"
-"isim/_tmp/work/m_00000000002246076671_2169579022.lin.o"
-"isim/_tmp/work/m_00000000001568199154_2990208971.lin.o"
-"isim/_tmp/work/m_00000000000130400807_0787199448.lin.o"
-"isim/_tmp/work/m_00000000002375199578_0277225484.lin.o"
-"isim/_tmp/work/m_00000000000874884100_0313907079.lin.o"
-"isim/_tmp/work/m_00000000001869153558_1780370647.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3973372805.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3224499571.lin.o"
-"isim/_tmp/work/m_00000000000395530471_1642934878.lin.o"
-"isim/_tmp/unisims_ver/m_00000000000084376409_3411452309.lin.o"
-"isim/_tmp/unisims_ver/m_00000000002033260902_0484350389.lin.o"
-"isim/_tmp/unisims_ver/m_00000000001933396858_1058825862.lin.o"
-"isim/_tmp/unisims_ver/m_00000000003966557861_2771340377.lin.o"
-"isim/_tmp/unisims_ver/m_00000000003419914672_0302322055.lin.o"
-"isim/_tmp/work/m_00000000003223598144_3677479327.lin.o"
-"isim/_tmp/xilinxcorelib_ver/m_00000000000910001589_2146468399.lin.o"
-"isim/_tmp/work/m_00000000004001028428_4011812719.lin.o"
 "isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3894270693.lin.o"
-"isim/_tmp/xilinxcorelib_ver/m_00000000001006755372_0527380258.lin.o"
+"isim/_tmp/xilinxcorelib_ver/m_00000000001006755372_0127322965.lin.o"
 "isim/_tmp/work/m_00000000004001028428_2496777317.lin.o"
-"isim/_tmp/work/m_00000000003490390565_0427171762.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3426723404.lin.o"
-Archiving with command:
-/usr/bin/ar crP "isim/_tmp/work/m_00000000000866782574_2073120511.lin.a"  
-"isim/_tmp/work/m_00000000003490390565_3141048026.lin.o"
-"isim/_tmp/work/m_00000000003490390565_0626787193.lin.o"
-"isim/_tmp/work/m_00000000002757329816_2488268393.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3317040661.lin.o"
-"isim/_tmp/work/m_00000000003826858947_1217392590.lin.o"
 "isim/_tmp/work/m_00000000004181266128_1346197377.lin.o"
 "isim/_tmp/work/m_00000000004181266128_0335194620.lin.o"
+"isim/_tmp/unisims_ver/m_00000000000179858743_3125220529.lin.o"
 "isim/_tmp/work/m_00000000003579224306_1635538095.lin.o"
 "isim/_tmp/work/m_00000000000409935852_1402724792.lin.o"
 "isim/_tmp/work/m_00000000000797492425_3623496962.lin.o"
 "isim/_tmp/work/m_00000000001592411322_2378129824.lin.o"
 "isim/_tmp/unisims_ver/m_00000000001080104878_3476364530.lin.o"
 "isim/_tmp/work/m_00000000004181266128_2343738166.lin.o"
+"isim/_tmp/unisims_ver/m_00000000001920171980_1593237687.lin.o"
+"isim/_tmp/unisims_ver/m_00000000003257999491_1759035934.lin.o"
 "isim/_tmp/unisims_ver/m_00000000002145065410_0374334164.lin.o"
+"isim/_tmp/unisims_ver/m_00000000001933396858_1058825862.lin.o"
 "isim/_tmp/work/m_00000000000133109214_2781138231.lin.o"
 "isim/_tmp/work/m_00000000000804122509_1925532214.lin.o"
 "isim/_tmp/work/m_00000000003180483936_3348362083.lin.o"
@@ -1408,84 +528,40 @@ Archiving with command:
 "isim/_tmp/work/m_00000000000487092104_2565441277.lin.o"
 "isim/_tmp/work/m_00000000003905718400_1970084041.lin.o"
 "isim/_tmp/work/m_00000000000155729382_3889190477.lin.o"
-"isim/_tmp/work/m_00000000003125724300_1900080952.lin.o"
-"isim/_tmp/work/m_00000000001391587063_2854751848.lin.o"
-"isim/_tmp/work/m_00000000002521456951_3342563234.lin.o"
-"isim/_tmp/work/m_00000000001157857888_1649379328.lin.o"
-"isim/_tmp/work/m_00000000003490390565_1381708783.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3411173973.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3159708355.lin.o"
-"isim/_tmp/work/m_00000000003490390565_0753553234.lin.o"
-"isim/_tmp/work/m_00000000002757329816_0299946926.lin.o"
-"isim/_tmp/work/m_00000000003490390565_1542291396.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3621372284.lin.o"
-"isim/_tmp/work/m_00000000003490390565_2698965482.lin.o"
-"isim/_tmp/work/m_00000000003490390565_0970432592.lin.o"
-"isim/_tmp/work/m_00000000002757329816_1726473016.lin.o"
-"isim/_tmp/work/m_00000000002575889141_2042898117.lin.o"
-"isim/_tmp/work/m_00000000003490390565_1322291398.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3501458789.lin.o"
-"isim/_tmp/work/m_00000000003490390565_2813539827.lin.o"
-"isim/_tmp/work/m_00000000003490390565_1052402761.lin.o"
-"isim/_tmp/work/m_00000000002757329816_4169365147.lin.o"
-"isim/_tmp/work/m_00000000003490390565_1237144799.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3640805710.lin.o"
-"isim/_tmp/work/m_00000000003490390565_2919594456.lin.o"
-"isim/_tmp/work/m_00000000003490390565_4243886783.lin.o"
-"isim/_tmp/work/m_00000000002757329816_2407810573.lin.o"
-"isim/_tmp/work/m_00000000002575889141_2508267284.lin.o"
-"isim/_tmp/work/m_00000000002714228158_2227786989.lin.o"
-"isim/_tmp/work/m_00000000003490390565_2347999785.lin.o"
-"isim/_tmp/work/m_00000000003490390565_0318436243.lin.o"
-"isim/_tmp/work/m_00000000003490390565_1711129349.lin.o"
-"isim/_tmp/work/m_00000000003490390565_4221130406.lin.o"
-"isim/_tmp/work/m_00000000002757329816_0378345399.lin.o"
-"isim/_tmp/work/m_00000000003490390565_2359191088.lin.o"
-"isim/_tmp/work/m_00000000003490390565_0362231690.lin.o"
-"isim/_tmp/work/m_00000000003490390565_1653606172.lin.o"
-"isim/_tmp/work/m_00000000003490390565_4063173261.lin.o"
-"isim/_tmp/work/m_00000000002757329816_1636443937.lin.o"
-"isim/_tmp/work/m_00000000002575889141_3800444802.lin.o"
-"isim/_tmp/work/m_00000000003490390565_2234001947.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3857687550.lin.o"
-"isim/_tmp/work/m_00000000003490390565_2464715624.lin.o"
-"isim/_tmp/work/m_00000000003490390565_0199344850.lin.o"
-"isim/_tmp/work/m_00000000002757329816_4046797488.lin.o"
-"isim/_tmp/work/m_00000000003490390565_2095510084.lin.o"
-"isim/_tmp/work/m_00000000003490390565_3800197095.lin.o"
-"isim/_tmp/work/m_00000000003490390565_2508543857.lin.o"
-"isim/_tmp/work/m_00000000003490390565_0210503371.lin.o"
-"isim/_tmp/work/m_00000000002757329816_2251426342.lin.o"
-"isim/_tmp/work/m_00000000002575889141_2095233569.lin.o"
-"isim/_tmp/work/m_00000000004281789563_0421424212.lin.o"
-"isim/_tmp/work/m_00000000000608646026_1957864914.lin.o"
+"isim/_tmp/work/m_00000000001271911350_1649379328.lin.o"
 "isim/_tmp/work/m_00000000001367290071_3069169239.lin.o"
-"isim/_tmp/work/m_00000000001817543134_4082191788.lin.o"
-"isim/_tmp/work/m_00000000002709284966_3330868923.lin.o"
-"isim/_tmp/work/m_00000000001500407499_2949997029.lin.o"
-"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3263055014.lin.o"
-"isim/_tmp/xilinxcorelib_ver/m_00000000000333588353_3348841273.lin.o"
-"isim/_tmp/work/m_00000000004001028428_1947359366.lin.o"
-"isim/_tmp/work/m_00000000001271911350_3188214541.lin.o"
-"isim/_tmp/work/m_00000000001206475773_3525170186.lin.o"
-Archiving with final command:
-/usr/bin/ar crP "isim/_tmp/work/m_00000000000866782574_2073120511.lin.a"  
 "isim/_tmp/work/m_00000000002949968913_3638225198.lin.o"
 "isim/_tmp/work/m_00000000003140303428_1776166545.lin.o"
-"isim/_tmp/work/m_00000000003388073192_2734816324.lin.o"
-"isim/_tmp/work/m_00000000004234767486_0933511222.lin.o"
-"isim/_tmp/work/m_00000000000124897984_0399049451.lin.o"
-Linking with command:
-/usr/bin/gcc -Wa,-W  -O  -m32 -shared  -o
-"isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_lib.lin.so"
-"isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_lib.lin.o" 
-"isim/_tmp/work/m_00000000000866782574_2073120511.lin.a"
+"isim/_tmp/work/m_00000000002543606116_0610838321.lin.o"
+"isim/_tmp/work/m_00000000000881626551_3643923604.lin.o"
+"isim/_tmp/work/m_00000000003924766520_3800570471.lin.o"
+"isim/_tmp/work/m_00000000001354954778_3342563234.lin.o"
+"isim/_tmp/work/m_00000000000988923209_2854751848.lin.o"
+"isim/_tmp/work/m_00000000001582318016_3489278238.lin.o"
+"isim/_tmp/work/m_00000000000608646026_1957864914.lin.o"
+"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_0451882537.lin.o"
+"isim/_tmp/xilinxcorelib_ver/m_00000000000910001589_2897200061.lin.o"
+"isim/_tmp/work/m_00000000004001028428_4011812719.lin.o"
+"isim/_tmp/work/m_00000000001493228819_2911991871.lin.o"
+"isim/_tmp/work/m_00000000003821418956_2257197695.lin.o"
+"isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3263055014.lin.o"
+"isim/_tmp/xilinxcorelib_ver/m_00000000000333588353_0201965519.lin.o"
+"isim/_tmp/work/m_00000000004001028428_1947359366.lin.o"
+"isim/_tmp/unisims_ver/m_00000000002674302814_1435897813.lin.o"
+"isim/_tmp/work/m_00000000000975103598_3233751896.lin.o"
+"isim/_tmp/work/m_00000000000480030338_1601485867.lin.o"
+"isim/_tmp/unisims_ver/m_00000000002063979698_0906273847.lin.o"
+"isim/_tmp/work/m_00000000003977693835_0117505732.lin.o"
+"isim/_tmp/work/m_00000000001271911350_3110440724.lin.o"
+"isim/_tmp/work/m_00000000001043827871_3525170186.lin.o"
+"isim/_tmp/work/m_00000000004127472677_2734816324.lin.o"
+"isim/_tmp/work/m_00000000001647982050_2042678996.lin.o"
 "/opt/Xilinx/10.1/ISE/lib/lin/libhsimengine.so"
 Linking with command:
 /usr/bin/gcc -Wa,-W  -O  -m32  -Wl,--rpath "/opt/Xilinx/10.1/ISE/lib/lin" -o
-"cpu_fifo_tb_isim_beh.exe" "isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_main.c" -ldl
-Compiled 524 Verilog Units
-Built simulation executable cpu_fifo_tb_isim_beh.exe
-Fuse Memory Usage: 29828 Kb
-Fuse CPU Usage: 1810 ms
-GCC CPU Usage: 430 ms
+"cpu_tb_tb_0_isim_beh.exe" "isim/_tmp/work/cpu_tb_tb_0_isim_beh.exe_main.c" -ldl
+Compiled 53 Verilog Units
+Built simulation executable cpu_tb_tb_0_isim_beh.exe
+Fuse Memory Usage: 26460 Kb
+Fuse CPU Usage: 370 ms
+GCC CPU Usage: 110 ms

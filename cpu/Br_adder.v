@@ -19,18 +19,11 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Br_adder(
-    input [8:0] ins_inc_addr,
-    input [11:0] immi,
-    output [8:0] ins_br_addr
+    input [9:0] ins_inc_addr,
+    input [9:0] immi,
+    output [9:0] ins_br_addr
     );
 	 
-	 reg [11:0] buffer;
-	 
-	 assign ins_br_addr[8:0] = buffer[8:0];
-	 
-	 always @(*)
-	 begin
-		buffer = ins_inc_addr + immi;
-	 end
+	 assign ins_br_addr = ins_inc_addr + immi;
 
 endmodule

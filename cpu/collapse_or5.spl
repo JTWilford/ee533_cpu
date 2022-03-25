@@ -1,0 +1,8 @@
+[Inputs]
+=I[4:0]=
+[Outputs]
+O
+[BiDir]
+[ATTRIBUTES]
+VeriModel collapse_or5
+

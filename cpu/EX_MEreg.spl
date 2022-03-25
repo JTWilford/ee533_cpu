@@ -1,0 +1,20 @@
+[Inputs]
+EX_mem_ctrl
+clk
+rst
+=EX_wb_ctrl[1:0]=
+=EX_data[63:0]=
+=EX_addr[63:0]=
+=EX_dest[4:0]=
+=EX_tid[1:0]=
+[Outputs]
+ME_mem_ctrl
+=ME_wb_ctrl[1:0]=
+=ME_data[63:0]=
+=ME_addr[63:0]=
+=ME_dest[4:0]=
+=ME_tid[1:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel EX_MEreg
+

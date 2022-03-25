@@ -1,0 +1,13 @@
+[Inputs]
+clk
+rst
+en
+=IF_pc[9:0]=
+=IF_tid[1:0]=
+[Outputs]
+=ID_pc[9:0]=
+=ID_tid[1:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel IF_IDreg
+

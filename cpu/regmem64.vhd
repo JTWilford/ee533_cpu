@@ -44,12 +44,12 @@ ENTITY regmem64 IS
 	port (
 	clka: IN std_logic;
 	dina: IN std_logic_VECTOR(63 downto 0);
-	addra: IN std_logic_VECTOR(2 downto 0);
+	addra: IN std_logic_VECTOR(6 downto 0);
 	wea: IN std_logic_VECTOR(0 downto 0);
 	douta: OUT std_logic_VECTOR(63 downto 0);
 	clkb: IN std_logic;
 	dinb: IN std_logic_VECTOR(63 downto 0);
-	addrb: IN std_logic_VECTOR(2 downto 0);
+	addrb: IN std_logic_VECTOR(6 downto 0);
 	web: IN std_logic_VECTOR(0 downto 0);
 	doutb: OUT std_logic_VECTOR(63 downto 0));
 END regmem64;
@@ -60,12 +60,12 @@ component wrapped_regmem64
 	port (
 	clka: IN std_logic;
 	dina: IN std_logic_VECTOR(63 downto 0);
-	addra: IN std_logic_VECTOR(2 downto 0);
+	addra: IN std_logic_VECTOR(6 downto 0);
 	wea: IN std_logic_VECTOR(0 downto 0);
 	douta: OUT std_logic_VECTOR(63 downto 0);
 	clkb: IN std_logic;
 	dinb: IN std_logic_VECTOR(63 downto 0);
-	addrb: IN std_logic_VECTOR(2 downto 0);
+	addrb: IN std_logic_VECTOR(6 downto 0);
 	web: IN std_logic_VECTOR(0 downto 0);
 	doutb: OUT std_logic_VECTOR(63 downto 0));
 end component;
@@ -90,22 +90,22 @@ end component;
 			c_load_init_file => 0,
 			c_xdevicefamily => "virtex2p",
 			c_has_mem_output_regs_a => 0,
-			c_write_depth_b => 8,
-			c_write_depth_a => 8,
+			c_write_depth_b => 128,
+			c_write_depth_a => 128,
 			c_has_ssrb => 0,
 			c_has_mux_output_regs_b => 0,
 			c_has_ssra => 0,
 			c_has_mux_output_regs_a => 0,
-			c_addra_width => 3,
-			c_addrb_width => 3,
+			c_addra_width => 7,
+			c_addrb_width => 7,
 			c_default_data => "0",
 			c_use_ecc => 0,
 			c_algorithm => 1,
 			c_disable_warn_bhv_range => 0,
 			c_write_width_b => 64,
 			c_write_width_a => 64,
-			c_read_depth_b => 8,
-			c_read_depth_a => 8,
+			c_read_depth_b => 128,
+			c_read_depth_a => 128,
 			c_byte_size => 9,
 			c_sim_collision_check => "NONE",
 			c_use_ramb16bwer_rst_bhv => 0,

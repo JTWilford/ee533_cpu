@@ -34,12 +34,12 @@
 regmem64 YourInstanceName (
 	.clka(clka),
 	.dina(dina), // Bus [63 : 0] 
-	.addra(addra), // Bus [2 : 0] 
+	.addra(addra), // Bus [6 : 0] 
 	.wea(wea), // Bus [0 : 0] 
 	.douta(douta), // Bus [63 : 0] 
 	.clkb(clkb),
 	.dinb(dinb), // Bus [63 : 0] 
-	.addrb(addrb), // Bus [2 : 0] 
+	.addrb(addrb), // Bus [6 : 0] 
 	.web(web), // Bus [0 : 0] 
 	.doutb(doutb)); // Bus [63 : 0] 
 
