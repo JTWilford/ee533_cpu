@@ -1,91 +1,87 @@
 Command line:
-   ./cpu_tb_tb_0_isim_beh.exe
+   ./cpu_fifo_tb_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  53317
+     -ipcport  34015
 
-Fri Mar 25 12:04:58 2022
+Tue Mar 29 03:03:10 2022
 
-Total Line Count : 3663
+Total Line Count : 4826
 
- Elaboration Time: 0.04 sec
+ Elaboration Time: 0.1 sec
 
- Current Memory Usage: 237.404 Meg
+ Current Memory Usage: 241.054 Meg
 
- Total Signals          : 1773
- Total Nets             : 3548
- Total Signal Drivers   : 879
- Total Blocks           : 420
- Total Primitive Blocks : 397
- Total Processes        : 1194
- Total Traceable Variables  : 1019
- Total Scalar Nets and Variables : 259744
-ntrace select -o on -n /cpu_tb_tb_0/clk 
-ntrace select -o on -n /cpu_tb_tb_0/div_clk 
-ntrace select -o on -n /cpu_tb_tb_0/rst 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/IF_pc 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/IF_tid 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_pc 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_ins_DUMMY 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_alu_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_br_addr 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_br_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_data0 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_data1 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_dest 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_d1 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_imm 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_mem_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_r0 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_r1 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_tid 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_tr0 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_tr1 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ID_wb_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_alu_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_branch 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_br_addr 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_br_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_data 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_dest 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_d0 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_d1 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_mem_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_tid 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/EX_wb_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_addr 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_data 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_dest 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_dout 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_mem_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_tid 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_wb_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/ME_wen 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_data 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_dest 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_dmem 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_tdest 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_tid 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_wb_ctrl 
-ntrace select -o on -n /cpu_tb_tb_0/UUT/WB_wr_data 
+ Total Signals          : 3405
+ Total Nets             : 6009
+ Total Signal Drivers   : 1336
+ Total Blocks           : 733
+ Total Primitive Blocks : 637
+ Total Processes        : 1813
+ Total Traceable Variables  : 1489
+ Total Scalar Nets and Variables : 527220
+ntrace select -o on -n /cpu_fifo_tb/PERIOD 
+ntrace select -o on -n /cpu_fifo_tb/DUTY_CYCLE 
+ntrace select -o on -n /cpu_fifo_tb/OFFSET 
+ntrace select -o on -n /cpu_fifo_tb/clk 
+ntrace select -o on -n /cpu_fifo_tb/rst 
+ntrace select -o on -n /cpu_fifo_tb/rst2 
+ntrace select -o on -n /cpu_fifo_tb/UUT/test_data 
+ntrace select -o on -n /cpu_fifo_tb/UUT/test_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/test_rdy 
+ntrace select -o on -n /cpu_fifo_tb/UUT/test_wr 
+ntrace select -o on -n /cpu_fifo_tb/UUT/perf_din 
+ntrace select -o on -n /cpu_fifo_tb/UUT/perf_addr 
+ntrace select -o on -n /cpu_fifo_tb/UUT/perf_dout 
+ntrace select -o on -n /cpu_fifo_tb/UUT/perf_wren 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/out_data 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/IF_tid 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/IF_pc 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_pc 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_ins_DUMMY 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_alu_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_br_addr 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_br_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_data0 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_data1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_dest 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_d1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_imm 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_mem_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_r0 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_r1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_tid 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_tr0 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_tr1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_wb_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_alu_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_branch 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_br_addr 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_br_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_data 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_dest 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_d0 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_d1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_mem_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_tid 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_wb_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_addr 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_data 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_dest 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_dout 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_mem_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_tid 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_wb_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_wen 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_data 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_dest 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_dmem 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_tdest 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_tid 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_wb_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_wr_data 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-isimrun 10000 ns 
-isimrun 10000 ns 
-isimrun 10000 ns 
-isimrun 10000 ns 
-isimrun 10000 ns 
-isimrun 10000 ns 
-isimrun 10000 ns 
-isimrun 10000 ns 
-isimrun 10000 ns 
-isimrun 10000 ns 
-
- Total Simulation Time: 0.12 sec
-
- Current Memory Usage: 253.383 Meg
-
-Fri Mar 25 12:09:11 2022
-
+isimrun 100000 ns 

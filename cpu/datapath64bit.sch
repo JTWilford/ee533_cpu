@@ -10,8 +10,7 @@ BEGIN SCHEMATIC
         SIGNAL ID_ins(31:0)
         SIGNAL ID_pc(9:0)
         SIGNAL rst
-        BEGIN SIGNAL EX_branch
-        END SIGNAL
+        SIGNAL EX_branch
         SIGNAL ID_br_addr(9:0)
         SIGNAL EX_mem_ctrl
         SIGNAL en
@@ -61,10 +60,10 @@ BEGIN SCHEMATIC
         SIGNAL ME_tid(1:0)
         SIGNAL ME_dout(63:0)
         SIGNAL ME_data(63:0)
-        SIGNAL DATA_ADDR(9:0)
+        SIGNAL DATA_ADDR(11:0)
         SIGNAL DATA_DIN(63:0)
         SIGNAL DATA_WEN
-        SIGNAL ME_addr(9:0)
+        SIGNAL ME_addr(11:0)
         SIGNAL ME_wen
         SIGNAL DATA_DOUT(63:0)
         SIGNAL PERF_ADDR(63:0)
@@ -85,23 +84,44 @@ BEGIN SCHEMATIC
         SIGNAL ID_tr1(6:0)
         PORT Input clk
         PORT Output ID_ins(31:0)
+        PORT Output ID_pc(9:0)
         PORT Input rst
+        PORT Output EX_mem_ctrl
         PORT Input en
         PORT Input INS_WEN
         PORT Input INS_DIN(31:0)
         PORT Input INS_ADDR(11:0)
+        PORT Output EX_d0(63:0)
         PORT Output INS_DOUT(31:0)
+        PORT Output EX_d1(63:0)
         PORT Input clk_2x
-        PORT Input DATA_ADDR(9:0)
+        PORT Output ID_tid(1:0)
+        PORT Output EX_br_addr(9:0)
+        PORT Output EX_tid(1:0)
+        PORT Output EX_dest(4:0)
+        PORT Output EX_wb_ctrl(1:0)
+        PORT Output EX_alu_ctrl(5:0)
+        PORT Output EX_br_ctrl(1:0)
+        PORT Output ME_mem_ctrl
+        PORT Output ME_wb_ctrl(1:0)
+        PORT Output ME_addr(63:0)
+        PORT Output ME_dest(4:0)
+        PORT Output ME_tid(1:0)
+        PORT Output ME_data(63:0)
+        PORT Input DATA_ADDR(11:0)
         PORT Input DATA_DIN(63:0)
         PORT Input DATA_WEN
         PORT Output DATA_DOUT(63:0)
         PORT Output PERF_ADDR(63:0)
         PORT Output PERF_DOUT(63:0)
         PORT Output PERF_WREN
+        PORT Output WB_data(63:0)
+        PORT Output WB_dest(4:0)
+        PORT Output WB_tid(1:0)
+        PORT Output WB_wb_ctrl(1:0)
         PORT Input PERF_DIN(63:0)
         BEGIN BLOCKDEF instructionmem64
-            TIMESTAMP 2022 3 25 12 4 0
+            TIMESTAMP 2022 3 29 3 2 20
             RECTANGLE N 32 32 544 576 
             BEGIN LINE W 0 80 32 80 
             END LINE
@@ -364,7 +384,7 @@ BEGIN SCHEMATIC
             LINE N 64 -128 64 -96 
         END BLOCKDEF
         BEGIN BLOCKDEF datamem64
-            TIMESTAMP 2022 3 25 12 3 26
+            TIMESTAMP 2022 3 27 5 26 30
             RECTANGLE N 32 32 544 576 
             BEGIN LINE W 0 80 32 80 
             END LINE
@@ -536,11 +556,11 @@ BEGIN SCHEMATIC
             PIN Branch_signal EX_branch
         END BLOCK
         BEGIN BLOCK XLXI_106 datamem64
-            PIN addra(9:0) DATA_ADDR(9:0)
+            PIN addra(11:0) DATA_ADDR(11:0)
             PIN dina(63:0) DATA_DIN(63:0)
             PIN wea(0:0) DATA_WEN
             PIN clka clk
-            PIN addrb(9:0) ME_addr(9:0)
+            PIN addrb(11:0) ME_addr(11:0)
             PIN dinb(63:0) ME_data(63:0)
             PIN web(0:0) ME_wen
             PIN clkb clk
@@ -640,7 +660,10 @@ BEGIN SCHEMATIC
         BEGIN INSTANCE XLXI_80 1136 912 R0
         END INSTANCE
         BEGIN BRANCH ID_tid(1:0)
-            WIRE 1520 880 1568 880
+            WIRE 1520 880 1536 880
+            WIRE 1536 880 1568 880
+            WIRE 1536 816 1536 880
+            WIRE 1536 816 1600 816
             BEGIN DISPLAY 1568 880 ATTR Name
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
@@ -897,21 +920,12 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH EX_br_addr(9:0)
             WIRE 3104 848 3136 848
-            BEGIN DISPLAY 3136 848 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH EX_alu_ctrl(5:0)
             WIRE 3104 656 3136 656
-            BEGIN DISPLAY 3136 656 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH EX_mem_ctrl
             WIRE 3104 720 3136 720
-            BEGIN DISPLAY 3136 720 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH ID_dest(4:0)
             WIRE 2528 1104 2608 1104
@@ -951,9 +965,6 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH EX_tid(1:0)
             WIRE 3104 1168 3136 1168
-            BEGIN DISPLAY 3136 1168 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH ID_tid(1:0)
             WIRE 2528 1168 2608 1168
@@ -963,21 +974,12 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH EX_dest(4:0)
             WIRE 3104 1104 3136 1104
-            BEGIN DISPLAY 3136 1104 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH EX_d1(63:0)
             WIRE 3104 976 3136 976
-            BEGIN DISPLAY 3136 976 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH EX_d0(63:0)
             WIRE 3104 912 3136 912
-            BEGIN DISPLAY 3136 912 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH ID_data0(63:0)
             WIRE 2576 912 2608 912
@@ -987,15 +989,9 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH EX_br_ctrl(1:0)
             WIRE 3104 1040 3136 1040
-            BEGIN DISPLAY 3136 1040 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH EX_wb_ctrl(1:0)
             WIRE 3104 784 3136 784
-            BEGIN DISPLAY 3136 784 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH clk
             WIRE 2592 1232 2608 1232
@@ -1151,43 +1147,25 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH ME_mem_ctrl
             WIRE 4352 656 4384 656
-            BEGIN DISPLAY 4384 656 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH ME_wb_ctrl(1:0)
             WIRE 4352 720 4384 720
-            BEGIN DISPLAY 4384 720 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH ME_addr(63:0)
             WIRE 4352 848 4384 848
-            BEGIN DISPLAY 4384 848 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH ME_dest(4:0)
             WIRE 4352 912 4384 912
-            BEGIN DISPLAY 4384 912 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH ME_tid(1:0)
             WIRE 4352 976 4384 976
-            BEGIN DISPLAY 4384 976 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH ME_data(63:0)
             WIRE 4352 784 4384 784
-            BEGIN DISPLAY 4384 784 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN INSTANCE XLXI_106 4464 1168 R0
         END INSTANCE
-        BEGIN BRANCH DATA_ADDR(9:0)
+        BEGIN BRANCH DATA_ADDR(11:0)
             WIRE 4448 1248 4464 1248
         END BRANCH
         BEGIN BRANCH DATA_DIN(63:0)
@@ -1202,7 +1180,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH ME_addr(9:0)
+        BEGIN BRANCH ME_addr(11:0)
             WIRE 4448 1504 4464 1504
             BEGIN DISPLAY 4448 1504 ATTR Name
                 ALIGNMENT SOFT-RIGHT
@@ -1308,7 +1286,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
         END BRANCH
-        IOMARKER 4448 1248 DATA_ADDR(9:0) R180 28
+        IOMARKER 4448 1248 DATA_ADDR(11:0) R180 28
         IOMARKER 4448 1280 DATA_DIN(63:0) R180 28
         IOMARKER 4448 1376 DATA_WEN R180 28
         IOMARKER 5088 2432 PERF_ADDR(63:0) R0 28
@@ -1355,27 +1333,15 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH WB_data(63:0)
             WIRE 5552 720 5568 720
-            BEGIN DISPLAY 5568 720 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH WB_dest(4:0)
             WIRE 5552 784 5568 784
-            BEGIN DISPLAY 5568 784 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH WB_tid(1:0)
             WIRE 5552 848 5568 848
-            BEGIN DISPLAY 5568 848 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH WB_wb_ctrl(1:0)
             WIRE 5552 656 5568 656
-            BEGIN DISPLAY 5568 656 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
         END BRANCH
         BEGIN INSTANCE XLXI_51 6032 816 R0
         END INSTANCE
@@ -1430,8 +1396,11 @@ BEGIN SCHEMATIC
         END BRANCH
         IOMARKER 5744 1264 PERF_DIN(63:0) R180 28
         BEGIN BRANCH ID_pc(9:0)
-            WIRE 1520 624 1600 624
+            WIRE 1520 624 1552 624
+            WIRE 1552 624 1600 624
             WIRE 1600 624 1648 624
+            WIRE 1552 480 1552 624
+            WIRE 1552 480 1632 480
             BEGIN DISPLAY 1600 624 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
@@ -1534,5 +1503,26 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
+        IOMARKER 1632 480 ID_pc(9:0) R0 28
+        IOMARKER 1600 816 ID_tid(1:0) R0 28
+        IOMARKER 3136 848 EX_br_addr(9:0) R0 28
+        IOMARKER 3136 656 EX_alu_ctrl(5:0) R0 28
+        IOMARKER 3136 720 EX_mem_ctrl R0 28
+        IOMARKER 3136 1168 EX_tid(1:0) R0 28
+        IOMARKER 3136 1104 EX_dest(4:0) R0 28
+        IOMARKER 3136 976 EX_d1(63:0) R0 28
+        IOMARKER 3136 912 EX_d0(63:0) R0 28
+        IOMARKER 3136 1040 EX_br_ctrl(1:0) R0 28
+        IOMARKER 3136 784 EX_wb_ctrl(1:0) R0 28
+        IOMARKER 4384 656 ME_mem_ctrl R0 28
+        IOMARKER 4384 720 ME_wb_ctrl(1:0) R0 28
+        IOMARKER 4384 848 ME_addr(63:0) R0 28
+        IOMARKER 4384 912 ME_dest(4:0) R0 28
+        IOMARKER 4384 976 ME_tid(1:0) R0 28
+        IOMARKER 4384 784 ME_data(63:0) R0 28
+        IOMARKER 5568 720 WB_data(63:0) R0 28
+        IOMARKER 5568 784 WB_dest(4:0) R0 28
+        IOMARKER 5568 848 WB_tid(1:0) R0 28
+        IOMARKER 5568 656 WB_wb_ctrl(1:0) R0 28
     END SHEET
 END SCHEMATIC

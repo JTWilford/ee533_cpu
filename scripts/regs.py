@@ -131,6 +131,7 @@ def main(target, cmd, args):
                 fin.close()
             for i in range(0, len(lines)):
                 val = int(lines[i].strip(), 2)
+                print("%d: '%s'" % (i, hex(val)))
                 regwrite(ANA_ADDRESS_REG, mem_address(chip, i))
                 regwrite(ANA_DOUT_HI_REG, (val>>32) & 0xFFFFFFFF)
                 regwrite(ANA_DOUT_LO_REG, val & 0xFFFFFFFF)

@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : sch2verilog
 //  /   /         Filename : datapath64bit.vf
-// /___/   /\     Timestamp : 03/25/2022 11:38:21
+// /___/   /\     Timestamp : 03/27/2022 04:46:47
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -32,15 +32,36 @@ module datapath64bit(clk,
                      PERF_DIN, 
                      rst, 
                      DATA_DOUT, 
+                     EX_alu_ctrl, 
+                     EX_br_addr, 
+                     EX_br_ctrl, 
+                     EX_dest, 
+                     EX_d0, 
+                     EX_d1, 
+                     EX_mem_ctrl, 
+                     EX_tid, 
+                     EX_wb_ctrl, 
                      ID_ins, 
+                     ID_pc, 
+                     ID_tid, 
                      INS_DOUT, 
+                     ME_addr, 
+                     ME_data, 
+                     ME_dest, 
+                     ME_mem_ctrl, 
+                     ME_tid, 
+                     ME_wb_ctrl, 
                      PERF_ADDR, 
                      PERF_DOUT, 
-                     PERF_WREN);
+                     PERF_WREN, 
+                     WB_data, 
+                     WB_dest, 
+                     WB_tid, 
+                     WB_wb_ctrl);
 
     input clk;
     input clk_2x;
-    input [9:0] DATA_ADDR;
+    input [11:0] DATA_ADDR;
     input [63:0] DATA_DIN;
     input DATA_WEN;
     input en;
@@ -50,23 +71,35 @@ module datapath64bit(clk,
     input [63:0] PERF_DIN;
     input rst;
    output [63:0] DATA_DOUT;
+   output [5:0] EX_alu_ctrl;
+   output [9:0] EX_br_addr;
+   output [1:0] EX_br_ctrl;
+   output [4:0] EX_dest;
+   output [63:0] EX_d0;
+   output [63:0] EX_d1;
+   output EX_mem_ctrl;
+   output [1:0] EX_tid;
+   output [1:0] EX_wb_ctrl;
    output [31:0] ID_ins;
+   output [9:0] ID_pc;
+   output [1:0] ID_tid;
    output [31:0] INS_DOUT;
+   output [63:0] ME_addr;
+   output [63:0] ME_data;
+   output [4:0] ME_dest;
+   output ME_mem_ctrl;
+   output [1:0] ME_tid;
+   output [1:0] ME_wb_ctrl;
    output [63:0] PERF_ADDR;
    output [63:0] PERF_DOUT;
    output PERF_WREN;
+   output [63:0] WB_data;
+   output [4:0] WB_dest;
+   output [1:0] WB_tid;
+   output [1:0] WB_wb_ctrl;
    
-   wire [5:0] EX_alu_ctrl;
    wire EX_branch;
-   wire [9:0] EX_br_addr;
-   wire [1:0] EX_br_ctrl;
    wire [63:0] EX_data;
-   wire [4:0] EX_dest;
-   wire [63:0] EX_d0;
-   wire [63:0] EX_d1;
-   wire EX_mem_ctrl;
-   wire [1:0] EX_tid;
-   wire [1:0] EX_wb_ctrl;
    wire [5:0] ID_alu_ctrl;
    wire [9:0] ID_br_addr;
    wire [1:0] ID_br_ctrl;
@@ -76,35 +109,65 @@ module datapath64bit(clk,
    wire [63:0] ID_d1;
    wire [63:0] ID_imm;
    wire ID_mem_ctrl;
-   wire [9:0] ID_pc;
    wire [4:0] ID_r0;
    wire [4:0] ID_r1;
-   wire [1:0] ID_tid;
    wire [6:0] ID_tr0;
    wire [6:0] ID_tr1;
    wire [1:0] ID_wb_ctrl;
    wire [9:0] IF_pc;
    wire [1:0] IF_tid;
-   wire [63:0] ME_addr;
-   wire [63:0] ME_data;
-   wire [4:0] ME_dest;
    wire [63:0] ME_dout;
-   wire ME_mem_ctrl;
-   wire [1:0] ME_tid;
-   wire [1:0] ME_wb_ctrl;
    wire ME_wen;
    wire perf_en;
-   wire [63:0] WB_data;
-   wire [4:0] WB_dest;
    wire [63:0] WB_dmem;
    wire [6:0] WB_tdest;
-   wire [1:0] WB_tid;
-   wire [1:0] WB_wb_ctrl;
    wire [63:0] WB_wr_data;
    wire [0:0] XLXN_669;
+   wire [1:0] EX_br_ctrl_DUMMY;
    wire [31:0] ID_ins_DUMMY;
+   wire EX_mem_ctrl_DUMMY;
+   wire [1:0] ME_tid_DUMMY;
+   wire [1:0] WB_wb_ctrl_DUMMY;
+   wire [4:0] WB_dest_DUMMY;
+   wire [4:0] ME_dest_DUMMY;
+   wire [1:0] ID_tid_DUMMY;
+   wire [1:0] EX_wb_ctrl_DUMMY;
+   wire [1:0] EX_tid_DUMMY;
+   wire [4:0] EX_dest_DUMMY;
+   wire ME_mem_ctrl_DUMMY;
+   wire [5:0] EX_alu_ctrl_DUMMY;
+   wire [63:0] ME_addr_DUMMY;
+   wire [9:0] ID_pc_DUMMY;
+   wire [63:0] EX_d0_DUMMY;
+   wire [63:0] EX_d1_DUMMY;
+   wire [63:0] WB_data_DUMMY;
+   wire [1:0] WB_tid_DUMMY;
+   wire [63:0] ME_data_DUMMY;
+   wire [1:0] ME_wb_ctrl_DUMMY;
+   wire [9:0] EX_br_addr_DUMMY;
    
+   assign EX_alu_ctrl[5:0] = EX_alu_ctrl_DUMMY[5:0];
+   assign EX_br_addr[9:0] = EX_br_addr_DUMMY[9:0];
+   assign EX_br_ctrl[1:0] = EX_br_ctrl_DUMMY[1:0];
+   assign EX_dest[4:0] = EX_dest_DUMMY[4:0];
+   assign EX_d0[63:0] = EX_d0_DUMMY[63:0];
+   assign EX_d1[63:0] = EX_d1_DUMMY[63:0];
+   assign EX_mem_ctrl = EX_mem_ctrl_DUMMY;
+   assign EX_tid[1:0] = EX_tid_DUMMY[1:0];
+   assign EX_wb_ctrl[1:0] = EX_wb_ctrl_DUMMY[1:0];
    assign ID_ins[31:0] = ID_ins_DUMMY[31:0];
+   assign ID_pc[9:0] = ID_pc_DUMMY[9:0];
+   assign ID_tid[1:0] = ID_tid_DUMMY[1:0];
+   assign ME_addr[63:0] = ME_addr_DUMMY[63:0];
+   assign ME_data[63:0] = ME_data_DUMMY[63:0];
+   assign ME_dest[4:0] = ME_dest_DUMMY[4:0];
+   assign ME_mem_ctrl = ME_mem_ctrl_DUMMY;
+   assign ME_tid[1:0] = ME_tid_DUMMY[1:0];
+   assign ME_wb_ctrl[1:0] = ME_wb_ctrl_DUMMY[1:0];
+   assign WB_data[63:0] = WB_data_DUMMY[63:0];
+   assign WB_dest[4:0] = WB_dest_DUMMY[4:0];
+   assign WB_tid[1:0] = WB_tid_DUMMY[1:0];
+   assign WB_wb_ctrl[1:0] = WB_wb_ctrl_DUMMY[1:0];
    instructionmem64 XLXI_23 (.addra(INS_ADDR[11:0]), 
                              .addrb({IF_tid[1:0], IF_pc[9:0]}), 
                              .clka(clk), 
@@ -115,11 +178,11 @@ module datapath64bit(clk,
                              .web(XLXN_669[0]), 
                              .douta(INS_DOUT[31:0]), 
                              .doutb(ID_ins_DUMMY[31:0]));
-   alu64 XLXI_30 (.en(EX_alu_ctrl[5]), 
-                  .MD(EX_alu_ctrl[0]), 
-                  .OP(EX_alu_ctrl[3:1]), 
-                  .R1(EX_d0[63:0]), 
-                  .R2(EX_d1[63:0]), 
+   alu64 XLXI_30 (.en(EX_alu_ctrl_DUMMY[5]), 
+                  .MD(EX_alu_ctrl_DUMMY[0]), 
+                  .OP(EX_alu_ctrl_DUMMY[3:1]), 
+                  .R1(EX_d0_DUMMY[63:0]), 
+                  .R2(EX_d1_DUMMY[63:0]), 
                   .EQ(), 
                   .GT(), 
                   .LT(), 
@@ -129,9 +192,9 @@ module datapath64bit(clk,
                           .I1(ID_imm[63:0]), 
                           .S(ID_alu_ctrl[4]), 
                           .O(ID_d1[63:0]));
-   mux2_to_1_x64 XLXI_51 (.I0(WB_data[63:0]), 
+   mux2_to_1_x64 XLXI_51 (.I0(WB_data_DUMMY[63:0]), 
                           .I1(WB_dmem[63:0]), 
-                          .S(WB_wb_ctrl[1]), 
+                          .S(WB_wb_ctrl_DUMMY[1]), 
                           .O(WB_wr_data[63:0]));
    decoder XLXI_64 (.ins(ID_ins_DUMMY[31:0]), 
                     .br_ctrl(ID_br_ctrl[1:0]), 
@@ -146,26 +209,26 @@ module datapath64bit(clk,
                           .I1(PERF_DIN[63:0]), 
                           .S(perf_en), 
                           .O(WB_dmem[63:0]));
-   perf_interface XLXI_76 (.addr_in(ME_addr[63:0]), 
+   perf_interface XLXI_76 (.addr_in(ME_addr_DUMMY[63:0]), 
                            .clk(clk), 
-                           .data_in(ME_data[63:0]), 
-                           .memreg(ME_wb_ctrl[1]), 
+                           .data_in(ME_data_DUMMY[63:0]), 
+                           .memreg(ME_wb_ctrl_DUMMY[1]), 
                            .rst(rst), 
-                           .wren(ME_mem_ctrl), 
+                           .wren(ME_mem_ctrl_DUMMY), 
                            .perf_addr_out(PERF_ADDR[63:0]), 
                            .perf_data_out(PERF_DOUT[63:0]), 
                            .perf_en(perf_en), 
                            .perf_wren(PERF_WREN));
-   dmem_write_protect XLXI_77 (.addr_hi(ME_addr[63:32]), 
-                               .mem_wr(ME_mem_ctrl), 
+   dmem_write_protect XLXI_77 (.addr_hi(ME_addr_DUMMY[63:32]), 
+                               .mem_wr(ME_mem_ctrl_DUMMY), 
                                .wren(ME_wen));
    thread_arbiter_4way XLXI_78 (.clk(clk), 
                                 .en(en), 
                                 .rst(rst), 
                                 .tid(IF_tid[1:0]));
    IP_4way XLXI_79 (.branch(EX_branch), 
-                    .br_addr(EX_br_addr[9:0]), 
-                    .br_tid(EX_tid[1:0]), 
+                    .br_addr(EX_br_addr_DUMMY[9:0]), 
+                    .br_tid(EX_tid_DUMMY[1:0]), 
                     .clk(clk), 
                     .en(en), 
                     .rst(rst), 
@@ -176,10 +239,10 @@ module datapath64bit(clk,
                      .IF_pc(IF_pc[9:0]), 
                      .IF_tid(IF_tid[1:0]), 
                      .rst(rst), 
-                     .ID_pc(ID_pc[9:0]), 
-                     .ID_tid(ID_tid[1:0]));
+                     .ID_pc(ID_pc_DUMMY[9:0]), 
+                     .ID_tid(ID_tid_DUMMY[1:0]));
    Br_adder XLXI_87 (.immi(ID_imm[9:0]), 
-                     .ins_inc_addr(ID_pc[9:0]), 
+                     .ins_inc_addr(ID_pc_DUMMY[9:0]), 
                      .ins_br_addr(ID_br_addr[9:0]));
    ID_EXreg XLXI_92 (.clk(clk), 
                      .ID_alu_ctrl(ID_alu_ctrl[5:0]), 
@@ -189,65 +252,65 @@ module datapath64bit(clk,
                      .ID_data1(ID_d1[63:0]), 
                      .ID_dest(ID_dest[4:0]), 
                      .ID_mem_ctrl(ID_mem_ctrl), 
-                     .ID_tid(ID_tid[1:0]), 
+                     .ID_tid(ID_tid_DUMMY[1:0]), 
                      .ID_wb_ctrl(ID_wb_ctrl[1:0]), 
                      .reset(rst), 
-                     .EX_alu_ctrl(EX_alu_ctrl[5:0]), 
-                     .EX_br_addr(EX_br_addr[9:0]), 
-                     .EX_br_ctrl(EX_br_ctrl[1:0]), 
-                     .EX_dest(EX_dest[4:0]), 
-                     .EX_d0(EX_d0[63:0]), 
-                     .EX_d1(EX_d1[63:0]), 
-                     .EX_mem_ctrl(EX_mem_ctrl), 
-                     .EX_tid(EX_tid[1:0]), 
-                     .EX_wb_ctrl(EX_wb_ctrl[1:0]));
+                     .EX_alu_ctrl(EX_alu_ctrl_DUMMY[5:0]), 
+                     .EX_br_addr(EX_br_addr_DUMMY[9:0]), 
+                     .EX_br_ctrl(EX_br_ctrl_DUMMY[1:0]), 
+                     .EX_dest(EX_dest_DUMMY[4:0]), 
+                     .EX_d0(EX_d0_DUMMY[63:0]), 
+                     .EX_d1(EX_d1_DUMMY[63:0]), 
+                     .EX_mem_ctrl(EX_mem_ctrl_DUMMY), 
+                     .EX_tid(EX_tid_DUMMY[1:0]), 
+                     .EX_wb_ctrl(EX_wb_ctrl_DUMMY[1:0]));
    EX_MEreg XLXI_93 (.clk(clk), 
-                     .EX_addr(EX_d1[63:0]), 
+                     .EX_addr(EX_d1_DUMMY[63:0]), 
                      .EX_data(EX_data[63:0]), 
-                     .EX_dest(EX_dest[4:0]), 
-                     .EX_mem_ctrl(EX_mem_ctrl), 
-                     .EX_tid(EX_tid[1:0]), 
-                     .EX_wb_ctrl(EX_wb_ctrl[1:0]), 
+                     .EX_dest(EX_dest_DUMMY[4:0]), 
+                     .EX_mem_ctrl(EX_mem_ctrl_DUMMY), 
+                     .EX_tid(EX_tid_DUMMY[1:0]), 
+                     .EX_wb_ctrl(EX_wb_ctrl_DUMMY[1:0]), 
                      .rst(rst), 
-                     .ME_addr(ME_addr[63:0]), 
-                     .ME_data(ME_data[63:0]), 
-                     .ME_dest(ME_dest[4:0]), 
-                     .ME_mem_ctrl(ME_mem_ctrl), 
-                     .ME_tid(ME_tid[1:0]), 
-                     .ME_wb_ctrl(ME_wb_ctrl[1:0]));
-   BEZ_BNEZ_detect XLXI_94 (.BEZ_op(EX_br_ctrl[1]), 
-                            .BNEZ_op(EX_br_ctrl[0]), 
-                            .Reg_data(EX_d0[63:0]), 
+                     .ME_addr(ME_addr_DUMMY[63:0]), 
+                     .ME_data(ME_data_DUMMY[63:0]), 
+                     .ME_dest(ME_dest_DUMMY[4:0]), 
+                     .ME_mem_ctrl(ME_mem_ctrl_DUMMY), 
+                     .ME_tid(ME_tid_DUMMY[1:0]), 
+                     .ME_wb_ctrl(ME_wb_ctrl_DUMMY[1:0]));
+   BEZ_BNEZ_detect XLXI_94 (.BEZ_op(EX_br_ctrl_DUMMY[1]), 
+                            .BNEZ_op(EX_br_ctrl_DUMMY[0]), 
+                            .Reg_data(EX_d0_DUMMY[63:0]), 
                             .Branch_signal(EX_branch));
    GND XLXI_101 (.G(XLXN_669[0]));
-   datamem64 XLXI_106 (.addra(DATA_ADDR[9:0]), 
-                       .addrb(ME_addr[9:0]), 
+   datamem64 XLXI_106 (.addra(DATA_ADDR[11:0]), 
+                       .addrb(ME_addr_DUMMY[11:0]), 
                        .clka(clk), 
                        .clkb(clk), 
                        .dina(DATA_DIN[63:0]), 
-                       .dinb(ME_data[63:0]), 
+                       .dinb(ME_data_DUMMY[63:0]), 
                        .wea(DATA_WEN), 
                        .web(ME_wen), 
                        .douta(DATA_DOUT[63:0]), 
                        .doutb(ME_dout[63:0]));
    ME_WBreg XLXI_120 (.clk(clk), 
-                      .ME_data(ME_data[63:0]), 
-                      .ME_dest(ME_dest[4:0]), 
-                      .ME_tid(ME_tid[1:0]), 
-                      .ME_wb_ctrl(ME_wb_ctrl[1:0]), 
+                      .ME_data(ME_data_DUMMY[63:0]), 
+                      .ME_dest(ME_dest_DUMMY[4:0]), 
+                      .ME_tid(ME_tid_DUMMY[1:0]), 
+                      .ME_wb_ctrl(ME_wb_ctrl_DUMMY[1:0]), 
                       .rst(rst), 
-                      .WB_data(WB_data[63:0]), 
-                      .WB_dest(WB_dest[4:0]), 
-                      .WB_tid(WB_tid[1:0]), 
-                      .WB_wb_ctrl(WB_wb_ctrl[1:0]));
-   busmerge_2_5 XLXI_121 (.A(ID_tid[1:0]), 
+                      .WB_data(WB_data_DUMMY[63:0]), 
+                      .WB_dest(WB_dest_DUMMY[4:0]), 
+                      .WB_tid(WB_tid_DUMMY[1:0]), 
+                      .WB_wb_ctrl(WB_wb_ctrl_DUMMY[1:0]));
+   busmerge_2_5 XLXI_121 (.A(ID_tid_DUMMY[1:0]), 
                           .B(ID_r0[4:0]), 
                           .O(ID_tr0[6:0]));
-   busmerge_2_5 XLXI_122 (.A(ID_tid[1:0]), 
+   busmerge_2_5 XLXI_122 (.A(ID_tid_DUMMY[1:0]), 
                           .B(ID_r1[4:0]), 
                           .O(ID_tr1[6:0]));
-   busmerge_2_5 XLXI_123 (.A(WB_tid[1:0]), 
-                          .B(WB_dest[4:0]), 
+   busmerge_2_5 XLXI_123 (.A(WB_tid_DUMMY[1:0]), 
+                          .B(WB_dest_DUMMY[4:0]), 
                           .O(WB_tdest[6:0]));
    regfile64bit XLXI_124 (.clk(clk_2x), 
                           .rd_en(clk), 
@@ -256,7 +319,7 @@ module datapath64bit(clk,
                           .r1addr(ID_tr1[6:0]), 
                           .wraddr(WB_tdest[6:0]), 
                           .wr_din(WB_wr_data[63:0]), 
-                          .wr_en(WB_wb_ctrl[0]), 
+                          .wr_en(WB_wb_ctrl_DUMMY[0]), 
                           .r0_data(ID_data0[63:0]), 
                           .r1_data(ID_data1[63:0]));
 endmodule

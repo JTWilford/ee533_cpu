@@ -11,12 +11,12 @@
 datamem64 YourInstanceName (
     .clka(clka),
     .dina(dina), // Bus [63 : 0] 
-    .addra(addra), // Bus [9 : 0] 
+    .addra(addra), // Bus [11 : 0] 
     .wea(wea), // Bus [0 : 0] 
     .douta(douta), // Bus [63 : 0] 
     .clkb(clkb),
     .dinb(dinb), // Bus [63 : 0] 
-    .addrb(addrb), // Bus [9 : 0] 
+    .addrb(addrb), // Bus [11 : 0] 
     .web(web), // Bus [0 : 0] 
     .doutb(doutb)); // Bus [63 : 0] 
 
@@ -138,6 +138,8 @@ CVTB_mem YourInstanceName (
 
  
 		</Template>
+		<Template label="dram" treetype="template">
+		</Template>
 	</Folder>
 	<Folder label="VHDL Component Instantiation" treetype="folder">
 		<Template label="datamem64" treetype="template">
@@ -149,12 +151,12 @@ component datamem64
     port (
     clka: IN std_logic;
     dina: IN std_logic_VECTOR(63 downto 0);
-    addra: IN std_logic_VECTOR(9 downto 0);
+    addra: IN std_logic_VECTOR(11 downto 0);
     wea: IN std_logic_VECTOR(0 downto 0);
     douta: OUT std_logic_VECTOR(63 downto 0);
     clkb: IN std_logic;
     dinb: IN std_logic_VECTOR(63 downto 0);
-    addrb: IN std_logic_VECTOR(9 downto 0);
+    addrb: IN std_logic_VECTOR(11 downto 0);
     web: IN std_logic_VECTOR(0 downto 0);
     doutb: OUT std_logic_VECTOR(63 downto 0));
 end component;
@@ -395,6 +397,8 @@ your_instance_name : CVTB_mem
             web =&gt; web,
             doutb =&gt; doutb);
  
+		</Template>
+		<Template label="dram" treetype="template">
 		</Template>
 	</Folder>
 </RootFolder>

@@ -378,7 +378,7 @@ module user_data_path
 
    wire dut_en;
    wire dut_rst;
-   wire [8:0] dut_addr;
+   wire [11:0] dut_addr;
    wire [63:0] dut_din;
    wire [31:0] dut_imem_dout;
    wire dut_imem_wen;
@@ -398,6 +398,32 @@ module user_data_path
    wire [2:0] dut_r1_addr;
    wire [2:0] dut_r2_addr;
    wire dut_branch;
+
+   wire [1:0] id_tid;
+   wire [9:0] id_pc;
+   wire [31:0] id_ins;
+
+   wire [5:0] ex_alu_ctrl;
+   wire ex_mem_ctrl;
+   wire [1:0] ex_wb_ctrl;
+   wire [9:0] ex_br_addr;
+   wire [63:0] ex_d0;
+   wire [63:0] ex_d1;
+   wire [1:0] ex_br_ctrl;
+   wire [4:0] ex_dest;
+   wire [1:0] ex_tid;
+
+   wire me_mem_ctrl;
+   wire [1:0] me_wb_ctrl;
+   wire [63:0] me_data;
+   wire [63:0] me_addr;
+   wire [4:0] me_dest;
+   wire [1:0] me_tid;
+
+   wire [1:0] wb_wb_ctrl;
+   wire [63:0] wb_data;
+   wire [4:0] wb_dest;
+   wire [1:0] wb_tid;
 
    wire [63:0] perf_din;
 	 wire [63:0] perf_addr;
@@ -447,52 +473,55 @@ module user_data_path
 		.clk_2x						(clk),
 		.rst						  (dut_rst),
 		.en							  (dut_en),
-		.one						  (16'd1),
-		// Debug Outputs
-		.alu_out					(/*DISCONNECT*/),
-		.branch 					(dut_branch),
-		.br_addr					(/*DISCONNECT*/),
-		.ex_br_ctrl				(/*DISCONNECT*/),
-		.ex_mem_wr				(/*DISCONNECT*/),
-		.ex_r1_data				(dut_ex_r1),
-		.ex_r2_data				(dut_ex_r2),
-		.instruction			(dut_ins),
-		.PC							  (dut_pc),
-		.rf_r1_out				(/*DISCONNECT*/),
-		.r0_addr					(dut_r0_addr),
-		.r1_addr					(dut_r1_addr),
-		.wb_data					(dut_wb_data),
-		.wb_reg_addr			(dut_wb_addr),
-		.wb_reg_write			(dut_wb_wr),
-		.MEM_ADDR					(dut_mem_addr),
-		.MEM_DIN					(dut_mem_data),
-		.MEM_WEN					(dut_mem_wr)
+    // Debug Interface
+    .ID_tid(id_tid),
+    .ID_pc(id_pc),
+    .ID_ins(id_ins),
+    .EX_alu_ctrl(ex_alu_ctrl),
+    .EX_mem_ctrl(ex_mem_ctrl),
+    .EX_wb_ctrl(ex_wb_ctrl),
+    .EX_br_addr(ex_br_addr),
+    .EX_d0(ex_d0),
+    .EX_d1(ex_d1),
+    .EX_br_ctrl(ex_br_addr),
+    .EX_dest(ex_dest),
+    .EX_tid(ex_tid),
+    .ME_mem_ctrl(me_mem_ctrl),
+    .ME_wb_ctrl(me_wb_ctrl),
+    .ME_data(me_data),
+    .ME_addr(me_addr),
+    .ME_dest(me_dest),
+    .ME_tid(me_tid),
+    .WB_wb_ctrl(wb_wb_ctrl),
+    .WB_data(wb_data),
+    .WB_dest(wb_dest),
+    .WB_tid(wb_tid)
 	);
    
    wire ana_trigger;
-   assign ana_trigger = (dut_ex_r1 == 64'h0000000000000065) & (dut_ex_r2 == 64'h0000000000000065);
+   assign ana_trigger = (id_pc == 64'd6) & (id_tid == 2'd3);
 
    analyzer16x64x64 #(
       .DATA_WIDTH(DATA_WIDTH),
       .CTRL_WIDTH(CTRL_WIDTH),
       .UDP_REG_SRC_WIDTH(UDP_REG_SRC_WIDTH)
    ) ana (
-      .din0       (dut_pc),
-      .din1       (dut_ins),
-      .din2       (perf_dout),
-      .din3       (perf_addr),
-      .din4       (perf_wren),
-      .din5       (perf_dout),
-      .din6       (dut_mem_data),
-      .din7       (dut_branch),
-      .din8       (dut_ex_r1),
-      .din9       (dut_ex_r2),
-      .din10      (dut_r0_addr),
-      .din11      (dut_r1_addr),
-      .din12      (dut_wb_wr),
-      .din13      (oq_in_ctrl),
-      .din14      (oq_in_data),
-      .din15      (oq_in_wr),
+      .din0       (id_tid),
+      .din1       (id_pc),
+      .din2       (id_ins),
+      .din3       (ex_d0),
+      .din4       (ex_d1),
+      .din5       (me_mem_ctrl),
+      .din6       (me_data),
+      .din7       (me_addr),
+      .din8       (wb_wb_ctrl),
+      .din9       (wb_data),
+      .din10      (wb_dest),
+      .din11      (PERF_DIN),
+      .din12      (PERF_DOUT),
+      .din13      (PERF_ADDR),
+      .din14      (PERF_WREN),
+      .din15      (64'd69),
       .trigger    (ana_trigger),
 
       .dut_imem_in(dut_imem_dout),

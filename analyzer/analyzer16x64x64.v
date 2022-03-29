@@ -49,7 +49,7 @@ module analyzer16x64x64
     output dut_en,
     output dut_rst,
     output [63:0] dut_data_out,
-    output [8:0] dut_addr_out,
+    output [11:0] dut_addr_out,
     output dut_imem_wen,
     output dut_dmem_wen,
 
@@ -99,7 +99,7 @@ module analyzer16x64x64
     // Software Registers -> Written by Control Node, read by NetFPGA
     // | Register | 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0 |
     // | Control  |den|rst|----------------------------------------------------------------------------|md|wr|rd|clr|
-    // | Address  |   chip_sel |--------------------------------|          wr_addr         |        rd_addr         |
+    // | Address  |   chip_sel |-----------------------|              wr_addr              |        rd_addr         |
     // |Data_in_hi|                                         dut_dout[63:32]                                         |
     // |Data_in_lo|                                         dut_dout[31:0]                                          |
     wire [31:0] control_reg;
@@ -142,10 +142,10 @@ module analyzer16x64x64
     wire [7:0] rd_addr_next;
     assign rd_addr_next[7:0] = addr_reg[7:0];
 
-    reg [8:0] wr_addr;
+    reg [11:0] wr_addr;
     assign dut_addr_out = wr_addr;
-    wire [8:0] wr_addr_next;
-    assign wr_addr_next = addr_reg[16:8];
+    wire [11:0] wr_addr_next;
+    assign wr_addr_next = addr_reg[19:8];
 
     reg [3:0] chip_sel;
     wire [3:0] chip_sel_next;
@@ -166,7 +166,7 @@ module analyzer16x64x64
     // | Data_Lo  |                                          dout_reg[31:0]                                         |
     // |  Dut_Hi  |                                          dut_reg[63:32]                                         |
     // |  Dut_Lo  |                                           dut_reg[31:0]                                         |
-    // |  Status  |   chip_sel |        rd_addr        |                   full[15:0]                  |--------|rdy|
+    // |  Status  |   chip_sel |-----------------------|                   full[15:0]                  |--------|rdy|
     reg [63:0] dout_reg;
     reg [31:0] status_reg;
     reg [63:0] dut_reg;
@@ -228,7 +228,7 @@ module analyzer16x64x64
     always @(posedge clk)
     begin
         // Assign status_reg
-        status_reg[31:0] <= {chip_sel[3:0], rd_addr[7:0], full[15:0], 3'b000, rdy};
+        status_reg[31:0] <= {chip_sel[3:0], 8'd0, full[15:0], 3'b000, rdy};
         // Assign dout_reg based on chip_sel
         case (chip_sel)
             4'd0:   dout_reg[63:0] <= dout0[63:0];

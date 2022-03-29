@@ -78,40 +78,18 @@ module cpu_fifo(
 		.PERF_DOUT					(perf_dout),
 		.PERF_WREN					(perf_wren),
 		// Instruction Mem Interface
-		.INS_ADDR					(9'd0),
+		.INS_ADDR					(12'd0),
 		.INS_DIN					(32'd0),
 		.INS_WEN					(1'b0),
 		// Data Mem Interface
-		.DATA_ADDR					(8'd0),
+		.DATA_ADDR					(12'd0),
 		.DATA_DIN					(64'd0),
 		.DATA_WEN					(1'b0),
 		// misc
 		.clk						(div_clk),
 		.clk_2x						(clk),
 		.rst						(rst2),
-		.en							(~rst2),
-		.one						(16'd1),
-		// Debug Outputs
-		.alu_out					(/*DISCONNECT*/),
-		.branch						(/*DISCONNECT*/),
-		.br_addr					(/*DISCONNECT*/),
-		.DATA_DOUT					(/*DISCONNECT*/),
-		.ex_br_ctrl					(/*DISCONNECT*/),
-		.ex_mem_wr					(/*DISCONNECT*/),
-		.ex_r1_data					(/*DISCONNECT*/),
-		.ex_r2_data					(/*DISCONNECT*/),
-		.instruction				(/*DISCONNECT*/),
-		.INS_DOUT					(/*DISCONNECT*/),
-		.PC							(/*DISCONNECT*/),
-		.rf_r1_out					(/*DISCONNECT*/),
-		.r0_addr					(/*DISCONNECT*/),
-		.r1_addr					(/*DISCONNECT*/),
-		.wb_data					(/*DISCONNECT*/),
-		.wb_reg_addr				(/*DISCONNECT*/),
-		.wb_reg_write				(/*DISCONNECT*/),
-		.MEM_ADDR					(/*DISCONNECT*/),
-		.MEM_DIN					(/*DISCONNECT*/),
-		.MEM_WEN					(/*DISCONNECT*/)
+		.en							(~rst2)
 	);
 
 
