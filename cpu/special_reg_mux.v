@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    05:48:43 03/25/2022 
+// Create Date:    01:28:49 04/06/2022 
 // Design Name: 
-// Module Name:    IF_IDreg 
+// Module Name:    special_reg_mux 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,31 +18,31 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module IF_IDreg(
-    input [13:0] IF_pc,
-    output [13:0] ID_pc,
-    input [1:0] IF_tid,
-    output [1:0] ID_tid,
-	 input clk,
-	 input rst,
-	 input en
+module special_reg_mux(
+		input		[6:0]		addr,
+		input		[63:0]	din,
+		output	[63:0]	dout
     );
 	 
-	 reg [13:0] pc;
-	 assign ID_pc = pc;
-	 reg [1:0] tid;
-	 assign ID_tid = tid;
+	 localparam ZERO = 5'd0;
+	 localparam TP = 5'd4;
 	 
-	 always @(posedge clk)
+	 reg [63:0] out;
+	 assign dout = out;
+	 
+	 always @(*)
 	 begin
-		if (rst)
-		begin
-		end
-		else if (en)
-		begin
-			pc <= IF_pc;
-			tid <= IF_tid;
-		end
+		case (addr[4:0])
+			ZERO: begin
+				out = 64'd0;
+			end
+			TP: begin
+				out = {62'd0, addr[6:5]};
+			end
+			default: begin
+				out = din;
+			end
+		endcase
 	 end
 
 

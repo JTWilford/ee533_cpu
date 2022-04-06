@@ -1,0 +1,16 @@
+[Inputs]
+=ins[31:0]=
+[Outputs]
+mem_ctrl
+=rd[4:0]=
+=rs1[4:0]=
+=rs2[4:0]=
+=imm[63:0]=
+=ex_ctrl[5:0]=
+=wb_ctrl[1:0]=
+=br_ctrl[3:0]=
+=jump_ctrl[1:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel RV64I_decoder
+

@@ -1,0 +1,12 @@
+[Inputs]
+ALU_eq
+ALU_lt
+ALU_gt
+jump_ctrl
+=br_ctrl[3:0]=
+[Outputs]
+branch
+[BiDir]
+[ATTRIBUTES]
+VeriModel branch_jump_detector
+

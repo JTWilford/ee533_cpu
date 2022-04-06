@@ -34,7 +34,7 @@ module perf_interface(
 	 reg perf_enabled;
 	 assign perf_en = perf_enabled;
 	 // Peripheral addresses are the upper half of memory - any of the upper 32 address bits set
-	 assign perf_addr_used = (addr_in[63:32] == 32'd1) & (memreg | wren);
+	 assign perf_addr_used = (addr_in[63:32] > 32'd0) & (memreg | wren);
 	 reg [63:0] perf_dout;
 	 assign perf_data_out = perf_dout;
 	 reg [63:0] perf_addrout;
@@ -67,7 +67,7 @@ module perf_interface(
 			if (perf_addr_used)
 			begin
 				perf_dout <= data_in;
-				perf_addrout <= addr_in;
+				perf_addrout <= {3'd0,addr_in[63:3]};
 				perf_wren_out <= wren;
 			end
 			else

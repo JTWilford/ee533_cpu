@@ -37,7 +37,7 @@ ANDI t1 t1 511              ; Prevent location from going out of bounds
 BNEZ s6 .SKIP_HEADER_CHECK   ; If we're already in the payload, skip the next bit
 OR t2 t1 s5                 ; Calculate Control Address for current location
 LW t3 t2                  ; Fetch the current FIFO Control into t3
-BNEZ s4 .SKIP_HEADER     ; If the control is non-zero, skip this packet (its a header)
+BNEZ s6 .SKIP_HEADER     ; If the control is non-zero, skip this packet (its a header)
 ADDI s6 zero 1              ; Set s6 to 1 if the control was zero
 .SKIP_HEADER_CHECK
 OR t2 t1 s5                 ; Calculate Data Address for current location

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    15:45:36 03/02/2022 
+// Create Date:    10:27:11 04/04/2022 
 // Design Name: 
-// Module Name:    Br_adder 
+// Module Name:    zero_50bit 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,12 +18,10 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Br_adder(
-    input [13:0] ins_inc_addr,
-    input [13:0] immi,
-    output [13:0] ins_br_addr
+module zero_50bit(
+    output [49:0] zero
     );
-	 
-	 assign ins_br_addr = ins_inc_addr + immi;
+
+	assign zero = 50'd0;
 
 endmodule

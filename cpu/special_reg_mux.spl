@@ -1,0 +1,9 @@
+[Inputs]
+=addr[6:0]=
+=din[63:0]=
+[Outputs]
+=dout[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel special_reg_mux
+

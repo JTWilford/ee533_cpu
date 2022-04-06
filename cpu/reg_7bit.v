@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    05:48:43 03/25/2022 
+// Create Date:    01:34:57 04/06/2022 
 // Design Name: 
-// Module Name:    IF_IDreg 
+// Module Name:    reg_7bit 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,30 +18,23 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module IF_IDreg(
-    input [13:0] IF_pc,
-    output [13:0] ID_pc,
-    input [1:0] IF_tid,
-    output [1:0] ID_tid,
-	 input clk,
-	 input rst,
-	 input en
+module reg_7bit(
+		input [6:0] D,
+		output [6:0] Q,
+		input clk,
+		input rst
     );
 	 
-	 reg [13:0] pc;
-	 assign ID_pc = pc;
-	 reg [1:0] tid;
-	 assign ID_tid = tid;
+	 reg [6:0] out;
+	 assign Q = out;
 	 
-	 always @(posedge clk)
+	 always @(*)
 	 begin
-		if (rst)
-		begin
+		if (rst) begin
+			out <= 0;
 		end
-		else if (en)
-		begin
-			pc <= IF_pc;
-			tid <= IF_tid;
+		else begin
+			out <= D;
 		end
 	 end
 

@@ -20,30 +20,46 @@
 //////////////////////////////////////////////////////////////////////////////////
 module IP_4way(
 		input [1:0] tid,
-		output [9:0] ins_ptr,
+		output [13:0] ins_ptr,
 		input [1:0] br_tid,
-		input [9:0] br_addr,
+		input [13:0] br_addr,
 		input branch,
 		input clk,
 		input rst,
-		input en
+		input en,
+		output [13:0] ex_pc_next
     );
 	 
-	 reg [9:0] ip0;
-	 reg [9:0] ip1;
-	 reg [9:0] ip2;
-	 reg [9:0] ip3;
+	 reg [13:0] ip0;
+	 reg [13:0] ip1;
+	 reg [13:0] ip2;
+	 reg [13:0] ip3;
 	 
-	 reg [9:0] ip_out;
+	 reg [13:0] ip_out;
 	 assign ins_ptr = ip_out;
+	 
+	 reg [13:0] ex_pc_next_out;
+	 assign ex_pc_next = ex_pc_next_out;
 	 
 	 always @(*)
 	 begin
 		case (tid)
-			2'd0:	ip_out = ip0;
-			2'd1: ip_out = ip1;
-			2'd2: ip_out = ip2;
-			2'd3:	ip_out = ip3;
+			2'd0: begin
+				ip_out = ip0;
+				ex_pc_next_out = ip2;
+				end
+			2'd1: begin
+				ip_out = ip1;
+				ex_pc_next_out = ip3;
+				end
+			2'd2: begin
+				ip_out = ip2;
+				ex_pc_next_out = ip0;
+				end
+			2'd3:	begin
+				ip_out = ip3;
+				ex_pc_next_out = ip1;
+				end
 		endcase
 	 end
 	 
@@ -59,18 +75,18 @@ module IP_4way(
 		else if (en)
 		begin
 			case (tid)
-				2'd0:	ip0 <= ip0 + 1;
-				2'd1: ip1 <= ip1 + 1;
-				2'd2: ip2 <= ip2 + 1;
-				2'd3:	ip3 <= ip3 + 1;
+				2'd0:	ip0 <= ip0 + 4;
+				2'd1: ip1 <= ip1 + 4;
+				2'd2: ip2 <= ip2 + 4;
+				2'd3:	ip3 <= ip3 + 4;
 			endcase
 			if (branch)
 			begin
 				case (br_tid)
-					2'd0:	ip0 <= br_addr + 1;
-					2'd1: ip1 <= br_addr + 1;
-					2'd2: ip2 <= br_addr + 1;
-					2'd3:	ip3 <= br_addr + 1;
+					2'd0:	ip0 <= br_addr;
+					2'd1: ip1 <= br_addr;
+					2'd2: ip2 <= br_addr;
+					2'd3:	ip3 <= br_addr;
 				endcase
 			end
 		end

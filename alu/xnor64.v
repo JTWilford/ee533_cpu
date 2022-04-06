@@ -18,12 +18,13 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+// This actually performs XOR, not XNOR
 module xnor64(
     input [63:0] A,
     input [63:0] B,
     output [63:0] S
     );
 
-	assign S = A ~^ B;
+	assign S = A ^ B;
 
 endmodule

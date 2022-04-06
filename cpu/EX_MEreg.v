@@ -25,12 +25,14 @@ module EX_MEreg(
     input [63:0] EX_addr,
     input [4:0] EX_dest,
     input [1:0] EX_tid,
+	 input [63:0] EX_st_data,
     output ME_mem_ctrl,
     output [1:0] ME_wb_ctrl,
     output [63:0] ME_data,
     output [63:0] ME_addr,
     output [4:0] ME_dest,
     output [1:0] ME_tid,
+	 output [63:0] ME_st_data,
     input clk,
     input rst
     );
@@ -41,6 +43,7 @@ module EX_MEreg(
 	 reg [63:0] addr;
 	 reg [4:0] dest;
 	 reg [1:0] tid;
+	 reg [63:0] st_data;
 	 
 	 assign ME_mem_ctrl = mem_ctrl;
 	 assign ME_wb_ctrl = wb_ctrl;
@@ -48,6 +51,7 @@ module EX_MEreg(
 	 assign ME_addr = addr;
 	 assign ME_dest = dest;
 	 assign ME_tid = tid;
+	 assign ME_st_data = st_data;
 	 
 	 always @(posedge clk)
 	 begin
@@ -59,6 +63,7 @@ module EX_MEreg(
 			addr <= 0;
 			dest <= 0;
 			tid <= 0;
+			st_data <= 0;
 		end
 		else
 		begin
@@ -68,6 +73,7 @@ module EX_MEreg(
 			addr <= EX_addr;
 			dest <= EX_dest;
 			tid <= EX_tid;
+			st_data <= EX_st_data;
 		end
 	 end
 

@@ -25,7 +25,6 @@ BEGIN SCHEMATIC
         SIGNAL R1_cmp(64:0)
         SIGNAL R2_cmp(64:0)
         SIGNAL slt_out(63:0)
-        SIGNAL sgt_out(63:0)
         SIGNAL XLXN_11(63:0)
         SIGNAL en
         PORT Output LT
@@ -228,10 +227,6 @@ BEGIN SCHEMATIC
             PIN set LT
             PIN dout(63:0) slt_out(63:0)
         END BLOCK
-        BEGIN BLOCK XLXI_65 set_lsb
-            PIN set GT
-            PIN dout(63:0) sgt_out(63:0)
-        END BLOCK
         BEGIN BLOCK XLXI_67 vadder64
             PIN Cin MD
             PIN A(63:0) R1(63:0)
@@ -248,7 +243,7 @@ BEGIN SCHEMATIC
             PIN X0(63:0) add_out(63:0)
             PIN X1(63:0) shift_out(63:0)
             PIN X2(63:0) slt_out(63:0)
-            PIN X3(63:0) sgt_out(63:0)
+            PIN X3(63:0) slt_out(63:0)
             PIN X4(63:0) xnor_out(63:0)
             PIN X5(63:0) shift_out(63:0)
             PIN X6(63:0) or_out(63:0)
@@ -477,29 +472,15 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN INSTANCE XLXI_64 2320 1712 R0
         END INSTANCE
-        BEGIN INSTANCE XLXI_65 2320 1872 R0
-        END INSTANCE
         BEGIN BRANCH LT
             WIRE 2240 1680 2320 1680
             BEGIN DISPLAY 2240 1680 ATTR Name
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH GT
-            WIRE 2240 1840 2320 1840
-            BEGIN DISPLAY 2240 1840 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
         BEGIN BRANCH slt_out(63:0)
             WIRE 2704 1680 2800 1680
             BEGIN DISPLAY 2800 1680 ATTR Name
-                ALIGNMENT SOFT-LEFT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH sgt_out(63:0)
-            WIRE 2704 1840 2800 1840
-            BEGIN DISPLAY 2800 1840 ATTR Name
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
         END BRANCH
@@ -580,12 +561,6 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH sgt_out(63:0)
-            WIRE 2480 1040 2640 1040
-            BEGIN DISPLAY 2480 1040 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
         BEGIN BRANCH slt_out(63:0)
             WIRE 2480 976 2640 976
             BEGIN DISPLAY 2480 976 ATTR Name
@@ -615,6 +590,12 @@ BEGIN SCHEMATIC
         BEGIN BRANCH R1(63:0)
             WIRE 2480 1424 2640 1424
             BEGIN DISPLAY 2480 1424 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH slt_out(63:0)
+            WIRE 2480 1040 2640 1040
+            BEGIN DISPLAY 2480 1040 ATTR Name
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
