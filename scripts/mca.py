@@ -14,6 +14,7 @@ Boostrap = """\
 slli\tsp,tp,9        # Allocate the stack pointer based on thread ID
 addi\tsp,sp,511
 addi\tgp,zero,2048   # Sets the global pointer to bottom half of memory
+j\t.main
 """
 
 
@@ -23,7 +24,7 @@ pOps = {
 	"mv"	: "addi\t{0},{1},0",
 	"nop"	: "addi\tzero,zero,0",
 	"j"		: "jal\tzero,{0}",
-	"sext.w": "addi\t{0},{1},0",
+	"sext.w": ["slli\t{0},{1},32","srai\t{0},{0},32"],
 	"sllw"	: ["sll\t{0},{1},{2}","slli\t{0},{0},32","srli\t{0},{0},32"],
 	"ble"	: "bge\t{1},{0},{2}",
 	"bgt"	: "blt\t{1},{0},{2}",
@@ -32,7 +33,7 @@ pOps = {
 	"not"	: "xori\t{0},{1},-1",
 	"call"	: ["auipc\tt1,%hi({0})","jalr\tra,t1,%lo({0})"],
 	"ret"	: "jalr\tzero,ra,0",
-	"srliw"	: "srli\t{0},{1},{2}"
+	"srliw"	: ["slli\t{0},{1},32","srli\t{0},{0},32","srli\t{0},{0},{2}"]
 }
 
 # Define OP codes
@@ -205,42 +206,42 @@ ItypeMap = {
 # Define register aliases
 RegMap = {
 	# Special Purpose Registers
-	"zero"  : 0,        # Hardwired Zero Register
-	"ra"    : 1,        # Return Address
-	"sp"    : 2,        # Stack Pointer
-	"gp"    : 3,        # Global Pointer
-	"tp"    : 4,        # Thread Pointer
-	"fp"    : 8,        # Frame Pointer (Same as s0)
+	"zero"  : 0x00,        # Hardwired Zero Register
+	"ra"    : 0x01,        # Return Address
+	"sp"    : 0x02,        # Stack Pointer
+	"gp"    : 0x03,        # Global Pointer
+	"tp"    : 0x04,        # Thread Pointer
+	"fp"    : 0x08,        # Frame Pointer (Same as s0)
 	# Function Argument Registers 0 to 7
-	"a0"    : 10,       # Also Return value 0
-	"a1"    : 11,       # Also Return value 1
-	"a2"    : 12,
-	"a3"    : 13,
-	"a4"    : 14,
-	"a5"    : 15,
-	"a6"    : 16,
-	"a7"    : 17,
+	"a0"    : 0x0A,       # Also Return value 0
+	"a1"    : 0x0B,       # Also Return value 1
+	"a2"    : 0x0C,
+	"a3"    : 0x0D,
+	"a4"    : 0x0E,
+	"a5"    : 0x0F,
+	"a6"    : 0x10,
+	"a7"    : 0x11,
 	# Saved Registers 0 to 11
-	"s0"    : 8,        # Also Frame Pointer
-	"s1"    : 9,
-	"s2"    : 18,
-	"s3"    : 19,
-	"s4"    : 20,
-	"s5"    : 21,
-	"s6"    : 22,
-	"s7"    : 23,
-	"s8"    : 24,
-	"s9"    : 25,
-	"s10"   : 26,
-	"s11"   : 27,
+	"s0"    : 0x08,        # Also Frame Pointer
+	"s1"    : 0x09,
+	"s2"    : 0x12,
+	"s3"    : 0x13,
+	"s4"    : 0x14,
+	"s5"    : 0x15,
+	"s6"    : 0x16,
+	"s7"    : 0x17,
+	"s8"    : 0x18,
+	"s9"    : 0x19,
+	"s10"   : 0x1A,
+	"s11"   : 0x1B,
 	# Temporary Registers 0 to 6
-	"t0"    : 5,
-	"t1"    : 6,
-	"t2"    : 7,
-	"t3"    : 28,
-	"t4"    : 29,
-	"t5"    : 30,
-	"t6"    : 31,
+	"t0"    : 0x05,
+	"t1"    : 0x06,
+	"t2"    : 0x07,
+	"t3"    : 0x1C,
+	"t4"    : 0x1D,
+	"t5"    : 0x1E,
+	"t6"    : 0x1F,
 }
 
 def usage():
@@ -378,7 +379,6 @@ def main(infiles, outfile, hexmode, add_boostrap):
 						aval = str(int(aval) & 0xFFF)
 					elif afunc == "hi":
 						aval = str(int(aval)>>12)
-						print(aval)
 					tleft = args[argi][0:res.start()]
 					tright = args[argi][res.end():]
 					args[argi] = tleft + aval + tright
@@ -441,7 +441,7 @@ def main(infiles, outfile, hexmode, add_boostrap):
 				hex_str = hex(bit & 2**32-1)
 			else:
 				hex_str = "0x%08x" % bit
-			print("%d:\t%s\t%s\t\t%s" % (tid*1024 + lindex, hex_str, line, args))
+			print("%d:\t%s\t%s\t\t%s" % (lindex<<2, hex_str, line, args))
 			lindex += 1
 		tid += 1
 	# Print the bits to a file

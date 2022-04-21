@@ -885,7 +885,9 @@ proc restore { { project_dir "" } } {
       "IF_IDreg.v" 
       "IP_4way.v" 
       "ME_WBreg.v" 
+      "RV64Idecoder.v" 
       "and2_wen.v" 
+      "branch_jump_detector.v" 
       "busmerge_2_5.v" 
       "collapse_or5.v" 
       "cpu_fifo.v" 
@@ -913,12 +915,15 @@ proc restore { { project_dir "" } } {
       "perf_interface.v" 
       "refile_tb.tbw" 
       "refile_tb_tb_0.v" 
+      "reg_7bit.v" 
       "regfile64bit.sch" 
       "regmem64.xco" 
       "signextend.v" 
+      "special_reg_mux.v" 
       "test_data_generator.v" 
       "thread_arbiter_4way.v" 
       "vadder64.v" 
+      "zero_50bit.v" 
       "zero_reg_mux.v"}
 
   HandleException {
@@ -963,7 +968,9 @@ proc restore { { project_dir "" } } {
       "ID_EXreg.sym" 
       "IP_4way.sym" 
       "ME_WBreg.sym" 
+      "RV64I_decoder.sym" 
       "and2_wen.sym" 
+      "branch_jump_detector.sym" 
       "busmerge_2_5.sym" 
       "collapse_or5.sym" 
       "cpu_fifo_tb.xwv" 
@@ -1009,6 +1016,7 @@ proc restore { { project_dir "" } } {
       "one_1b.sym" 
       "perf_interface.sym" 
       "refile_tb.xwv" 
+      "reg_7bit.sym" 
       "regfile64bit.sym" 
       "regmem64.asy" 
       "regmem64.ngc" 
@@ -1018,7 +1026,9 @@ proc restore { { project_dir "" } } {
       "regmem64.vhd" 
       "regmem64.vho" 
       "signextend.sym" 
+      "special_reg_mux.sym" 
       "thread_arbiter_4way.sym" 
+      "zero_50bit.sym" 
       "zero_reg_mux.sym"}
 
   set origination 2
@@ -1448,6 +1458,7 @@ proc restore { { project_dir "" } } {
       "F" "" "" "" "PROP_ChangeDevSpeed" "-7" 
       "F" "" "" "" "PROP_SimModelTarget" "Verilog" 
       "F" "" "" "" "PROP_coregenFuncModelTargetLang" "Verilog" 
+      "F" "" "" "" "PROP_hdlInstTempTargetLang" "Verilog" 
       "F" "" "" "" "PROP_schFuncModelTargetLang" "Verilog" 
       "F" "" "" "" "PROP_schInstTempTargetLang" "Verilog" 
       "F" "" "" "" "PROP_tbwTestbenchTargetLang" "Verilog" 
