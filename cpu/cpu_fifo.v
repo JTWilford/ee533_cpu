@@ -39,6 +39,16 @@ module cpu_fifo(
 	wire [63:0] perf_addr;
 	wire [63:0] perf_dout;
 	wire perf_wren;
+	
+	wire [63:0] fifo_din;
+	wire [63:0] fifo_addr;
+	wire [63:0] fifo_dout;
+	wire fifo_wren;
+	
+	wire [63:0] tlv_din;
+	wire [63:0] tlv_addr;
+	wire [63:0] tlv_dout;
+	wire tlv_wren;
 
 	test_data_generator dgen (
 		.out_rdy(test_rdy),
@@ -63,13 +73,30 @@ module cpu_fifo(
 		.out_wr					(/*DISCONNECT*/),
 		.out_rdy				(1'b1),
 		// CPU Interface
-		.cpu_addr_in			(perf_addr),
-		.cpu_din				(perf_dout),
-		.cpu_wen				(perf_wren),
-		.cpu_dout				(perf_din),
+		.cpu_addr_in			(fifo_addr),
+		.cpu_din				(fifo_dout),
+		.cpu_wen				(fifo_wren),
+		.cpu_dout				(fifo_din),
 		.reset					(rst2),
 		.clk					(clk)
 	);
+	
+	perf_mux dut_pmux(
+    .cpu_din(perf_dout),
+    .cpu_ain(perf_addr),
+    .cpu_wren(perf_wren),
+    .cpu_dout(perf_din),
+    .dout0(fifo_dout),
+    .aout0(fifo_addr),
+    .wrout0(fifo_wren),
+    .dout1(tlv_dout),
+    .aout1(tlv_addr),
+    .wrout1(tlv_wren),
+    .din0(fifo_din),
+    .din1(tlv_din),
+    .clk(clk),
+    .rst(rst)
+);
 
 	datapath64bit dut_cpu (
 		// Peripheral Interface

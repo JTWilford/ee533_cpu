@@ -67,7 +67,7 @@ module perf_interface(
 			if (perf_addr_used)
 			begin
 				perf_dout <= data_in;
-				perf_addrout <= {3'd0,addr_in[63:3]};
+				perf_addrout <= addr_in;
 				perf_wren_out <= wren;
 			end
 			else
