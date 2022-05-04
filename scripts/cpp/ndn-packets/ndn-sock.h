@@ -23,6 +23,9 @@ class NdnSock {
         // Create a data packet
         uchar* create_data(const char *name, int name_length, const void *content, int content_length, int &data_length);
 
+        // Send a packet
+        void send(const void *pkt, const int pkt_len);
+
         uchar* build_name(const uchar *name, int length, int &tlv_name_length);
         uchar* build_name_digest(uchar *sha, int &name_length);
         uchar* build_name_gen_digest(const uchar* name, int length, uchar *digest, int &tlv_name_length);

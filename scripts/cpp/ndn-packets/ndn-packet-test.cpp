@@ -72,6 +72,13 @@ int main() {
     }
     printf("\nLength=%d\n", data_pkt_length);
 
-    printf("Tlv Parse:\n");
+    printf("\n\nTLV Parse (Data Pkt):\n");
     print_tlv_chain(data_pkt);
+
+    printf("\n\nTLV PArse (Interest Pkt):");
+    print_tlv_chain(interest_pkt);
+
+    // Send the interest packet
+    sock.send(interest_pkt, interest_pkt_length);
+
 }

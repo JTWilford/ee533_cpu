@@ -3,7 +3,10 @@
 #include <stdlib.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <netinet/ip.h>
+#include <arpa/inet.h>
 #include <stdlib.h>
+#include <cstring>
 
 #define IPPROTO_NDN 252
 #define TLV_NAME 0x07
@@ -114,6 +117,38 @@ uchar* NdnSock::create_data(const char *name, int name_length, const void *conte
     // Free memory
     // free(nm);
     // free(cn);
+}
+
+void NdnSock::send(const void *pkt, const int pkt_len) {
+    printf("Where to send packet?\n");
+    char dest[19];
+    scanf("%18s", dest);
+
+    // char ipbuff[20];
+    // struct iphdr *iph = (struct iphdr *) ipbuff;
+    struct sockaddr_in sin;
+
+    sin.sin_family = AF_INET;
+    sin.sin_addr.s_addr = inet_addr(dest);
+
+    // iph->ihl = 5;
+    // iph->version = 4;
+    // iph->tos = 0;
+    // iph->tot_len = sizeof(struct iphdr) + (sizeof(uchar) * pkt_len);
+    // iph-> id = htonl(54321);
+    // iph->frag_off = 0;
+    // iph->ttl = 255;
+    // iph->protocol = IPPROTO_NDN;
+    // iph->check = 0;
+    // iph->saddr = 0;
+    // iph->daddr = sin.sin_addr.s_addr;
+
+    if(sendto(mSock, pkt, pkt_len, 0, (struct sockaddr *) &sin, sizeof(sin)) < 0) {
+        printf("Failed to send the packet...\n");
+    }
+    else {
+        printf("Packet sent successfully!\n");
+    }
 }
 
 uchar* NdnSock::build_name(const uchar *name, int length, int &tlv_name_length) {
