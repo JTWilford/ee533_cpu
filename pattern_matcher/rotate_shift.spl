@@ -1,0 +1,22 @@
+[Inputs]
+=I0[7:0]=
+=I1[7:0]=
+=I2[7:0]=
+=I3[7:0]=
+=I4[7:0]=
+=I5[7:0]=
+=I6[7:0]=
+=I7[7:0]=
+[Outputs]
+=Out0[7:0]=
+=Out1[7:0]=
+=Out2[7:0]=
+=Out3[7:0]=
+=Out4[7:0]=
+=Out5[7:0]=
+=Out6[7:0]=
+=Out7[7:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel rotate_shift
+

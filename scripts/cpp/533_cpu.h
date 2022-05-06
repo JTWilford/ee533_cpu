@@ -188,3 +188,66 @@ namespace TLV {
 		);
 	}
 }
+
+namespace PAT {
+	const uint64_t BASE_ADDR	= (uint64_t) 0x4000000000000000;
+	const uint64_t DATA 		= BASE_ADDR;
+	const uint64_t PAT 			= BASE_ADDR + 0x10;
+	const uint64_t WILD			= BASE_ADDR + 0x18;
+	const uint64_t RES			= BASE_ADDR + 0x20;
+
+	void get_data(uint64_t &dest, uint64_t index) {
+		uint64_t target = (DATA + (index<<3));
+		asm volatile (
+			"ld\t%0,0(%1)"
+			: "=r"(dest)
+			:"r"(target)
+		);
+	}
+	void set_data(uint64_t value, uint64_t index) {
+		uint64_t target = (DATA + (index<<3));
+		asm volatile (
+			"sd\t%0,0(%1)"
+			:
+			:"r"(value),"r"(target)
+			: "memory"
+		);
+	}
+	void get_pattern(uint64_t &dest) {
+		asm volatile (
+			"ld\t%0,0(%1)"
+			: "=r"(dest)
+			:"r"(PAT)
+		);
+	}
+	void set_pattern(uint64_t value) {
+		asm volatile (
+			"sd\t%0,0(%1)"
+			:
+			:"r"(value),"r"(PAT)
+			: "memory"
+		);
+	}
+	void get_wild_mask(uint64_t &dest) {
+		asm volatile (
+			"ld\t%0,0(%1)"
+			: "=r"(dest)
+			:"r"(WILD)
+		);
+	}
+	void set_wild_mask(uint64_t value) {
+		asm volatile (
+			"sd\t%0,0(%1)"
+			:
+			:"r"(value),"r"(WILD)
+			: "memory"
+		);
+	}
+	void get_result(uint64_t &dest) {
+		asm volatile (
+			"ld\t%0,0(%1)"
+			: "=r"(dest)
+			:"r"(RES)
+		);
+	}
+}

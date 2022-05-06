@@ -1,0 +1,16 @@
+[Inputs]
+=character_in[127:0]=
+[Outputs]
+=char_out0[63:0]=
+=char_out1[63:0]=
+=char_out2[63:0]=
+=char_out3[63:0]=
+=char_out4[63:0]=
+=char_out5[63:0]=
+=char_out6[63:0]=
+=char_out7[63:0]=
+=char_out8[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel character_distributor
+

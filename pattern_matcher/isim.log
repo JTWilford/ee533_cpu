@@ -1,0 +1,29 @@
+Command line:
+   ./cpu_patter_tb_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  59928
+
+Fri May  6 09:35:20 2022
+
+Total Line Count : 883
+
+ Elaboration Time: 0.1 sec
+
+ Current Memory Usage: 279.265 Meg
+
+ Total Signals          : 36118
+ Total Nets             : 14813
+ Total Signal Drivers   : 7525
+ Total Blocks           : 8261
+ Total Primitive Blocks : 7508
+ Total Processes        : 7612
+ Total Traceable Variables  : 104
+ Total Scalar Nets and Variables : 16008
+ntrace select -o on -m / -l this 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+isimrun 1000 ns 
+isimrun 10000 ns 

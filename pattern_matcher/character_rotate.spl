@@ -1,0 +1,15 @@
+[Inputs]
+=pattern_in[63:0]=
+[Outputs]
+=pattern_out0[63:0]=
+=pattern_out1[63:0]=
+=pattern_out2[63:0]=
+=pattern_out3[63:0]=
+=pattern_out4[63:0]=
+=pattern_out5[63:0]=
+=pattern_out6[63:0]=
+=pattern_out7[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel character_rotate
+

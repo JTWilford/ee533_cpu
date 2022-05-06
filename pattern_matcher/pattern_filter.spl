@@ -1,0 +1,9 @@
+[Inputs]
+=pattern_in[63:0]=
+=wildcard[7:0]=
+[Outputs]
+=pattern_out[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel pattern_filter
+

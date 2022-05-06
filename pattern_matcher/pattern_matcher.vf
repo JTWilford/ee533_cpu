@@ -1,0 +1,80 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : pattern_matcher.vf
+// /___/   /\     Timestamp : 05/06/2022 09:35:10
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/pattern_matcher/pattern_matcher.sch pattern_matcher.vf
+//Design Name: pattern_matcher
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module pattern_matcher(character_in, 
+                       pattern_in, 
+                       wildcard, 
+                       outcome);
+
+    input [127:0] character_in;
+    input [63:0] pattern_in;
+    input [7:0] wildcard;
+   output [15:0] outcome;
+   
+   wire [2:0] XLXN_1;
+   wire [2:0] XLXN_2;
+   wire [7:0] XLXN_6;
+   wire [63:0] XLXN_19;
+   wire [7:0] XLXN_29;
+   wire [7:0] XLXN_30;
+   wire [7:0] XLXN_31;
+   wire [7:0] XLXN_32;
+   wire [7:0] XLXN_33;
+   wire [7:0] XLXN_34;
+   wire [7:0] XLXN_35;
+   wire [7:0] XLXN_36;
+   wire [7:0] XLXN_37;
+   
+   pattern_filter XLXI_1 (.pattern_in(pattern_in[63:0]), 
+                          .wildcard(wildcard[7:0]), 
+                          .pattern_out(XLXN_19[63:0]));
+   find_last_one XLXI_2 (.data(wildcard[7:0]), 
+                         .index(XLXN_2[2:0]));
+   find_first_one XLXI_3 (.x(wildcard[7:0]), 
+                          .y(XLXN_1[2:0]));
+   pattern_string XLXI_6 (.first_in(XLXN_1[2:0]), 
+                          .last_in(XLXN_2[2:0]), 
+                          .out_string(XLXN_6[7:0]));
+   character_compare_all XLXI_7 (.amask(wildcard[7:0]), 
+                                 .character_in(character_in[127:0]), 
+                                 .pattern(XLXN_19[63:0]), 
+                                 .match0(XLXN_37[7:0]), 
+                                 .match1(XLXN_36[7:0]), 
+                                 .match2(XLXN_35[7:0]), 
+                                 .match3(XLXN_34[7:0]), 
+                                 .match4(XLXN_33[7:0]), 
+                                 .match5(XLXN_32[7:0]), 
+                                 .match6(XLXN_31[7:0]), 
+                                 .match7(XLXN_30[7:0]), 
+                                 .match8(XLXN_29[7:0]));
+   pattern_9x1_output XLXI_8 (.match0(XLXN_37[7:0]), 
+                              .match1(XLXN_36[7:0]), 
+                              .match2(XLXN_35[7:0]), 
+                              .match3(XLXN_34[7:0]), 
+                              .match4(XLXN_33[7:0]), 
+                              .match5(XLXN_32[7:0]), 
+                              .match6(XLXN_31[7:0]), 
+                              .match7(XLXN_30[7:0]), 
+                              .match8(XLXN_29[7:0]), 
+                              .pattern_string(XLXN_6[7:0]), 
+                              .Outcome(outcome[15:0]));
+endmodule

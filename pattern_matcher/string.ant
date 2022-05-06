@@ -1,0 +1,79 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : ISE
+//  /   /         Filename : string.ant
+// /___/   /\     Timestamp : Fri Apr 15 22:35:08 2022
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: string
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module string;
+    reg [2:0] first_in = 3'b000;
+    reg [2:0] last_in = 3'b000;
+    wire [7:0] out_pattern;
+
+
+    pattern_string UUT (
+        .first_in(first_in),
+        .last_in(last_in),
+        .out_pattern(out_pattern));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process
+        #0;
+        ANNOTATE_out_pattern;
+        forever begin
+            #50;
+            ANNOTATE_out_pattern;
+            #50;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("D:\\Verilog_project\\pattern_matcher\\string.ano");
+        #1000 // Final time:  1000 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        first_in = 3'b101;
+        last_in = 3'b101;
+        // -------------------------------------
+        // -------------  Current Time:  400ns
+        #300;
+        first_in = 3'b111;
+        last_in = 3'b111;
+        // -------------------------------------
+        // -------------  Current Time:  600ns
+        #200;
+        last_in = 3'b001;
+    end
+
+    task ANNOTATE_out_pattern;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,out_pattern,%b]", $time, out_pattern);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

@@ -1,0 +1,74 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : ISE
+//  /   /         Filename : test.ant
+// /___/   /\     Timestamp : Fri Apr 15 18:23:42 2022
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: test
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module test;
+    reg [63:0] pattern_in = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+    reg [7:0] wildcard = 8'b00000000;
+    wire [63:0] pattern_out;
+
+
+    pattern_filter UUT (
+        .pattern_in(pattern_in),
+        .wildcard(wildcard),
+        .pattern_out(pattern_out));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process
+        #0;
+        ANNOTATE_pattern_out;
+        forever begin
+            #50;
+            ANNOTATE_pattern_out;
+            #50;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("D:\\Verilog_project\\pattern_matcher\\test.ano");
+        #1000 // Final time:  1000 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  200ns
+        #200;
+        pattern_in = 64'b1111111111111111111111111111111111111111111111111111111111111111;
+        wildcard = 8'b10101010;
+        // -------------------------------------
+        // -------------  Current Time:  700ns
+        #500;
+        wildcard = 8'b01010101;
+    end
+
+    task ANNOTATE_pattern_out;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,pattern_out,%b]", $time, pattern_out);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

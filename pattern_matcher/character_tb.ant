@@ -1,0 +1,92 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : ISE
+//  /   /         Filename : character_tb.ant
+// /___/   /\     Timestamp : Wed May 04 11:24:16 2022
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: character_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module character_tb;
+    reg [127:0] character_in = 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    reg [63:0] pattern_in = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+    reg [7:0] wildcard = 8'b00000000;
+    wire [15:0] outcome;
+
+
+    pattern_matcher UUT (
+        .character_in(character_in),
+        .pattern_in(pattern_in),
+        .wildcard(wildcard),
+        .outcome(outcome));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process
+        #0;
+        ANNOTATE_outcome;
+        forever begin
+            #50;
+            ANNOTATE_outcome;
+            #50;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("D:\\Verilog_project\\pattern_matcher\\character_tb.ano");
+        #1000 // Final time:  1000 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  200ns
+        #200;
+        character_in = 128'b01100001011101000111001001101111011010100110000101101110011000100110001101100100011001010110010101100101011001000110011001100001;
+        pattern_in = 64'b0111011101110111011101000111001001101111011010100110000101101110;
+        wildcard = 8'b00100001;
+        // -------------------------------------
+        // -------------  Current Time:  300ns
+        #100;
+        character_in = 128'b01110100011100100110111101101010011000010110111001100001011000100110001101100100011001010110010101100101011001010110010001100110;
+        // -------------------------------------
+        // -------------  Current Time:  400ns
+        #100;
+        character_in = 128'b00000000011000010110001001110100011100100110111101101010011000010110111001100010011000110110010001100101011001010110010101100101;
+        wildcard = 8'b00110001;
+        // -------------------------------------
+        // -------------  Current Time:  500ns
+        #100;
+        pattern_in = 64'b0110001001100010011000010110000101100001011000010110000101100110;
+        // -------------------------------------
+        // -------------  Current Time:  600ns
+        #100;
+        character_in = 128'b00000000011000010111010001110010011011110110101001100001011011100110001001100011011001000110010101100101011001010110010001100110;
+        pattern_in = 64'b0110000101100001011000010110000101100001011000010110010101100001;
+        wildcard = 8'b00000010;
+    end
+
+    task ANNOTATE_outcome;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,outcome,%b]", $time, outcome);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

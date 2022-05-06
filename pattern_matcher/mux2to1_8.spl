@@ -1,0 +1,9 @@
+[Inputs]
+sel
+=data1[7:0]=
+[Outputs]
+=data_out[7:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel mux2to1_8
+

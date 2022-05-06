@@ -1,0 +1,9 @@
+[Inputs]
+=first_in[2:0]=
+=last_in[2:0]=
+[Outputs]
+=out_string[7:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel pattern_string
+

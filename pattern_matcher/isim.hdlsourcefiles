@@ -1,0 +1,15 @@
+/opt/Xilinx/10.1/ISE/verilog/src/glbl.v
+/home/ise/sf/ee533_cpu/pattern_matcher/output_extend.v
+/home/ise/sf/ee533_cpu/pattern_matcher/OR3_8.v
+/home/ise/sf/ee533_cpu/pattern_matcher/rotate_shift.v
+/home/ise/sf/ee533_cpu/pattern_matcher/OR2_8.v
+/home/ise/sf/ee533_cpu/pattern_matcher/mux2to1_8.v
+/home/ise/sf/ee533_cpu/pattern_matcher/character_distributor.v
+/home/ise/sf/ee533_cpu/pattern_matcher/comparator.vf
+/home/ise/sf/ee533_cpu/pattern_matcher/character_rotate.v
+/home/ise/sf/ee533_cpu/pattern_matcher/pattern_string.v
+/home/ise/sf/ee533_cpu/pattern_matcher/find_first_one.v
+/home/ise/sf/ee533_cpu/pattern_matcher/find_last_one.v
+/home/ise/sf/ee533_cpu/pattern_matcher/pattern_filter.v
+/home/ise/sf/ee533_cpu/pattern_matcher/pattern_cpu.v
+/home/ise/sf/ee533_cpu/pattern_matcher/cpu_patter_tb.tfw

@@ -1,0 +1,9 @@
+[Inputs]
+=I0[7:0]=
+=I1[7:0]=
+[Outputs]
+=O[7:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel OR2_8
+

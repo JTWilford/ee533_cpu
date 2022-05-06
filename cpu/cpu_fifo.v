@@ -50,6 +50,11 @@ module cpu_fifo(
 	wire [63:0] tlv_dout;
 	wire tlv_wren;
 
+	wire [63:0] pat_din;
+	wire [63:0] pat_addr;
+	wire [63:0] pat_dout;
+	wire pat_wren;
+
 	test_data_generator dgen (
 		.out_rdy(test_rdy),
 		.out_wr(test_wr),
@@ -89,22 +94,35 @@ module cpu_fifo(
 		.clk					(clk),
 		.rst					(rst2)
 	);
+
+	pattern_matcher dut_pat {
+		.cpu_din				(pat_dout),
+		.cpu_ain				(pat_addr),
+		.cpu_wren				(pat_wren),
+		.cpu_dout				(pat_din),
+		.clk					(clk),
+		.rst					(rst2)
+	};
 	
 	perf_mux dut_pmux(
-    .cpu_din(perf_dout),
-    .cpu_ain(perf_addr),
-    .cpu_wren(perf_wren),
-    .cpu_dout(perf_din),
-    .dout0(fifo_dout),
-    .aout0(fifo_addr),
-    .wrout0(fifo_wren),
-    .dout1(tlv_dout),
-    .aout1(tlv_addr),
-    .wrout1(tlv_wren),
-    .din0(fifo_din),
-    .din1(tlv_din),
-    .clk(clk),
-    .rst(rst)
+    .cpu_din					(perf_dout),
+    .cpu_ain					(perf_addr),
+    .cpu_wren					(perf_wren),
+    .cpu_dout					(perf_din),
+    .dout0						(fifo_dout),
+    .aout0						(fifo_addr),
+    .din0						(fifo_din),
+    .wrout0						(fifo_wren),
+    .dout1						(tlv_dout),
+    .aout1						(tlv_addr),
+    .din1						(tlv_din),
+    .wrout1						(tlv_wren),
+    .dout2						(pat_dout),
+    .aout2						(pat_addr),
+    .din2						(pat_din),
+    .wrout2						(pat_wren),
+    .clk						(clk),
+    .rst						(rst)
 );
 
 	datapath64bit dut_cpu (
