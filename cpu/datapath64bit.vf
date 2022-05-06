@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : sch2verilog
 //  /   /         Filename : datapath64bit.vf
-// /___/   /\     Timestamp : 04/26/2022 06:33:25
+// /___/   /\     Timestamp : 05/06/2022 08:52:55
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -117,7 +117,7 @@ module datapath64bit(clk,
    wire [63:0] ID_d0;
    wire [63:0] ID_d1;
    wire [63:0] ID_imm;
-   wire [1:0] ID_jump_ctrl;
+   wire [2:0] ID_jump_ctrl;
    wire ID_mem_ctrl;
    wire [4:0] ID_r0;
    wire [4:0] ID_r1;
@@ -247,7 +247,9 @@ module datapath64bit(clk,
                      .rst(rst), 
                      .ID_pc(ID_pc_DUMMY[13:0]), 
                      .ID_tid(ID_tid_DUMMY[1:0]));
-   Br_adder XLXI_87 (.immi(ID_imm[13:0]), 
+   Br_adder XLXI_87 (.add_reg(ID_jump_ctrl[2]), 
+                     .dreg(ID_data0[13:0]), 
+                     .immi(ID_imm[13:0]), 
                      .ins_inc_addr(ID_pc_DUMMY[13:0]), 
                      .ins_br_addr(ID_br_addr[13:0]));
    ID_EXreg XLXI_92 (.clk(clk), 
@@ -334,7 +336,7 @@ module datapath64bit(clk,
                            .br_ctrl(ID_br_ctrl[3:0]), 
                            .ex_ctrl(ID_alu_ctrl[5:0]), 
                            .imm(ID_imm[63:0]), 
-                           .jump_ctrl(ID_jump_ctrl[1:0]), 
+                           .jump_ctrl(ID_jump_ctrl[2:0]), 
                            .mem_ctrl(ID_mem_ctrl), 
                            .rd(ID_dest[4:0]), 
                            .rs1(ID_r0[4:0]), 

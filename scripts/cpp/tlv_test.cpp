@@ -10,11 +10,13 @@ void soft_parse_tlv(uint64_t index, uint64_t offset, uint64_t &type, uint64_t &l
 	FIFO::get_data(data2, (index + 2) & 0x1FF);
 	uint64_t byte = offset;
 	uint64_t t_size = 1;
+	// asm ("#SOFT PARSE");
 	// Parse TLV Type
 	for (uint64_t i = 0; i < t_size; byte++, i++) {
 		if (byte > 7) {
 			data = data1;
 			data1 = data2;
+			data2 = 0;
 			byte = 0;
 		}
 		uint64_t val = (data >> 7 - byte) & 0xFF;
@@ -39,6 +41,7 @@ void soft_parse_tlv(uint64_t index, uint64_t offset, uint64_t &type, uint64_t &l
 		if (byte > 7) {
 			data = data1;
 			data1 = data2;
+			data2 = 0;
 			byte = 0;
 		}
 		uint64_t val = (data >> 7 - byte) & 0xFF;
@@ -70,8 +73,8 @@ void parse_tlv(uint64_t index, uint64_t offset, uint64_t &type, uint64_t &length
 	FIFO::get_data(data1, (index + 1) & 0x1FF);
 	FIFO::get_data(data2, (index + 2) & 0x1FF);
 	TLV::set_data(data, 0);
-	TLV::set_data(data, 1);
-	TLV::set_data(data, 2);
+	TLV::set_data(data1, 1);
+	TLV::set_data(data2, 2);
 	TLV::set_byte_offset(offset);
 	TLV::get_type(type);
 	TLV::get_length(length);
@@ -112,16 +115,17 @@ int main(int argc, char **argv) {
         }
         while (ctrl != 0);
         // Check for NDN packet
-		i++;
         uint64_t test;
 		uint64_t ip_loc = (head + i) & 0x1FF;
+		uint64_t byte = 0, max_byte = 1;
 		FIFO::get_data(test, ip_loc);
-		if (((test >> 16) & 0xFF) == 252) {
+		if (((test >> 48) & 0xFF) == 252) {
 			// NDN Packet Found
 			// Parse the NDN Packet
-			uint64_t offset = 0;
+			uint64_t offset = 4;
+			i++;
 			bool INT_PKT = false;
-			for (; i < size;) {
+			while (byte < max_byte) {
 				uint64_t loc = (head + i) & 0x1FF;
 
 				// // Fetch control and data
@@ -135,21 +139,34 @@ int main(int argc, char **argv) {
 
 				// Parse TLV
 				uint64_t type, length, value_offset;
-				soft_parse_tlv(loc, offset, type, length, value_offset);
+				parse_tlv(loc, offset, type, length, value_offset);
+				uint64_t next_byte = 0;
 				if (type == TLV::TYPE_INTEREST) {
 					INT_PKT = true;
 					// Store type at SM[0]
 					CPU::set_shared((type<<32) + length, 0);
+					// Calculate next location to check
+					next_byte = offset + value_offset;
+					byte = value_offset;
+					max_byte = byte + length;
+					i += next_byte >> 3;
+					offset = next_byte & 0x7;
 					continue;
 				}
 				if (type == TLV::TYPE_DATA) {
 					INT_PKT = false;
 					// Store type at SM[0]
 					CPU::set_shared((type<<32) + length, 0);
+					// Calculate next location to check
+					next_byte = offset + value_offset;
+					byte = value_offset;
+					max_byte = byte + length;
+					i += next_byte >> 3;
+					offset = next_byte & 0x7;
 					continue;
 				}
 				uint64_t sm_loc = 1;
-				uint64_t next_byte = 0;
+				next_byte = 0;
 				if (INT_PKT) {
 					// Interest packet
 					switch (type) {
@@ -201,6 +218,7 @@ int main(int argc, char **argv) {
 
 				// Calculate next location to check
 				i += next_byte >> 3;
+				byte += next_byte - offset;
 				offset = next_byte & 0x7;
 			}
 		}

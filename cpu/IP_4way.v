@@ -83,10 +83,10 @@ module IP_4way(
 			if (branch)
 			begin
 				case (br_tid)
-					2'd0:	ip0 <= br_addr;
-					2'd1: ip1 <= br_addr;
-					2'd2: ip2 <= br_addr;
-					2'd3:	ip3 <= br_addr;
+					2'd0:	ip0[13:2] <= br_addr[13:2];
+					2'd1: ip1[13:2] <= br_addr[13:2];
+					2'd2: ip2[13:2] <= br_addr[13:2];
+					2'd3:	ip3[13:2] <= br_addr[13:2];
 				endcase
 			end
 		end

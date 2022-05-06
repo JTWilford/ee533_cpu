@@ -7,7 +7,7 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : ISE
-//  /   /         Filename : cpu_fifo_tb.ant
+//  /   /         Filename : cpu_fifo_tb.tfw
 // /___/   /\     Timestamp : Fri May  6 04:19:29 2022
 // \   \  /  \ 
 //  \___\/\___\ 
@@ -42,18 +42,6 @@ module cpu_fifo_tb;
         .clk(clk),
         .rst(rst),
         .rst2(rst2));
-
-    integer TX_FILE = 0;
-    integer TX_ERROR = 0;
-    
-    initial begin  // Open the annotations file...
-        TX_FILE = $fopen("/home/ise/sf/ee533_cpu/cpu/cpu_fifo_tb.ano");
-        #1200 // Final time:  1200 ns
-        $display("Success! Annotation Simulation Complete.");
-        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
-        $fclose(TX_FILE);
-        $finish;
-    end
 
     initial begin
         // -------------  Current Time:  100ns

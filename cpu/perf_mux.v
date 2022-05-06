@@ -33,16 +33,19 @@ module perf_mux(
     assign wrout1 = wren1;
 
     always @ (*) begin
-        case (addr_last[63])
-            1'd0: begin
+        case (addr_last[63:60])
+            4'h0: begin
                 cpu_data = din0;
             end
-            1'd1: begin
+            4'h2: begin
                 cpu_data = din1;
             end
+            default: begin
+                cpu_data = 0;
+            end
         endcase
-        case (cpu_ain[63])
-            1'd0: begin
+        case (cpu_ain[63:60])
+            4'h0: begin
                 data0 = cpu_din;
                 addr0 = {3'd0, cpu_ain[63:3]};
                 wren0 = cpu_wren;
@@ -50,13 +53,21 @@ module perf_mux(
                 addr1 = 0;
                 wren1 = 0;
             end
-            1'd1: begin
+            4'h2: begin
                 data0 = 0;
                 addr0 = 0;
                 wren0 = 0;
                 data1 = cpu_din;
                 addr1 = {3'd0, cpu_ain[63:3]};
                 wren1 = cpu_wren;
+            end
+            default: begin
+                data0 = 0;
+                addr0 = 0;
+                wren0 = 0;
+                data1 = 0;
+                addr1 = 0;
+                wren1 = 0;
             end
         endcase
     end

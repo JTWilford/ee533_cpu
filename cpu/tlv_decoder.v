@@ -40,7 +40,7 @@ module tlv_decoder(
         end
         else begin
             tlv_type = {24'd0, buffer_data[127:120]};
-            tlv_type_var = 4'd0;
+            tlv_type_var = 4'd1;
             length_buffer = buffer_data[119:48];
         end
         /*

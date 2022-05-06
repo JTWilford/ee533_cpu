@@ -24,6 +24,7 @@ pOps = {
 	"mv"	: "addi\t{0},{1},0",
 	"nop"	: "addi\tzero,zero,0",
 	"j"		: "jal\tzero,{0}",
+	"jr"	: "jalr\tzero,{0},0",
 	"sext.w": ["slli\t{0},{1},32","srai\t{0},{0},32"],
 	"sllw"	: ["sll\t{0},{1},{2}","slli\t{0},{0},32","srli\t{0},{0},32"],
 	"ble"	: "bge\t{1},{0},{2}",
@@ -31,9 +32,11 @@ pOps = {
 	"bleu"	: "bgeu\t{1},{0},{2}",
 	"bgtu"	: "bltu\t{1},{0},{2}",
 	"not"	: "xori\t{0},{1},-1",
-	"call"	: ["auipc\tt1,%hi({0})","jalr\tra,t1,%lo({0})"],
+	"call"	: ["auipc\tra,0","addi\tra,ra,8","jalr\tra,ra,{0}"],
 	"ret"	: "jalr\tzero,ra,0",
-	"srliw"	: ["slli\t{0},{1},32","srli\t{0},{0},32","srli\t{0},{0},{2}"]
+	"srliw"	: ["slli\t{0},{1},32","srli\t{0},{0},32","srli\t{0},{0},{2}"],
+	"subw"	: ["sub\t{0},{1},{2}","slli\t{0},{0},32","srli\t{0},{0},32"],
+	"slliw"	: ["slli\t{0},{1},{2}","slli\t{0},{0},32","srli\t{0},{0},32"]
 }
 
 # Define OP codes
@@ -344,15 +347,26 @@ def main(infiles, outfile, hexmode, add_boostrap):
 					purelines.append(line)
 			ind += 1
 		# Now that we have the pure assembly, do a pass to resolve the symbols
+		# for i in range(0, len(purelines)):
+		# 	if ("." in purelines[i]):
+		# 		op = purelines[i].split("\t")[0]
+		# 		splitline = purelines[i].split("\t")[1].split(",")
+		# 		for j in range(0, len(splitline)):
+		# 			if ("." in splitline[j]):
+		# 				val = (symbols[splitline[j][1:]] - i)<<2
+		# 				splitline[j] = str(val)
+		# 		purelines[i] = op + "\t" + ",".join(splitline)
 		for i in range(0, len(purelines)):
-			if ("." in purelines[i]):
-				op = purelines[i].split("\t")[0]
-				splitline = purelines[i].split("\t")[1].split(",")
-				for j in range(0, len(splitline)):
-					if ("." in splitline[j]):
-						val = (symbols[splitline[j][1:]] - i)<<2
-						splitline[j] = str(val)
-				purelines[i] = op + "\t" + ",".join(splitline)
+			op = purelines[i].split("\t")[0]
+			splitline = purelines[i].split("\t")[1].split(",")
+			for j in range(0, len(splitline)):
+				targ = splitline[j]
+				if ("." in splitline[j]):
+					targ = splitline[j][1:]
+				if (targ in symbols.keys()):
+					val = (symbols[targ] - i)<<2
+					splitline[j] = str(val)
+			purelines[i] = op + "\t" + ",".join(splitline)
 		# With the symbols resolved, now we just need to translate the instructions
 		# But first fill with NOOP until the there are 4096 instructions
 		# while len(purelines) < 4096:
@@ -373,12 +387,14 @@ def main(infiles, outfile, hexmode, add_boostrap):
 					aval = res.group(2)
 					# Resolve symbols in args
 					if aval in symbols:
-						aval = symbols[aval]
+						aval = (symbols[aval] - lindex) << 2
+					print("aval-pre: ( %d - %d ) << 2 = %d" % (symbols[res.group(2)], lindex, aval))
 
 					if afunc == "lo":
 						aval = str(int(aval) & 0xFFF)
 					elif afunc == "hi":
-						aval = str(int(aval)>>12)
+						aval = str(int(aval)>>11)
+					print("aval-post: %s" % aval)
 					tleft = args[argi][0:res.start()]
 					tright = args[argi][res.end():]
 					args[argi] = tleft + aval + tright

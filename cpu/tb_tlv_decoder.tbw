@@ -7,7 +7,7 @@ VERILOG
 Clocked
 -
 -
-2000000000
+20000000000
 ns
 GSR:true
 PRLD:false

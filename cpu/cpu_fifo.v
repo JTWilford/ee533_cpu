@@ -80,6 +80,15 @@ module cpu_fifo(
 		.reset					(rst2),
 		.clk					(clk)
 	);
+
+	tlv_decoder dut_tlv (
+		.cpu_din				(tlv_dout),
+		.cpu_ain				(tlv_addr),
+		.cpu_wren				(tlv_wren),
+		.cpu_dout				(tlv_din),
+		.clk					(clk),
+		.rst					(rst2)
+	);
 	
 	perf_mux dut_pmux(
     .cpu_din(perf_dout),

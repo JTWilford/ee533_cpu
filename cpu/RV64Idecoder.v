@@ -28,7 +28,7 @@ module RV64I_decoder(
 		output 			mem_ctrl,
 		output 	[1:0] 	wb_ctrl,
 		output	[3:0]	br_ctrl,// br_ctrl [3:0] {branch_greater,branch_less, branch_eq, branch_neq}
-		output  [1:0] 	jump_ctrl//jump_ctrl [1:0] {ID_r0_data and pc select signal, EX_data and PC+1 select signal to rd}
+		output  [2:0] 	jump_ctrl//jump_ctrl [1:0] {ID_r0_data and pc select signal, EX_data and PC+1 select signal to rd}
     );
 	 
 	 localparam RTYPE 	= 7'b0110011;
@@ -69,7 +69,7 @@ module RV64I_decoder(
 	 assign wb_ctrl = wb_ctrl_out;
 	 reg [3:0] br_ctrl_out;
 	 assign br_ctrl = br_ctrl_out;
-	 reg [1:0] jump_ctrl_out;
+	 reg [2:0] jump_ctrl_out;
 	 assign jump_ctrl = jump_ctrl_out; 
 	 
 	 
@@ -86,7 +86,7 @@ module RV64I_decoder(
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 4'b0000;
-				jump_ctrl_out = 2'b00;
+				jump_ctrl_out = 3'b000;
                 case(ins[14:12])
 				ADDI:begin
                     code = "ADD/S";
@@ -128,7 +128,7 @@ module RV64I_decoder(
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 4'b0000;
-				jump_ctrl_out = 2'b00;
+				jump_ctrl_out = 3'b000;
 
 				case(ins[14:12])
 				ADDI:begin
@@ -174,7 +174,7 @@ module RV64I_decoder(
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b11;
 				br_ctrl_out = 4'b0000;
-				jump_ctrl_out = 2'b00;
+				jump_ctrl_out = 3'b000;
                 code = "  LW ";
 			end
 			SW: begin
@@ -187,7 +187,7 @@ module RV64I_decoder(
 				mem_ctrl_out = 1;
 				wb_ctrl_out = 2'b00;
 				br_ctrl_out = 4'b0000;
-				jump_ctrl_out = 2'b00;
+				jump_ctrl_out = 3'b000;
                 code = "  SW ";
 			end
 			BTYPE: begin
@@ -199,7 +199,7 @@ module RV64I_decoder(
 				
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b00;
-				jump_ctrl_out = 2'b00;
+				jump_ctrl_out = 3'b000;
 
 				case(ins[14:12])
 					3'b000:begin        // BEQ
@@ -251,7 +251,7 @@ module RV64I_decoder(
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 4'b0000;
-				jump_ctrl_out = 2'b00;
+				jump_ctrl_out = 3'b000;
                 code = "  LUI";
 			end
 
@@ -265,7 +265,7 @@ module RV64I_decoder(
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 4'b0000;
-				jump_ctrl_out = 2'b10;
+				jump_ctrl_out = 3'b010;
                 code = "AUIPC";
 			end
 			
@@ -275,11 +275,11 @@ module RV64I_decoder(
 				rs2_out = 0;
 				imm_out = {{43{ins[31]}}, ins[31],ins[19:12],ins[20],ins[30:21],1'b0};
 
-				ex_ctrl_out = 6'b110000;
+				ex_ctrl_out = 6'b000000;
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 4'b0000;
-				jump_ctrl_out = 2'b11;
+				jump_ctrl_out = 3'b011;
                 code = " JAL ";
 			end
 
@@ -289,11 +289,11 @@ module RV64I_decoder(
 				rs2_out = 0;
                 imm_out = {{52{ins[31]}},ins[31:20]};
 
-				ex_ctrl_out = 6'b110000;
+				ex_ctrl_out = 6'b100000;
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 2'b01;
 				br_ctrl_out = 4'b0000;
-				jump_ctrl_out = 2'b01;
+				jump_ctrl_out = 3'b111;
                 code = " JALR";
 			end
 
@@ -307,7 +307,7 @@ module RV64I_decoder(
 				mem_ctrl_out = 0;
 				wb_ctrl_out = 0;
 				br_ctrl_out = 0;
-				jump_ctrl_out = 2'b00;
+				jump_ctrl_out = 3'b000;
                 code = " NBAD";
 			end
 		endcase

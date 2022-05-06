@@ -32,7 +32,7 @@ NdnSock::~NdnSock() {
 }
 
 uchar* NdnSock::create_interest(const char *name, int length, bool fresh, int &interest_length) {
-    printf("[NDN] Interest\n");
+    // printf("[NDN] Interest\n");
     // Create an interest packet
     // Interest = INTEREST-TYPE TLV-LENGTH
     //              Name = NAME-TYPE TLV-LENGTH *NameComponent
@@ -47,49 +47,53 @@ uchar* NdnSock::create_interest(const char *name, int length, bool fresh, int &i
     // Build Name TLV
     uchar *nm;
     int nm_length;
-    printf("[NDN] Interest->Name\n");
+    // printf("[NDN] Interest->Name\n");
     nm = build_name(reinterpret_cast<const uchar *>(name), length, nm_length);
 
     // If fresh, build fresh TLV
     uchar* tlv_fresh = nullptr;
     int fresh_length = 0;
     if (fresh) {
-        printf("[NDN] Interest->Fresh\n");
+        // printf("[NDN] Interest->Fresh\n");
         tlv_fresh = build_tlv(TLV_FRESH, nullptr, 0, fresh_length);
     }
     // Build Nonce TLV
     uchar n[4];
     int n_rand = rand();
+    printf("[DEBUG] Nonce is %d\n", n_rand);
     n[0] = n_rand & 0xFF;
     n[1] = (n_rand>>8) & 0xFF;
     n[2] = (n_rand>>16) & 0xFF;
     n[3] = (n_rand>>24) & 0xFF;
+    printf("[DEBUG] Converted is %02x.%02x.%02x.%02x\n", n[3], n[2], n[1], n[0]);
     uchar* nonce;
     int nonce_length;
-    printf("[NDN] Interest->Nonce\n");
+    // printf("[NDN] Interest->Nonce\n");
     nonce = build_tlv(TLV_NONCE, n, 4, nonce_length);
 
     // Combine
     int comb_length = nm_length + fresh_length + nonce_length;
     uchar *comb = (uchar*)malloc(sizeof(uchar) * comb_length);
-    printf("[DEBUG] Interest->Nonce: Comb_length => %d + %d + %d = %d\n", nm_length, fresh_length, nonce_length, comb_length);
+    // printf("[DEBUG] Interest->Nonce: Comb_length => %d + %d + %d = %d\n", nm_length, fresh_length, nonce_length, comb_length);
     charcpy(nm, nm_length, comb, 0);
     charcpy(tlv_fresh, fresh_length, comb, nm_length);
     charcpy(nonce, nonce_length, comb, nm_length + fresh_length);
 
     // Build Interest TLV
-    printf("[NDN] Interest->Combined\n");
-    return build_tlv(TLV_INTEREST, comb, comb_length, interest_length);
+    // printf("[NDN] Interest->Combined\n");
+    uchar* result = build_tlv(TLV_INTEREST, comb, comb_length, interest_length);
 
     // Free memory
-    //free(nm);
-    // if (tlv_fresh != nullptr)
-    //     free(tlv_fresh);
-    // free(nonce);
-    // free(comb);
+    free(nm);
+    if (tlv_fresh != nullptr)
+        free(tlv_fresh);
+    free(nonce);
+    free(comb);
+
+    return result;
 }
 uchar* NdnSock::create_data(const char *name, int name_length, const void *content, int content_length, int &data_length) {
-    printf("[NDN] Data\n");
+    // printf("[NDN] Data\n");
     // Create a data packet
     // Data = DATA-TYPE TLV-LENGTH
     //              Name = NAME-TYPE TLV-LENGTH *NameComponent
@@ -112,47 +116,31 @@ uchar* NdnSock::create_data(const char *name, int name_length, const void *conte
     charcpy(cn, cn_length, comb, nm_length);
 
     // Build Data TLV
-    return build_tlv(TLV_DATA, comb, comb_length, data_length);
+    uchar* result = build_tlv(TLV_DATA, comb, comb_length, data_length);
 
     // Free memory
-    // free(nm);
-    // free(cn);
+    free(nm);
+    free(cn);
+    free(comb);
+
+    return result;
 }
 
-void NdnSock::send(const void *pkt, const int pkt_len) {
-    printf("Where to send packet?\n");
-    char dest[19];
-    scanf("%18s", dest);
-
-    // char ipbuff[20];
-    // struct iphdr *iph = (struct iphdr *) ipbuff;
+bool NdnSock::send(const void *pkt, const int pkt_len, char *ip_hop) {
     struct sockaddr_in sin;
 
     sin.sin_family = AF_INET;
-    sin.sin_addr.s_addr = inet_addr(dest);
-
-    // iph->ihl = 5;
-    // iph->version = 4;
-    // iph->tos = 0;
-    // iph->tot_len = sizeof(struct iphdr) + (sizeof(uchar) * pkt_len);
-    // iph-> id = htonl(54321);
-    // iph->frag_off = 0;
-    // iph->ttl = 255;
-    // iph->protocol = IPPROTO_NDN;
-    // iph->check = 0;
-    // iph->saddr = 0;
-    // iph->daddr = sin.sin_addr.s_addr;
+    sin.sin_addr.s_addr = inet_addr(ip_hop);
 
     if(sendto(mSock, pkt, pkt_len, 0, (struct sockaddr *) &sin, sizeof(sin)) < 0) {
-        printf("Failed to send the packet...\n");
+        // perror("Failed to send the packet...\n");
+        return false;
     }
-    else {
-        printf("Packet sent successfully!\n");
-    }
+    return true;
 }
 
 uchar* NdnSock::build_name(const uchar *name, int length, int &tlv_name_length) {
-    printf("[NDN] Name\n");
+    // printf("[NDN] Name\n");
     // Create a Name
     // Name = NAME-TYPE TLV-LENGTH *NameComponent
     // NameComponent = Any of the following:
@@ -164,14 +152,16 @@ uchar* NdnSock::build_name(const uchar *name, int length, int &tlv_name_length) 
     gen = build_generic_name(name, length, gen_length);
 
 
-    printf("[NDN] Name->Combined\n");
-    return build_tlv(TLV_NAME, gen, gen_length, tlv_name_length);
+    // printf("[NDN] Name->Combined\n");
+    uchar *result = build_tlv(TLV_NAME, gen, gen_length, tlv_name_length);
 
     // Free memory
-    // free(gen);
+    free(gen);
+
+    return result;
 }
 uchar* NdnSock::build_name_digest(uchar *sha, int &name_length) {
-    printf("[NDN] Name+Digest\n");
+    // printf("[NDN] Name+Digest\n");
     // Create a Name
     // Name = NAME-TYPE TLV-LENGTH *NameComponent
     // NameComponent = Any of the following:
@@ -182,14 +172,16 @@ uchar* NdnSock::build_name_digest(uchar *sha, int &name_length) {
     int digest_length;
     digest = build_digest(sha, digest_length);
 
-    printf("[NDN] Name+Digest->Combined\n");
-    return build_tlv(TLV_NAME, digest, digest_length, name_length);
+    // printf("[NDN] Name+Digest->Combined\n");
+    uchar *result = build_tlv(TLV_NAME, digest, digest_length, name_length);
 
     // Free memory
-    // free(digest);
+    free(digest);
+
+    return result;
 }
 uchar* NdnSock::build_name_gen_digest(const uchar* name, int length, uchar *digest, int &tlv_name_length) {
-    printf("[NDN] Name+Gen+Digest\n");
+    // printf("[NDN] Name+Gen+Digest\n");
     // Create a Name
     // Name = NAME-TYPE TLV-LENGTH *NameComponent
     // NameComponent = Any of the following:
@@ -210,28 +202,30 @@ uchar* NdnSock::build_name_gen_digest(const uchar* name, int length, uchar *dige
     charcpy(gen, gen_length, comb, 0);
     charcpy(tlv_digest, tlv_digest_length, comb, gen_length);
     
-    printf("[NDN] Name+Gen+Digest->Combined\n");
-    return build_tlv(TLV_NAME, comb, comb_length, tlv_name_length);
+    // printf("[NDN] Name+Gen+Digest->Combined\n");
+    uchar *result = build_tlv(TLV_NAME, comb, comb_length, tlv_name_length);
 
     // Free memory
-    // free(gen);
-    // free(tlv_digest);
-    // free(comb);
+    free(gen);
+    free(tlv_digest);
+    free(comb);
+
+    return result;
 }
 uchar* NdnSock::build_generic_name(const uchar* name, int length, int &gname_size) {
-    printf("[NDN] Gen\n");
+    // printf("[NDN] Gen\n");
     return build_tlv(TLV_GENERIC_NAME, (void *)name, length, gname_size);
 }
 uchar* NdnSock::build_digest(uchar* sha, int &idig_size) {
-    printf("[NDN] Digest\n");
+    // printf("[NDN] Digest\n");
     return build_tlv(TLV_IMP_DIGEST, sha, 32, idig_size);
 }
 uchar* NdnSock::build_tlv(int type, const void *value, int length, int &tlv_size) {
-    printf("[NDN] \tTLV: Type=%d\t\tLength=%d\n", type, length);
+    // printf("[NDN] \tTLV: Type=%d\t\tLength=%d\n", type, length);
     // Generate Type and Length
     int t_size, l_size;
     uchar t_enc, l_enc;
-    printf("[NDN]\t  Generating Type...\n");
+    // printf("[NDN]\t  Generating Type...\n");
     // VAR-NUMBER-1
     if (type < 0xFD) {
         t_size = 1;
@@ -247,7 +241,7 @@ uchar* NdnSock::build_tlv(int type, const void *value, int length, int &tlv_size
         t_size = 5;
         t_enc = 0xFE;
     }
-    printf("[NDN]\t  Generating Length...\n");
+    // printf("[NDN]\t  Generating Length...\n");
     // VAR-NUMBER-1
     if (length < 0xFD) {
         l_size = 1;
@@ -270,28 +264,28 @@ uchar* NdnSock::build_tlv(int type, const void *value, int length, int &tlv_size
     }
     uchar *tlv = (uchar*) malloc(sizeof(uchar)*(t_size+l_size+length));
     tlv_size = t_size + l_size + length;
-    printf("[NDN]\t  TLV Size = %d\n", tlv_size);
-    printf("[NDN]\t  Placing Type (%d)...\n", type);
+    // printf("[NDN]\t  TLV Size = %d\n", tlv_size);
+    // printf("[NDN]\t  Placing Type (%d)...\n", type);
     tlv[0] = t_enc;
     for (int i = 1; i < t_size; i++) {
         // printf("[DEBUG] index=%d\n", i);
         tlv[i] = (uchar)((type>>(8*sizeof(uchar)*((t_size-1)-i)))&0xFF);
-        printf("[DEBUG] \ttlv[%d] = %02x (shifted %d)\n", i, (uchar)((type>>(8*sizeof(uchar)*((t_size-1)-i)))&0xFF), (8*sizeof(uchar)*((t_size-1)-i)));
+        // printf("[DEBUG] \ttlv[%d] = %02x (shifted %d)\n", i, (uchar)((type>>(8*sizeof(uchar)*((t_size-1)-i)))&0xFF), (8*sizeof(uchar)*((t_size-1)-i)));
     }
-    printf("[NDN]\t  Placing Length (%d)...\n", length);
+    // printf("[NDN]\t  Placing Length (%d)...\n", length);
     tlv[t_size] = l_enc;
     for (int i = 1; i < l_size; i++) {
         // printf("[DEBUG] index=%d\n", i+t_size);
         tlv[i+t_size] = (uchar)((length>>(8*sizeof(uchar)*((l_size-1)-i)))&0xFF);
-        printf("[DEBUG] \ttlv[%d] = %02x (shifted %d)\n", i+t_size, (uchar)((length>>(8*sizeof(uchar)*((l_size-1)-i)))&0xFF), (8*sizeof(uchar)*((l_size-1)-i)));
+        // printf("[DEBUG] \ttlv[%d] = %02x (shifted %d)\n", i+t_size, (uchar)((length>>(8*sizeof(uchar)*((l_size-1)-i)))&0xFF), (8*sizeof(uchar)*((l_size-1)-i)));
     }
-    printf("[NDN]\t  Placing Value...\n");
+    // printf("[NDN]\t  Placing Value...\n");
     for(int i = 0; i < length; i++) {
         // printf("[DEBUG] index=%d\n", i+t_size+l_size);
         tlv[i+t_size+l_size] = 0;
         tlv[i+t_size+l_size] = *((char*)value + (sizeof(uchar)*i));
     }
-    printf("[NDN]\tTLV Created: Size=%d\n", tlv_size);
+    // printf("[NDN]\tTLV Created: Size=%d\n", tlv_size);
     return tlv;
 }
 
@@ -365,7 +359,7 @@ void* NdnSock::parse_tlv(void *tlv, int &type, int &t_len, int &length, int &l_l
         }
     }
 
-    char * cvalue = (char*)malloc(sizeof(uchar) * length);
+    char *cvalue = (char*)malloc(sizeof(uchar) * length);
     for(int i = 0; i < length; i++) {
         cvalue[i] = get_void_uchar_at(tlv, i + t_len + l_len);
     }
