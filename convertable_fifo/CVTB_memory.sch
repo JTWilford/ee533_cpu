@@ -58,6 +58,7 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_428(8:0)
         SIGNAL XLXN_429(8:0)
         SIGNAL dout_a(63:0)
+        SIGNAL cpu_send
         PORT Input cpu_addr_in(8:0)
         PORT Input cpu_din(63:0)
         PORT Input in_data(63:0)
@@ -75,6 +76,7 @@ BEGIN SCHEMATIC
         PORT Input in_wr
         PORT Output out_wr
         PORT Output dout_a(63:0)
+        PORT Input cpu_send
         BEGIN BLOCKDEF data_mux
             TIMESTAMP 2022 3 9 17 48 13
             RECTANGLE N 64 -192 384 0 
@@ -247,7 +249,7 @@ BEGIN SCHEMATIC
             LINE N 112 -48 48 -48 
         END BLOCKDEF
         BEGIN BLOCKDEF fifo_write_module
-            TIMESTAMP 2022 3 12 11 5 36
+            TIMESTAMP 2022 5 10 9 35 38
             RECTANGLE N 64 -448 320 0 
             LINE N 64 -416 0 -416 
             LINE N 64 -352 0 -352 
@@ -431,7 +433,7 @@ BEGIN SCHEMATIC
         BEGIN BLOCK XLXI_132 fifo_write_module
             PIN endpkt end_of_pkt
             PIN done cpu_done
-            PIN cpu_write
+            PIN cpu_send cpu_send
             PIN clk clk
             PIN rst rst
             PIN rd_ptr(8:0) fifo_head_ptr(8:0)
@@ -1125,5 +1127,9 @@ BEGIN SCHEMATIC
         END BRANCH
         INSTANCE XLXI_141 2448 2480 R0
         INSTANCE XLXI_142 2448 2640 R0
+        BEGIN BRANCH cpu_send
+            WIRE 1344 464 1408 464
+        END BRANCH
+        IOMARKER 1344 464 cpu_send R180 28
     END SHEET
 END SCHEMATIC

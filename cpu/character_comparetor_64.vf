@@ -1,0 +1,83 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : character_comparetor_64.vf
+// /___/   /\     Timestamp : 05/10/2022 11:12:18
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/pattern_matcher/character_comparetor_64.sch character_comparetor_64.vf
+//Design Name: character_comparetor_64
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module character_comparetor_64(amask, 
+                               character_in, 
+                               pattern, 
+                               match);
+
+    input [7:0] amask;
+    input [63:0] character_in;
+    input [63:0] pattern;
+   output [7:0] match;
+   
+   wire [63:0] XLXN_5;
+   wire [63:0] XLXN_7;
+   wire [63:0] XLXN_9;
+   wire [63:0] XLXN_11;
+   wire [63:0] XLXN_13;
+   wire [63:0] XLXN_15;
+   wire [63:0] XLXN_17;
+   wire [63:0] XLXN_19;
+   
+   character_rotate XLXI_1 (.pattern_in(character_in[63:0]), 
+                            .pattern_out0(XLXN_5[63:0]), 
+                            .pattern_out1(XLXN_7[63:0]), 
+                            .pattern_out2(XLXN_9[63:0]), 
+                            .pattern_out3(XLXN_11[63:0]), 
+                            .pattern_out4(XLXN_13[63:0]), 
+                            .pattern_out5(XLXN_15[63:0]), 
+                            .pattern_out6(XLXN_17[63:0]), 
+                            .pattern_out7(XLXN_19[63:0]));
+   comparator XLXI_2 (.a(XLXN_5[63:0]), 
+                      .amask(amask[7:0]), 
+                      .b(pattern[63:0]), 
+                      .match(match[0]));
+   comparator XLXI_3 (.a(XLXN_7[63:0]), 
+                      .amask(amask[7:0]), 
+                      .b(pattern[63:0]), 
+                      .match(match[1]));
+   comparator XLXI_4 (.a(XLXN_9[63:0]), 
+                      .amask(amask[7:0]), 
+                      .b(pattern[63:0]), 
+                      .match(match[2]));
+   comparator XLXI_5 (.a(XLXN_11[63:0]), 
+                      .amask(amask[7:0]), 
+                      .b(pattern[63:0]), 
+                      .match(match[3]));
+   comparator XLXI_6 (.a(XLXN_13[63:0]), 
+                      .amask(amask[7:0]), 
+                      .b(pattern[63:0]), 
+                      .match(match[4]));
+   comparator XLXI_7 (.a(XLXN_15[63:0]), 
+                      .amask(amask[7:0]), 
+                      .b(pattern[63:0]), 
+                      .match(match[5]));
+   comparator XLXI_8 (.a(XLXN_17[63:0]), 
+                      .amask(amask[7:0]), 
+                      .b(pattern[63:0]), 
+                      .match(match[6]));
+   comparator XLXI_9 (.a(XLXN_19[63:0]), 
+                      .amask(amask[7:0]), 
+                      .b(pattern[63:0]), 
+                      .match(match[7]));
+endmodule

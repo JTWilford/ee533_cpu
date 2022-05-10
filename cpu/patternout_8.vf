@@ -1,0 +1,71 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : patternout_8.vf
+// /___/   /\     Timestamp : 05/10/2022 11:12:27
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/pattern_matcher/patternout_8.sch patternout_8.vf
+//Design Name: patternout_8
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module patternout_8(I0, 
+                    I1, 
+                    I2, 
+                    I3, 
+                    I4, 
+                    I5, 
+                    I6, 
+                    I7, 
+                    O);
+
+    input [7:0] I0;
+    input [7:0] I1;
+    input [7:0] I2;
+    input [7:0] I3;
+    input [7:0] I4;
+    input [7:0] I5;
+    input [7:0] I6;
+    input [7:0] I7;
+   output [7:0] O;
+   
+   wire [7:0] XLXN_1;
+   wire [7:0] XLXN_2;
+   wire [7:0] XLXN_3;
+   wire [7:0] XLXN_4;
+   wire [7:0] XLXN_5;
+   wire [7:0] XLXN_6;
+   
+   OR2_8 XLXI_1 (.I0(I0[7:0]), 
+                 .I1(I1[7:0]), 
+                 .O(XLXN_1[7:0]));
+   OR2_8 XLXI_2 (.I0(I2[7:0]), 
+                 .I1(I3[7:0]), 
+                 .O(XLXN_2[7:0]));
+   OR2_8 XLXI_3 (.I0(XLXN_1[7:0]), 
+                 .I1(XLXN_2[7:0]), 
+                 .O(XLXN_6[7:0]));
+   OR2_8 XLXI_4 (.I0(I4[7:0]), 
+                 .I1(I5[7:0]), 
+                 .O(XLXN_3[7:0]));
+   OR2_8 XLXI_5 (.I0(I6[7:0]), 
+                 .I1(I7[7:0]), 
+                 .O(XLXN_4[7:0]));
+   OR2_8 XLXI_6 (.I0(XLXN_3[7:0]), 
+                 .I1(XLXN_4[7:0]), 
+                 .O(XLXN_5[7:0]));
+   OR2_8 XLXI_7 (.I0(XLXN_6[7:0]), 
+                 .I1(XLXN_5[7:0]), 
+                 .O(O[7:0]));
+endmodule

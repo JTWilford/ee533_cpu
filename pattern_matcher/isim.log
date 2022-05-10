@@ -2,13 +2,13 @@ Command line:
    ./cpu_patter_tb_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  59928
+     -ipcport  41536
 
-Fri May  6 09:35:20 2022
+Tue May 10 07:35:25 2022
 
-Total Line Count : 883
+Total Line Count : 885
 
- Elaboration Time: 0.1 sec
+ Elaboration Time: 0.12 sec
 
  Current Memory Usage: 279.265 Meg
 
@@ -20,10 +20,41 @@ Total Line Count : 883
  Total Processes        : 7612
  Total Traceable Variables  : 104
  Total Scalar Nets and Variables : 16008
-ntrace select -o on -m / -l this 
+ntrace select -o on -n /cpu_patter_tb/clk 
+ntrace select -o on -n /cpu_patter_tb/rst 
+ntrace select -o on -n /cpu_patter_tb/cpu_wren 
+ntrace select -o on -n /cpu_patter_tb/cpu_ain 
+ntrace select -o on -n /cpu_patter_tb/cpu_din 
+ntrace select -o on -n /cpu_patter_tb/cpu_dout 
+ntrace select -o on -n /cpu_patter_tb/DUTY_CYCLE 
+ntrace select -o on -n /cpu_patter_tb/PERIOD 
+ntrace select -o on -n /cpu_patter_tb/OFFSET 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/character_in 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/pattern_in 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/wildcard 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/outcome 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/first_one 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/last_one 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/match0 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/match1 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/match2 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/match3 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/match4 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/match5 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/match6 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/match7 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/match8 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/pat_filtered 
+ntrace select -o on -n /cpu_patter_tb/UUT/dut_match/pat_string 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-isimrun 1000 ns 
 isimrun 10000 ns 
+
+ Total Simulation Time: 0.4 sec
+
+ Current Memory Usage: 295.154 Meg
+
+Tue May 10 07:36:11 2022
+

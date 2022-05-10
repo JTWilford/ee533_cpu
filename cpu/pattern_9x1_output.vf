@@ -1,0 +1,121 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : pattern_9x1_output.vf
+// /___/   /\     Timestamp : 05/10/2022 11:12:23
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/pattern_matcher/pattern_9x1_output.sch pattern_9x1_output.vf
+//Design Name: pattern_9x1_output
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module pattern_9x1_output(match0, 
+                          match1, 
+                          match2, 
+                          match3, 
+                          match4, 
+                          match5, 
+                          match6, 
+                          match7, 
+                          match8, 
+                          pattern_string, 
+                          Outcome);
+
+    input [7:0] match0;
+    input [7:0] match1;
+    input [7:0] match2;
+    input [7:0] match3;
+    input [7:0] match4;
+    input [7:0] match5;
+    input [7:0] match6;
+    input [7:0] match7;
+    input [7:0] match8;
+    input [7:0] pattern_string;
+   output [15:0] Outcome;
+   
+   wire [7:0] XLXN_3;
+   wire [7:0] XLXN_4;
+   wire [7:0] XLXN_7;
+   wire [7:0] XLXN_9;
+   wire [7:0] XLXN_11;
+   wire [7:0] XLXN_13;
+   wire [7:0] XLXN_15;
+   wire [7:0] XLXN_17;
+   wire [7:0] XLXN_19;
+   wire [15:0] XLXN_24;
+   wire [15:0] XLXN_25;
+   wire [15:0] XLXN_26;
+   wire [15:0] XLXN_27;
+   wire [15:0] XLXN_28;
+   wire [15:0] XLXN_29;
+   wire [15:0] XLXN_30;
+   wire [15:0] XLXN_31;
+   wire [15:0] XLXN_32;
+   
+   pattern_8x1_8 XLXI_1 (.match(match1[7:0]), 
+                         .pattern_string(pattern_string[7:0]), 
+                         .O(XLXN_4[7:0]));
+   pattern_8x1_8 XLXI_2 (.match(match2[7:0]), 
+                         .pattern_string(pattern_string[7:0]), 
+                         .O(XLXN_7[7:0]));
+   pattern_8x1_8 XLXI_3 (.match(match3[7:0]), 
+                         .pattern_string(pattern_string[7:0]), 
+                         .O(XLXN_9[7:0]));
+   pattern_8x1_8 XLXI_4 (.match(match4[7:0]), 
+                         .pattern_string(pattern_string[7:0]), 
+                         .O(XLXN_11[7:0]));
+   pattern_8x1_8 XLXI_5 (.match(match5[7:0]), 
+                         .pattern_string(pattern_string[7:0]), 
+                         .O(XLXN_13[7:0]));
+   pattern_8x1_8 XLXI_6 (.match(match6[7:0]), 
+                         .pattern_string(pattern_string[7:0]), 
+                         .O(XLXN_15[7:0]));
+   pattern_8x1_8 XLXI_7 (.match(match7[7:0]), 
+                         .pattern_string(pattern_string[7:0]), 
+                         .O(XLXN_17[7:0]));
+   pattern_8x1_8 XLXI_8 (.match(match8[7:0]), 
+                         .pattern_string(pattern_string[7:0]), 
+                         .O(XLXN_19[7:0]));
+   pattern_8x1_8 XLXI_9 (.match(match0[7:0]), 
+                         .pattern_string(pattern_string[7:0]), 
+                         .O(XLXN_3[7:0]));
+   patternout_16 XLXI_10 (.I0(XLXN_24[15:0]), 
+                          .I1(XLXN_25[15:0]), 
+                          .I2(XLXN_26[15:0]), 
+                          .I3(XLXN_27[15:0]), 
+                          .I4(XLXN_28[15:0]), 
+                          .I5(XLXN_29[15:0]), 
+                          .I6(XLXN_30[15:0]), 
+                          .I7(XLXN_31[15:0]), 
+                          .I8(XLXN_32[15:0]), 
+                          .O(Outcome[15:0]));
+   output_extend XLXI_11 (.I0(XLXN_3[7:0]), 
+                          .I1(XLXN_4[7:0]), 
+                          .I2(XLXN_7[7:0]), 
+                          .I3(XLXN_9[7:0]), 
+                          .I4(XLXN_11[7:0]), 
+                          .I5(XLXN_13[7:0]), 
+                          .I6(XLXN_15[7:0]), 
+                          .I7(XLXN_17[7:0]), 
+                          .I8(XLXN_19[7:0]), 
+                          .Out0(XLXN_24[15:0]), 
+                          .Out1(XLXN_25[15:0]), 
+                          .Out2(XLXN_26[15:0]), 
+                          .Out3(XLXN_27[15:0]), 
+                          .Out4(XLXN_28[15:0]), 
+                          .Out5(XLXN_29[15:0]), 
+                          .Out6(XLXN_30[15:0]), 
+                          .Out7(XLXN_31[15:0]), 
+                          .Out8(XLXN_32[15:0]));
+endmodule

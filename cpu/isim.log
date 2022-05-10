@@ -2,51 +2,52 @@ Command line:
    ./cpu_fifo_tb_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  59668
+     -ipcport  42946
 
-Fri May  6 08:53:20 2022
+Tue May 10 13:59:48 2022
 
-Total Line Count : 5207
+Total Line Count : 6058
 
- Elaboration Time: 0.05 sec
+ Elaboration Time: 0.16 sec
 
- Current Memory Usage: 246.104 Meg
+ Current Memory Usage: 292.794 Meg
 
- Total Signals          : 3456
- Total Nets             : 11188
- Total Signal Drivers   : 1478
- Total Blocks           : 734
- Total Primitive Blocks : 638
- Total Processes        : 1953
- Total Traceable Variables  : 1533
- Total Scalar Nets and Variables : 533959
+ Total Signals          : 39576
+ Total Nets             : 25993
+ Total Signal Drivers   : 9000
+ Total Blocks           : 8993
+ Total Primitive Blocks : 8145
+ Total Processes        : 9558
+ Total Traceable Variables  : 1616
+ Total Scalar Nets and Variables : 549814
+ntrace select -o on -n /cpu_fifo_tb/clk 
+ntrace select -o on -n /cpu_fifo_tb/rst 
+ntrace select -o on -n /cpu_fifo_tb/rst2 
 ntrace select -o on -n /cpu_fifo_tb/UUT/test_data 
 ntrace select -o on -n /cpu_fifo_tb/UUT/test_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/test_rdy 
 ntrace select -o on -n /cpu_fifo_tb/UUT/test_wr 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/out_data 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/out_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/out_wr 
 ntrace select -o on -n /cpu_fifo_tb/UUT/perf_din 
 ntrace select -o on -n /cpu_fifo_tb/UUT/perf_addr 
 ntrace select -o on -n /cpu_fifo_tb/UUT/perf_dout 
 ntrace select -o on -n /cpu_fifo_tb/UUT/perf_wren 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/out_data 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/out_ctrl 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/fifo_dut/fifo_din 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/fifo_dut/fifo_write_addr 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_fifo/fifo_dut/wena 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/IF_tid 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/IF_pc 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_tid 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_pc 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_ins 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/XLXI_125/code 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_dest 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_r0 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_r1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_dest 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_imm 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_data0 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_data1 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_d0 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_d1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_data0 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_data1 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_br_addr 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_br_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_jump_ctrl 
@@ -54,78 +55,86 @@ ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_alu_ctrl
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_mem_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ID_wb_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_tid 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_dest 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_alu_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_branch 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_br_addr 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_br_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_jump_ctrl 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_alu_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_d0 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_d1 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_pc_next 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_alu_out 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_data 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_st_data 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_eq 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_gt 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_lt 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_pc_next 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_st_data 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_mem_ctrl 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_dest 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/EX_wb_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_tid 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_mem_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_addr 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_data 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_st_data 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_wen 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_mem_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/PERF_ADDR 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/PERF_DOUT 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/PERF_WREN 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_dest 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_wb_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_tid 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_wb_ctrl 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/ME_dout 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/PERF_DIN 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_data 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_dmem 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_wr_data 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_dest 
-ntrace select -o on -n /cpu_fifo_tb/clk 
-ntrace select -o on -n /cpu_fifo_tb/rst 
-ntrace select -o on -n /cpu_fifo_tb/rst2 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/cpu_ain 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/WB_wb_ctrl 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/cpu_din 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/cpu_ain 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/cpu_wren 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/addr_last 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/cpu_dout 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/aout0 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/din0 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/dout0 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/aout0 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/wrout0 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/aout1 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/dout1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/aout1 
 ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/wrout1 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/XLXI_87/ins_inc_addr 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/XLXI_87/immi 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/XLXI_87/dreg 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/XLXI_87/add_reg 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/XLXI_87/ins_br_addr 
-ntrace select -o on -n /cpu_fifo_tb/UUT/dut_cpu/XLXI_87/br_addr 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/din1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/dout2 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/aout2 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/wrout2 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pmux/din2 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/character_in 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/pattern_in 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/wildcard 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/outcome 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/first_one 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/last_one 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/match0 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/match1 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/match2 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/match3 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/match4 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/match5 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/match6 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/match7 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/match8 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/pat_filtered 
+ntrace select -o on -n /cpu_fifo_tb/UUT/dut_pat/dut_match/pat_string 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-isimrun 300000 ns 
-isimrun 300000 ns 
-isimrun 300000 ns 
-isimrun 300000 ns 
-isimrun 300000 ns 
-isimrun 300000 ns 
-isimrun 300000 ns 
-isimrun 300000 ns 
+isimrun 1000000 ns 
+isimrun 1000000 ns 
+isimrun 1000000 ns 
+isimrun 1000000 ns 
+isimrun 1000000 ns 
 
- Total Simulation Time: 1.34 sec
+ Total Simulation Time: 3.76 sec
 
- Current Memory Usage: 262.205 Meg
+ Current Memory Usage: 308.924 Meg
 
-Fri May  6 09:10:16 2022
+Tue May 10 14:03:59 2022
 

@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1.03
 //  \   \         Application : sch2verilog
 //  /   /         Filename : CVTB_memory.vf
-// /___/   /\     Timestamp : 05/06/2022 08:52:45
+// /___/   /\     Timestamp : 05/10/2022 11:11:59
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -332,6 +332,7 @@ module CVTB_memory(clk,
                    cpu_cmd, 
                    cpu_ctrl, 
                    cpu_din, 
+                   cpu_send, 
                    cpu_write, 
                    end_of_pkt, 
                    in_ctrl, 
@@ -350,6 +351,7 @@ module CVTB_memory(clk,
     input [1:0] cpu_cmd;
     input cpu_ctrl;
     input [63:0] cpu_din;
+    input cpu_send;
     input cpu_write;
     input end_of_pkt;
     input [7:0] in_ctrl;
@@ -492,7 +494,7 @@ module CVTB_memory(clk,
                  .I1(cpu_write_head), 
                  .O(head_ce));
    fifo_write_module XLXI_132 (.clk(clk), 
-                               .cpu_write(), 
+                               .cpu_send(cpu_send), 
                                .done(cpu_done), 
                                .endpkt(end_of_pkt), 
                                .rd_ptr(fifo_head_ptr[8:0]), 

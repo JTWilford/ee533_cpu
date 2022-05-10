@@ -179,19 +179,41 @@ work=isim/work
 xilinxcorelib=/opt/Xilinx/10.1/ISE/vhdl/hdp/lin/xilinxcorelib
 xilinxcorelib_ver=/opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver
 -- Done dumping library mapping
+Analyzing Verilog file ../pattern_matcher/OR2_8.v
+Analyzing Verilog file ../pattern_matcher/rotate_shift.v
+Analyzing Verilog file ../pattern_matcher/OR3_8.v
+Analyzing Verilog file ../pattern_matcher/mux2to1_8.v
+Analyzing Verilog file ../pattern_matcher/character_rotate.v
 Analyzing Verilog file xor8_by_1.vf
+Analyzing Verilog file patternout_8.vf
+Analyzing Verilog file comparator.vf
+Analyzing Verilog file ../pattern_matcher/output_extend.v
+Analyzing Verilog file ../pattern_matcher/character_distributor.v
 Analyzing Verilog file xor32_by_1.vf
+Analyzing Verilog file pattern_8x1_8.vf
+Analyzing Verilog file patternout_16.vf
+Analyzing Verilog file character_comparetor_64.vf
+Analyzing Verilog file ../pattern_matcher/pattern_string.v
+Analyzing Verilog file ../pattern_matcher/pattern_filter.v
+Analyzing Verilog file ../pattern_matcher/find_last_one.v
+Analyzing Verilog file ../pattern_matcher/find_first_one.v
 Analyzing Verilog file xor64_by_1.vf
 Analyzing Verilog file vadder64.v
 Analyzing Verilog file special_reg_mux.v
 Analyzing Verilog file reg_7bit.v
+Analyzing Verilog file regmem64.v
+Analyzing Verilog file pattern_9x1_output.vf
 Analyzing Verilog file mux2_1_x7.v
+Analyzing Verilog file lt65.v
+Analyzing Verilog file character_compare_all.vf
 Analyzing Verilog file ../convertable_fifo/pointer_extend.v
 Analyzing Verilog file ../convertable_fifo/out_data_mux.v
 Analyzing Verilog file ../convertable_fifo/mux4to1_64.v
 Analyzing Verilog file ../convertable_fifo/fifo_write_module.v
 Analyzing Verilog file ../convertable_fifo/dff_9bit.v
 Analyzing Verilog file ../convertable_fifo/data_mux.v
+Analyzing Verilog file ../convertable_fifo/CVTB_mem.v
+Analyzing Verilog file ../convertable_fifo/CVTB_ctrlmem.v
 Analyzing Verilog file ../convertable_fifo/ctrl_data_mux.v
 Analyzing Verilog file ../convertable_fifo/cpu_write_mux.v
 Analyzing Verilog file ../convertable_fifo/addr_mux.v
@@ -200,7 +222,9 @@ Analyzing Verilog file ../alu/shift64.v
 Analyzing Verilog file ../alu/set_lsb.v
 Analyzing Verilog file ../alu/or64.v
 Analyzing Verilog file ../alu/mux8_to_1_x64.v
-Analyzing Verilog file ../alu/lt65.v
+Analyzing Verilog file ../alu/gt65.v
+WARNING:HDLCompiler:687 - "../alu/gt65.v" Line 1111. Overwriting previous
+   definition of module glbl
 Analyzing Verilog file ../alu/comp_sign_extend.v
 Analyzing Verilog file ../alu/and64.v
 Analyzing Verilog file zero_50bit.v
@@ -208,9 +232,11 @@ Analyzing Verilog file thread_arbiter_4way.v
 Analyzing Verilog file RV64Idecoder.v
 Analyzing Verilog file regfile64bit.vf
 Analyzing Verilog file perf_interface.v
+Analyzing Verilog file pattern_matcher.vf
 Analyzing Verilog file mux2_to_1_x64.v
 Analyzing Verilog file ME_WBreg.v
 Analyzing Verilog file IP_4way.v
+Analyzing Verilog file instructionmem64.v
 Analyzing Verilog file IF_IDreg.v
 Analyzing Verilog file ID_EXreg.v
 Analyzing Verilog file EX_MEreg.v
@@ -221,6 +247,7 @@ Analyzing Verilog file busmerge_2_5.v
 Analyzing Verilog file Br_adder.v
 Analyzing Verilog file branch_jump_detector.v
 Analyzing Verilog file alu64.vf
+Analyzing Verilog file ../pattern_matcher/pattern_cpu.v
 Analyzing Verilog file tlv_decoder.v
 Analyzing Verilog file test_data_generator.v
 Analyzing Verilog file perf_mux.v
@@ -243,10 +270,46 @@ Analyzing Verilog file cpu_fifo_tb.tfw
 Analyzing Verilog file /opt/Xilinx/10.1/ISE/verilog/src/glbl.v
 WARNING:HDLCompiler:687 - "/opt/Xilinx/10.1/ISE/verilog/src/glbl.v" Line 5.
    Overwriting previous definition of module glbl
+Saving Verilog parse-tree work.OR2_8 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@o@r2_8.sdb
+Saving Verilog parse-tree work.rotate_shift into
+/home/ise/sf/ee533_cpu/cpu/isim/work/rotate_shift.sdb
+Saving Verilog parse-tree work.OR3_8 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@o@r3_8.sdb
+Saving Verilog parse-tree work.mux2to1_8 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/mux2to1_8.sdb
+Saving Verilog parse-tree work.character_rotate into
+/home/ise/sf/ee533_cpu/cpu/isim/work/character_rotate.sdb
 Saving Verilog parse-tree work.xor8_by_1 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/xor8_by_1.sdb
+Saving Verilog parse-tree work.patternout_8 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/patternout_8.sdb
+Saving Verilog parse-tree work.AND8_MXILINX_comparator into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@a@n@d8_@m@x@i@l@i@n@x_comparator.sdb
+Saving Verilog parse-tree work.COMP8_MXILINX_comparator into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@c@o@m@p8_@m@x@i@l@i@n@x_comparator.sdb
+Saving Verilog parse-tree work.comparator into
+/home/ise/sf/ee533_cpu/cpu/isim/work/comparator.sdb
+Saving Verilog parse-tree work.output_extend into
+/home/ise/sf/ee533_cpu/cpu/isim/work/output_extend.sdb
+Saving Verilog parse-tree work.character_distributor into
+/home/ise/sf/ee533_cpu/cpu/isim/work/character_distributor.sdb
 Saving Verilog parse-tree work.xor32_by_1 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/xor32_by_1.sdb
+Saving Verilog parse-tree work.pattern_8x1_8 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/pattern_8x1_8.sdb
+Saving Verilog parse-tree work.patternout_16 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/patternout_16.sdb
+Saving Verilog parse-tree work.character_comparetor_64 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/character_comparetor_64.sdb
+Saving Verilog parse-tree work.pattern_string into
+/home/ise/sf/ee533_cpu/cpu/isim/work/pattern_string.sdb
+Saving Verilog parse-tree work.pattern_filter into
+/home/ise/sf/ee533_cpu/cpu/isim/work/pattern_filter.sdb
+Saving Verilog parse-tree work.find_last_one into
+/home/ise/sf/ee533_cpu/cpu/isim/work/find_last_one.sdb
+Saving Verilog parse-tree work.find_first_one into
+/home/ise/sf/ee533_cpu/cpu/isim/work/find_first_one.sdb
 Saving Verilog parse-tree work.xor64_by_1 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/xor64_by_1.sdb
 Saving Verilog parse-tree work.vadder64 into
@@ -255,8 +318,18 @@ Saving Verilog parse-tree work.special_reg_mux into
 /home/ise/sf/ee533_cpu/cpu/isim/work/special_reg_mux.sdb
 Saving Verilog parse-tree work.reg_7bit into
 /home/ise/sf/ee533_cpu/cpu/isim/work/reg_7bit.sdb
+Saving Verilog parse-tree work.regmem64 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/regmem64.sdb
+Saving Verilog parse-tree work.pattern_9x1_output into
+/home/ise/sf/ee533_cpu/cpu/isim/work/pattern_9x1_output.sdb
 Saving Verilog parse-tree work.mux2_1_x7 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/mux2_1_x7.sdb
+Saving Verilog parse-tree work.lt65 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/lt65.sdb
+Saving Verilog parse-tree work.glbl into
+/home/ise/sf/ee533_cpu/cpu/isim/work/glbl.sdb
+Saving Verilog parse-tree work.character_compare_all into
+/home/ise/sf/ee533_cpu/cpu/isim/work/character_compare_all.sdb
 Saving Verilog parse-tree work.pointer_extend into
 /home/ise/sf/ee533_cpu/cpu/isim/work/pointer_extend.sdb
 Saving Verilog parse-tree work.out_data_mux into
@@ -269,6 +342,10 @@ Saving Verilog parse-tree work.dff_9bit into
 /home/ise/sf/ee533_cpu/cpu/isim/work/dff_9bit.sdb
 Saving Verilog parse-tree work.data_mux into
 /home/ise/sf/ee533_cpu/cpu/isim/work/data_mux.sdb
+Saving Verilog parse-tree work.CVTB_mem into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@c@v@t@b_mem.sdb
+Saving Verilog parse-tree work.CVTB_ctrlmem into
+/home/ise/sf/ee533_cpu/cpu/isim/work/@c@v@t@b_ctrlmem.sdb
 Saving Verilog parse-tree work.ctrl_data_mux into
 /home/ise/sf/ee533_cpu/cpu/isim/work/ctrl_data_mux.sdb
 Saving Verilog parse-tree work.cpu_write_mux into
@@ -285,10 +362,8 @@ Saving Verilog parse-tree work.or64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/or64.sdb
 Saving Verilog parse-tree work.mux8_to_1_x64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/mux8_to_1_x64.sdb
-Saving Verilog parse-tree work.lt65 into
-/home/ise/sf/ee533_cpu/cpu/isim/work/lt65.sdb
-Saving Verilog parse-tree work.glbl into
-/home/ise/sf/ee533_cpu/cpu/isim/work/glbl.sdb
+Saving Verilog parse-tree work.gt65 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/gt65.sdb
 Saving Verilog parse-tree work.comp_sign_extend into
 /home/ise/sf/ee533_cpu/cpu/isim/work/comp_sign_extend.sdb
 Saving Verilog parse-tree work.and64 into
@@ -303,12 +378,16 @@ Saving Verilog parse-tree work.regfile64bit into
 /home/ise/sf/ee533_cpu/cpu/isim/work/regfile64bit.sdb
 Saving Verilog parse-tree work.perf_interface into
 /home/ise/sf/ee533_cpu/cpu/isim/work/perf_interface.sdb
+Saving Verilog parse-tree work.pattern_matcher into
+/home/ise/sf/ee533_cpu/cpu/isim/work/pattern_matcher.sdb
 Saving Verilog parse-tree work.mux2_to_1_x64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/mux2_to_1_x64.sdb
 Saving Verilog parse-tree work.ME_WBreg into
 /home/ise/sf/ee533_cpu/cpu/isim/work/@m@e_@w@breg.sdb
 Saving Verilog parse-tree work.IP_4way into
 /home/ise/sf/ee533_cpu/cpu/isim/work/@i@p_4way.sdb
+Saving Verilog parse-tree work.instructionmem64 into
+/home/ise/sf/ee533_cpu/cpu/isim/work/instructionmem64.sdb
 Saving Verilog parse-tree work.IF_IDreg into
 /home/ise/sf/ee533_cpu/cpu/isim/work/@i@f_@i@dreg.sdb
 Saving Verilog parse-tree work.ID_EXreg into
@@ -337,6 +416,8 @@ Saving Verilog parse-tree work.branch_jump_detector into
 /home/ise/sf/ee533_cpu/cpu/isim/work/branch_jump_detector.sdb
 Saving Verilog parse-tree work.alu64 into
 /home/ise/sf/ee533_cpu/cpu/isim/work/alu64.sdb
+Saving Verilog parse-tree work.pattern_cpu into
+/home/ise/sf/ee533_cpu/cpu/isim/work/pattern_cpu.sdb
 Saving Verilog parse-tree work.tlv_decoder into
 /home/ise/sf/ee533_cpu/cpu/isim/work/tlv_decoder.sdb
 Saving Verilog parse-tree work.test_data_generator into
@@ -372,8 +453,6 @@ Restoring Verilog parse-tree unisims_ver.AND3 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.VCC from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree work.CVTB_mem from
-/home/ise/sf/ee533_cpu/cpu/isim/work/@c@v@t@b_mem.sdb
 Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_7 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
 Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_7_output_stage
@@ -383,40 +462,32 @@ Restoring Verilog parse-tree unisims_ver.GND from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.FDR from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree work.CVTB_ctrlmem from
-/home/ise/sf/ee533_cpu/cpu/isim/work/@c@v@t@b_ctrlmem.sdb
 Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_8 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
 Restoring Verilog parse-tree xilinxcorelib_ver.BLK_MEM_GEN_V2_8_output_stage
 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/xilinxcorelib_ver/xilinxcorelib_ver.sdbl
-Restoring Verilog parse-tree work.instructionmem64 from
-/home/ise/sf/ee533_cpu/cpu/isim/work/instructionmem64.sdb
+Restoring Verilog parse-tree unisims_ver.XNOR2 from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
+Restoring Verilog parse-tree unisims_ver.FMAP from
+/opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.NOR2 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree work.gt65 from
-/home/ise/sf/ee533_cpu/cpu/isim/work/gt65.sdb
 Restoring Verilog parse-tree unisims_ver.LUT2 from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
 Restoring Verilog parse-tree unisims_ver.MUXCY from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
-Restoring Verilog parse-tree work.regmem64 from
-/home/ise/sf/ee533_cpu/cpu/isim/work/regmem64.sdb
-WARNING:HDLCompiler:1016 - "cpu_fifo.v" Line 110. Port DATA_DOUT is not
+WARNING:HDLCompiler:1016 - "cpu_fifo.v" Line 128. Port DATA_DOUT is not
    connected to this instance
 Completed static elaboration
-Fuse Memory Usage: 25260 Kb
-Fuse CPU Usage: 300 ms
+Fuse Memory Usage: 26364 Kb
+Fuse CPU Usage: 490 ms
 Compiling module glbl
  (incremental note: generated C did not change and C compilation will be
 skipped)
 Compiling module test_data_generator
-Compiling isim/_tmp/work/m_00000000000120516746_1347532679.c to
-isim/_tmp/work/m_00000000000120516746_1347532679.lin.o with command:
-/usr/bin/gcc -Wa,-W  -O  -m32  -c -o
-"isim/_tmp/work/m_00000000000120516746_1347532679.lin.o"
--I"/opt/Xilinx/10.1/ISE/data/include"
-"isim/_tmp/work/m_00000000000120516746_1347532679.c"
+ (incremental note: generated C did not change and C compilation will be
+skipped)
 Compiling module AND2B1
  (incremental note: generated C did not change and C compilation will be
 skipped)
@@ -654,6 +725,78 @@ skipped)
 Compiling module tlv_decoder
  (incremental note: generated C did not change and C compilation will be
 skipped)
+Compiling module pattern_filter
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module find_last_one
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module find_first_one
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module pattern_string
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module character_rotate
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module XNOR2
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module COMP8_MXILINX_comparator
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module FMAP
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module AND8_MXILINX_comparator
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module comparator
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module character_comparetor_64
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module character_distributor
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module character_compare_all
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module mux2to1_8
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module OR2_8
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module patternout_8
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module rotate_shift
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module pattern_8x1_8
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module OR3_8
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module patternout_16
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module output_extend
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module pattern_9x1_output
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module pattern_matcher
+ (incremental note: generated C did not change and C compilation will be
+skipped)
+Compiling module pattern_cpu
+ (incremental note: generated C did not change and C compilation will be
+skipped)
 Compiling module perf_mux
  (incremental note: generated C did not change and C compilation will be
 skipped)
@@ -802,7 +945,7 @@ isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_lib.lin.o with command:
 -I"/opt/Xilinx/10.1/ISE/data/include"
 "isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_lib.c"
 Total Object files count:
-113
+137
 Archiving with command:
 /usr/bin/ar crP "isim/_tmp/work/m_00000000000866782574_2073120511.lin.a" 
 "isim/_tmp/work/m_00000000000866782574_2073120511.lin.o"
@@ -865,13 +1008,39 @@ Archiving with command:
 "isim/_tmp/work/m_00000000004001028428_2917723120.lin.o"
 "isim/_tmp/work/m_00000000000938629574_1832567161.lin.o"
 "isim/_tmp/work/m_00000000002246076671_2169579022.lin.o"
-"isim/_tmp/work/m_00000000001568199154_2990208971.lin.o"
+"isim/_tmp/work/m_00000000002176223409_2990208971.lin.o"
 "isim/_tmp/work/m_00000000000130400807_0787199448.lin.o"
 "isim/_tmp/work/m_00000000002375199578_0277225484.lin.o"
-"isim/_tmp/work/m_00000000000874884100_0313907079.lin.o"
-"isim/_tmp/work/m_00000000001869153558_1780370647.lin.o"
+"isim/_tmp/work/m_00000000000220704769_0313907079.lin.o"
+"isim/_tmp/work/m_00000000003936114286_1780370647.lin.o"
 "isim/_tmp/work/m_00000000002834770158_3673614631.lin.o"
-"isim/_tmp/work/m_00000000000962794516_0693433466.lin.o"
+"isim/_tmp/work/m_00000000002401995452_2890371050.lin.o"
+"isim/_tmp/work/m_00000000001702662400_0379989797.lin.o"
+"isim/_tmp/work/m_00000000004135347327_1394490635.lin.o"
+"isim/_tmp/work/m_00000000004097658718_1295868510.lin.o"
+"isim/_tmp/work/m_00000000000191810518_2656560212.lin.o"
+"isim/_tmp/unisims_ver/m_00000000000179858743_2161410271.lin.o"
+"isim/_tmp/work/m_00000000004032837128_1870555602.lin.o"
+"isim/_tmp/unisims_ver/m_00000000000084376409_3411452309.lin.o"
+"isim/_tmp/work/m_00000000002880135112_1174924645.lin.o"
+"isim/_tmp/work/m_00000000000398282770_3306708044.lin.o"
+"isim/_tmp/work/m_00000000000254467805_1125413194.lin.o"
+"isim/_tmp/work/m_00000000003794596272_0543993247.lin.o"
+"isim/_tmp/work/m_00000000001625980765_1833350968.lin.o"
+"isim/_tmp/work/m_00000000000126077715_0748003406.lin.o"
+"isim/_tmp/work/m_00000000002574958268_1099517754.lin.o"
+Archiving with final command:
+/usr/bin/ar crP "isim/_tmp/work/m_00000000000866782574_2073120511.lin.a"  
+"isim/_tmp/work/m_00000000003001654554_0850377466.lin.o"
+"isim/_tmp/work/m_00000000000305930272_3582462531.lin.o"
+"isim/_tmp/work/m_00000000003954599227_0787802628.lin.o"
+"isim/_tmp/work/m_00000000002503198533_1078666509.lin.o"
+"isim/_tmp/work/m_00000000001854473614_2662613997.lin.o"
+"isim/_tmp/work/m_00000000002646993629_2805749049.lin.o"
+"isim/_tmp/work/m_00000000000998157917_1470330383.lin.o"
+"isim/_tmp/work/m_00000000002529724205_0970126630.lin.o"
+"isim/_tmp/work/m_00000000002384612551_0163194662.lin.o"
+"isim/_tmp/work/m_00000000003731170306_0693433466.lin.o"
 "isim/_tmp/xilinxcorelib_ver/m_00000000002050205129_3894270693.lin.o"
 "isim/_tmp/xilinxcorelib_ver/m_00000000001006755372_0127322965.lin.o"
 "isim/_tmp/work/m_00000000004001028428_2496777317.lin.o"
@@ -886,8 +1055,6 @@ Archiving with command:
 "isim/_tmp/unisims_ver/m_00000000002145065410_0374334164.lin.o"
 "isim/_tmp/unisims_ver/m_00000000001933396858_1058825862.lin.o"
 "isim/_tmp/work/m_00000000000133109214_2781138231.lin.o"
-Archiving with final command:
-/usr/bin/ar crP "isim/_tmp/work/m_00000000000866782574_2073120511.lin.a"  
 "isim/_tmp/work/m_00000000000804122509_1925532214.lin.o"
 "isim/_tmp/work/m_00000000003180483936_3348362083.lin.o"
 "isim/_tmp/work/m_00000000001017161074_0960572207.lin.o"
@@ -918,7 +1085,7 @@ Archiving with final command:
 "isim/_tmp/work/m_00000000002343203454_3204506722.lin.o"
 "isim/_tmp/work/m_00000000003009911749_3012452373.lin.o"
 "isim/_tmp/work/m_00000000002047352445_2734816324.lin.o"
-"isim/_tmp/work/m_00000000004099127425_0933511222.lin.o"
+"isim/_tmp/work/m_00000000001064621122_0933511222.lin.o"
 "isim/_tmp/work/m_00000000000124897984_0399049451.lin.o"
 Linking with command:
 /usr/bin/gcc -Wa,-W  -O  -m32 -shared  -o
@@ -929,8 +1096,8 @@ Linking with command:
 Linking with command:
 /usr/bin/gcc -Wa,-W  -O  -m32  -Wl,--rpath "/opt/Xilinx/10.1/ISE/lib/lin" -o
 "cpu_fifo_tb_isim_beh.exe" "isim/_tmp/work/cpu_fifo_tb_isim_beh.exe_main.c" -ldl
-Compiled 146 Verilog Units
+Compiled 170 Verilog Units
 Built simulation executable cpu_fifo_tb_isim_beh.exe
-Fuse Memory Usage: 27584 Kb
-Fuse CPU Usage: 900 ms
-GCC CPU Usage: 430 ms
+Fuse Memory Usage: 28428 Kb
+Fuse CPU Usage: 1230 ms
+GCC CPU Usage: 290 ms

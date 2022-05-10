@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : patternout_16.vf
+// /___/   /\     Timestamp : 05/10/2022 11:12:26
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/pattern_matcher/patternout_16.sch patternout_16.vf
+//Design Name: patternout_16
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module patternout_16(I0, 
+                     I1, 
+                     I2, 
+                     I3, 
+                     I4, 
+                     I5, 
+                     I6, 
+                     I7, 
+                     I8, 
+                     O);
+
+    input [15:0] I0;
+    input [15:0] I1;
+    input [15:0] I2;
+    input [15:0] I3;
+    input [15:0] I4;
+    input [15:0] I5;
+    input [15:0] I6;
+    input [15:0] I7;
+    input [15:0] I8;
+   output [15:0] O;
+   
+   wire [15:0] XLXN_1;
+   wire [15:0] XLXN_2;
+   wire [15:0] XLXN_3;
+   
+   OR3_8 XLXI_1 (.I0(I0[15:0]), 
+                 .I1(I1[15:0]), 
+                 .I2(I2[15:0]), 
+                 .O(XLXN_1[15:0]));
+   OR3_8 XLXI_2 (.I0(I3[15:0]), 
+                 .I1(I4[15:0]), 
+                 .I2(I5[15:0]), 
+                 .O(XLXN_2[15:0]));
+   OR3_8 XLXI_3 (.I0(I6[15:0]), 
+                 .I1(I7[15:0]), 
+                 .I2(I8[15:0]), 
+                 .O(XLXN_3[15:0]));
+   OR3_8 XLXI_4 (.I0(XLXN_1[15:0]), 
+                 .I1(XLXN_2[15:0]), 
+                 .I2(XLXN_3[15:0]), 
+                 .O(O[15:0]));
+endmodule

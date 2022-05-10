@@ -1,0 +1,97 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1.03
+//  \   \         Application : sch2verilog
+//  /   /         Filename : pattern_8x1_8.vf
+// /___/   /\     Timestamp : 05/10/2022 11:12:21
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/10.1/ISE/bin/lin/unwrapped/sch2verilog -intstyle ise -family virtex2p -w /home/ise/sf/ee533_cpu/pattern_matcher/pattern_8x1_8.sch pattern_8x1_8.vf
+//Design Name: pattern_8x1_8
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module pattern_8x1_8(match, 
+                     pattern_string, 
+                     O);
+
+    input [7:0] match;
+    input [7:0] pattern_string;
+   output [7:0] O;
+   
+   wire [7:0] XLXN_10;
+   wire [7:0] XLXN_11;
+   wire [7:0] XLXN_12;
+   wire [7:0] XLXN_13;
+   wire [7:0] XLXN_14;
+   wire [7:0] XLXN_15;
+   wire [7:0] XLXN_16;
+   wire [7:0] XLXN_17;
+   wire [7:0] XLXN_19;
+   wire [7:0] XLXN_20;
+   wire [7:0] XLXN_21;
+   wire [7:0] XLXN_22;
+   wire [7:0] XLXN_23;
+   wire [7:0] XLXN_24;
+   wire [7:0] XLXN_25;
+   wire [7:0] XLXN_26;
+   
+   mux2to1_8 XLXI_1 (.data1(pattern_string[7:0]), 
+                     .sel(match[0]), 
+                     .data_out(XLXN_10[7:0]));
+   mux2to1_8 XLXI_2 (.data1(pattern_string[7:0]), 
+                     .sel(match[1]), 
+                     .data_out(XLXN_11[7:0]));
+   mux2to1_8 XLXI_3 (.data1(pattern_string[7:0]), 
+                     .sel(match[2]), 
+                     .data_out(XLXN_12[7:0]));
+   mux2to1_8 XLXI_4 (.data1(pattern_string[7:0]), 
+                     .sel(match[3]), 
+                     .data_out(XLXN_13[7:0]));
+   mux2to1_8 XLXI_5 (.data1(pattern_string[7:0]), 
+                     .sel(match[4]), 
+                     .data_out(XLXN_14[7:0]));
+   mux2to1_8 XLXI_6 (.data1(pattern_string[7:0]), 
+                     .sel(match[5]), 
+                     .data_out(XLXN_15[7:0]));
+   mux2to1_8 XLXI_7 (.data1(pattern_string[7:0]), 
+                     .sel(match[6]), 
+                     .data_out(XLXN_16[7:0]));
+   mux2to1_8 XLXI_8 (.data1(pattern_string[7:0]), 
+                     .sel(match[7]), 
+                     .data_out(XLXN_17[7:0]));
+   patternout_8 XLXI_17 (.I0(XLXN_19[7:0]), 
+                         .I1(XLXN_20[7:0]), 
+                         .I2(XLXN_21[7:0]), 
+                         .I3(XLXN_22[7:0]), 
+                         .I4(XLXN_23[7:0]), 
+                         .I5(XLXN_24[7:0]), 
+                         .I6(XLXN_25[7:0]), 
+                         .I7(XLXN_26[7:0]), 
+                         .O(O[7:0]));
+   rotate_shift XLXI_18 (.I0(XLXN_10[7:0]), 
+                         .I1(XLXN_11[7:0]), 
+                         .I2(XLXN_12[7:0]), 
+                         .I3(XLXN_13[7:0]), 
+                         .I4(XLXN_14[7:0]), 
+                         .I5(XLXN_15[7:0]), 
+                         .I6(XLXN_16[7:0]), 
+                         .I7(XLXN_17[7:0]), 
+                         .Out0(XLXN_19[7:0]), 
+                         .Out1(XLXN_20[7:0]), 
+                         .Out2(XLXN_21[7:0]), 
+                         .Out3(XLXN_22[7:0]), 
+                         .Out4(XLXN_23[7:0]), 
+                         .Out5(XLXN_24[7:0]), 
+                         .Out6(XLXN_25[7:0]), 
+                         .Out7(XLXN_26[7:0]));
+endmodule

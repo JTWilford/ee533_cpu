@@ -90,6 +90,9 @@ module convertable_fifo_controller
    
    // Functional signals are wrapped into cpu_addr
    //
+	// cpu_send =  [12]
+	//    tells the fifo to send contents without accepting new data
+	//
    // cpu_ctrl =  [11]
    //    set means accessing control signals
    //
@@ -104,9 +107,12 @@ module convertable_fifo_controller
    //    Specifies address to access data (!ctrl only)
 
 	wire [8:0] cpu_addr;
+	wire cpu_hold;
 	assign cpu_ctrl = cpu_addr_in[11];
 	assign cpu_cmd = cpu_addr_in[10:9];
 	assign cpu_addr = cpu_addr_in[8:0];
+	assign cpu_send = cpu_addr_in[12];
+	reg cpu_send_reg;
 	
 	// Need a 1 clock buffer on the output signals to capture the first and last packet
 	reg [63:0] in_data_pre;
@@ -119,7 +125,8 @@ module convertable_fifo_controller
    //------------------------- Modules-------------------------------
    CVTB_memory fifo_dut (
 		.cpu_addr_in      (cpu_addr), 
-		.cpu_din          (cpu_din), 
+		.cpu_din          (cpu_din),
+		.cpu_send			(cpu_send_reg),
 		.in_data          (in_data_pre), 
 		.rst              (reset), 
 		.clk              (clk),
@@ -211,6 +218,7 @@ module convertable_fifo_controller
 			in_ctrl_pre <= 0;
 			end_of_pkt_pre <= 0;
 			fifo_wren <= 0;
+			cpu_send_reg <= 0;
       end
       else begin
          header_counter <= header_counter_next;
@@ -222,6 +230,10 @@ module convertable_fifo_controller
 			in_ctrl_pre <= in_ctrl;
 			end_of_pkt_pre <= end_of_pkt;
 			fifo_wren <= fifo_wren_next;
+			
+			if (cpu_send & cpu_wen) begin
+				cpu_send_reg <= cpu_din[0];
+			end
 
          //counter <= 0;
       end // else: !if(reset)

@@ -275,10 +275,10 @@ module test_data_generator(
 					if (counter_next < 72) counter_next <= counter_next + 1;
 					else counter_next <= 0;
 				end
-				if (counter_next == 0 || counter_next == 8) begin
+				if (counter_next == 1 || counter_next == 9) begin
 					wout <= 1;
 				end
-				else if (counter_next == 7 || counter_next == 71) begin
+				else if (counter_next == 8 || counter_next == 72) begin
 					wout <= 0;
 				end
 				dout <= msg[counter];

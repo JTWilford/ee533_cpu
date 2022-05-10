@@ -87,7 +87,7 @@ Restoring Verilog parse-tree unisims_ver.FMAP from
 /opt/Xilinx/10.1/ISE/verilog/hdp/lin/unisims_ver/unisims_ver.sdbl
 Completed static elaboration
 Fuse Memory Usage: 23368 Kb
-Fuse CPU Usage: 310 ms
+Fuse CPU Usage: 220 ms
 Compiling module glbl
 Compiling module pattern_filter
 Compiling module find_last_one
@@ -119,5 +119,5 @@ Compiling module cpu_patter_tb
 Compiled 28 Verilog Units
 Built simulation executable cpu_patter_tb_isim_beh.exe
 Fuse Memory Usage: 24396 Kb
-Fuse CPU Usage: 350 ms
-GCC CPU Usage: 640 ms
+Fuse CPU Usage: 290 ms
+GCC CPU Usage: 90 ms

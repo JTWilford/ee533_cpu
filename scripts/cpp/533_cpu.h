@@ -2,7 +2,7 @@ typedef unsigned long long uint64_t;
 typedef long long int64_t;
 
 namespace CPU {
-	const uint64_t SHARED_MEM 	= (uint64_t) 0x4000;
+	const uint64_t SHARED_MEM 	= (uint64_t) 0x0;
 
 	void get_hw_thread(uint64_t &dest) {
 		asm("mv\t%0,tp" : "=r"(dest));
@@ -34,6 +34,7 @@ namespace FIFO {
 	const uint64_t HEAD 		= BASE_ADDR + 0x5000;
 	const uint64_t FULL 		= BASE_ADDR + 0x6000;
 	const uint64_t DONE 		= BASE_ADDR + 0x7000;
+	const uint64_t SEND			= BASE_ADDR + 0x8000;
 
 	void get_data(uint64_t &dest, uint64_t index) {
 		uint64_t target = (DATA + (index<<3));
@@ -106,12 +107,27 @@ namespace FIFO {
 			:"r"(FULL)
 		);
 	}
+	void get_done(uint64_t &dest) {
+		asm volatile (
+			"ld\t%0,0(%1)"
+			: "=r"(dest)
+			:"r"(DONE)
+		);
+	}
 	void set_done() {
 		asm volatile (
 			"sd\tzero,0(%0)"
 			:
 			:"r"(DONE)
 			:"memory"
+		);
+	}
+	void set_send(uint64_t value) {
+		asm volatile (
+			"sd\t%0,0(%1)"
+			: 
+			:"r"(value),"r"(SEND)
+			: "memory"
 		);
 	}
 }

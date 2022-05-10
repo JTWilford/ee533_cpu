@@ -1,11 +1,11 @@
 VERSION 5
 BEGIN SYMBOL fifo_write_module
 SYMBOLTYPE BLOCK
-TIMESTAMP 2022 3 12 11 5 32
+TIMESTAMP 2022 5 10 9 35 36
 SYMATTR VeriModel "fifo_write_module"
 SYMPIN 0 -416 Input endpkt
 SYMPIN 0 -352 Input done
-SYMPIN 0 -288 Input cpu_write
+SYMPIN 0 -288 Input cpu_send
 SYMPIN 0 -224 Input clk
 SYMPIN 0 -160 Input rst
 SYMPIN 0 -96 Input rd_ptr(8:0)
@@ -25,7 +25,7 @@ BEGIN DISPLAY 72 -352 PIN done ATTR PinName
     FONT 24 "Arial"
 END DISPLAY
 LINE N 64 -352 0 -352 
-BEGIN DISPLAY 72 -288 PIN cpu_write ATTR PinName
+BEGIN DISPLAY 72 -288 PIN cpu_send ATTR PinName
     FONT 24 "Arial"
 END DISPLAY
 LINE N 64 -288 0 -288 

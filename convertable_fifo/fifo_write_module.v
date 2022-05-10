@@ -21,7 +21,7 @@
 module fifo_write_module(
 		input endpkt,
 		input done,
-		input cpu_write,
+		input cpu_send,
 		input [8:0] rd_ptr,
 		input [8:0] wr_ptr,
 		input clk,
@@ -52,7 +52,11 @@ module fifo_write_module(
 				if (hold_out & done)begin
 					fifo_done_out = 1;
 				end
-				if (hold_out & fifo_empty)begin
+				if (cpu_send & hold_out & fifo_empty)begin
+					hold_out = 1;
+					fifo_done_out = 0;
+				end
+				if (~cpu_send & hold_out & fifo_empty)begin
 					hold_out = 0;
 					fifo_done_out = 0;
 				end

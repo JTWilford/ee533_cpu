@@ -11,9 +11,10 @@ import re
 # addi\tgp,zero,2048   ; Sets the global pointer to bottom half of memory
 # """
 Boostrap = """\
-slli\tsp,tp,9        # Allocate the stack pointer based on thread ID
+addi\tsp,tp,4
+slli\tsp,sp,9
 addi\tsp,sp,511
-addi\tgp,zero,2048   # Sets the global pointer to bottom half of memory
+addi\tgp,zero,0
 j\t.main
 """
 
@@ -27,12 +28,15 @@ pOps = {
 	"jr"	: "jalr\tzero,{0},0",
 	"sext.w": ["slli\t{0},{1},32","srai\t{0},{0},32"],
 	"sllw"	: ["sll\t{0},{1},{2}","slli\t{0},{0},32","srli\t{0},{0},32"],
+	"srlw"	: ["srl\t{0},{1},{2}","slli\t{0},{0},32","srli\t{0},{0},32"],
+	"addiw"	: ["addi\t{0},{1},{2}","slli\t{0},{0},32","srli\t{0},{0},32"],
 	"ble"	: "bge\t{1},{0},{2}",
 	"bgt"	: "blt\t{1},{0},{2}",
 	"bleu"	: "bgeu\t{1},{0},{2}",
 	"bgtu"	: "bltu\t{1},{0},{2}",
 	"not"	: "xori\t{0},{1},-1",
-	"call"	: ["auipc\tra,0","addi\tra,ra,8","jalr\tra,ra,{0}"],
+	"call"	: ["auipc\tra,%hi({0})","addi\tra,ra,%lo({0})","jalr\tra,ra,0"],
+	"tail"	: ["auipc\tt1,%hi({0})","addi\tt1,t1,%lo({0})","jalr\tzero,t1,0"],
 	"ret"	: "jalr\tzero,ra,0",
 	"srliw"	: ["slli\t{0},{1},32","srli\t{0},{0},32","srli\t{0},{0},{2}"],
 	"subw"	: ["sub\t{0},{1},{2}","slli\t{0},{0},32","srli\t{0},{0},32"],
@@ -299,8 +303,9 @@ def main(infiles, outfile, hexmode, add_boostrap):
 		# Parse the assembly, and convert pseudo ops when found
 		purelines = []
 		symbols = {}
-		ind = 0
+		ind = -1 * len(Boostrap.split("\n"))
 		for line in lines:
+			ind += 1
 			line = line.split("#")[0].strip()
 			if (line == ""):
 				continue
@@ -330,22 +335,30 @@ def main(infiles, outfile, hexmode, add_boostrap):
 					args = ()
 					if len(splitline) > 1:
 						args = splitline[1].split(",")
-					# If li was found, need to parse out args
+					# If li was found, need special processing
 					if (op == "li"):
 						val = int(args[1])
-						args[1] = str(val>>12)
+						if (val >= -2048 and val < 2047):
+							# Only need to use an ADDI instruction
+							line = "addi\t{0},zero,{1}".format(args[0], val)
+							purelines.append("%s ; %d" % (line, ind))
+							continue
+						if (val & 0x800 is not 0):
+							# Will sign extend lower 12 bits, so add 1 to LUI's immediate
+							args[1] = str((val>>12)+1)
+						else:
+							args[1] = str(val>>12)
 						args.append(str(val & 0xFFF))
 					if type(conv) is list:
 						# Multi-line pOP
 						for l in conv:
-							purelines.append(l.format(*args))
+							purelines.append("%s ; %d" % (l.format(*args), ind))
 					else:
 						# Single-line pOP
-						purelines.append(conv.format(*args))
+						purelines.append("%s ; %d" % (conv.format(*args), ind))
 				else:
 					# Found a real instruction
-					purelines.append(line)
-			ind += 1
+					purelines.append("%s ; %d" % (line, ind))
 		# Now that we have the pure assembly, do a pass to resolve the symbols
 		# for i in range(0, len(purelines)):
 		# 	if ("." in purelines[i]):
@@ -357,23 +370,28 @@ def main(infiles, outfile, hexmode, add_boostrap):
 		# 				splitline[j] = str(val)
 		# 		purelines[i] = op + "\t" + ",".join(splitline)
 		for i in range(0, len(purelines)):
-			op = purelines[i].split("\t")[0]
-			splitline = purelines[i].split("\t")[1].split(",")
+			comment = purelines[i].split(";")[1]
+			op = purelines[i].split(";")[0].split("\t")[0]
+			splitline = purelines[i].split(";")[0].split("\t")[1].split(",")
 			for j in range(0, len(splitline)):
-				targ = splitline[j]
-				if ("." in splitline[j]):
-					targ = splitline[j][1:]
+				targ = splitline[j].strip()
+				if ("." in targ):
+					targ = targ[1:]
 				if (targ in symbols.keys()):
 					val = (symbols[targ] - i)<<2
 					splitline[j] = str(val)
-			purelines[i] = op + "\t" + ",".join(splitline)
+			purelines[i] = op + "\t" + ",".join(splitline) + " ; " + comment
 		# With the symbols resolved, now we just need to translate the instructions
 		# But first fill with NOOP until the there are 4096 instructions
 		# while len(purelines) < 4096:
 		#	purelines.append("addi\tzero,zero,0")
 		lindex = 0
 		for line in purelines:
-			splitline = line.split("\t")
+			splitline = line.split(";")[0].split("\t")
+			try: 
+				original_line = line.split(";")[1]
+			except:
+				print("[ERROR] No original line information: '%s'" % line)
 			op = splitline[0]
 			args = []
 			if len(splitline) > 1:
@@ -381,6 +399,7 @@ def main(infiles, outfile, hexmode, add_boostrap):
 
 			# Resolve assembler functions
 			for argi in range(len(args)):
+				args[argi] = args[argi].strip()
 				res = re.search(r"%([a-zA-Z0-9._]+)\(([a-zA-Z0-9._]+)\)", args[argi])
 				if res:
 					afunc = res.group(1)
@@ -390,10 +409,15 @@ def main(infiles, outfile, hexmode, add_boostrap):
 						aval = (symbols[aval] - lindex) << 2
 					print("aval-pre: ( %d - %d ) << 2 = %d" % (symbols[res.group(2)], lindex, aval))
 
+					val = int(aval)
 					if afunc == "lo":
-						aval = str(int(aval) & 0xFFF)
+						val += 4
+						aval = str(val & 0xFFF)
 					elif afunc == "hi":
-						aval = str(int(aval)>>11)
+						if (val & 0x800 is not 0):
+							aval = str((val>>12)+1)
+						else:
+							aval = str(val>>12)
 					print("aval-post: %s" % aval)
 					tleft = args[argi][0:res.start()]
 					tright = args[argi][res.end():]
@@ -457,7 +481,7 @@ def main(infiles, outfile, hexmode, add_boostrap):
 				hex_str = hex(bit & 2**32-1)
 			else:
 				hex_str = "0x%08x" % bit
-			print("%d:\t%s\t%s\t\t%s" % (lindex<<2, hex_str, line, args))
+			print("{0:>5}: {1:<10}   {2:<7}  {3:<20}  {4:<30} ; {5}".format(str(lindex<<2), hex_str, op.lower(), splitline[1].strip(), str(args), original_line))
 			lindex += 1
 		tid += 1
 	# Print the bits to a file

@@ -1,0 +1,1141 @@
+New Symbol: '_ZN3CPU13get_hw_threadERy'->5
+New Symbol: 'LFB0'->5
+New Symbol: 'LFE0'->8
+New Symbol: '_ZN3CPU10get_sharedERyy'->8
+New Symbol: 'LFB1'->8
+New Symbol: 'LFE1'->12
+New Symbol: '_ZN3CPU10set_sharedEyy'->12
+New Symbol: 'LFB2'->12
+New Symbol: 'LFE2'->15
+New Symbol: '_ZN4FIFO8get_dataERyy'->15
+New Symbol: 'LFB3'->15
+New Symbol: 'LFE3'->22
+New Symbol: '_ZN4FIFO8set_dataEyy'->22
+New Symbol: 'LFB4'->22
+New Symbol: 'LFE4'->28
+New Symbol: '_ZN4FIFO8get_ctrlERyy'->28
+New Symbol: 'LFB5'->28
+New Symbol: 'LFE5'->37
+New Symbol: '_ZN4FIFO8set_ctrlEyy'->37
+New Symbol: 'LFB6'->37
+New Symbol: 'LFE6'->45
+New Symbol: '_ZN4FIFO8get_tailERy'->45
+New Symbol: 'LFB7'->45
+New Symbol: 'LFE7'->52
+New Symbol: '_ZN4FIFO8set_tailEy'->52
+New Symbol: 'LFB8'->52
+New Symbol: 'LFE8'->58
+New Symbol: '_ZN4FIFO8get_headERy'->58
+New Symbol: 'LFB9'->58
+New Symbol: 'LFE9'->65
+New Symbol: '_ZN4FIFO8set_headEy'->65
+New Symbol: 'LFB10'->65
+New Symbol: 'LFE10'->71
+New Symbol: '_ZN4FIFO8get_fullERy'->71
+New Symbol: 'LFB11'->71
+New Symbol: 'LFE11'->78
+New Symbol: '_ZN4FIFO8get_doneERy'->78
+New Symbol: 'LFB12'->78
+New Symbol: 'LFE12'->85
+New Symbol: '_ZN4FIFO8set_doneEv'->85
+New Symbol: 'LFB13'->85
+New Symbol: 'LFE13'->91
+New Symbol: '_ZN4FIFO8set_sendEy'->91
+New Symbol: 'LFB14'->91
+New Symbol: 'LFE14'->97
+New Symbol: '_ZN3TLV8get_dataERyy'->97
+New Symbol: 'LFB15'->97
+New Symbol: 'LFE15'->104
+New Symbol: '_ZN3TLV8set_dataEyy'->104
+New Symbol: 'LFB16'->104
+New Symbol: 'LFE16'->110
+New Symbol: '_ZN3TLV15get_byte_offsetERy'->110
+New Symbol: 'LFB17'->110
+New Symbol: 'LFE17'->116
+New Symbol: '_ZN3TLV15set_byte_offsetEy'->116
+New Symbol: 'LFB18'->116
+New Symbol: 'LFE18'->121
+New Symbol: '_ZN3TLV8get_typeERy'->121
+New Symbol: 'LFB19'->121
+New Symbol: 'LFE19'->127
+New Symbol: '_ZN3TLV10get_lengthERy'->127
+New Symbol: 'LFB20'->127
+New Symbol: 'LFE20'->133
+New Symbol: '_ZN3TLV16get_value_offsetERy'->133
+New Symbol: 'LFB21'->133
+New Symbol: 'LFE21'->139
+New Symbol: '_ZN3PAT8get_dataERyy'->139
+New Symbol: 'LFB22'->139
+New Symbol: 'LFE22'->146
+New Symbol: '_ZN3PAT8set_dataEyy'->146
+New Symbol: 'LFB23'->146
+New Symbol: 'LFE23'->152
+New Symbol: '_ZN3PAT11get_patternERy'->152
+New Symbol: 'LFB24'->152
+New Symbol: 'LFE24'->158
+New Symbol: '_ZN3PAT11set_patternEy'->158
+New Symbol: 'LFB25'->158
+New Symbol: 'LFE25'->163
+New Symbol: '_ZN3PAT13get_wild_maskERy'->163
+New Symbol: 'LFB26'->163
+New Symbol: 'LFE26'->169
+New Symbol: '_ZN3PAT13set_wild_maskEy'->169
+New Symbol: 'LFB27'->169
+New Symbol: 'LFE27'->174
+New Symbol: '_ZN3PAT10get_resultERy'->174
+New Symbol: 'LFB28'->174
+New Symbol: 'LFE28'->180
+New Symbol: '_Z9parse_tlvyyRyS_S_'->180
+New Symbol: 'LFB29'->180
+New Symbol: 'LFE29'->216
+New Symbol: '_Z13wait_for_fullRyS_'->216
+New Symbol: 'LFB30'->216
+New Symbol: 'L32'->220
+New Symbol: 'LFE30'->235
+New Symbol: '_Z13wait_for_donev'->235
+New Symbol: 'LFB31'->235
+New Symbol: 'L36'->244
+New Symbol: 'LFE31'->247
+New Symbol: '_Z13wait_for_syncy'->247
+New Symbol: 'LFB32'->247
+New Symbol: 'L39'->248
+New Symbol: 'LFE32'->251
+New Symbol: '_Z8set_syncy'->251
+New Symbol: 'LFB33'->251
+New Symbol: 'LFE33'->254
+New Symbol: '_Z12skip_headersyyRy'->254
+New Symbol: 'LFB34'->254
+New Symbol: 'L43'->265
+New Symbol: 'L44'->268
+New Symbol: 'LFE34'->275
+New Symbol: '_Z14capture_packetv'->275
+New Symbol: 'LFB35'->275
+New Symbol: 'L46'->287
+New Symbol: 'L47'->298
+New Symbol: 'L48'->308
+New Symbol: 'LFE35'->322
+New Symbol: '_Z10align_nameRyS_yy'->322
+New Symbol: 'LFB36'->322
+New Symbol: 'L50'->346
+New Symbol: 'LFE36'->347
+New Symbol: '_Z14update_dest_ipyyy'->347
+New Symbol: 'LFB37'->347
+New Symbol: 'L53'->378
+New Symbol: 'LFE37'->418
+New Symbol: '_Z16forward_interestyyy'->418
+New Symbol: 'LFB38'->418
+New Symbol: 'L58'->437
+New Symbol: 'L56'->447
+New Symbol: 'L57'->455
+New Symbol: 'LFE38'->468
+New Symbol: '_Z10update_pityyyRy'->468
+New Symbol: 'LFB39'->468
+New Symbol: 'L63'->504
+New Symbol: 'L68'->509
+New Symbol: 'L67'->515
+New Symbol: 'L65'->519
+New Symbol: 'L64'->521
+New Symbol: 'L73'->528
+New Symbol: 'L71'->538
+New Symbol: 'L70'->544
+New Symbol: 'L62'->548
+New Symbol: 'LFE39'->549
+New Symbol: '_Z11resolve_pityyy'->549
+New Symbol: 'LFB40'->549
+New Symbol: 'L85'->575
+New Symbol: 'L84'->581
+New Symbol: 'L83'->598
+New Symbol: 'L82'->602
+New Symbol: 'LFE40'->620
+New Symbol: '_Z16int_name_handleryyyy'->620
+New Symbol: 'LFB41'->620
+New Symbol: 'L93'->674
+New Symbol: 'LFE41'->697
+New Symbol: '_Z17data_name_handleryyyy'->697
+New Symbol: 'LFB42'->697
+New Symbol: 'LFE42'->758
+New Symbol: 'main'->758
+New Symbol: 'LFB43'->758
+New Symbol: 'L98'->779
+New Symbol: 'L103'->811
+New Symbol: 'L128'->833
+New Symbol: 'L100'->835
+New Symbol: 'L99'->839
+New Symbol: 'L104'->841
+New Symbol: 'L106'->849
+New Symbol: 'L135'->852
+New Symbol: 'L131'->856
+New Symbol: 'L109'->858
+New Symbol: 'L121'->862
+New Symbol: 'L102'->864
+New Symbol: 'L108'->872
+New Symbol: 'L122'->880
+New Symbol: 'L107'->884
+New Symbol: 'L117'->888
+New Symbol: 'LFE43'->897
+New Symbol: 'ident	"GCC'->897
+    0: 0x00420113   addi     sp,tp,4               ['sp', 'tp', '4']              ;   -5
+    4: 0x00911113   slli     sp,sp,9               ['sp', 'sp', '9']              ;   -4
+    8: 0x1ff10113   addi     sp,sp,511             ['sp', 'sp', '511']            ;   -3
+   12: 0x00000193   addi     gp,zero,0             ['gp', 'zero', '0']            ;   -2
+   16: 0x3c90006f   jal      zero,3016             ['zero', '3016']               ;   -1
+   20: 0x00020793   addi     a5,tp,0               ['a5', 'tp', '0']              ;   15
+   24: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   18
+   28: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   19
+   32: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   29
+   36: 0x0005b583   ld       a1,0(a1)              ['a1', 'a1', '0']              ;   32
+   40: 0x00b53023   sd       a1,0(a0)              ['a1', 'a0', '0']              ;   35
+   44: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   36
+   48: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   46
+   52: 0x00a5b023   sd       a0,0(a1)              ['a0', 'a1', '0']              ;   49
+   56: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   52
+   60: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   62
+   64: 0x02379793   slli     a5,a5,35              ['a5', 'a5', '35']             ;   63
+   68: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   64
+   72: 0x00f585b3   add      a1,a1,a5              ['a1', 'a1', 'a5']             ;   65
+   76: 0x0005b583   ld       a1,0(a1)              ['a1', 'a1', '0']              ;   68
+   80: 0x00b53023   sd       a1,0(a0)              ['a1', 'a0', '0']              ;   71
+   84: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   72
+   88: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   82
+   92: 0x02379793   slli     a5,a5,35              ['a5', 'a5', '35']             ;   83
+   96: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   84
+  100: 0x00f585b3   add      a1,a1,a5              ['a1', 'a1', 'a5']             ;   85
+  104: 0x00a5b023   sd       a0,0(a1)              ['a0', 'a1', '0']              ;   88
+  108: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   91
+  112: 0x008007b7   lui      a5,2048               ['a5', '2048']                 ;   101
+  116: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   101
+  120: 0x00378793   addi     a5,a5,3               ['a5', 'a5', '3']              ;   102
+  124: 0x00c79793   slli     a5,a5,12              ['a5', 'a5', '12']             ;   103
+  128: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   104
+  132: 0x00f585b3   add      a1,a1,a5              ['a1', 'a1', 'a5']             ;   105
+  136: 0x0005b583   ld       a1,0(a1)              ['a1', 'a1', '0']              ;   108
+  140: 0x00b53023   sd       a1,0(a0)              ['a1', 'a0', '0']              ;   111
+  144: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   112
+  148: 0x008007b7   lui      a5,2048               ['a5', '2048']                 ;   122
+  152: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   122
+  156: 0x00378793   addi     a5,a5,3               ['a5', 'a5', '3']              ;   123
+  160: 0x00c79793   slli     a5,a5,12              ['a5', 'a5', '12']             ;   124
+  164: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   125
+  168: 0x00f585b3   add      a1,a1,a5              ['a1', 'a1', 'a5']             ;   126
+  172: 0x00a5b023   sd       a0,0(a1)              ['a0', 'a1', '0']              ;   129
+  176: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   132
+  180: 0x002007b7   lui      a5,512                ['a5', '512']                  ;   142
+  184: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   142
+  188: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   143
+  192: 0x00e79793   slli     a5,a5,14              ['a5', 'a5', '14']             ;   144
+  196: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   147
+  200: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   150
+  204: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   151
+  208: 0x002007b7   lui      a5,512                ['a5', '512']                  ;   161
+  212: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   161
+  216: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   162
+  220: 0x00e79793   slli     a5,a5,14              ['a5', 'a5', '14']             ;   163
+  224: 0x00a7b023   sd       a0,0(a5)              ['a0', 'a5', '0']              ;   166
+  228: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   169
+  232: 0x008007b7   lui      a5,2048               ['a5', '2048']                 ;   179
+  236: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   179
+  240: 0x00578793   addi     a5,a5,5               ['a5', 'a5', '5']              ;   180
+  244: 0x00c79793   slli     a5,a5,12              ['a5', 'a5', '12']             ;   181
+  248: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   184
+  252: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   187
+  256: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   188
+  260: 0x008007b7   lui      a5,2048               ['a5', '2048']                 ;   198
+  264: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   198
+  268: 0x00578793   addi     a5,a5,5               ['a5', 'a5', '5']              ;   199
+  272: 0x00c79793   slli     a5,a5,12              ['a5', 'a5', '12']             ;   200
+  276: 0x00a7b023   sd       a0,0(a5)              ['a0', 'a5', '0']              ;   203
+  280: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   206
+  284: 0x004007b7   lui      a5,1024               ['a5', '1024']                 ;   216
+  288: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   216
+  292: 0x00378793   addi     a5,a5,3               ['a5', 'a5', '3']              ;   217
+  296: 0x00d79793   slli     a5,a5,13              ['a5', 'a5', '13']             ;   218
+  300: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   221
+  304: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   224
+  308: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   225
+  312: 0x008007b7   lui      a5,2048               ['a5', '2048']                 ;   235
+  316: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   235
+  320: 0x00778793   addi     a5,a5,7               ['a5', 'a5', '7']              ;   236
+  324: 0x00c79793   slli     a5,a5,12              ['a5', 'a5', '12']             ;   237
+  328: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   240
+  332: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   243
+  336: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   244
+  340: 0x008007b7   lui      a5,2048               ['a5', '2048']                 ;   254
+  344: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   254
+  348: 0x00778793   addi     a5,a5,7               ['a5', 'a5', '7']              ;   255
+  352: 0x00c79793   slli     a5,a5,12              ['a5', 'a5', '12']             ;   256
+  356: 0x0007b023   sd       zero,0(a5)            ['zero', 'a5', '0']            ;   259
+  360: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   262
+  364: 0x001007b7   lui      a5,256                ['a5', '256']                  ;   272
+  368: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   272
+  372: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   273
+  376: 0x00f79793   slli     a5,a5,15              ['a5', 'a5', '15']             ;   274
+  380: 0x00a7b023   sd       a0,0(a5)              ['a0', 'a5', '0']              ;   277
+  384: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   280
+  388: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   290
+  392: 0x03d79793   slli     a5,a5,61              ['a5', 'a5', '61']             ;   291
+  396: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   292
+  400: 0x00f585b3   add      a1,a1,a5              ['a1', 'a1', 'a5']             ;   293
+  404: 0x0005b583   ld       a1,0(a1)              ['a1', 'a1', '0']              ;   296
+  408: 0x00b53023   sd       a1,0(a0)              ['a1', 'a0', '0']              ;   299
+  412: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   300
+  416: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   310
+  420: 0x03d79793   slli     a5,a5,61              ['a5', 'a5', '61']             ;   311
+  424: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   312
+  428: 0x00f585b3   add      a1,a1,a5              ['a1', 'a1', 'a5']             ;   313
+  432: 0x00a5b023   sd       a0,0(a1)              ['a0', 'a1', '0']              ;   316
+  436: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   319
+  440: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   329
+  444: 0x03d79793   slli     a5,a5,61              ['a5', 'a5', '61']             ;   330
+  448: 0x01878793   addi     a5,a5,24              ['a5', 'a5', '24']             ;   331
+  452: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   334
+  456: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   337
+  460: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   338
+  464: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   348
+  468: 0x03d79793   slli     a5,a5,61              ['a5', 'a5', '61']             ;   349
+  472: 0x01878793   addi     a5,a5,24              ['a5', 'a5', '24']             ;   350
+  476: 0x00a7b023   sd       a0,0(a5)              ['a0', 'a5', '0']              ;   353
+  480: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   356
+  484: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   366
+  488: 0x03d79793   slli     a5,a5,61              ['a5', 'a5', '61']             ;   367
+  492: 0x02078793   addi     a5,a5,32              ['a5', 'a5', '32']             ;   368
+  496: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   371
+  500: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   374
+  504: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   375
+  508: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   385
+  512: 0x03d79793   slli     a5,a5,61              ['a5', 'a5', '61']             ;   386
+  516: 0x02878793   addi     a5,a5,40              ['a5', 'a5', '40']             ;   387
+  520: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   390
+  524: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   393
+  528: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   394
+  532: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   404
+  536: 0x03d79793   slli     a5,a5,61              ['a5', 'a5', '61']             ;   405
+  540: 0x03078793   addi     a5,a5,48              ['a5', 'a5', '48']             ;   406
+  544: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   409
+  548: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   412
+  552: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   413
+  556: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   423
+  560: 0x03e79793   slli     a5,a5,62              ['a5', 'a5', '62']             ;   424
+  564: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   425
+  568: 0x00f585b3   add      a1,a1,a5              ['a1', 'a1', 'a5']             ;   426
+  572: 0x0005b583   ld       a1,0(a1)              ['a1', 'a1', '0']              ;   429
+  576: 0x00b53023   sd       a1,0(a0)              ['a1', 'a0', '0']              ;   432
+  580: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   433
+  584: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   443
+  588: 0x03e79793   slli     a5,a5,62              ['a5', 'a5', '62']             ;   444
+  592: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   445
+  596: 0x00f585b3   add      a1,a1,a5              ['a1', 'a1', 'a5']             ;   446
+  600: 0x00a5b023   sd       a0,0(a1)              ['a0', 'a1', '0']              ;   449
+  604: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   452
+  608: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   462
+  612: 0x03e79793   slli     a5,a5,62              ['a5', 'a5', '62']             ;   463
+  616: 0x01078793   addi     a5,a5,16              ['a5', 'a5', '16']             ;   464
+  620: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   467
+  624: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   470
+  628: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   471
+  632: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   481
+  636: 0x03e79793   slli     a5,a5,62              ['a5', 'a5', '62']             ;   482
+  640: 0x01078793   addi     a5,a5,16              ['a5', 'a5', '16']             ;   483
+  644: 0x00a7b023   sd       a0,0(a5)              ['a0', 'a5', '0']              ;   486
+  648: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   489
+  652: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   499
+  656: 0x03e79793   slli     a5,a5,62              ['a5', 'a5', '62']             ;   500
+  660: 0x01878793   addi     a5,a5,24              ['a5', 'a5', '24']             ;   501
+  664: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   504
+  668: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   507
+  672: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   508
+  676: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   518
+  680: 0x03e79793   slli     a5,a5,62              ['a5', 'a5', '62']             ;   519
+  684: 0x01878793   addi     a5,a5,24              ['a5', 'a5', '24']             ;   520
+  688: 0x00a7b023   sd       a0,0(a5)              ['a0', 'a5', '0']              ;   523
+  692: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   526
+  696: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   536
+  700: 0x03e79793   slli     a5,a5,62              ['a5', 'a5', '62']             ;   537
+  704: 0x02078793   addi     a5,a5,32              ['a5', 'a5', '32']             ;   538
+  708: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   541
+  712: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   544
+  716: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   545
+  720: 0x00100813   addi     a6,zero,1             ['a6', 'zero', '1']            ;   555
+  724: 0x00351313   slli     t1,a0,3               ['t1', 'a0', '3']              ;   556
+  728: 0x02381e93   slli     t4,a6,35              ['t4', 'a6', '35']             ;   557
+  732: 0x01d30333   add      t1,t1,t4              ['t1', 't1', 't4']             ;   558
+  736: 0x00033303   ld       t1,0(t1)              ['t1', 't1', '0']              ;   561
+  740: 0x00001e37   lui      t3,1                  ['t3', '1']                    ;   564
+  744: 0x000e0e13   addi     t3,t3,0               ['t3', 't3', '0']              ;   564
+  748: 0x00150893   addi     a7,a0,1               ['a7', 'a0', '1']              ;   565
+  752: 0xff8e0e13   addi     t3,t3,-8              ['t3', 't3', '-8']             ;   566
+  756: 0x00389893   slli     a7,a7,3               ['a7', 'a7', '3']              ;   567
+  760: 0x01c8f8b3   and      a7,a7,t3              ['a7', 'a7', 't3']             ;   568
+  764: 0x01d888b3   add      a7,a7,t4              ['a7', 'a7', 't4']             ;   569
+  768: 0x0008b883   ld       a7,0(a7)              ['a7', 'a7', '0']              ;   572
+  772: 0x00250793   addi     a5,a0,2               ['a5', 'a0', '2']              ;   575
+  776: 0x00379793   slli     a5,a5,3               ['a5', 'a5', '3']              ;   576
+  780: 0x01c7f7b3   and      a5,a5,t3              ['a5', 'a5', 't3']             ;   577
+  784: 0x01d787b3   add      a5,a5,t4              ['a5', 'a5', 't4']             ;   578
+  788: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   581
+  792: 0x03d81513   slli     a0,a6,61              ['a0', 'a6', '61']             ;   584
+  796: 0x00653023   sd       t1,0(a0)              ['t1', 'a0', '0']              ;   587
+  800: 0x00850813   addi     a6,a0,8               ['a6', 'a0', '8']              ;   590
+  804: 0x01183023   sd       a7,0(a6)              ['a7', 'a6', '0']              ;   593
+  808: 0x01050813   addi     a6,a0,16              ['a6', 'a0', '16']             ;   596
+  812: 0x00f83023   sd       a5,0(a6)              ['a5', 'a6', '0']              ;   599
+  816: 0x01850793   addi     a5,a0,24              ['a5', 'a0', '24']             ;   602
+  820: 0x00b7b023   sd       a1,0(a5)              ['a1', 'a5', '0']              ;   605
+  824: 0x02050793   addi     a5,a0,32              ['a5', 'a0', '32']             ;   608
+  828: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   611
+  832: 0x00f63023   sd       a5,0(a2)              ['a5', 'a2', '0']              ;   614
+  836: 0x02850793   addi     a5,a0,40              ['a5', 'a0', '40']             ;   615
+  840: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   618
+  844: 0x00f6b023   sd       a5,0(a3)              ['a5', 'a3', '0']              ;   621
+  848: 0x03050513   addi     a0,a0,48              ['a0', 'a0', '48']             ;   622
+  852: 0x00053503   ld       a0,0(a0)              ['a0', 'a0', '0']              ;   625
+  856: 0x00a73023   sd       a0,0(a4)              ['a0', 'a4', '0']              ;   628
+  860: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   629
+  864: 0x004007b7   lui      a5,1024               ['a5', '1024']                 ;   639
+  868: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   639
+  872: 0x00378793   addi     a5,a5,3               ['a5', 'a5', '3']              ;   640
+  876: 0x00d79793   slli     a5,a5,13              ['a5', 'a5', '13']             ;   641
+  880: 0x0007b703   ld       a4,0(a5)              ['a4', 'a5', '0']              ;   645
+  884: 0xfe070ee3   beq      a4,zero,-4            ['a4', 'zero', '-4']           ;   648
+  888: 0x002007b7   lui      a5,512                ['a5', '512']                  ;   649
+  892: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   649
+  896: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   650
+  900: 0x00e79793   slli     a5,a5,14              ['a5', 'a5', '14']             ;   651
+  904: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   654
+  908: 0x00f5b023   sd       a5,0(a1)              ['a5', 'a1', '0']              ;   657
+  912: 0x008007b7   lui      a5,2048               ['a5', '2048']                 ;   658
+  916: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   658
+  920: 0x00578793   addi     a5,a5,5               ['a5', 'a5', '5']              ;   659
+  924: 0x00c79793   slli     a5,a5,12              ['a5', 'a5', '12']             ;   660
+  928: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   663
+  932: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   666
+  936: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   667
+  940: 0x002007b7   lui      a5,512                ['a5', '512']                  ;   677
+  944: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   677
+  948: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   678
+  952: 0x00e79793   slli     a5,a5,14              ['a5', 'a5', '14']             ;   679
+  956: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   682
+  960: 0x00800737   lui      a4,2048               ['a4', '2048']                 ;   685
+  964: 0x00070713   addi     a4,a4,0               ['a4', 'a4', '0']              ;   685
+  968: 0x00570713   addi     a4,a4,5               ['a4', 'a4', '5']              ;   686
+  972: 0x00c71713   slli     a4,a4,12              ['a4', 'a4', '12']             ;   687
+  976: 0x00073683   ld       a3,0(a4)              ['a3', 'a4', '0']              ;   691
+  980: 0xfed79ee3   bne      a5,a3,-4              ['a5', 'a3', '-4']             ;   694
+  984: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   695
+  988: 0x00000713   addi     a4,zero,0             ['a4', 'zero', '0']            ;   705
+  992: 0x00073783   ld       a5,0(a4)              ['a5', 'a4', '0']              ;   709
+  996: 0xfef51ee3   bne      a0,a5,-4              ['a0', 'a5', '-4']             ;   712
+ 1000: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   713
+ 1004: 0x00000793   addi     a5,zero,0             ['a5', 'zero', '0']            ;   723
+ 1008: 0x00a7b023   sd       a0,0(a5)              ['a0', 'a5', '0']              ;   726
+ 1012: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   729
+ 1016: 0x00800737   lui      a4,2048               ['a4', '2048']                 ;   739
+ 1020: 0x00070713   addi     a4,a4,0               ['a4', 'a4', '0']              ;   739
+ 1024: 0x00370713   addi     a4,a4,3               ['a4', 'a4', '3']              ;   740
+ 1028: 0x00351793   slli     a5,a0,3               ['a5', 'a0', '3']              ;   741
+ 1032: 0x00c71713   slli     a4,a4,12              ['a4', 'a4', '12']             ;   742
+ 1036: 0x00e787b3   add      a5,a5,a4              ['a5', 'a5', 'a4']             ;   743
+ 1040: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   746
+ 1044: 0x000015b7   lui      a1,1                  ['a1', '1']                    ;   749
+ 1048: 0x00058593   addi     a1,a1,0               ['a1', 'a1', '0']              ;   749
+ 1052: 0x00000693   addi     a3,zero,0             ['a3', 'zero', '0']            ;   750
+ 1056: 0xff858593   addi     a1,a1,-8              ['a1', 'a1', '-8']             ;   751
+ 1060: 0x00079663   bne      a5,zero,12            ['a5', 'zero', '12']           ;   753
+ 1064: 0x00d63023   sd       a3,0(a2)              ['a3', 'a2', '0']              ;   754
+ 1068: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   755
+ 1072: 0x00168693   addi     a3,a3,1               ['a3', 'a3', '1']              ;   757
+ 1076: 0x00a687b3   add      a5,a3,a0              ['a5', 'a3', 'a0']             ;   758
+ 1080: 0x00379793   slli     a5,a5,3               ['a5', 'a5', '3']              ;   759
+ 1084: 0x00b7f7b3   and      a5,a5,a1              ['a5', 'a5', 'a1']             ;   760
+ 1088: 0x00e787b3   add      a5,a5,a4              ['a5', 'a5', 'a4']             ;   761
+ 1092: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   764
+ 1096: 0xfddff06f   jal      zero,-36              ['zero', '-36']                ;   767
+ 1100: 0xfe010113   addi     sp,sp,-32             ['sp', 'sp', '-32']            ;   777
+ 1104: 0x00010593   addi     a1,sp,0               ['a1', 'sp', '0']              ;   779
+ 1108: 0x00810513   addi     a0,sp,8               ['a0', 'sp', '8']              ;   780
+ 1112: 0x00113c23   sd       ra,24(sp)             ['ra', 'sp', '24']             ;   781
+aval-pre: ( 216 - 279 ) << 2 = -252
+aval-post: 0
+ 1116: 0x00000097   auipc    ra,%hi(_Z13wait_for_fullRyS_)  ['ra', '0']                    ;   783
+aval-pre: ( 216 - 280 ) << 2 = -256
+aval-post: 3844
+ 1120: 0xf0408093   addi     ra,ra,%lo(_Z13wait_for_fullRyS_)  ['ra', 'ra', '3844']           ;   783
+ 1124: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   783
+ 1128: 0x00013703   ld       a4,0(sp)              ['a4', 'sp', '0']              ;   784
+ 1132: 0x00813783   ld       a5,8(sp)              ['a5', 'sp', '8']              ;   785
+ 1136: 0x40f70733   sub      a4,a4,a5              ['a4', 'a4', 'a5']             ;   786
+ 1140: 0x00075463   bge      a4,zero,8             ['a4', 'zero', '8']            ;   787
+ 1144: 0x20070713   addi     a4,a4,512             ['a4', 'a4', '512']            ;   788
+ 1148: 0x008006b7   lui      a3,2048               ['a3', '2048']                 ;   790
+ 1152: 0x00068693   addi     a3,a3,0               ['a3', 'a3', '0']              ;   790
+ 1156: 0x000017b7   lui      a5,1                  ['a5', '1']                    ;   791
+ 1160: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   791
+ 1164: 0x00368693   addi     a3,a3,3               ['a3', 'a3', '3']              ;   792
+ 1168: 0x00100813   addi     a6,zero,1             ['a6', 'zero', '1']            ;   793
+ 1172: 0x80078593   addi     a1,a5,-2048           ['a1', 'a5', '-2048']          ;   794
+ 1176: 0x00000613   addi     a2,zero,0             ['a2', 'zero', '0']            ;   795
+ 1180: 0xff878513   addi     a0,a5,-8              ['a0', 'a5', '-8']             ;   796
+ 1184: 0x00c69693   slli     a3,a3,12              ['a3', 'a3', '12']             ;   797
+ 1188: 0x02381813   slli     a6,a6,35              ['a6', 'a6', '35']             ;   798
+ 1192: 0x02e61463   bne      a2,a4,40              ['a2', 'a4', '40']             ;   800
+ 1196: 0x00100513   addi     a0,zero,1             ['a0', 'zero', '1']            ;   801
+aval-pre: ( 247 - 300 ) << 2 = -212
+aval-post: 0
+ 1200: 0x00000097   auipc    ra,%hi(_Z13wait_for_syncy)  ['ra', '0']                    ;   802
+aval-pre: ( 247 - 301 ) << 2 = -216
+aval-post: 3884
+ 1204: 0xf2c08093   addi     ra,ra,%lo(_Z13wait_for_syncy)  ['ra', 'ra', '3884']           ;   802
+ 1208: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   802
+ 1212: 0x00000793   addi     a5,zero,0             ['a5', 'zero', '0']            ;   803
+ 1216: 0x00f7b023   sd       a5,0(a5)              ['a5', 'a5', '0']              ;   806
+ 1220: 0x01813083   ld       ra,24(sp)             ['ra', 'sp', '24']             ;   809
+ 1224: 0x02010113   addi     sp,sp,32              ['sp', 'sp', '32']             ;   812
+ 1228: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   814
+ 1232: 0x00813783   ld       a5,8(sp)              ['a5', 'sp', '8']              ;   817
+ 1236: 0x00f607b3   add      a5,a2,a5              ['a5', 'a2', 'a5']             ;   818
+ 1240: 0x00379793   slli     a5,a5,3               ['a5', 'a5', '3']              ;   819
+ 1244: 0x00a7f7b3   and      a5,a5,a0              ['a5', 'a5', 'a0']             ;   820
+ 1248: 0x00d788b3   add      a7,a5,a3              ['a7', 'a5', 'a3']             ;   821
+ 1252: 0x0008b883   ld       a7,0(a7)              ['a7', 'a7', '0']              ;   824
+ 1256: 0x010787b3   add      a5,a5,a6              ['a5', 'a5', 'a6']             ;   827
+ 1260: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   830
+ 1264: 0x0115b023   sd       a7,0(a1)              ['a7', 'a1', '0']              ;   833
+ 1268: 0x40058893   addi     a7,a1,1024            ['a7', 'a1', '1024']           ;   836
+ 1272: 0x00f8b023   sd       a5,0(a7)              ['a5', 'a7', '0']              ;   839
+ 1276: 0x00160613   addi     a2,a2,1               ['a2', 'a2', '1']              ;   842
+ 1280: 0x00858593   addi     a1,a1,8               ['a1', 'a1', '8']              ;   843
+ 1284: 0xfa5ff06f   jal      zero,-92              ['zero', '-92']                ;   844
+ 1288: 0x0005b703   ld       a4,0(a1)              ['a4', 'a1', '0']              ;   854
+ 1292: 0x00361613   slli     a2,a2,3               ['a2', 'a2', '3']              ;   855
+ 1296: 0x04000793   addi     a5,zero,64            ['a5', 'zero', '64']           ;   856
+ 1300: 0x40c787b3   sub      a5,a5,a2              ['a5', 'a5', 'a2']             ;   857
+ 1304: 0x02079793   slli     a5,a5,32              ['a5', 'a5', '32']             ;   857
+ 1308: 0x0207d793   srli     a5,a5,32              ['a5', 'a5', '32']             ;   857
+ 1312: 0x00f75733   srl      a4,a4,a5              ['a4', 'a4', 'a5']             ;   858
+ 1316: 0x00e5b023   sd       a4,0(a1)              ['a4', 'a1', '0']              ;   859
+ 1320: 0x00053783   ld       a5,0(a0)              ['a5', 'a0', '0']              ;   860
+ 1324: 0x00c797b3   sll      a5,a5,a2              ['a5', 'a5', 'a2']             ;   861
+ 1328: 0x00e787b3   add      a5,a5,a4              ['a5', 'a5', 'a4']             ;   862
+ 1332: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   863
+ 1336: 0x00700793   addi     a5,zero,7             ['a5', 'zero', '7']            ;   864
+ 1340: 0x02d7e663   bltu     a5,a3,44              ['a5', 'a3', '44']             ;   865
+ 1344: 0x00369693   slli     a3,a3,3               ['a3', 'a3', '3']              ;   871
+ 1348: 0x02069693   slli     a3,a3,32              ['a3', 'a3', '32']             ;   871
+ 1352: 0x0206d693   srli     a3,a3,32              ['a3', 'a3', '32']             ;   871
+ 1356: 0xfff00793   addi     a5,zero,-1            ['a5', 'zero', '-1']           ;   874
+ 1360: 0x00d7d7b3   srl      a5,a5,a3              ['a5', 'a5', 'a3']             ;   877
+ 1364: 0x00053683   ld       a3,0(a0)              ['a3', 'a0', '0']              ;   878
+ 1368: 0xfff7c713   xori     a4,a5,-1              ['a4', 'a5', '-1']             ;   879
+ 1372: 0x00d77733   and      a4,a4,a3              ['a4', 'a4', 'a3']             ;   880
+ 1376: 0x00f707b3   add      a5,a4,a5              ['a5', 'a4', 'a5']             ;   881
+ 1380: 0x00f53023   sd       a5,0(a0)              ['a5', 'a0', '0']              ;   882
+ 1384: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   884
+ 1388: 0x01060793   addi     a5,a2,16              ['a5', 'a2', '16']             ;   894
+ 1392: 0x0037d793   srli     a5,a5,3               ['a5', 'a5', '3']              ;   895
+ 1396: 0x00b785b3   add      a1,a5,a1              ['a1', 'a5', 'a1']             ;   896
+ 1400: 0x1ff5f593   andi     a1,a1,511             ['a1', 'a1', '511']            ;   897
+ 1404: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   898
+ 1408: 0x00767693   andi     a3,a2,7               ['a3', 'a2', '7']              ;   899
+ 1412: 0x00359813   slli     a6,a1,3               ['a6', 'a1', '3']              ;   900
+ 1416: 0x02379793   slli     a5,a5,35              ['a5', 'a5', '35']             ;   901
+ 1420: 0x00400713   addi     a4,zero,4             ['a4', 'zero', '4']            ;   902
+ 1424: 0x00068613   addi     a2,a3,0               ['a2', 'a3', '0']              ;   903
+ 1428: 0x00f80833   add      a6,a6,a5              ['a6', 'a6', 'a5']             ;   904
+ 1432: 0x04d76863   bltu     a4,a3,80              ['a4', 'a3', '80']             ;   905
+ 1436: 0x00083683   ld       a3,0(a6)              ['a3', 'a6', '0']              ;   908
+ 1440: 0x40c70733   sub      a4,a4,a2              ['a4', 'a4', 'a2']             ;   911
+ 1444: 0x02071713   slli     a4,a4,32              ['a4', 'a4', '32']             ;   911
+ 1448: 0x02075713   srli     a4,a4,32              ['a4', 'a4', '32']             ;   911
+ 1452: 0x00371713   slli     a4,a4,3               ['a4', 'a4', '3']              ;   912
+ 1456: 0x02071713   slli     a4,a4,32              ['a4', 'a4', '32']             ;   912
+ 1460: 0x02075713   srli     a4,a4,32              ['a4', 'a4', '32']             ;   912
+ 1464: 0xfff00793   addi     a5,zero,-1            ['a5', 'zero', '-1']           ;   913
+ 1468: 0x00e797b3   sll      a5,a5,a4              ['a5', 'a5', 'a4']             ;   914
+ 1472: 0x02079793   slli     a5,a5,32              ['a5', 'a5', '32']             ;   914
+ 1476: 0x0207d793   srli     a5,a5,32              ['a5', 'a5', '32']             ;   914
+ 1480: 0xfff7c793   xori     a5,a5,-1              ['a5', 'a5', '-1']             ;   915
+ 1484: 0x02079793   slli     a5,a5,32              ['a5', 'a5', '32']             ;   916
+ 1488: 0x0207d793   srli     a5,a5,32              ['a5', 'a5', '32']             ;   917
+ 1492: 0x00d7f7b3   and      a5,a5,a3              ['a5', 'a5', 'a3']             ;   918
+ 1496: 0x00e51733   sll      a4,a0,a4              ['a4', 'a0', 'a4']             ;   919
+ 1500: 0x00e78533   add      a0,a5,a4              ['a0', 'a5', 'a4']             ;   920
+ 1504: 0x00a83023   sd       a0,0(a6)              ['a0', 'a6', '0']              ;   923
+ 1508: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   926
+ 1512: 0x00083303   ld       t1,0(a6)              ['t1', 'a6', '0']              ;   930
+ 1516: 0x00158593   addi     a1,a1,1               ['a1', 'a1', '1']              ;   933
+ 1520: 0x00359593   slli     a1,a1,3               ['a1', 'a1', '3']              ;   934
+ 1524: 0x00f585b3   add      a1,a1,a5              ['a1', 'a1', 'a5']             ;   935
+ 1528: 0x0005b883   ld       a7,0(a1)              ['a7', 'a1', '0']              ;   938
+ 1532: 0x00800693   addi     a3,zero,8             ['a3', 'zero', '8']            ;   941
+ 1536: 0x40c686b3   sub      a3,a3,a2              ['a3', 'a3', 'a2']             ;   942
+ 1540: 0x02069693   slli     a3,a3,32              ['a3', 'a3', '32']             ;   942
+ 1544: 0x0206d693   srli     a3,a3,32              ['a3', 'a3', '32']             ;   942
+ 1548: 0x00369693   slli     a3,a3,3               ['a3', 'a3', '3']              ;   943
+ 1552: 0x02069693   slli     a3,a3,32              ['a3', 'a3', '32']             ;   943
+ 1556: 0x0206d693   srli     a3,a3,32              ['a3', 'a3', '32']             ;   943
+ 1560: 0xfff00793   addi     a5,zero,-1            ['a5', 'zero', '-1']           ;   944
+ 1564: 0x00d7d733   srl      a4,a5,a3              ['a4', 'a5', 'a3']             ;   945
+ 1568: 0x02071713   slli     a4,a4,32              ['a4', 'a4', '32']             ;   945
+ 1572: 0x02075713   srli     a4,a4,32              ['a4', 'a4', '32']             ;   945
+ 1576: 0xfff74713   xori     a4,a4,-1              ['a4', 'a4', '-1']             ;   946
+ 1580: 0x02071713   slli     a4,a4,32              ['a4', 'a4', '32']             ;   947
+ 1584: 0x02075713   srli     a4,a4,32              ['a4', 'a4', '32']             ;   948
+ 1588: 0x00677733   and      a4,a4,t1              ['a4', 'a4', 't1']             ;   949
+ 1592: 0x00d556b3   srl      a3,a0,a3              ['a3', 'a0', 'a3']             ;   950
+ 1596: 0xffc60613   addi     a2,a2,-4              ['a2', 'a2', '-4']             ;   951
+ 1600: 0x02061613   slli     a2,a2,32              ['a2', 'a2', '32']             ;   951
+ 1604: 0x02065613   srli     a2,a2,32              ['a2', 'a2', '32']             ;   951
+ 1608: 0x00361613   slli     a2,a2,3               ['a2', 'a2', '3']              ;   952
+ 1612: 0x02061613   slli     a2,a2,32              ['a2', 'a2', '32']             ;   952
+ 1616: 0x02065613   srli     a2,a2,32              ['a2', 'a2', '32']             ;   952
+ 1620: 0x00d70733   add      a4,a4,a3              ['a4', 'a4', 'a3']             ;   953
+ 1624: 0x00e83023   sd       a4,0(a6)              ['a4', 'a6', '0']              ;   956
+ 1628: 0x00c7d7b3   srl      a5,a5,a2              ['a5', 'a5', 'a2']             ;   959
+ 1632: 0x02079793   slli     a5,a5,32              ['a5', 'a5', '32']             ;   959
+ 1636: 0x0207d793   srli     a5,a5,32              ['a5', 'a5', '32']             ;   959
+ 1640: 0xfff7c793   xori     a5,a5,-1              ['a5', 'a5', '-1']             ;   960
+ 1644: 0x02079793   slli     a5,a5,32              ['a5', 'a5', '32']             ;   961
+ 1648: 0x0207d793   srli     a5,a5,32              ['a5', 'a5', '32']             ;   962
+ 1652: 0x0117f7b3   and      a5,a5,a7              ['a5', 'a5', 'a7']             ;   963
+ 1656: 0x00c51533   sll      a0,a0,a2              ['a0', 'a0', 'a2']             ;   964
+ 1660: 0x00a78533   add      a0,a5,a0              ['a0', 'a5', 'a0']             ;   965
+ 1664: 0x00a5b023   sd       a0,0(a1)              ['a0', 'a1', '0']              ;   968
+ 1668: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   971
+ 1672: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   981
+ 1676: 0xfe010113   addi     sp,sp,-32             ['sp', 'sp', '-32']            ;   982
+ 1680: 0x03e79793   slli     a5,a5,62              ['a5', 'a5', '62']             ;   984
+ 1684: 0x00050e13   addi     t3,a0,0               ['t3', 'a0', '0']              ;   985
+ 1688: 0xfff00e93   addi     t4,zero,-1            ['t4', 'zero', '-1']           ;   986
+ 1692: 0x0000c537   lui      a0,12                 ['a0', '12']                   ;   987
+ 1696: 0x00050513   addi     a0,a0,0               ['a0', 'a0', '0']              ;   987
+ 1700: 0x00813c23   sd       s0,24(sp)             ['s0', 'sp', '24']             ;   988
+ 1704: 0x00913823   sd       s1,16(sp)             ['s1', 'sp', '16']             ;   989
+ 1708: 0x01213423   sd       s2,8(sp)              ['s2', 'sp', '8']              ;   990
+ 1712: 0x08000713   addi     a4,zero,128           ['a4', 'zero', '128']          ;   994
+ 1716: 0x00000313   addi     t1,zero,0             ['t1', 'zero', '0']            ;   995
+ 1720: 0xad450513   addi     a0,a0,-1324           ['a0', 'a0', '-1324']          ;   996
+ 1724: 0x01078293   addi     t0,a5,16              ['t0', 'a5', '16']             ;   997
+ 1728: 0x01878393   addi     t2,a5,24              ['t2', 'a5', '24']             ;   998
+ 1732: 0x02078413   addi     s0,a5,32              ['s0', 'a5', '32']             ;   999
+ 1736: 0x01000493   addi     s1,zero,16            ['s1', 'zero', '16']           ;   1000
+ 1740: 0x008ede93   srli     t4,t4,8               ['t4', 't4', '8']              ;   1001
+ 1744: 0x0c000f93   addi     t6,zero,192           ['t6', 'zero', '192']          ;   1002
+ 1748: 0x00073683   ld       a3,0(a4)              ['a3', 'a4', '0']              ;   1009
+ 1752: 0x00870813   addi     a6,a4,8               ['a6', 'a4', '8']              ;   1012
+ 1756: 0x00083803   ld       a6,0(a6)              ['a6', 'a6', '0']              ;   1015
+ 1760: 0x01c7b023   sd       t3,0(a5)              ['t3', 'a5', '0']              ;   1018
+ 1764: 0x00d2b023   sd       a3,0(t0)              ['a3', 't0', '0']              ;   1021
+ 1768: 0x02085693   srli     a3,a6,32              ['a3', 'a6', '32']             ;   1024
+ 1772: 0x00d3b023   sd       a3,0(t2)              ['a3', 't2', '0']              ;   1027
+ 1776: 0x00043903   ld       s2,0(s0)              ['s2', 's0', '0']              ;   1030
+ 1780: 0x00000893   addi     a7,zero,0             ['a7', 'zero', '0']            ;   1033
+ 1784: 0x00000693   addi     a3,zero,0             ['a3', 'zero', '0']            ;   1034
+ 1788: 0x01195f33   srl      t5,s2,a7              ['t5', 's2', 'a7']             ;   1036
+ 1792: 0x001f7f13   andi     t5,t5,1               ['t5', 't5', '1']              ;   1037
+ 1796: 0x00188893   addi     a7,a7,1               ['a7', 'a7', '1']              ;   1038
+ 1800: 0x01e686b3   add      a3,a3,t5              ['a3', 'a3', 't5']             ;   1039
+ 1804: 0xfe9898e3   bne      a7,s1,-16             ['a7', 's1', '-16']            ;   1040
+ 1808: 0x00d37663   bgeu     t1,a3,12              ['t1', 'a3', '12']             ;   1041
+ 1812: 0x01d87533   and      a0,a6,t4              ['a0', 'a6', 't4']             ;   1042
+ 1816: 0x00068313   addi     t1,a3,0               ['t1', 'a3', '0']              ;   1043
+ 1820: 0x01070713   addi     a4,a4,16              ['a4', 'a4', '16']             ;   1045
+ 1824: 0xfbf71ae3   bne      a4,t6,-76             ['a4', 't6', '-76']            ;   1046
+ 1828: 0x01800793   addi     a5,zero,24            ['a5', 'zero', '24']           ;   1047
+ 1832: 0x00a7b023   sd       a0,0(a5)              ['a0', 'a5', '0']              ;   1050
+ 1836: 0x02000793   addi     a5,zero,32            ['a5', 'zero', '32']           ;   1053
+ 1840: 0x0067b023   sd       t1,0(a5)              ['t1', 'a5', '0']              ;   1056
+ 1844: 0x01813403   ld       s0,24(sp)             ['s0', 'sp', '24']             ;   1059
+ 1848: 0x01013483   ld       s1,16(sp)             ['s1', 'sp', '16']             ;   1061
+ 1852: 0x00813903   ld       s2,8(sp)              ['s2', 'sp', '8']              ;   1063
+ 1856: 0x02010113   addi     sp,sp,32              ['sp', 'sp', '32']             ;   1065
+aval-pre: ( 347 - 465 ) << 2 = -472
+aval-post: 0
+ 1860: 0x00000317   auipc    t1,%hi(_Z14update_dest_ipyyy)  ['t1', '0']                    ;   1067
+aval-pre: ( 347 - 466 ) << 2 = -476
+aval-post: 3624
+ 1864: 0xe2830313   addi     t1,t1,%lo(_Z14update_dest_ipyyy)  ['t1', 't1', '3624']           ;   1067
+ 1868: 0x00030067   jalr     zero,t1,0             ['zero', 't1', '0']            ;   1067
+ 1872: 0x00c60613   addi     a2,a2,12              ['a2', 'a2', '12']             ;   1077
+ 1876: 0x00767793   andi     a5,a2,7               ['a5', 'a2', '7']              ;   1078
+ 1880: 0x00365613   srli     a2,a2,3               ['a2', 'a2', '3']              ;   1079
+ 1884: 0x00b60633   add      a2,a2,a1              ['a2', 'a2', 'a1']             ;   1080
+ 1888: 0x1ff67613   andi     a2,a2,511             ['a2', 'a2', '511']            ;   1081
+ 1892: 0x00100593   addi     a1,zero,1             ['a1', 'zero', '1']            ;   1082
+ 1896: 0x00361713   slli     a4,a2,3               ['a4', 'a2', '3']              ;   1083
+ 1900: 0x02359593   slli     a1,a1,35              ['a1', 'a1', '35']             ;   1084
+ 1904: 0x00b70733   add      a4,a4,a1              ['a4', 'a4', 'a1']             ;   1085
+ 1908: 0x00073703   ld       a4,0(a4)              ['a4', 'a4', '0']              ;   1088
+ 1912: 0x00379893   slli     a7,a5,3               ['a7', 'a5', '3']              ;   1091
+ 1916: 0x02089893   slli     a7,a7,32              ['a7', 'a7', '32']             ;   1091
+ 1920: 0x0208d893   srli     a7,a7,32              ['a7', 'a7', '32']             ;   1091
+ 1924: 0x01171733   sll      a4,a4,a7              ['a4', 'a4', 'a7']             ;   1092
+ 1928: 0x00400893   addi     a7,zero,4             ['a7', 'zero', '4']            ;   1093
+ 1932: 0x02079813   slli     a6,a5,32              ['a6', 'a5', '32']             ;   1094
+ 1936: 0x02085813   srai     a6,a6,32              ['a6', 'a6', '32']             ;   1094
+ 1940: 0x02075713   srli     a4,a4,32              ['a4', 'a4', '32']             ;   1095
+ 1944: 0x04f8f463   bgeu     a7,a5,72              ['a7', 'a5', '72']             ;   1096
+ 1948: 0x00160793   addi     a5,a2,1               ['a5', 'a2', '1']              ;   1097
+ 1952: 0x00001637   lui      a2,1                  ['a2', '1']                    ;   1098
+ 1956: 0x00060613   addi     a2,a2,0               ['a2', 'a2', '0']              ;   1098
+ 1960: 0xff860613   addi     a2,a2,-8              ['a2', 'a2', '-8']             ;   1099
+ 1964: 0x00379793   slli     a5,a5,3               ['a5', 'a5', '3']              ;   1100
+ 1968: 0x00c7f7b3   and      a5,a5,a2              ['a5', 'a5', 'a2']             ;   1101
+ 1972: 0x00b787b3   add      a5,a5,a1              ['a5', 'a5', 'a1']             ;   1102
+ 1976: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   1105
+ 1980: 0x00c00613   addi     a2,zero,12            ['a2', 'zero', '12']           ;   1108
+ 1984: 0x41060633   sub      a2,a2,a6              ['a2', 'a2', 'a6']             ;   1109
+ 1988: 0x02061613   slli     a2,a2,32              ['a2', 'a2', '32']             ;   1109
+ 1992: 0x02065613   srli     a2,a2,32              ['a2', 'a2', '32']             ;   1109
+ 1996: 0x00361613   slli     a2,a2,3               ['a2', 'a2', '3']              ;   1110
+ 2000: 0x02061613   slli     a2,a2,32              ['a2', 'a2', '32']             ;   1110
+ 2004: 0x02065613   srli     a2,a2,32              ['a2', 'a2', '32']             ;   1110
+ 2008: 0x00c7d7b3   srl      a5,a5,a2              ['a5', 'a5', 'a2']             ;   1111
+ 2012: 0x00f70733   add      a4,a4,a5              ['a4', 'a4', 'a5']             ;   1112
+ 2016: 0x0006b023   sd       zero,0(a3)            ['zero', 'a3', '0']            ;   1114
+ 2020: 0x02000593   addi     a1,zero,32            ['a1', 'zero', '32']           ;   1115
+ 2024: 0x10000793   addi     a5,zero,256           ['a5', 'zero', '256']          ;   1116
+ 2028: 0x00100893   addi     a7,zero,1             ['a7', 'zero', '1']            ;   1117
+ 2032: 0x0a000813   addi     a6,zero,160           ['a6', 'zero', '160']          ;   1118
+ 2036: 0x0007b603   ld       a2,0(a5)              ['a2', 'a5', '0']              ;   1122
+ 2040: 0x02060663   beq      a2,zero,44            ['a2', 'zero', '44']           ;   1125
+ 2044: 0x02c51463   bne      a0,a2,40              ['a0', 'a2', '40']             ;   1126
+ 2048: 0x0116b023   sd       a7,0(a3)              ['a7', 'a3', '0']              ;   1132
+ 2052: 0x00878613   addi     a2,a5,8               ['a2', 'a5', '8']              ;   1133
+ 2056: 0x04078313   addi     t1,a5,64              ['t1', 'a5', '64']             ;   1134
+ 2060: 0x00063e03   ld       t3,0(a2)              ['t3', 'a2', '0']              ;   1138
+ 2064: 0x000e1663   bne      t3,zero,12            ['t3', 'zero', '12']           ;   1141
+ 2068: 0x00e63023   sd       a4,0(a2)              ['a4', 'a2', '0']              ;   1147
+ 2072: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   1150
+ 2076: 0x00860613   addi     a2,a2,8               ['a2', 'a2', '8']              ;   1152
+ 2080: 0xfe6616e3   bne      a2,t1,-20             ['a2', 't1', '-20']            ;   1153
+ 2084: 0x00858593   addi     a1,a1,8               ['a1', 'a1', '8']              ;   1155
+ 2088: 0x04078793   addi     a5,a5,64              ['a5', 'a5', '64']             ;   1156
+ 2092: 0xfd0594e3   bne      a1,a6,-56             ['a1', 'a6', '-56']            ;   1157
+ 2096: 0x0006b783   ld       a5,0(a3)              ['a5', 'a3', '0']              ;   1158
+ 2100: 0x04079e63   bne      a5,zero,92            ['a5', 'zero', '92']           ;   1159
+ 2104: 0x02000793   addi     a5,zero,32            ['a5', 'zero', '32']           ;   1165
+ 2108: 0x0a000593   addi     a1,zero,160           ['a1', 'zero', '160']          ;   1166
+ 2112: 0x00379613   slli     a2,a5,3               ['a2', 'a5', '3']              ;   1168
+ 2116: 0x00063803   ld       a6,0(a2)              ['a6', 'a2', '0']              ;   1171
+ 2120: 0x02081c63   bne      a6,zero,56            ['a6', 'zero', '56']           ;   1174
+ 2124: 0x00a63023   sd       a0,0(a2)              ['a0', 'a2', '0']              ;   1180
+ 2128: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   1183
+ 2132: 0x00379793   slli     a5,a5,3               ['a5', 'a5', '3']              ;   1184
+ 2136: 0x00e7b023   sd       a4,0(a5)              ['a4', 'a5', '0']              ;   1187
+ 2140: 0x00200793   addi     a5,zero,2             ['a5', 'zero', '2']            ;   1190
+ 2144: 0x00000593   addi     a1,zero,0             ['a1', 'zero', '0']            ;   1191
+ 2148: 0x00800693   addi     a3,zero,8             ['a3', 'zero', '8']            ;   1192
+ 2152: 0x00379713   slli     a4,a5,3               ['a4', 'a5', '3']              ;   1194
+ 2156: 0x00c70733   add      a4,a4,a2              ['a4', 'a4', 'a2']             ;   1195
+ 2160: 0x00b73023   sd       a1,0(a4)              ['a1', 'a4', '0']              ;   1198
+ 2164: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   1201
+ 2168: 0xfed798e3   bne      a5,a3,-16             ['a5', 'a3', '-16']            ;   1202
+ 2172: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   1203
+ 2176: 0x00878793   addi     a5,a5,8               ['a5', 'a5', '8']              ;   1205
+ 2180: 0xfab79ee3   bne      a5,a1,-68             ['a5', 'a1', '-68']            ;   1206
+ 2184: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   1207
+ 2188: 0x00f6b023   sd       a5,0(a3)              ['a5', 'a3', '0']              ;   1208
+ 2192: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   1210
+ 2196: 0xfa010113   addi     sp,sp,-96             ['sp', 'sp', '-96']            ;   1220
+ 2200: 0x04813823   sd       s0,80(sp)             ['s0', 'sp', '80']             ;   1222
+ 2204: 0x01a13023   sd       s10,0(sp)             ['s10', 'sp', '0']             ;   1223
+ 2208: 0x00100437   lui      s0,256                ['s0', '256']                  ;   1226
+ 2212: 0x00040413   addi     s0,s0,0               ['s0', 's0', '0']              ;   1226
+ 2216: 0x00800d37   lui      s10,2048              ['s10', '2048']                ;   1227
+ 2220: 0x000d0d13   addi     s10,s10,0             ['s10', 's10', '0']            ;   1227
+ 2224: 0x01713c23   sd       s7,24(sp)             ['s7', 'sp', '24']             ;   1228
+ 2228: 0x00140413   addi     s0,s0,1               ['s0', 's0', '1']              ;   1229
+ 2232: 0x007d0b93   addi     s7,s10,7              ['s7', 's10', '7']             ;   1231
+ 2236: 0x04913423   sd       s1,72(sp)             ['s1', 'sp', '72']             ;   1232
+ 2240: 0x03313c23   sd       s3,56(sp)             ['s3', 'sp', '56']             ;   1233
+ 2244: 0x03413823   sd       s4,48(sp)             ['s4', 'sp', '48']             ;   1234
+ 2248: 0x03513423   sd       s5,40(sp)             ['s5', 'sp', '40']             ;   1235
+ 2252: 0x03613023   sd       s6,32(sp)             ['s6', 'sp', '32']             ;   1236
+ 2256: 0x04113c23   sd       ra,88(sp)             ['ra', 'sp', '88']             ;   1237
+ 2260: 0x05213023   sd       s2,64(sp)             ['s2', 'sp', '64']             ;   1238
+ 2264: 0x01813823   sd       s8,16(sp)             ['s8', 'sp', '16']             ;   1239
+ 2268: 0x01913423   sd       s9,8(sp)              ['s9', 'sp', '8']              ;   1240
+ 2272: 0x00050a93   addi     s5,a0,0               ['s5', 'a0', '0']              ;   1250
+ 2276: 0x00058993   addi     s3,a1,0               ['s3', 'a1', '0']              ;   1251
+ 2280: 0x00060b13   addi     s6,a2,0               ['s6', 'a2', '0']              ;   1252
+ 2284: 0x02000a13   addi     s4,zero,32            ['s4', 'zero', '32']           ;   1253
+ 2288: 0x10000493   addi     s1,zero,256           ['s1', 'zero', '256']          ;   1254
+ 2292: 0x00f41413   slli     s0,s0,15              ['s0', 's0', '15']             ;   1255
+ 2296: 0x00cb9b93   slli     s7,s7,12              ['s7', 's7', '12']             ;   1256
+ 2300: 0x0004b783   ld       a5,0(s1)              ['a5', 's1', '0']              ;   1260
+ 2304: 0x04048c93   addi     s9,s1,64              ['s9', 's1', '64']             ;   1263
+ 2308: 0x06fa9263   bne      s5,a5,100             ['s5', 'a5', '100']            ;   1264
+ 2312: 0x005d0c13   addi     s8,s10,5              ['s8', 's10', '5']             ;   1270
+ 2316: 0x00848913   addi     s2,s1,8               ['s2', 's1', '8']              ;   1271
+ 2320: 0x00cc1c13   slli     s8,s8,12              ['s8', 's8', '12']             ;   1272
+ 2324: 0x00093503   ld       a0,0(s2)              ['a0', 's2', '0']              ;   1276
+ 2328: 0x04050063   beq      a0,zero,64            ['a0', 'zero', '64']           ;   1279
+ 2332: 0x000b0613   addi     a2,s6,0               ['a2', 's6', '0']              ;   1280
+ 2336: 0x00098593   addi     a1,s3,0               ['a1', 's3', '0']              ;   1281
+aval-pre: ( 347 - 585 ) << 2 = -952
+aval-post: 0
+ 2340: 0x00000097   auipc    ra,%hi(_Z14update_dest_ipyyy)  ['ra', '0']                    ;   1282
+aval-pre: ( 347 - 586 ) << 2 = -956
+aval-post: 3144
+ 2344: 0xc4808093   addi     ra,ra,%lo(_Z14update_dest_ipyyy)  ['ra', 'ra', '3144']           ;   1282
+ 2348: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1282
+ 2352: 0x00100793   addi     a5,zero,1             ['a5', 'zero', '1']            ;   1283
+ 2356: 0x00f43023   sd       a5,0(s0)              ['a5', 's0', '0']              ;   1286
+ 2360: 0x000bb023   sd       zero,0(s7)            ['zero', 's7', '0']            ;   1289
+aval-pre: ( 235 - 591 ) << 2 = -1424
+aval-post: 0
+ 2364: 0x00000097   auipc    ra,%hi(_Z13wait_for_donev)  ['ra', '0']                    ;   1292
+aval-pre: ( 235 - 592 ) << 2 = -1428
+aval-post: 2672
+ 2368: 0xa7008093   addi     ra,ra,%lo(_Z13wait_for_donev)  ['ra', 'ra', '2672']           ;   1292
+ 2372: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1292
+ 2376: 0x013c3023   sd       s3,0(s8)              ['s3', 's8', '0']              ;   1295
+ 2380: 0x00000793   addi     a5,zero,0             ['a5', 'zero', '0']            ;   1298
+ 2384: 0x00f43023   sd       a5,0(s0)              ['a5', 's0', '0']              ;   1301
+ 2388: 0x00f93023   sd       a5,0(s2)              ['a5', 's2', '0']              ;   1304
+ 2392: 0x00890913   addi     s2,s2,8               ['s2', 's2', '8']              ;   1308
+ 2396: 0xfb991ce3   bne      s2,s9,-72             ['s2', 's9', '-72']            ;   1309
+ 2400: 0x00000793   addi     a5,zero,0             ['a5', 'zero', '0']            ;   1310
+ 2404: 0x00f4b023   sd       a5,0(s1)              ['a5', 's1', '0']              ;   1313
+ 2408: 0x008a0a13   addi     s4,s4,8               ['s4', 's4', '8']              ;   1317
+ 2412: 0x0a000793   addi     a5,zero,160           ['a5', 'zero', '160']          ;   1318
+ 2416: 0x000c8493   addi     s1,s9,0               ['s1', 's9', '0']              ;   1319
+ 2420: 0xf8fa14e3   bne      s4,a5,-120            ['s4', 'a5', '-120']           ;   1320
+ 2424: 0x05813083   ld       ra,88(sp)             ['ra', 'sp', '88']             ;   1321
+ 2428: 0x05013403   ld       s0,80(sp)             ['s0', 'sp', '80']             ;   1323
+ 2432: 0x04813483   ld       s1,72(sp)             ['s1', 'sp', '72']             ;   1325
+ 2436: 0x04013903   ld       s2,64(sp)             ['s2', 'sp', '64']             ;   1327
+ 2440: 0x03813983   ld       s3,56(sp)             ['s3', 'sp', '56']             ;   1329
+ 2444: 0x03013a03   ld       s4,48(sp)             ['s4', 'sp', '48']             ;   1331
+ 2448: 0x02813a83   ld       s5,40(sp)             ['s5', 'sp', '40']             ;   1333
+ 2452: 0x02013b03   ld       s6,32(sp)             ['s6', 'sp', '32']             ;   1335
+ 2456: 0x01813b83   ld       s7,24(sp)             ['s7', 'sp', '24']             ;   1337
+ 2460: 0x01013c03   ld       s8,16(sp)             ['s8', 'sp', '16']             ;   1339
+ 2464: 0x00813c83   ld       s9,8(sp)              ['s9', 'sp', '8']              ;   1341
+ 2468: 0x00013d03   ld       s10,0(sp)             ['s10', 'sp', '0']             ;   1343
+ 2472: 0x06010113   addi     sp,sp,96              ['sp', 'sp', '96']             ;   1345
+ 2476: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   1347
+ 2480: 0x00355793   srli     a5,a0,3               ['a5', 'a0', '3']              ;   1357
+ 2484: 0xfa010113   addi     sp,sp,-96             ['sp', 'sp', '-96']            ;   1358
+ 2488: 0x00c787b3   add      a5,a5,a2              ['a5', 'a5', 'a2']             ;   1360
+ 2492: 0x03313c23   sd       s3,56(sp)             ['s3', 'sp', '56']             ;   1361
+ 2496: 0x1ff7f793   andi     a5,a5,511             ['a5', 'a5', '511']            ;   1362
+ 2500: 0x00100993   addi     s3,zero,1             ['s3', 'zero', '1']            ;   1364
+ 2504: 0x05213023   sd       s2,64(sp)             ['s2', 'sp', '64']             ;   1365
+ 2508: 0x00379713   slli     a4,a5,3               ['a4', 'a5', '3']              ;   1366
+ 2512: 0x02399913   slli     s2,s3,35              ['s2', 's3', '35']             ;   1368
+ 2516: 0x04813823   sd       s0,80(sp)             ['s0', 'sp', '80']             ;   1369
+ 2520: 0x04913423   sd       s1,72(sp)             ['s1', 'sp', '72']             ;   1370
+ 2524: 0x04113c23   sd       ra,88(sp)             ['ra', 'sp', '88']             ;   1371
+ 2528: 0x00060413   addi     s0,a2,0               ['s0', 'a2', '0']              ;   1375
+ 2532: 0x00068493   addi     s1,a3,0               ['s1', 'a3', '0']              ;   1376
+ 2536: 0x01270733   add      a4,a4,s2              ['a4', 'a4', 's2']             ;   1377
+ 2540: 0x00073703   ld       a4,0(a4)              ['a4', 'a4', '0']              ;   1380
+ 2544: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   1383
+ 2548: 0x00379793   slli     a5,a5,3               ['a5', 'a5', '3']              ;   1384
+ 2552: 0x00e13c23   sd       a4,24(sp)             ['a4', 'sp', '24']             ;   1385
+ 2556: 0x012787b3   add      a5,a5,s2              ['a5', 'a5', 's2']             ;   1386
+ 2560: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   1389
+ 2564: 0x00058693   addi     a3,a1,0               ['a3', 'a1', '0']              ;   1392
+ 2568: 0x00757613   andi     a2,a0,7               ['a2', 'a0', '7']              ;   1393
+ 2572: 0x02010593   addi     a1,sp,32              ['a1', 'sp', '32']             ;   1394
+ 2576: 0x01810513   addi     a0,sp,24              ['a0', 'sp', '24']             ;   1395
+ 2580: 0x02f13023   sd       a5,32(sp)             ['a5', 'sp', '32']             ;   1396
+aval-pre: ( 322 - 646 ) << 2 = -1296
+aval-post: 0
+ 2584: 0x00000097   auipc    ra,%hi(_Z10align_nameRyS_yy)  ['ra', '0']                    ;   1397
+aval-pre: ( 322 - 647 ) << 2 = -1300
+aval-post: 2800
+ 2588: 0xaf008093   addi     ra,ra,%lo(_Z10align_nameRyS_yy)  ['ra', 'ra', '2800']           ;   1397
+ 2592: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1397
+ 2596: 0x01813783   ld       a5,24(sp)             ['a5', 'sp', '24']             ;   1398
+ 2600: 0x01000713   addi     a4,zero,16            ['a4', 'zero', '16']           ;   1399
+ 2604: 0x00f73023   sd       a5,0(a4)              ['a5', 'a4', '0']              ;   1402
+ 2608: 0x01813503   ld       a0,24(sp)             ['a0', 'sp', '24']             ;   1405
+ 2612: 0x02810693   addi     a3,sp,40              ['a3', 'sp', '40']             ;   1406
+ 2616: 0x00048613   addi     a2,s1,0               ['a2', 's1', '0']              ;   1407
+ 2620: 0x00040593   addi     a1,s0,0               ['a1', 's0', '0']              ;   1408
+ 2624: 0x00a13423   sd       a0,8(sp)              ['a0', 'sp', '8']              ;   1409
+aval-pre: ( 468 - 657 ) << 2 = -756
+aval-post: 0
+ 2628: 0x00000097   auipc    ra,%hi(_Z10update_pityyyRy)  ['ra', '0']                    ;   1410
+aval-pre: ( 468 - 658 ) << 2 = -760
+aval-post: 3340
+ 2632: 0xd0c08093   addi     ra,ra,%lo(_Z10update_pityyyRy)  ['ra', 'ra', '3340']           ;   1410
+ 2636: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1410
+ 2640: 0x02813783   ld       a5,40(sp)             ['a5', 'sp', '40']             ;   1411
+ 2644: 0x00813503   ld       a0,8(sp)              ['a0', 'sp', '8']              ;   1412
+ 2648: 0x02079863   bne      a5,zero,48            ['a5', 'zero', '48']           ;   1413
+ 2652: 0x00040593   addi     a1,s0,0               ['a1', 's0', '0']              ;   1414
+ 2656: 0x05013403   ld       s0,80(sp)             ['s0', 'sp', '80']             ;   1415
+ 2660: 0x05813083   ld       ra,88(sp)             ['ra', 'sp', '88']             ;   1418
+ 2664: 0x04013903   ld       s2,64(sp)             ['s2', 'sp', '64']             ;   1420
+ 2668: 0x03813983   ld       s3,56(sp)             ['s3', 'sp', '56']             ;   1422
+ 2672: 0x00048613   addi     a2,s1,0               ['a2', 's1', '0']              ;   1424
+ 2676: 0x04813483   ld       s1,72(sp)             ['s1', 'sp', '72']             ;   1425
+ 2680: 0x06010113   addi     sp,sp,96              ['sp', 'sp', '96']             ;   1427
+aval-pre: ( 418 - 671 ) << 2 = -1012
+aval-post: 0
+ 2684: 0x00000317   auipc    t1,%hi(_Z16forward_interestyyy)  ['t1', '0']                    ;   1429
+aval-pre: ( 418 - 672 ) << 2 = -1016
+aval-post: 3084
+ 2688: 0xc0c30313   addi     t1,t1,%lo(_Z16forward_interestyyy)  ['t1', 't1', '3084']           ;   1429
+ 2692: 0x00030067   jalr     zero,t1,0             ['zero', 't1', '0']            ;   1429
+ 2696: 0x008007b7   lui      a5,2048               ['a5', '2048']                 ;   1432
+ 2700: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   1432
+ 2704: 0x00378793   addi     a5,a5,3               ['a5', 'a5', '3']              ;   1433
+ 2708: 0x00341713   slli     a4,s0,3               ['a4', 's0', '3']              ;   1434
+ 2712: 0x00c79793   slli     a5,a5,12              ['a5', 'a5', '12']             ;   1435
+ 2716: 0x00f707b3   add      a5,a4,a5              ['a5', 'a4', 'a5']             ;   1436
+ 2720: 0x0137b023   sd       s3,0(a5)              ['s3', 'a5', '0']              ;   1439
+ 2724: 0x00000793   addi     a5,zero,0             ['a5', 'zero', '0']            ;   1442
+ 2728: 0x01270733   add      a4,a4,s2              ['a4', 'a4', 's2']             ;   1443
+ 2732: 0x00f73023   sd       a5,0(a4)              ['a5', 'a4', '0']              ;   1446
+ 2736: 0x002007b7   lui      a5,512                ['a5', '512']                  ;   1449
+ 2740: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   1449
+ 2744: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   1450
+ 2748: 0x00140413   addi     s0,s0,1               ['s0', 's0', '1']              ;   1451
+ 2752: 0x00e79793   slli     a5,a5,14              ['a5', 'a5', '14']             ;   1452
+ 2756: 0x0087b023   sd       s0,0(a5)              ['s0', 'a5', '0']              ;   1455
+ 2760: 0x05813083   ld       ra,88(sp)             ['ra', 'sp', '88']             ;   1458
+ 2764: 0x05013403   ld       s0,80(sp)             ['s0', 'sp', '80']             ;   1460
+ 2768: 0x04813483   ld       s1,72(sp)             ['s1', 'sp', '72']             ;   1462
+ 2772: 0x04013903   ld       s2,64(sp)             ['s2', 'sp', '64']             ;   1464
+ 2776: 0x03813983   ld       s3,56(sp)             ['s3', 'sp', '56']             ;   1466
+ 2780: 0x06010113   addi     sp,sp,96              ['sp', 'sp', '96']             ;   1468
+ 2784: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   1470
+ 2788: 0x00355793   srli     a5,a0,3               ['a5', 'a0', '3']              ;   1480
+ 2792: 0xfc010113   addi     sp,sp,-64             ['sp', 'sp', '-64']            ;   1481
+ 2796: 0x00c787b3   add      a5,a5,a2              ['a5', 'a5', 'a2']             ;   1483
+ 2800: 0x01313c23   sd       s3,24(sp)             ['s3', 'sp', '24']             ;   1484
+ 2804: 0x1ff7f793   andi     a5,a5,511             ['a5', 'a5', '511']            ;   1485
+ 2808: 0x00100993   addi     s3,zero,1             ['s3', 'zero', '1']            ;   1487
+ 2812: 0x02913423   sd       s1,40(sp)             ['s1', 'sp', '40']             ;   1488
+ 2816: 0x00379713   slli     a4,a5,3               ['a4', 'a5', '3']              ;   1489
+ 2820: 0x02399493   slli     s1,s3,35              ['s1', 's3', '35']             ;   1491
+ 2824: 0x02813823   sd       s0,48(sp)             ['s0', 'sp', '48']             ;   1492
+ 2828: 0x03213023   sd       s2,32(sp)             ['s2', 'sp', '32']             ;   1493
+ 2832: 0x02113c23   sd       ra,56(sp)             ['ra', 'sp', '56']             ;   1494
+ 2836: 0x00060413   addi     s0,a2,0               ['s0', 'a2', '0']              ;   1498
+ 2840: 0x00068913   addi     s2,a3,0               ['s2', 'a3', '0']              ;   1499
+ 2844: 0x00970733   add      a4,a4,s1              ['a4', 'a4', 's1']             ;   1500
+ 2848: 0x00073703   ld       a4,0(a4)              ['a4', 'a4', '0']              ;   1503
+ 2852: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   1506
+ 2856: 0x00379793   slli     a5,a5,3               ['a5', 'a5', '3']              ;   1507
+ 2860: 0x00e13023   sd       a4,0(sp)              ['a4', 'sp', '0']              ;   1508
+ 2864: 0x009787b3   add      a5,a5,s1              ['a5', 'a5', 's1']             ;   1509
+ 2868: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   1512
+ 2872: 0x00058693   addi     a3,a1,0               ['a3', 'a1', '0']              ;   1515
+ 2876: 0x00757613   andi     a2,a0,7               ['a2', 'a0', '7']              ;   1516
+ 2880: 0x00810593   addi     a1,sp,8               ['a1', 'sp', '8']              ;   1517
+ 2884: 0x00010513   addi     a0,sp,0               ['a0', 'sp', '0']              ;   1518
+ 2888: 0x00f13423   sd       a5,8(sp)              ['a5', 'sp', '8']              ;   1519
+aval-pre: ( 322 - 723 ) << 2 = -1604
+aval-post: 0
+ 2892: 0x00000097   auipc    ra,%hi(_Z10align_nameRyS_yy)  ['ra', '0']                    ;   1520
+aval-pre: ( 322 - 724 ) << 2 = -1608
+aval-post: 2492
+ 2896: 0x9bc08093   addi     ra,ra,%lo(_Z10align_nameRyS_yy)  ['ra', 'ra', '2492']           ;   1520
+ 2900: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1520
+ 2904: 0x00013783   ld       a5,0(sp)              ['a5', 'sp', '0']              ;   1521
+ 2908: 0x01000713   addi     a4,zero,16            ['a4', 'zero', '16']           ;   1522
+ 2912: 0x00f73023   sd       a5,0(a4)              ['a5', 'a4', '0']              ;   1525
+ 2916: 0x00013503   ld       a0,0(sp)              ['a0', 'sp', '0']              ;   1528
+ 2920: 0x00090613   addi     a2,s2,0               ['a2', 's2', '0']              ;   1529
+ 2924: 0x00040593   addi     a1,s0,0               ['a1', 's0', '0']              ;   1530
+aval-pre: ( 549 - 732 ) << 2 = -732
+aval-post: 0
+ 2928: 0x00000097   auipc    ra,%hi(_Z11resolve_pityyy)  ['ra', '0']                    ;   1531
+aval-pre: ( 549 - 733 ) << 2 = -736
+aval-post: 3364
+ 2932: 0xd2408093   addi     ra,ra,%lo(_Z11resolve_pityyy)  ['ra', 'ra', '3364']           ;   1531
+ 2936: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1531
+ 2940: 0x008007b7   lui      a5,2048               ['a5', '2048']                 ;   1532
+ 2944: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   1532
+ 2948: 0x00378793   addi     a5,a5,3               ['a5', 'a5', '3']              ;   1533
+ 2952: 0x00341713   slli     a4,s0,3               ['a4', 's0', '3']              ;   1534
+ 2956: 0x00c79793   slli     a5,a5,12              ['a5', 'a5', '12']             ;   1535
+ 2960: 0x00f707b3   add      a5,a4,a5              ['a5', 'a4', 'a5']             ;   1536
+ 2964: 0x0137b023   sd       s3,0(a5)              ['s3', 'a5', '0']              ;   1539
+ 2968: 0x00000793   addi     a5,zero,0             ['a5', 'zero', '0']            ;   1542
+ 2972: 0x00970733   add      a4,a4,s1              ['a4', 'a4', 's1']             ;   1543
+ 2976: 0x00f73023   sd       a5,0(a4)              ['a5', 'a4', '0']              ;   1546
+ 2980: 0x002007b7   lui      a5,512                ['a5', '512']                  ;   1549
+ 2984: 0x00078793   addi     a5,a5,0               ['a5', 'a5', '0']              ;   1549
+ 2988: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   1550
+ 2992: 0x00140413   addi     s0,s0,1               ['s0', 's0', '1']              ;   1551
+ 2996: 0x00e79793   slli     a5,a5,14              ['a5', 'a5', '14']             ;   1552
+ 3000: 0x0087b023   sd       s0,0(a5)              ['s0', 'a5', '0']              ;   1555
+ 3004: 0x03813083   ld       ra,56(sp)             ['ra', 'sp', '56']             ;   1558
+ 3008: 0x03013403   ld       s0,48(sp)             ['s0', 'sp', '48']             ;   1560
+ 3012: 0x02813483   ld       s1,40(sp)             ['s1', 'sp', '40']             ;   1562
+ 3016: 0x02013903   ld       s2,32(sp)             ['s2', 'sp', '32']             ;   1564
+ 3020: 0x01813983   ld       s3,24(sp)             ['s3', 'sp', '24']             ;   1566
+ 3024: 0x04010113   addi     sp,sp,64              ['sp', 'sp', '64']             ;   1568
+ 3028: 0x00008067   jalr     zero,ra,0             ['zero', 'ra', '0']            ;   1570
+ 3032: 0xf7010113   addi     sp,sp,-144            ['sp', 'sp', '-144']           ;   1581
+ 3036: 0x08113423   sd       ra,136(sp)            ['ra', 'sp', '136']            ;   1583
+ 3040: 0x08813023   sd       s0,128(sp)            ['s0', 'sp', '128']            ;   1584
+ 3044: 0x06913c23   sd       s1,120(sp)            ['s1', 'sp', '120']            ;   1585
+ 3048: 0x07213823   sd       s2,112(sp)            ['s2', 'sp', '112']            ;   1586
+ 3052: 0x07313423   sd       s3,104(sp)            ['s3', 'sp', '104']            ;   1587
+ 3056: 0x07413023   sd       s4,96(sp)             ['s4', 'sp', '96']             ;   1588
+ 3060: 0x05513c23   sd       s5,88(sp)             ['s5', 'sp', '88']             ;   1589
+ 3064: 0x05613823   sd       s6,80(sp)             ['s6', 'sp', '80']             ;   1590
+ 3068: 0x05713423   sd       s7,72(sp)             ['s7', 'sp', '72']             ;   1591
+ 3072: 0x05813023   sd       s8,64(sp)             ['s8', 'sp', '64']             ;   1592
+ 3076: 0x03913c23   sd       s9,56(sp)             ['s9', 'sp', '56']             ;   1593
+ 3080: 0x03a13823   sd       s10,48(sp)            ['s10', 'sp', '48']            ;   1594
+ 3084: 0x00020793   addi     a5,tp,0               ['a5', 'tp', '0']              ;   1609
+ 3088: 0x0e079a63   bne      a5,zero,244           ['a5', 'zero', '244']          ;   1612
+ 3092: 0x008004b7   lui      s1,2048               ['s1', '2048']                 ;   1613
+ 3096: 0x00048493   addi     s1,s1,0               ['s1', 's1', '0']              ;   1613
+ 3100: 0x00100913   addi     s2,zero,1             ['s2', 'zero', '1']            ;   1614
+ 3104: 0x00748493   addi     s1,s1,7               ['s1', 's1', '7']              ;   1615
+ 3108: 0x02391993   slli     s3,s2,35              ['s3', 's2', '35']             ;   1616
+ 3112: 0x00c49493   slli     s1,s1,12              ['s1', 's1', '12']             ;   1617
+ 3116: 0x00010593   addi     a1,sp,0               ['a1', 'sp', '0']              ;   1619
+ 3120: 0x00810513   addi     a0,sp,8               ['a0', 'sp', '8']              ;   1620
+aval-pre: ( 216 - 781 ) << 2 = -2260
+aval-post: -1
+ 3124: 0xfffff097   auipc    ra,%hi(_Z13wait_for_fullRyS_)  ['ra', '-1']                   ;   1621
+aval-pre: ( 216 - 782 ) << 2 = -2264
+aval-post: 1836
+ 3128: 0x72c08093   addi     ra,ra,%lo(_Z13wait_for_fullRyS_)  ['ra', 'ra', '1836']           ;   1621
+ 3132: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1621
+ 3136: 0x00813403   ld       s0,8(sp)              ['s0', 'sp', '8']              ;   1622
+ 3140: 0x00013583   ld       a1,0(sp)              ['a1', 'sp', '0']              ;   1623
+ 3144: 0x01010613   addi     a2,sp,16              ['a2', 'sp', '16']             ;   1624
+ 3148: 0x00040513   addi     a0,s0,0               ['a0', 's0', '0']              ;   1625
+ 3152: 0x00013823   sd       zero,16(sp)           ['zero', 'sp', '16']           ;   1626
+aval-pre: ( 254 - 789 ) << 2 = -2140
+aval-post: -1
+ 3156: 0xfffff097   auipc    ra,%hi(_Z12skip_headersyyRy)  ['ra', '-1']                   ;   1627
+aval-pre: ( 254 - 790 ) << 2 = -2144
+aval-post: 1956
+ 3160: 0x7a408093   addi     ra,ra,%lo(_Z12skip_headersyyRy)  ['ra', 'ra', '1956']           ;   1627
+ 3164: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1627
+ 3168: 0x01013b03   ld       s6,16(sp)             ['s6', 'sp', '16']             ;   1628
+ 3172: 0x016407b3   add      a5,s0,s6              ['a5', 's0', 's6']             ;   1629
+ 3176: 0x1ff7f793   andi     a5,a5,511             ['a5', 'a5', '511']            ;   1630
+ 3180: 0x00178793   addi     a5,a5,1               ['a5', 'a5', '1']              ;   1631
+ 3184: 0x00379793   slli     a5,a5,3               ['a5', 'a5', '3']              ;   1632
+ 3188: 0x013787b3   add      a5,a5,s3              ['a5', 'a5', 's3']             ;   1633
+ 3192: 0x0007b783   ld       a5,0(a5)              ['a5', 'a5', '0']              ;   1636
+ 3196: 0x0307d793   srli     a5,a5,48              ['a5', 'a5', '48']             ;   1639
+ 3200: 0x0ff7f793   andi     a5,a5,255             ['a5', 'a5', '255']            ;   1640
+ 3204: 0x0fc00713   addi     a4,zero,252           ['a4', 'zero', '252']          ;   1641
+ 3208: 0x0ee79c63   bne      a5,a4,248             ['a5', 'a4', '248']            ;   1642
+ 3212: 0x003b1b13   slli     s6,s6,3               ['s6', 's6', '3']              ;   1643
+ 3216: 0x014b0413   addi     s0,s6,20              ['s0', 's6', '20']             ;   1644
+ 3220: 0x015b0a93   addi     s5,s6,21              ['s5', 's6', '21']             ;   1645
+ 3224: 0x00000b93   addi     s7,zero,0             ['s7', 'zero', '0']            ;   1646
+ 3228: 0x00500c13   addi     s8,zero,5             ['s8', 'zero', '5']            ;   1647
+ 3232: 0x00600c93   addi     s9,zero,6             ['s9', 'zero', '6']            ;   1648
+ 3236: 0x00800a13   addi     s4,zero,8             ['s4', 'zero', '8']            ;   1649
+ 3240: 0x01500d13   addi     s10,zero,21           ['s10', 'zero', '21']          ;   1650
+ 3244: 0x0d547a63   bgeu     s0,s5,212             ['s0', 's5', '212']            ;   1652
+ 3248: 0x00813783   ld       a5,8(sp)              ['a5', 'sp', '8']              ;   1653
+ 3252: 0x00345513   srli     a0,s0,3               ['a0', 's0', '3']              ;   1654
+ 3256: 0x00a13823   sd       a0,16(sp)             ['a0', 'sp', '16']             ;   1655
+ 3260: 0x00f50533   add      a0,a0,a5              ['a0', 'a0', 'a5']             ;   1656
+ 3264: 0x02810713   addi     a4,sp,40              ['a4', 'sp', '40']             ;   1657
+ 3268: 0x02010693   addi     a3,sp,32              ['a3', 'sp', '32']             ;   1658
+ 3272: 0x01810613   addi     a2,sp,24              ['a2', 'sp', '24']             ;   1659
+ 3276: 0x00747593   andi     a1,s0,7               ['a1', 's0', '7']              ;   1660
+ 3280: 0x1ff57513   andi     a0,a0,511             ['a0', 'a0', '511']            ;   1661
+aval-pre: ( 180 - 821 ) << 2 = -2564
+aval-post: -1
+ 3284: 0xfffff097   auipc    ra,%hi(_Z9parse_tlvyyRyS_S_)  ['ra', '-1']                   ;   1662
+aval-pre: ( 180 - 822 ) << 2 = -2568
+aval-post: 1532
+ 3288: 0x5fc08093   addi     ra,ra,%lo(_Z9parse_tlvyyRyS_S_)  ['ra', 'ra', '1532']           ;   1662
+ 3292: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1662
+ 3296: 0x01813783   ld       a5,24(sp)             ['a5', 'sp', '24']             ;   1663
+ 3300: 0x05879063   bne      a5,s8,64              ['a5', 's8', '64']             ;   1664
+ 3304: 0x018a3023   sd       s8,0(s4)              ['s8', 's4', '0']              ;   1667
+ 3308: 0x02813783   ld       a5,40(sp)             ['a5', 'sp', '40']             ;   1670
+ 3312: 0x02013a83   ld       s5,32(sp)             ['s5', 'sp', '32']             ;   1671
+ 3316: 0x00100b93   addi     s7,zero,1             ['s7', 'zero', '1']            ;   1672
+ 3320: 0x00f40433   add      s0,s0,a5              ['s0', 's0', 'a5']             ;   1673
+ 3324: 0x01540ab3   add      s5,s0,s5              ['s5', 's0', 's5']             ;   1674
+ 3328: 0xfadff06f   jal      zero,-84              ['zero', '-84']                ;   1675
+ 3332: 0x00100713   addi     a4,zero,1             ['a4', 'zero', '1']            ;   1677
+ 3336: 0x00e79a63   bne      a5,a4,20              ['a5', 'a4', '20']             ;   1678
+aval-pre: ( 275 - 835 ) << 2 = -2240
+aval-post: -1
+ 3340: 0xfffff097   auipc    ra,%hi(_Z14capture_packetv)  ['ra', '-1']                   ;   1680
+aval-pre: ( 275 - 836 ) << 2 = -2244
+aval-post: 1856
+ 3344: 0x74008093   addi     ra,ra,%lo(_Z14capture_packetv)  ['ra', 'ra', '1856']           ;   1680
+ 3348: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1680
+ 3352: 0xff5ff06f   jal      zero,-12              ['zero', '-12']                ;   1681
+ 3356: 0x00000013   addi     zero,zero,0           ['zero', 'zero', '0']          ;   1685
+ 3360: 0xffdff06f   jal      zero,-4               ['zero', '-4']                 ;   1688
+ 3364: 0x03979063   bne      a5,s9,32              ['a5', 's9', '32']             ;   1690
+ 3368: 0x019a3023   sd       s9,0(s4)              ['s9', 's4', '0']              ;   1693
+ 3372: 0x02813783   ld       a5,40(sp)             ['a5', 'sp', '40']             ;   1696
+ 3376: 0x02013a83   ld       s5,32(sp)             ['s5', 'sp', '32']             ;   1697
+ 3380: 0x00000b93   addi     s7,zero,0             ['s7', 'zero', '0']            ;   1698
+ 3384: 0x00f40433   add      s0,s0,a5              ['s0', 's0', 'a5']             ;   1699
+ 3388: 0x01540ab3   add      s5,s0,s5              ['s5', 's0', 's5']             ;   1700
+ 3392: 0xf6dff06f   jal      zero,-148             ['zero', '-148']               ;   1701
+ 3396: 0x080b8663   beq      s7,zero,140           ['s7', 'zero', '140']          ;   1703
+ 3400: 0x05478c63   beq      a5,s4,88              ['a5', 's4', '88']             ;   1704
+ 3404: 0x00fa6e63   bltu     s4,a5,28              ['s4', 'a5', '28']             ;   1705
+ 3408: 0x07278863   beq      a5,s2,112             ['a5', 's2', '112']            ;   1707
+ 3412: 0x00700713   addi     a4,zero,7             ['a4', 'zero', '7']            ;   1708
+ 3416: 0x02e79063   bne      a5,a4,32              ['a5', 'a4', '32']             ;   1709
+ 3420: 0x02813783   ld       a5,40(sp)             ['a5', 'sp', '40']             ;   1710
+ 3424: 0x00f40433   add      s0,s0,a5              ['s0', 's0', 'a5']             ;   1712
+ 3428: 0x0140006f   jal      zero,20               ['zero', '20']                 ;   1713
+ 3432: 0x00a00713   addi     a4,zero,10            ['a4', 'zero', '10']           ;   1715
+ 3436: 0x04e78a63   beq      a5,a4,84              ['a5', 'a4', '84']             ;   1716
+ 3440: 0x01200713   addi     a4,zero,18            ['a4', 'zero', '18']           ;   1717
+ 3444: 0x04e78663   beq      a5,a4,76              ['a5', 'a4', '76']             ;   1718
+ 3448: 0x01813783   ld       a5,24(sp)             ['a5', 'sp', '24']             ;   1720
+ 3452: 0xf34798e3   bne      a5,s4,-208            ['a5', 's4', '-208']           ;   1721
+ 3456: 0x00000793   addi     a5,zero,0             ['a5', 'zero', '0']            ;   1723
+ 3460: 0x0127b023   sd       s2,0(a5)              ['s2', 'a5', '0']              ;   1726
+ 3464: 0x00000513   addi     a0,zero,0             ['a0', 'zero', '0']            ;   1729
+aval-pre: ( 247 - 867 ) << 2 = -2480
+aval-post: -1
+ 3468: 0xfffff097   auipc    ra,%hi(_Z13wait_for_syncy)  ['ra', '-1']                   ;   1730
+aval-pre: ( 247 - 868 ) << 2 = -2484
+aval-post: 1616
+ 3472: 0x65008093   addi     ra,ra,%lo(_Z13wait_for_syncy)  ['ra', 'ra', '1616']           ;   1730
+ 3476: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1730
+ 3480: 0x0004b023   sd       zero,0(s1)            ['zero', 's1', '0']            ;   1733
+ 3484: 0xe91ff06f   jal      zero,-368             ['zero', '-368']               ;   1736
+ 3488: 0x02813503   ld       a0,40(sp)             ['a0', 'sp', '40']             ;   1738
+ 3492: 0x00813603   ld       a2,8(sp)              ['a2', 'sp', '8']              ;   1739
+ 3496: 0x02013583   ld       a1,32(sp)             ['a1', 'sp', '32']             ;   1740
+ 3500: 0x000b0693   addi     a3,s6,0               ['a3', 's6', '0']              ;   1741
+ 3504: 0x00a40533   add      a0,s0,a0              ['a0', 's0', 'a0']             ;   1742
+aval-pre: ( 620 - 877 ) << 2 = -1028
+aval-post: 0
+ 3508: 0x00000097   auipc    ra,%hi(_Z16int_name_handleryyyy)  ['ra', '0']                    ;   1743
+aval-pre: ( 620 - 878 ) << 2 = -1032
+aval-post: 3068
+ 3512: 0xbfc08093   addi     ra,ra,%lo(_Z16int_name_handleryyyy)  ['ra', 'ra', '3068']           ;   1743
+ 3516: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1743
+ 3520: 0x02813783   ld       a5,40(sp)             ['a5', 'sp', '40']             ;   1745
+ 3524: 0x02013703   ld       a4,32(sp)             ['a4', 'sp', '32']             ;   1746
+ 3528: 0x00e787b3   add      a5,a5,a4              ['a5', 'a5', 'a4']             ;   1747
+ 3532: 0xf95ff06f   jal      zero,-108             ['zero', '-108']               ;   1748
+ 3536: 0x01478863   beq      a5,s4,16              ['a5', 's4', '16']             ;   1750
+ 3540: 0xf6fa7ee3   bgeu     s4,a5,-132            ['s4', 'a5', '-132']           ;   1751
+ 3544: 0xffa784e3   beq      a5,s10,-24            ['a5', 's10', '-24']           ;   1752
+ 3548: 0xf9dff06f   jal      zero,-100             ['zero', '-100']               ;   1753
+ 3552: 0x02813503   ld       a0,40(sp)             ['a0', 'sp', '40']             ;   1755
+ 3556: 0x00813603   ld       a2,8(sp)              ['a2', 'sp', '8']              ;   1756
+ 3560: 0x02013583   ld       a1,32(sp)             ['a1', 'sp', '32']             ;   1757
+ 3564: 0x000b0693   addi     a3,s6,0               ['a3', 's6', '0']              ;   1758
+ 3568: 0x00a40533   add      a0,s0,a0              ['a0', 's0', 'a0']             ;   1759
+aval-pre: ( 697 - 893 ) << 2 = -784
+aval-post: 0
+ 3572: 0x00000097   auipc    ra,%hi(_Z17data_name_handleryyyy)  ['ra', '0']                    ;   1760
+aval-pre: ( 697 - 894 ) << 2 = -788
+aval-post: 3312
+ 3576: 0xcf008093   addi     ra,ra,%lo(_Z17data_name_handleryyyy)  ['ra', 'ra', '3312']           ;   1760
+ 3580: 0x000080e7   jalr     ra,ra,0               ['ra', 'ra', '0']              ;   1760
+ 3584: 0xfc1ff06f   jal      zero,-64              ['zero', '-64']                ;   1761

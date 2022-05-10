@@ -95,14 +95,14 @@ module cpu_fifo(
 		.rst					(rst2)
 	);
 
-	pattern_matcher dut_pat {
+	pattern_cpu dut_pat (
 		.cpu_din				(pat_dout),
 		.cpu_ain				(pat_addr),
 		.cpu_wren				(pat_wren),
 		.cpu_dout				(pat_din),
 		.clk					(clk),
 		.rst					(rst2)
-	};
+	);
 	
 	perf_mux dut_pmux(
     .cpu_din					(perf_dout),
